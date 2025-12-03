@@ -1,0 +1,64 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">Psikolojik Destek</span>
+
+      <span class="text-white" style="font-size: 15px;">Samimi ve içten bir danışma rehberi.</span>
+    </div>
+  </div>
+
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+      <form class="form-inline" (ngSubmit)="onSearch()">
+        <div class="input-group mb-3">
+          <input class="form-control" type="search" placeholder="{{'SEARCH_BAR' | translate}}" aria-label="Ara"
+            [(ngModel)]="searchTerm" name="searchTerm">
+          <div class="input-group-append">
+
+            <button type="submit" class="btn btn-light-primary"
+              style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
+              <ng-container>
+                <span class="indicator-label">
+                  {{'SEARCH_BAR' | translate}}
+                </span>
+              </ng-container>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-2">
+    </div>
+  </div>
+</div>
+
+<div class="row mx-10 my-10">
+    <ng-container *ngFor="let data of dataSource">
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0" style="border-radius: 8px; cursor: pointer;">
+          <div class="card-body px-0 py-0">
+            <div class="row mb-5">
+              <div class="col-lg-12">
+                <img *ngIf="data.fileResult" class="image" [src]="data.fileResult" />
+                <img *ngIf="!data.fileResult" class="image" src="./../../../assets/media/patterns/blank.jpg" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 px-10 mb-5 pb-5">
+                <span (click)="articleEditView(data.id)" class="text-hover-primary fs-3 fw-bolder"
+                  style="float: left;">{{data.header}}</span>
+              </div>
+              <div class="col-lg-12 mb-5">
+                <div class="separator"></div>
+              </div>
+              <div class="col-lg-12 px-10 mb-5">
+                <span class="text-muted fs-5 fw-bolder" style="float: left;">{{data.subHeader}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+</div>

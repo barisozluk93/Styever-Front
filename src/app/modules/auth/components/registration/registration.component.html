@@ -1,0 +1,720 @@
+<div class="text-center mb-5">
+        <img alt="Logo" src="./assets/media/logos/logo-5.png" class="h-200px w-200px" />
+</div>
+<div class="checkout-steps d-flex justify-content-center align-items-center">
+  <div class="step" [ngClass]="activeState == 'paymentPlan' ? 'active' : ''">
+    <i class="bi bi-wallet"></i>
+    <span>Ödeme Planı</span>
+  </div>
+  <div class="line"></div>
+  <div class="step" [ngClass]="activeState == 'membershipInfo' ? 'active' : ''">
+    <i class="bi bi-person"></i>
+    <span>Üyelik Bilgileri</span>
+  </div>
+  <div class="line"></div>
+  <div class="step" [ngClass]="activeState == 'addressInfo' ? 'active' : ''">
+    <i class="bi bi-card-text"></i>
+    <span>Adres Bilgileri</span>
+  </div>
+</div>
+
+<ng-container *ngIf="activeState == 'paymentPlan'">
+  <div class="text-center mb-5 mt-5">
+    <!--begin::Title-->
+    <h1 class="text-gray-900 fw-bolder">
+      Ödeme Planı
+    </h1>
+    <!--end::Title-->
+  </div>
+  <!--begin::Heading-->
+
+  <!--begin::Separator-->
+  <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
+  <!--end::Separator-->
+
+  <div class="row my-10 cursor-pointer">
+    <div class="col-lg-3" style="margin-top: 70px;padding-right: 0;">
+      <div class="card border-0" style="border-top-right-radius: 0;border-bottom-right-radius: 0;">
+        <div class="card-body px-0 py-0">
+          <div class="table-responsive">
+            <table class="table table-bordered my-0">
+              <thead>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Anı Sayfası
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Fotoğraf
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Video
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Anı Yazısı Alanı
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      AI Desteği
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Anı Kitabı
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Hatırlatma Bildirimleri
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      Barınak Bağışı Rozeti
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      QR Kodlu Plaket
+                    </a>
+                  </div>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" style="padding-left: 0;padding-right: 0;">
+      <div (click)="onPlanSelect('standard')" class="card border-0"
+        [ngClass]="activePlan == 'standard' ? 'selected-plan' : ''"
+        style="border-bottom-left-radius: 0;border-bottom-right-radius: 0;border-top-right-radius: 0;">
+        <div class="card-header">
+          <div class="card-title m-0">
+            <b>Standart</b>
+          </div>
+          <div class="card-toolbar">
+            <span class="badge fw-bolder me-auto px-4 py-3 badge-light-success">
+              ₺359,00 / Yıl
+            </span>
+          </div>
+        </div>
+        <div class="card-body px-0 py-0">
+          <div class="table-responsive">
+            <table class="table table-bordered my-0">
+              <thead>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      1 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      1 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      1 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" style="padding-left: 0;padding-right: 0;">
+      <div (click)="onPlanSelect('premium')" class="card border-0"
+        [ngClass]="activePlan == 'premium' ? 'selected-plan' : ''"
+        style="border-bottom-left-radius: 0;border-bottom-right-radius: 0;border-top-left-radius: 0;border-top-right-radius: 0;">
+        <div class="card-header">
+          <div class="card-title m-0">
+            <b>Premium</b>
+          </div>
+          <div class="card-toolbar">
+            <span class="badge fw-bolder me-auto px-4 py-3 badge-light-success">
+              ₺559,00 / Yıl
+            </span>
+          </div>
+        </div>
+        <div class="card-body px-0 py-0">
+          <div class="table-responsive">
+            <table class="table table-bordered my-0">
+              <thead>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      1 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      4 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      2 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      1 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
+                    </a>
+                  </div>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" style="padding-left: 0;">
+      <div (click)="onPlanSelect('ultra')" class="card border-0"
+        [ngClass]="activePlan == 'ultra' ? 'selected-plan' : ''"
+        style="border-bottom-left-radius: 0;border-top-left-radius: 0;">
+        <div class="card-header">
+          <div class="card-title m-0">
+            <b>Ultra</b>
+          </div>
+          <div class="card-toolbar">
+            <span class="badge fw-bolder me-auto px-4 py-3 badge-light-success">
+              ₺959,00 / Yıl
+            </span>
+          </div>
+        </div>
+        <div class="card-body px-0 py-0">
+          <div class="table-responsive">
+            <table class="table table-bordered my-0">
+              <thead>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      4 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      8 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      4 adet + 2 Youtube Link
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-gray-900 fw-bold fs-6">
+                      4 adet
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+                <tr class="p-0" width="100%">
+                  <div class="d-flex justify-content-start text-center flex-column">
+                    <a class="text-muted fw-bold fs-6">
+                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
+                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
+                    </a>
+                  </div>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="activeState == 'membershipInfo'">
+  <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="registrationForm">
+    <!--begin::Heading-->
+    <div class="text-center mb-5 mt-5">
+      <!--begin::Title-->
+      <h1 class="text-gray-900 fw-bolder">
+        Üyelik Bilgileri
+      </h1>
+      <!--end::Title-->
+    </div>
+    <!--begin::Heading-->
+
+    <!--begin::Separator-->
+    <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
+    <!--end::Separator-->
+
+    <!-- begin::Alert error-->
+    <ng-container *ngIf="hasError">
+      <div class="mb-lg-15 alert alert-danger">
+        <div class="alert-text font-weight-bold">
+          Kayıt bilgileri yanlış
+        </div>
+      </div>
+    </ng-container>
+    <!-- end::Alert error-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Ad</label>
+      <input class="form-control bg-transparent" type="text" name="name" formControlName="name" placeholder="Ad"
+        autocomplete="off" [ngClass]="{
+        'is-invalid': registrationForm.controls['name'].invalid,
+        'is-valid': registrationForm.controls['name'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Ad is required',
+        control: registrationForm.controls['name']
+      }"></ng-container>
+    </div>
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Soyad</label>
+      <input class="form-control bg-transparent" type="text" name="surname" formControlName="surname"
+        placeholder="Soyad" autocomplete="off" [ngClass]="{
+        'is-invalid': registrationForm.controls['surname'].invalid,
+        'is-valid': registrationForm.controls['surname'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Soyad is required',
+        control: registrationForm.controls['surname']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">E-posta</label>
+      <input class="form-control bg-transparent" type="email" placeholder="E-posta" name="email" formControlName="email"
+        autocomplete="off" [ngClass]="{
+        'is-invalid': registrationForm.controls['email'].invalid,
+        'is-valid': registrationForm.controls['email'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Email is required',
+        control: registrationForm.controls['email']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'email',
+        message: 'Email is invalid',
+        control: registrationForm.controls['email']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'Email should have at least 3 symbols',
+        control: registrationForm.controls['email']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Email should have maximum 360 symbols',
+        control: registrationForm.controls['email']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Telefon Numarası</label>
+      <input class="form-control bg-transparent" type="text" placeholder="Telefon Numarası" name="phone" formControlName="phone"
+        autocomplete="off" [ngClass]="{
+        'is-invalid': registrationForm.controls['phone'].invalid,
+        'is-valid': registrationForm.controls['phone'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Phone is required',
+        control: registrationForm.controls['phone']
+      }"></ng-container>
+
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Şifre</label>
+      <input class="form-control bg-transparent" type="password" placeholder="Şifre" name="password"
+        formControlName="password" autocomplete="off" [ngClass]="{
+        'is-invalid': registrationForm.controls['password'].invalid,
+        'is-valid': registrationForm.controls['password'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Password is required',
+        control: registrationForm.controls['password']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'Password should have at least 3 symbols',
+        control: registrationForm.controls['password']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Password should have maximum 100 symbols',
+        control: registrationForm.controls['password']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Şifre Onayı</label>
+      <input class="form-control bg-transparent" type="password" placeholder="Şifre Onayı" name="cPassword"
+        autocomplete="off" formControlName="cPassword" [ngClass]="{
+        'is-invalid': registrationForm.controls['cPassword'].invalid,
+        'is-valid': registrationForm.controls['cPassword'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Confirm Password is required',
+        control: registrationForm.controls['cPassword']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'Confirm Password should have at least 3 symbols',
+        control: registrationForm.controls['cPassword']
+      }"></ng-container>
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Confirm Password should have maximum 100 symbols',
+        control: registrationForm.controls['cPassword']
+      }"></ng-container>
+      <ng-container *ngIf="
+        registrationForm.controls['cPassword'].errors &&
+        registrationForm.controls['cPassword'].errors.ConfirmPassword
+      ">
+        <div class="fv-plugins-message-container">
+          <div class="fv-help-block">
+            'Şifre' ve 'Şifre Onayı' eşleşmiyor.
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-check form-check-inline">
+        <input id="kt_login_toc_agree" type="checkbox" formControlName="agree" name="agree" class="form-check-input" />
+        <span for="kt_login_toc_agree" class="form-check-label fw-semibold text-gray-700 fs-base ms-1">
+          <a href="https://keenthemes.com/metronic/?page=faq" target="_blank"
+            class="ms-1 link-primary">Koşulları</a>&nbsp;kabul ediyorum.
+        </span>
+      </label>
+    </div>
+    <!--end::Form group-->
+
+  </form>
+
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</ng-container>
+
+<ng-container *ngIf="activeState == 'addressInfo'">
+  <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="addressForm">
+    <!--begin::Heading-->
+    <div class="text-center mb-5 mt-5">
+      <!--begin::Title-->
+      <h1 class="text-gray-900 fw-bolder">
+        Adres Bilgileri
+      </h1>
+      <!--end::Title-->
+    </div>
+    <!--begin::Heading-->
+
+    <!--begin::Separator-->
+    <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
+    <!--end::Separator-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Ülke</label>
+      <input class="form-control bg-transparent" type="text" name="country" formControlName="country" placeholder="Ülke"
+        autocomplete="off" [ngClass]="{
+        'is-invalid': addressForm.controls['country'].invalid,
+        'is-valid': addressForm.controls['country'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Ülke is required',
+        control: addressForm.controls['country']
+      }"></ng-container>
+    </div>
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">Şehir</label>
+      <input class="form-control bg-transparent" type="text" name="city" formControlName="city" placeholder="Şehir"
+        autocomplete="off" [ngClass]="{
+        'is-invalid': addressForm.controls['city'].invalid,
+        'is-valid': addressForm.controls['city'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Şehir is required',
+        control: addressForm.controls['city']
+      }"></ng-container>
+    </div>
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-gray-900 fs-6">İlçe</label>
+      <input class="form-control bg-transparent" type="text" name="district" formControlName="district"
+        placeholder="İlçe" autocomplete="off" [ngClass]="{
+        'is-invalid': addressForm.controls['district'].invalid,
+        'is-valid': addressForm.controls['district'].valid
+      }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'İlçe is required',
+        control: addressForm.controls['district']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fs-6 fw-bolder text-gray-900 required">
+        Adres
+      </label>
+      <textarea class="form-control bg-transparent" type="text" name="address" formControlName="address"
+        autocomplete="off" [ngClass]="{
+                    'is-invalid': addressForm.controls['address'].invalid,
+                    'is-valid': addressForm.controls['address'].valid
+                }"></textarea>
+
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Adres is required',
+        control: addressForm.controls['address']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="fv-row mb-8">
+      <label class="form-label fs-6 fw-bolder text-gray-900 required">
+        Adres Başlığı
+      </label>
+      <input class="form-control bg-transparent" placeholder="Adres Başlığı" type="text" name="addressHeader"
+        formControlName="addressHeader" autocomplete="off" [ngClass]="{
+                    'is-invalid': addressForm.controls['addressHeader'].invalid,
+                    'is-valid': addressForm.controls['addressHeader'].valid
+                }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Adres Başlığı is required',
+        control: addressForm.controls['addressHeader']
+      }"></ng-container>
+    </div>
+    <!--end::Form group-->  
+  </form>
+
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</ng-container>
+
+<ng-container>
+  <div class="row">
+    <div class="col-lg-6">
+      <a *ngIf="activeState != 'paymentPlan'" style="float: left"
+        (click)="changeState(activeState == 'membershipInfo' ? 'paymentPlan' : 'membershipInfo')"
+        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
+        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr002.svg'" class="svg-icon svg-icon-2"></span>
+        Geri
+      </a>
+    </div>
+    <div class="col-lg-6">
+      <a  [class.disabled-link]="activeState == 'membershipInfo' &&
+        (registrationForm.invalid || !registrationForm.controls['agree'].value)" *ngIf="activeState != 'addressInfo'" style="float: right"
+        (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
+        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
+        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr001.svg'" class="svg-icon svg-icon-2"></span>
+        İleri
+      </a>
+
+      <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid" *ngIf="activeState == 'addressInfo'" style="float: right"
+        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
+        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        Kaydet
+      </a>
+    </div>
+  </div>
+</ng-container>

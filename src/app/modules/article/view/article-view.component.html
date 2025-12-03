@@ -1,0 +1,32 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">{{article?.header}}</span>
+
+      <span class="text-white" style="font-size: 15px;">{{article?.subHeader}}</span>
+    </div>
+  </div>
+
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
+    <div clas="col-lg-2"></div>
+    <div class="col-lg-8">
+    </div>
+    <div class="col-lg-2">
+      <a class="btn btn-custom btn-active-white btn-color-white btn-primary w-100" data-bs-toggle="modal"
+        data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button" (click)="goToArticles()">
+        Makaleler
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row mx-10 my-10">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6 mb-10">
+    <div class="card">
+      <div class="card-body text-gray-900 fs-6">
+        <div [innerHTML]="article?.content"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3"></div>
+</div>

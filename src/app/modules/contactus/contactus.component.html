@@ -1,0 +1,101 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">Bize Ulaşın</span>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex flex-column flex-lg-row flex-column-fluid mx-10 my-10">
+  <div class="d-flex flex-column flex-lg-row-fluid w-lg-100 p-10 order-2 order-lg-1 bg-white"
+    style="border-radius: 10px;">
+    <div class="d-flex flex-center flex-column flex-lg-row-fluid">
+      <form class="form w-100" [formGroup]="contactForm">
+        <div class="text-center mb-5 mt-5">
+          <h1 class="text-gray-900 fw-bolder">
+            Bize Ulaşın
+          </h1>
+        </div>
+        <div class="separator mb-5"></div>
+        <div class="row g-3 mb-8">
+          <div class="col-lg-6">
+            <label class="form-label fs-6 fw-bolder text-gray-900">Ad Soyad</label>
+            <input class="form-control bg-transparent" type="text" name="fullname" formControlName="fullname"
+            placeholder="Ad Soyad"
+              autocomplete="off" [ngClass]="{
+        'is-invalid': contactForm.controls['fullname'].invalid,
+        'is-valid': contactForm.controls['fullname'].valid
+      }" />
+
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Fullname is required',
+        control: contactForm.controls['fullname']
+      }"></ng-container>
+
+          </div>
+          <div class="col-lg-6">
+            <label class="form-label fs-6 fw-bolder text-gray-900">E-posta</label>
+            <input class="form-control bg-transparent" type="email" name="email" formControlName="email"
+              placeholder="E-posta" autocomplete="off" [ngClass]="{
+        'is-invalid': contactForm.controls['email'].invalid,
+        'is-valid': contactForm.controls['email'].valid
+      }" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'EMail is required',
+        control: contactForm.controls['email']
+      }"></ng-container>
+          </div>
+        </div>
+        <div class="row-fv g-3 mb-8">
+          <label class="form-label fs-6 fw-bolder text-gray-900">Konu</label>
+          <input class="form-control bg-transparent" type="text" name="subject" formControlName="subject"
+            placeholder="Konu" autocomplete="off" [ngClass]="{
+        'is-invalid': contactForm.controls['subject'].invalid,
+        'is-valid': contactForm.controls['subject'].valid
+      }" />
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Subject is required',
+        control: contactForm.controls['subject']
+      }"></ng-container>
+        </div>
+        <div class="row-fv g-3 mb-8">
+          <label class="form-label fs-6 fw-bolder text-gray-900">Mesaj</label>
+          <input class="form-control bg-transparent" type="text" name="message" formControlName="message"
+            placeholder="Mesaj" autocomplete="off" [ngClass]="{
+        'is-invalid': contactForm.controls['message'].invalid,
+        'is-valid': contactForm.controls['message'].valid
+      }" />
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Message is required',
+        control: contactForm.controls['message']
+      }"></ng-container>
+
+        </div>
+
+        <div class="row-fv g-3">
+          <div class="d-grid">
+            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="contactForm.invalid">
+              Gönder
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+        <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+          <div class="fv-plugins-message-container">
+            <div class="fv-help-block">
+              <span role="alert">
+                {{ message }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+</div>

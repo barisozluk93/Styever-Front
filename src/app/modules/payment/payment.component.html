@@ -1,0 +1,305 @@
+<app-address-editsave #editSaveComponent (isSuccess)="isSuccess($event)"></app-address-editsave>
+
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">Ödeme Yap</span>
+      <span class="text-white" style="font-size: 15px;">Ödemeni saniyeler içerisinde kolayca gerçekleştir.</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-10 my-10">
+  <div class="col-lg-9">
+    <div class="row">
+      <div class="card card-xxl-stretch mb-5 mb-xl-8">
+        <div class="row">
+          <div class="col-lg-6 px-0 py-0">
+            <div (click)="setActiveTabId('address')"
+              [ngClass]="activeTabId == 'address' ? 'selected-proccess-tab' : 'proccess-tab'">
+              <div class="row mb-1 mx-0 my-0 px-5 py-5 fw-bolder fs-3">
+                Adres Bilgileri
+              </div>
+              <div class="row mb-3 mx-0 my-0 px-5 fw-bolder text-gray-900" *ngIf="selectedDeliveryAddress">
+                {{selectedDeliveryAddress.addressHeader}}
+              </div>
+              <div class="row mb-1 mx-0 my-0 px-5 fw-bolder text-gray-900" *ngIf="selectedDeliveryAddress">
+                {{selectedDeliveryAddress.address}}
+              </div>
+              <div class="row mb-1 mx-0 my-0 px-5 fw-bolder text-gray-900" *ngIf="selectedDeliveryAddress">
+                {{selectedDeliveryAddress.district}}/{{selectedDeliveryAddress.city}}
+              </div>
+              <div class="row mb-1 mx-0 my-0 px-5 fw-bolder text-gray-900" *ngIf="selectedDeliveryAddress">
+                {{selectedDeliveryAddress.country}}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 px-0 py-0">
+            <div (click)="setActiveTabId('payment')"
+              [ngClass]="activeTabId == 'payment' ? 'selected-proccess-tab' : 'proccess-tab'">
+              <div class="row mb-5 mx-0 my-0 px-5 py-5 fw-bolder fs-3">
+                Ödeme Bilgileri
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="activeTabId == 'address'">
+      <div class="col-lg-6 px-0 py-0">
+        <div class="card card-xxl-stretch mb-5 mb-xl-8">
+          <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+              <span class="card-label fw-bolder fs-3 mb-1">Teslimat Adresi</span>
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="row gy-5 g-xl-8">
+              <div class="col-xxl-12">
+                <a (click)="openSaveModal()" title="Click to Add" class="btn btn-sm btn-light-primary"
+                  style="width: 100%;">
+                  <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+                    class="svg-icon svg-icon-3"></span>
+                  {{'MENU.NEW' | translate}}
+                </a>
+              </div>
+              <ng-container *ngFor="let item of deliveryAddresses">
+                <div class="col-xxl-12">
+                  <div class="card card-xl-stretch mb-xl-1" title="Click to Select" style="cursor: pointer;"
+                    [ngClass]="item.selected ? 'selected' : ''" (click)="selectDeliveryAddress(item.id)">
+                    <div class="card-header border-1 pt-0">
+                      <div class="card-title m-0">
+                        <h3 class="fw-bolder m-0"> {{item.addressHeader}}
+                        </h3>
+                      </div>
+                      <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover">
+                        <button (click)="openEditModal(item.id)" type="button"
+                          class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" title="Edit">
+                          <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                            class="svg-icon svg-icon-2"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.address}}</span>
+                      </div>
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.district}}/{{item.city}}</span>
+                      </div>
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.country}}</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 px-0 py-0">
+        <div class="card card-xxl-stretch mb-5 mb-xl-8">
+          <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+              <span class="card-label fw-bolder fs-3 mb-1">Fatura Adresi</span>
+            </h3>
+
+            <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
+
+              <input class="form-check-input" type="checkbox" id="googleswitch"
+                [checked]="selectedDeliveryAddressId == selectedInvoiceAddressId" (click)="onCheckboxClicked()" />
+              <label class="form-check-label" htmlFor="googleswitch">&nbsp;Faturamı Aynı Adrese Gönder</label>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row gy-5 g-xl-8">
+              <div class="col-xxl-12">
+                <a (click)="openSaveModal()" title="Click to Add" class="btn btn-sm btn-light-primary"
+                  style="width: 100%;">
+                  <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+                    class="svg-icon svg-icon-3"></span>
+                  {{'MENU.NEW' | translate}}
+                </a>
+              </div>
+              <ng-container *ngFor="let item of invoiceAddresses">
+                <div class="col-xxl-12">
+                  <div class="card card-xl-stretch mb-xl-1" title="Click to Select" style="cursor: pointer;"
+                    [ngClass]="item.selected ? 'selected' : ''" (click)="selectInvoiceAddress(item.id)">
+
+                    <div class="card-header border-1 pt-0">
+                      <div class="card-title m-0">
+                        <h3 class="fw-bolder m-0"> {{item.addressHeader}}
+                        </h3>
+                      </div>
+                      <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover">
+                        <button (click)="openEditModal(item.id)" type="button"
+                          class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" title="Edit">
+                          <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                            class="svg-icon svg-icon-2"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.address}}</span>
+                      </div>
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.district}}/{{item.city}}</span>
+                      </div>
+                      <div class="row mb-1">
+                        <span class="text-muted fw-bolder fs-7 ps-3">{{item.country}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="activeTabId == 'payment'">
+      <div class="card">
+        <div class="card-header border-0 pt-5">
+          <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder fs-3 mb-1">Ödeme</span>
+          </h3>
+
+          <div class="card-toolbar">
+            <img src="https://img.icons8.com/color/48/000000/visa.png" />
+            <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+            <img src="https://img.icons8.com/color/48/000000/maestro.png" />
+          </div>
+        </div>
+
+        <div class="card-body py-3">
+          <form class="form w-100" [formGroup]="paymentForm">
+            <div class="fv-row mb-5">
+              <label class="form-label fw-bolder text-gray-900 fs-6">Kart Sahibi</label>
+              <input class="form-control bg-transparent mb-5" type="text" name="fullname" formControlName="fullname"
+                placeholder="Kart Sahibi" autocomplete="off" [ngClass]="{
+        'is-invalid': paymentForm.controls['fullname'].invalid,
+        'is-valid': paymentForm.controls['fullname'].valid
+      }" />
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation: 'required',
+        message: 'Fullname is required',
+        control: paymentForm.controls['fullname']
+      }"></ng-container>
+
+              <label class="form-label fw-bolder text-gray-900 fs-6">Kart Numarası</label>
+              <input class="form-control bg-transparent" type="text" name="cardno" formControlName="cardno"
+                placeholder="Kart Numrası" autocomplete="off" [ngClass]="{
+        'is-invalid': paymentForm.controls['cardno'].invalid,
+        'is-valid': paymentForm.controls['cardno'].valid
+      }" />
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation: 'required',
+        message: 'Card number is required',
+        control: paymentForm.controls['cardno']
+      }"></ng-container>
+            </div>
+            <div class="row mb-5">
+              <div class="col-lg-6">
+                <label class="form-label fw-bolder text-gray-900 fs-6">Geçerlilik Tarihi</label>
+                <input class="form-control bg-transparent" type="text" name="expiryDate" formControlName="expiryDate"
+                  placeholder="AA/YY" autocomplete="off" [ngClass]="{
+        'is-invalid': paymentForm.controls['expiryDate'].invalid,
+        'is-valid': paymentForm.controls['expiryDate'].valid
+      }" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation: 'required',
+        message: 'Expiry Date is required',
+        control: paymentForm.controls['expiryDate']
+      }"></ng-container>
+              </div>
+              <div class="col-lg-6">
+                <label class="form-label fw-bolder text-gray-900 fs-6">CVV</label>
+
+                <input class="form-control bg-transparent" type="text" name="cvv" formControlName="cvv"
+                  placeholder="CVV" autocomplete="off" [ngClass]="{
+        'is-invalid': paymentForm.controls['cvv'].invalid,
+        'is-valid': paymentForm.controls['cvv'].valid
+      }" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation: 'required',
+        message: 'CVV is required',
+        control: paymentForm.controls['cvv']
+      }"></ng-container>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+        <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+          <div class="fv-plugins-message-container">
+            <div class="fv-help-block">
+              <span role="alert">
+                {{ message }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card card-xxl-stretch mb-5 mb-xl-8">
+      <div class="card-header border-0 pt-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="card-label fw-bolder fs-3 mb-1">Ödeme Özeti</span>
+        </h3>
+      </div>
+      <div class="card-body py-3">
+        <table class="table">
+          <tr>
+            <td style="width: 150px;">
+              <div class="d-flex justify-content-start flex-column">
+                <a class="text-gray-900 text-hover-primary fs-6">
+                  Paket Ücreti
+                </a>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex justify-content-start flex-column">
+                <a class="text-gray-900 fw-bolder text-hover-primary fs-6">
+                  {{totalPrice}} ₺
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="separator border-gray-200"></div>
+            </td>
+          </tr>
+          <tr class="table-row-dashed">
+            <td style="width: 150px;">
+              <div class="d-flex justify-content-start flex-column">
+                <a class="text-gray-900 text-hover-primary fs-6">
+                  Toplam
+                </a>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex justify-content-start flex-column">
+                <a class="text-gray-900 fw-bolder text-hover-primary fs-6">
+                  {{totalPrice}} ₺
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <button [disabled]="paymentForm.invalid" type="button" (click)="confirm()" class="btn btn-light-primary btn-lg"
+          style="width: 100%;">
+          <ng-container>
+            <span class="indicator-label">Öde</span>
+          </ng-container>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.center-title-wrapper {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    text-align: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}

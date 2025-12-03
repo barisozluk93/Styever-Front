@@ -1,0 +1,17 @@
+.banner-overlay {
+    border-radius: 10px;
+    background-image: linear-gradient(135deg, #000a01a3 12%, #fff0 48%);
+    z-index: 0;
+}
+
+.center-title-wrapper {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    text-align: left;
+    flex-flow: column;
+    justify-content: flex-start;
+    // align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
