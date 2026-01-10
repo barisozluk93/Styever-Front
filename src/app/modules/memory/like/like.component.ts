@@ -5,6 +5,7 @@ import { MemoryManagementService } from "../memory-management.service";
 import { MemoryCommentModel } from "../models/comment.model";
 import { MemoryLikeModel } from "../models/like.model";
 import { formatDate } from "@angular/common";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: 'app-memory-like',
@@ -43,7 +44,7 @@ export class LikeComponent {
             if(result.isSuccess) {
                 result.data.forEach(item => {
                     if(item.userAvatar) {
-                        item.userAvatar = item.userAvatar.fileContents = "data:" + item.userAvatar.contentType + ";base64," + item.userAvatar.fileContents;
+                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length-1];
                     }
 
                     item.date = formatDate(item.date!, "dd/MM/yyyy HH:mm", this.locale);

@@ -31,10 +31,6 @@ export class UserManagementService {
                 this._user$.next(undefined);
 
                 if (result.isSuccess) {
-                    if (result.data.fileId) {
-                        result.data.fileResult.fileContents = "data:" + result.data.fileResult.contentType + ";base64," + result.data.fileResult.fileContents;
-                    }
-
                     this._user$.next(result.data);
                 }
             })

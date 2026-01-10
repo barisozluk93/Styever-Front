@@ -4,6 +4,7 @@ import { formatDate } from '@angular/common';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
 import { AuthService, UserType } from '../../auth';
 import { ArticleManagementService } from '../article-management.service';
+import { environment } from 'src/environments/environment';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -33,8 +34,7 @@ export class ArticleViewComponent implements OnInit, AfterViewInit {
     this.articleManagementService.getById(this.articleId)
       .subscribe(result => {
         if (result.isSuccess) {
-          
-          result.data.fileResult.fileContents = "data:" + result.data.fileResult.contentType + ";base64," + result.data.fileResult.fileContents;
+          result.data.fileUrl = environment.articleUploadFolderUrl + "/" + result.data.file?.path.split("\\")[result.data.file?.path.split("\\").length-1];
           this.article = result.data;
         }
         else {

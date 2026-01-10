@@ -2,7 +2,7 @@
     <ng-container *ngFor="let file of files">
         <div [ngClass]="files.length > 1 ? 'col-lg-6' : 'col-lg-12'">
             <video controls style="width: 100%;">
-                <source [src]="file.fileResult.fileContents" type="video/mp4">
+                <source [src]="file.fileUrl" type="video/mp4">
             </video>
         </div>
     </ng-container>

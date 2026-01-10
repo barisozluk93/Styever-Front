@@ -53,8 +53,8 @@
         <div class="card-body px-0 py-0">
           <div class="d-flex flex-wrap flex-sm-nowrap">
             <div class="me-7">
-              <img *ngIf="data.fileResult" class="image" [src]="data.fileResult" />
-              <img *ngIf="!data.fileResult" class="image" src="./../../../assets/media/patterns/blank.jpg" />
+              <img *ngIf="data.fileUrl" class="image" [src]="data.fileUrl" />
+              <img *ngIf="!data.fileUrl" class="image" src="./../../../assets/media/patterns/blank.jpg" />
             </div>
             <div class="flex-grow-1">
               <div class="px-5 py-5" style="height: 50px;">

@@ -4,7 +4,7 @@
       <div class="symbol symbol-50px me-5">
         <img *ngIf="user?.fileId == undefined" src="./assets/media/avatars/blank.png" />
 
-        <img *ngIf="user?.fileId != undefined" [src]="user?.fileResult?.fileContents" />
+        <img *ngIf="user?.fileId != undefined" [src]="avatarUrl" />
       </div>
 
       <div class="d-flex flex-column">

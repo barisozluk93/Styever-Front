@@ -10,6 +10,7 @@ import { MemoryModel } from '../models/memory.model';
 import { MemoryLikeModel } from '../models/like.model';
 import { MemoryCommentModel } from '../models/comment.model';
 import { MemoryFileModel } from '../models/file.model';
+import { environment } from 'src/environments/environment';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -62,18 +63,18 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     this.memoryManagementService.getById(this.memoryId)
       .subscribe(result => {
         if (result.isSuccess) {
-          this.memoryImageFiles = result.data.files!.filter(f => f.fileResult ? f.fileResult.contentType.includes("image") : false);
-          this.memoryVideoFiles = result.data.files!.filter(f => f.fileResult ? !f.fileResult.contentType.includes("image") : false);
-
           result.data.files?.forEach(file => {
-            if (file.fileResult) {
-              file.fileResult.fileContents = "data:" + file.fileResult.contentType + ";base64," + file.fileResult.fileContents;
+            if (file.file) {              
+              file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];
 
               if (file.isPrimary) {
-                result.data.fileResult = file.fileResult.fileContents;
+                result.data.fileUrl = file.fileUrl;
               }
             }
           })
+
+          this.memoryImageFiles = result.data.files!.filter(f => f.file ? f.file.contentType.includes("image") : false);
+          this.memoryVideoFiles = result.data.files!.filter(f => f.file ? !f.file.contentType.includes("image") : false);
 
           result.data.likes?.forEach(like => {
             if (like.userId == this.currentUser?.id) {

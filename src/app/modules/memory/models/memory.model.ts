@@ -1,3 +1,4 @@
+import { FileModel } from "src/app/models/file.model";
 import { CategoryModel } from "./category.model";
 import { MemoryCommentModel } from "./comment.model";
 import { MemoryFileModel } from "./file.model";
@@ -26,6 +27,7 @@ export class MemoryModel {
     postDateStr?: string;
     text: string;
     fileResult?: any;
+    fileUrl?: string;
     ownLike?: boolean;
     isPrivate: boolean;
     isOpenToComment: boolean;

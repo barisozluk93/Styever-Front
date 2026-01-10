@@ -9,5 +9,6 @@ export class MemoryCommentModel {
     memory?: MemoryModel;
     date?: string;
     userAvatar?: any;
+    fileUrl?: string;
     own?: boolean;
 }

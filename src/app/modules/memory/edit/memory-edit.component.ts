@@ -14,6 +14,7 @@ import { AuthModel } from '../../auth/models/auth.model';
 import { MemoryCommentModel } from '../models/comment.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MemoryFileModel } from '../models/file.model';
+import { environment } from 'src/environments/environment';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -59,10 +60,8 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.memoryManagementService.getById(this.memoryId)
       .subscribe(result => {
         if (result.isSuccess) {
-                    this.memoryImageFiles = result.data.files!.filter(f => f.fileResult ? f.fileResult.contentType.includes("image") : false);
-          this.memoryVideoFiles = result.data.files!.filter(f => f.fileResult ? !f.fileResult.contentType.includes("image") : false);
           if (this.memoryImageFiles.length == 0) {
-            this.form.get("fileResult")?.patchValue(undefined);
+            this.form.get("fileUrl")?.patchValue(undefined);
           }
 
           if (this.currentUser?.roles.includes("2")) {
@@ -108,16 +107,17 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           }
 
           result.data.files?.forEach(file => {
-            if (file.fileResult) {
-              file.fileResult.fileContents = "data:" + file.fileResult.contentType + ";base64," + file.fileResult.fileContents;
+            if (file.file) {
+              file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];
 
               if (file.isPrimary) {
-                result.data.fileResult = file.fileResult.fileContents;
+                result.data.fileUrl = file.fileUrl;
               }
             }
           })
 
-          console.log(this.memoryVideoFiles)
+          this.memoryImageFiles = result.data.files!.filter(f => f.file ? f.file.contentType.includes("image") : false);
+          this.memoryVideoFiles = result.data.files!.filter(f => f.file ? !f.file.contentType.includes("image") : false);
 
           result.data.likes?.forEach(like => {
             if (like.userId == this.currentUser?.id) {
@@ -130,6 +130,12 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           result.data.birthDate = formatDate(result.data.birthDate!, "YYYY-MM-dd", this.locale);
           result.data.birthDateStr = formatDate(result.data.birthDate!, "dd.MM.yyyy", this.locale);
           result.data.deathDateStr = formatDate(result.data.deathDate!, "dd.MM.yyyy", this.locale);
+
+          result.data.files?.forEach(file => {
+              if (file.isPrimary && file.file) {
+                result.data.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];                
+              }
+            })
 
           this.form.patchValue(result.data);
         }
@@ -154,6 +160,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.form = this.fb.group({
       id: 0,
       userId: this.currentUser?.id,
+      fileUrl: undefined,
       fileResult: '',
       userName: '',
       postDateStr: '',
@@ -253,7 +260,9 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     if (event.target.files.length > 0) {
       let file: File = event.target.files[0];
       let formData = new FormData();
+
       formData.append("file", file);
+      formData.append("type", "2");
 
       this.memoryManagementService.upload(formData).subscribe(result => {
         if (result.isSuccess) {

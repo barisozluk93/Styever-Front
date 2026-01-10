@@ -9,4 +9,5 @@ export class MemoryLikeModel {
     date?: string;
     isDeleted?: boolean;
     userAvatar?: any;
+    fileUrl?: string;
 }

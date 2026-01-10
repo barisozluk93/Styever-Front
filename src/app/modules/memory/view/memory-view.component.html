@@ -18,8 +18,8 @@
       <div class="card-body px-0 py-0">
         <div class="d-flex flex-wrap flex-sm-nowrap">
           <div class="me-7">
-            <img *ngIf="memory?.fileResult" class="image" [src]="memory?.fileResult" />
-            <img *ngIf="!memory?.fileResult" class="image" src="./../../../assets/media/patterns/blank.jpg" />
+            <img *ngIf="memory?.fileUrl" class="image" [src]="memory?.fileUrl" />
+            <img *ngIf="!memory?.fileUrl" class="image" src="./../../../assets/media/patterns/blank.jpg" />
           </div>
           <div class="flex-grow-1">
             <div class="text-center py-9" style="height: 80px;">

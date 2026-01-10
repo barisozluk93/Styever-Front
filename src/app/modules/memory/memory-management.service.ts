@@ -75,8 +75,8 @@ export class MemoryManagementService {
         return this.http.get<ResultModel<MemoryCommentModel[]>>(`${API_MEMORY_URL}/CommentAll/${memoryId}`);
     }
 
-    likeAll(memoryId: number): Observable<ResultModel<MemoryCommentModel[]>> {
-        return this.http.get<ResultModel<MemoryCommentModel[]>>(`${API_MEMORY_URL}/LikeAll/${memoryId}`);
+    likeAll(memoryId: number): Observable<ResultModel<MemoryLikeModel[]>> {
+        return this.http.get<ResultModel<MemoryLikeModel[]>>(`${API_MEMORY_URL}/LikeAll/${memoryId}`);
     }
 
     getMemoryCount(userId: number): Observable<ResultModel<number>> {

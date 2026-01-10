@@ -41,8 +41,8 @@
           <div class="card-body px-0 py-0">
             <div class="row mb-5">
               <div class="col-lg-12">
-                <img *ngIf="data.fileResult" class="image" [src]="data.fileResult" />
-                <img *ngIf="!data.fileResult" class="image" src="./../../../assets/media/patterns/blank.jpg" />
+                <img *ngIf="data.file" class="image" [src]="data.fileUrl" />
+                <img *ngIf="!data.file" class="image" src="./../../../assets/media/patterns/blank.jpg" />
               </div>
             </div>
             <div class="row">

@@ -1,3 +1,4 @@
+import { FileModel } from "src/app/models/file.model";
 import { UserAddressModel } from "./user-address.model";
 
 export class UserModel {
@@ -17,5 +18,5 @@ export class UserModel {
     isSystemData: boolean;
     roles: number[];
     fileId?: number;
-    fileResult?: any;
+    file?: FileModel;
 }

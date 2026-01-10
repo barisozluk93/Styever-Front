@@ -5,6 +5,7 @@ import { MemoryManagementService } from "../memory-management.service";
 import { MemoryCommentModel } from "../models/comment.model";
 import { formatDate } from "@angular/common";
 import { AuthService } from "../../auth";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: 'app-memory-comment',
@@ -39,7 +40,7 @@ export class CommentComponent {
             if(result.isSuccess) {
                 result.data.forEach(item => {
                     if(item.userAvatar) {
-                        item.userAvatar = item.userAvatar.fileContents = "data:" + item.userAvatar.contentType + ";base64," + item.userAvatar.fileContents;
+                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length-1];
                     }
 
                     item.own = item.userId == this.auth.currentUserValue?.id ? true : false;

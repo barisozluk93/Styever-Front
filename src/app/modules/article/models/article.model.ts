@@ -6,7 +6,8 @@ export class ArticleModel {
     headerEn?: string;
     subHeader: string;
     subHeaderEn: string;
-    fileResult?: any;
+    file?: any;
+    fileUrl?: string;
     content: string;
     contentEn: string;
   }

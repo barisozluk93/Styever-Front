@@ -4,6 +4,7 @@ import { TranslationService } from '../../../../../../modules/i18n';
 import { AuthService, UserType } from '../../../../../../modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-inner',
@@ -18,6 +19,7 @@ export class UserInnerComponent implements OnInit, OnDestroy {
   user: UserModel;
   langs = languages;
   private unsubscribe: Subscription[] = [];
+  avatarUrl: string = '';
 
   constructor( 
     private auth: AuthService,
@@ -32,6 +34,10 @@ export class UserInnerComponent implements OnInit, OnDestroy {
 
     this.userManagementService.user$.subscribe(result => {
       this.user = result!;
+
+      if(this.user?.fileId) {
+        this.avatarUrl = environment.avatarUploadFolderUrl + "/" + this.user.file?.path.split("\\")[this.user.file?.path.split("\\").length-1];
+      }
     });
     
     this.setLanguage(this.translationService.getSelectedLanguage());

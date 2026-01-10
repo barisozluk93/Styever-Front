@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, UserType } from '../auth';
 import { UserManagementService } from '../user-management/user-management.service';
 import { UserModel } from '../user-management/models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-account',
@@ -11,6 +12,7 @@ export class AccountComponent implements OnInit {
 
   user: UserType;
   userData: UserModel;
+  avatarUrl: string = '';
 
   constructor(private auth: AuthService, private userManagementService: UserManagementService) {}
 
@@ -21,8 +23,11 @@ export class AccountComponent implements OnInit {
       this.userManagementService.updateUser(this.user?.id!);
 
       this.userManagementService.user$.subscribe(result => {
-        this.userData = result!;
-        console.log(this.userData)
+        this.userData = result!;   
+        
+        if(this.userData?.fileId) {
+          this.avatarUrl = environment.avatarUploadFolderUrl + "/" + this.userData.file?.path.split("\\")[this.userData.file?.path.split("\\").length-1];
+        }
       });
     });
   }

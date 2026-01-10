@@ -8,7 +8,7 @@
           ">
 
             <img *ngIf="userData?.fileId == undefined" src="./assets/media/avatars/blank.png" />
-            <img *ngIf="userData?.fileId != undefined" [src]="userData?.fileResult?.fileContents" />
+            <img *ngIf="userData?.fileId != undefined" [src]="avatarUrl" />
 
           <div class="
               position-absolute

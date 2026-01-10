@@ -6,6 +6,7 @@ import { NotificationModel } from 'src/app/models/notification.model';
 import { AuthService } from 'src/app/modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-topbar',
@@ -19,6 +20,7 @@ export class TopbarComponent implements OnInit {
   unreadedNotificationCount: number = 0;
   totalNotificationCount: number = 0;
   notifications: Array<NotificationModel> = [];
+  avatarUrl: string = '';
 
   constructor(private notificationService: NotificationService, 
     private authService: AuthService, 
@@ -141,6 +143,10 @@ export class TopbarComponent implements OnInit {
 
         this.userManagementService.user$.subscribe(result => {
           this.user = result!;
+
+          if(this.user?.fileId) {
+            this.avatarUrl = environment.avatarUploadFolderUrl + "/" + this.user.file?.path.split("\\")[this.user.file?.path.split("\\").length-1];
+          }
         });
       }
       else {

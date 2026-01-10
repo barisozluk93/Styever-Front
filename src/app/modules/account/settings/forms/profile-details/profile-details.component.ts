@@ -5,6 +5,7 @@ import { AlertService } from 'src/app/_metronic/partials/layout/alert/alert.serv
 import { UserType } from 'src/app/modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-details',
@@ -13,7 +14,8 @@ import { UserManagementService } from 'src/app/modules/user-management/user-mana
 export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
   private unsubscribe: Subscription[] = [];
   form: FormGroup;
-
+  
+  avatarUrl: string = '';
   @Input() user: UserModel;
   constructor(private fb: FormBuilder, private userManagementService: UserManagementService,
     private alertService: AlertService
@@ -23,11 +25,17 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
   
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.user) {
+      this.user = changes.user.currentValue;
+
       if(!this.form) {
         this.initForm();
       }
       
       this.setUserForm();
+
+      if(this.user?.fileId) {
+        this.avatarUrl = environment.avatarUploadFolderUrl + "/" + this.user.file?.path.split("\\")[this.user.file?.path.split("\\").length-1];
+      }
     }
   }
 
@@ -141,6 +149,7 @@ onFileChange(event: any) {
       if (width == 300 && height == 300) {
         let formData = new FormData();
         formData.append("file", file);
+        formData.append("type", "1");
 
         this.userManagementService.upload(formData).subscribe(result => {
           if (result.isSuccess) {

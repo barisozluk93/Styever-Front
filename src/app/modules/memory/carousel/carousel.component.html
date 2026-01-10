@@ -2,7 +2,7 @@
     <ng-container *ngFor="let file of files">
         <ng-template ngbSlide>
             <div>
-                <img class="image" [src]="file.fileResult.fileContents" />
+                <img class="image" [src]="file.fileUrl" />
             </div>
         </ng-template>
     </ng-container>

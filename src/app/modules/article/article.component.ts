@@ -5,6 +5,7 @@ import { AuthService } from '../auth';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
 import { ArticleManagementService } from './article-management.service';
 import { ArticleModel } from './models/article.model';
+import { environment } from 'src/environments/environment';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -38,7 +39,7 @@ export class ArticleComponent implements OnInit, AfterViewInit {
       .subscribe(result => {
         if (result.isSuccess) {
           result.data.forEach(item => {
-            item.fileResult = item.fileResult.fileContents = "data:" + item.fileResult.contentType + ";base64," + item.fileResult.fileContents;
+            item.fileUrl = environment.articleUploadFolderUrl + "/" + item.file?.path.split("\\")[item.file?.path.split("\\").length-1];
           })
 
           this.dataSource = result.data;

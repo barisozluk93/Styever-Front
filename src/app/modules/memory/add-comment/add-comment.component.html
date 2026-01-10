@@ -6,7 +6,7 @@
                     <ng-container *ngFor="let comment of comments">
                         <div class="d-flex align-items-center">
                             <div class="symbol symbol-50px me-5">
-                                <img *ngIf="comment.userAvatar" [src]="comment.userAvatar" class="" alt="" />
+                                <img *ngIf="comment.userAvatar" [src]="comment.fileUrl" class="" alt="" />
                                 <img *ngIf="!comment.userAvatar" src="./assets/media/avatars/blank.png" />
                             </div>
                             <div class="flex-grow-1">

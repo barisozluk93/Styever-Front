@@ -11,6 +11,7 @@ import { CommentComponent } from './comment/comment.component';
 import { MemoryModel } from './models/memory.model';
 import { LikeComponent } from './like/like.component';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
+import { environment } from 'src/environments/environment';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -74,8 +75,8 @@ export class MemoryComponent implements OnInit, AfterViewInit {
           result.data.items.forEach(item => {
             
             item.files?.forEach(file => {
-              if (file.isPrimary && file.fileResult) {
-                item.fileResult = file.fileResult.fileContents = "data:" + file.fileResult.contentType + ";base64," + file.fileResult.fileContents;
+              if (file.isPrimary && file.file) {
+                item.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];                
               }
             })
 
