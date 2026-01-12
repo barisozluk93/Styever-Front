@@ -6,8 +6,7 @@
     data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}"></app-page-title> -->
 
     <a *ngIf="!isMobile" routerLink="/home" class="d-flex align-items-center">
-      <img *ngIf="!isWhitePage" alt="Logo" src="./assets/media/logos/logo-2.png" class="h-50px w-70px" />
-      <img *ngIf="isWhitePage" alt="Logo" src="./assets/media/logos/logo-4.png" class="h-100px w-100px" />
+      <img alt="Logo" src="./assets/media/logos/logo-2.png" class="h-50px w-75px" />
     </a>
   <!-- begin::Wrapper -->
   <div class="d-flex d-lg-none align-items-center ms-n2 me-4">
@@ -17,9 +16,9 @@
     </div>
     <!--end::Aside mobile toggle-->
     <!--begin::Logo-->
-    <a routerLink="/dashboard" class="d-flex align-items-center">
-      <img *ngIf="!isWhitePage" alt="Logo" src="./assets/media/logos/logo-2.png" class="h-50px w-70px" />
-      <img *ngIf="isWhitePage" alt="Logo" src="./assets/media/logos/logo-4.png" class="h-100px w-100px" />    </a>
+    <a routerLink="/home" class="d-flex align-items-center">
+      <img alt="Logo" src="./assets/media/logos/logo-2.png" class="h-50px w-75px" />
+    </a>
     <!--end::Logo-->
   </div>
   <!-- end::Wrapper -->

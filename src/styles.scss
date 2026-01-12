@@ -11,9 +11,21 @@
 @import "./assets/plugins/keenicons/outline/style.css";
 @import "./assets/plugins/keenicons/solid/style.css";
 
+.menu-state-bg .menu-item .menu-link.active {
+  background-color: var(--bs-primary) !important;
+}
+
+.menu-state-bg .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here), .menu-state-bg .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+  background-color: var(--bs-primary) !important;
+}
+
+.menu-state-bg .menu-item.hover > .menu-link:not(.disabled):not(.active):not(.here), .menu-state-bg .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+  color: var(--bs-text-white) !important;
+}
 
 .aside-fixed.aside-secondary-enabled[data-kt-sticky-header=on] .header {
     left: 0px !important;
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/support.jpeg');
 }
 
 .aside-secondary-enabled.aside-fixed .wrapper {
@@ -74,7 +86,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .support-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/support.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: cover;

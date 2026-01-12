@@ -50,6 +50,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   isMobile: boolean = true;
   isWhitePage: boolean = false;
+  isScrolled: boolean = false;
 
   private unsubscribe: Subscription[] = [];
 
@@ -80,15 +81,16 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     let scrollObservable$ = fromEvent(window, 'scroll', { capture: true })
     let scrollSubscription$ = scrollObservable$.subscribe(evt => {
       var headerValue = ((evt.target as Document).getElementById("kt_body")?.attributes.getNamedItem("data-kt-header")?.value);
 
-      if (headerValue == "on" && window.pageYOffset > 0) {
+      if (window.pageYOffset > 0) {
         this.isWhitePage = true;
+        this.isScrolled = true;
       }
       else {
+        this.isScrolled = false;
         this.controlRoute();
       }
     })
@@ -120,6 +122,10 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
 
+    if(window.pageYOffset > 0) {
+      this.isScrolled = true;
+    }
+
     this.routingChanges();
   }
 
@@ -149,7 +155,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   controlRoute() {
     var main = document.getElementById("main-element");
-
+    
     if (this.router.url.includes("/home")) {
 
       main?.classList.remove("memory-background");

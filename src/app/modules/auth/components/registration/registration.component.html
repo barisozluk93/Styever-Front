@@ -1,19 +1,19 @@
-<div class="text-center mb-5">
-        <img alt="Logo" src="./assets/media/logos/logo-5.png" class="h-200px w-200px" />
+<div class="text-center mb-5" routerLink="/home">
+  <img alt="Logo" src="./assets/media/logos/icon.png" class="h-150px w-150px" style="border-radius:  20px;" />
 </div>
 <div class="checkout-steps d-flex justify-content-center align-items-center">
   <div class="step" [ngClass]="activeState == 'paymentPlan' ? 'active' : ''">
-    <i class="bi bi-wallet"></i>
+    <i class="bi bi-wallet" [ngClass]="activeState == 'paymentPlan' ? 'text-white' : 'text-primary'"></i>
     <span>Ödeme Planı</span>
   </div>
   <div class="line"></div>
   <div class="step" [ngClass]="activeState == 'membershipInfo' ? 'active' : ''">
-    <i class="bi bi-person"></i>
+    <i class="bi bi-person" [ngClass]="activeState == 'membershipInfo' ? 'text-white' : 'text-primary'"></i>
     <span>Üyelik Bilgileri</span>
   </div>
   <div class="line"></div>
   <div class="step" [ngClass]="activeState == 'addressInfo' ? 'active' : ''">
-    <i class="bi bi-card-text"></i>
+    <i class="bi bi-card-text" [ngClass]="activeState == 'addressInfo' ? 'text-white' : 'text-primary'"></i>
     <span>Adres Bilgileri</span>
   </div>
 </div>
@@ -21,7 +21,7 @@
 <ng-container *ngIf="activeState == 'paymentPlan'">
   <div class="text-center mb-5 mt-5">
     <!--begin::Title-->
-    <h1 class="text-gray-900 fw-bolder">
+    <h1 class="text-primary fw-bolder">
       Ödeme Planı
     </h1>
     <!--end::Title-->
@@ -41,63 +41,56 @@
               <thead>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Anı Sayfası
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Fotoğraf
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Video
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Anı Yazısı Alanı
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
-                      AI Desteği
-                    </a>
-                  </div>
-                </tr>
-                <tr class="p-0" width="100%">
-                  <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Anı Kitabı
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Hatırlatma Bildirimleri
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       Barınak Bağışı Rozeti
                     </a>
                   </div>
                 </tr>
                 <tr class="p-0" width="100%">
                   <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
+                    <a class="text-primary fw-bold fs-6">
                       QR Kodlu Plaket
                     </a>
                   </div>
@@ -152,14 +145,6 @@
                   <div class="d-flex justify-content-start text-center flex-column">
                     <a class="text-gray-900 fw-bold fs-6">
                       1 adet
-                    </a>
-                  </div>
-                </tr>
-                <tr class="p-0" width="100%">
-                  <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
-                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr011.svg'"
-                        class="svg-icon btn-icon svg-icon-2 text-danger"></span>
                     </a>
                   </div>
                 </tr>
@@ -244,14 +229,6 @@
                   <div class="d-flex justify-content-start text-center flex-column">
                     <a class="text-gray-900 fw-bold fs-6">
                       1 adet
-                    </a>
-                  </div>
-                </tr>
-                <tr class="p-0" width="100%">
-                  <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
-                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
-                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
                     </a>
                   </div>
                 </tr>
@@ -371,14 +348,6 @@
                     </a>
                   </div>
                 </tr>
-                <tr class="p-0" width="100%">
-                  <div class="d-flex justify-content-start text-center flex-column">
-                    <a class="text-muted fw-bold fs-6">
-                      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr012.svg'"
-                        class="svg-icon btn-icon svg-icon-2 text-success"></span>
-                    </a>
-                  </div>
-                </tr>
               </thead>
             </table>
           </div>
@@ -393,7 +362,7 @@
     <!--begin::Heading-->
     <div class="text-center mb-5 mt-5">
       <!--begin::Title-->
-      <h1 class="text-gray-900 fw-bolder">
+      <h1 class="text-primary fw-bolder">
         Üyelik Bilgileri
       </h1>
       <!--end::Title-->
@@ -416,8 +385,8 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Ad</label>
-      <input class="form-control bg-transparent" type="text" name="name" formControlName="name" placeholder="Ad"
+      <label class="form-label fw-bolder text-primary fs-6">Ad</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name" placeholder="Ad"
         autocomplete="off" [ngClass]="{
         'is-invalid': registrationForm.controls['name'].invalid,
         'is-valid': registrationForm.controls['name'].valid
@@ -429,8 +398,8 @@
       }"></ng-container>
     </div>
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Soyad</label>
-      <input class="form-control bg-transparent" type="text" name="surname" formControlName="surname"
+      <label class="form-label fw-bolder text-primary fs-6">Soyad</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" name="surname" formControlName="surname"
         placeholder="Soyad" autocomplete="off" [ngClass]="{
         'is-invalid': registrationForm.controls['surname'].invalid,
         'is-valid': registrationForm.controls['surname'].valid
@@ -445,8 +414,8 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">E-posta</label>
-      <input class="form-control bg-transparent" type="email" placeholder="E-posta" name="email" formControlName="email"
+      <label class="form-label fw-bolder text-primary fs-6">E-posta</label>
+      <input class="form-control bg-transparent text-light-primary" type="email" placeholder="E-posta" name="email" formControlName="email"
         autocomplete="off" [ngClass]="{
         'is-invalid': registrationForm.controls['email'].invalid,
         'is-valid': registrationForm.controls['email'].valid
@@ -476,9 +445,9 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Telefon Numarası</label>
-      <input class="form-control bg-transparent" type="text" placeholder="Telefon Numarası" name="phone" formControlName="phone"
-        autocomplete="off" [ngClass]="{
+      <label class="form-label fw-bolder text-primary fs-6">Telefon Numarası</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" placeholder="Telefon Numarası" name="phone"
+        formControlName="phone" autocomplete="off" [ngClass]="{
         'is-invalid': registrationForm.controls['phone'].invalid,
         'is-valid': registrationForm.controls['phone'].valid
       }" />
@@ -493,8 +462,8 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Şifre</label>
-      <input class="form-control bg-transparent" type="password" placeholder="Şifre" name="password"
+      <label class="form-label fw-bolder text-primary fs-6">Şifre</label>
+      <input class="form-control bg-transparent text-light-primary" type="password" placeholder="Şifre" name="password"
         formControlName="password" autocomplete="off" [ngClass]="{
         'is-invalid': registrationForm.controls['password'].invalid,
         'is-valid': registrationForm.controls['password'].valid
@@ -519,8 +488,8 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Şifre Onayı</label>
-      <input class="form-control bg-transparent" type="password" placeholder="Şifre Onayı" name="cPassword"
+      <label class="form-label fw-bolder text-primary fs-6">Şifre Onayı</label>
+      <input class="form-control bg-transparent text-light-primary" type="password" placeholder="Şifre Onayı" name="cPassword"
         autocomplete="off" formControlName="cPassword" [ngClass]="{
         'is-invalid': registrationForm.controls['cPassword'].invalid,
         'is-valid': registrationForm.controls['cPassword'].valid
@@ -585,7 +554,7 @@
     <!--begin::Heading-->
     <div class="text-center mb-5 mt-5">
       <!--begin::Title-->
-      <h1 class="text-gray-900 fw-bolder">
+      <h1 class="text-primary fw-bolder">
         Adres Bilgileri
       </h1>
       <!--end::Title-->
@@ -598,8 +567,8 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Ülke</label>
-      <input class="form-control bg-transparent" type="text" name="country" formControlName="country" placeholder="Ülke"
+      <label class="form-label fw-bolder text-primary fs-6">Ülke</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" name="country" formControlName="country" placeholder="Ülke"
         autocomplete="off" [ngClass]="{
         'is-invalid': addressForm.controls['country'].invalid,
         'is-valid': addressForm.controls['country'].valid
@@ -611,8 +580,8 @@
       }"></ng-container>
     </div>
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">Şehir</label>
-      <input class="form-control bg-transparent" type="text" name="city" formControlName="city" placeholder="Şehir"
+      <label class="form-label fw-bolder text-primary fs-6">Şehir</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" name="city" formControlName="city" placeholder="Şehir"
         autocomplete="off" [ngClass]="{
         'is-invalid': addressForm.controls['city'].invalid,
         'is-valid': addressForm.controls['city'].valid
@@ -624,8 +593,8 @@
       }"></ng-container>
     </div>
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-gray-900 fs-6">İlçe</label>
-      <input class="form-control bg-transparent" type="text" name="district" formControlName="district"
+      <label class="form-label fw-bolder text-primary fs-6">İlçe</label>
+      <input class="form-control bg-transparent text-light-primary" type="text" name="district" formControlName="district"
         placeholder="İlçe" autocomplete="off" [ngClass]="{
         'is-invalid': addressForm.controls['district'].invalid,
         'is-valid': addressForm.controls['district'].valid
@@ -640,10 +609,10 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fs-6 fw-bolder text-gray-900 required">
+      <label class="form-label fs-6 fw-bolder text-primary required">
         Adres
       </label>
-      <textarea class="form-control bg-transparent" type="text" name="address" formControlName="address"
+      <textarea class="form-control bg-transparent text-light-primary" type="text" name="address" formControlName="address"
         autocomplete="off" [ngClass]="{
                     'is-invalid': addressForm.controls['address'].invalid,
                     'is-valid': addressForm.controls['address'].valid
@@ -659,10 +628,10 @@
 
     <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fs-6 fw-bolder text-gray-900 required">
+      <label class="form-label fs-6 fw-bolder text-primary required">
         Adres Başlığı
       </label>
-      <input class="form-control bg-transparent" placeholder="Adres Başlığı" type="text" name="addressHeader"
+      <input class="form-control bg-transparent text-light-primary" placeholder="Adres Başlığı" type="text" name="addressHeader"
         formControlName="addressHeader" autocomplete="off" [ngClass]="{
                     'is-invalid': addressForm.controls['addressHeader'].invalid,
                     'is-valid': addressForm.controls['addressHeader'].valid
@@ -673,7 +642,7 @@
         control: addressForm.controls['addressHeader']
       }"></ng-container>
     </div>
-    <!--end::Form group-->  
+    <!--end::Form group-->
   </form>
 
   <ng-template #formError let-control="control" let-message="message" let-validation="validation">
@@ -701,16 +670,17 @@
       </a>
     </div>
     <div class="col-lg-6">
-      <a  [class.disabled-link]="activeState == 'membershipInfo' &&
-        (registrationForm.invalid || !registrationForm.controls['agree'].value)" *ngIf="activeState != 'addressInfo'" style="float: right"
-        (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
+      <a [class.disabled-link]="activeState == 'membershipInfo' &&
+        (registrationForm.invalid || !registrationForm.controls['agree'].value)" *ngIf="activeState != 'addressInfo'"
+        style="float: right" (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
         class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
         data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr001.svg'" class="svg-icon svg-icon-2"></span>
         İleri
       </a>
 
-      <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid" *ngIf="activeState == 'addressInfo'" style="float: right"
+      <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
+        *ngIf="activeState == 'addressInfo'" style="float: right"
         class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
         data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
         Kaydet

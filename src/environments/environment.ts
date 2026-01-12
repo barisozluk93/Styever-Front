@@ -7,7 +7,7 @@ export const environment = {
   appVersion: 'v8.2.3',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
-  apiUrl: 'api',
+  apiUrl: 'https://styever.com/api',
   avatarUploadFolderUrl: "https://styever.com/Uploads/Avatars",
   articleUploadFolderUrl: "https://styever.com/Uploads/Articles",
   memoryUploadFolderUrl: "https://styever.com/Uploads/Memories",

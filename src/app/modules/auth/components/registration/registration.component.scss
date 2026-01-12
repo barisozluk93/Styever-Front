@@ -24,7 +24,7 @@
     border-radius: 999px;
     padding: 10px 20px;
     font-weight: 500;
-    color: #212529;
+    color: var(--bs-primary-light);
     transition: all 0.2s ease;
 
     i {
@@ -32,9 +32,9 @@
     }
 
     &.active {
-      background: rgba(13, 110, 253, 0.1);
+      background: var(--bs-primary);
       border-color: var(--bs-primary);
-      color: var(--bs-primary);
+      color: white;
     }
   }
 

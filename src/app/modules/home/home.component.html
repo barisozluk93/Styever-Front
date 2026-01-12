@@ -4,7 +4,7 @@
       <div class="col-lg-5">
         <div class="fw-bolder text-white py-5" style="text-shadow: 0 1px 3px #000000a1;
     font-size: 20px;border-bottom: 2px solid rgba(255, 255, 255, 0.1)">
-          styever, evcil hayvanlarınızla olan sevgi bağınızı ve anılarınızı yaşatmanız için oluşturulmuş bir
+          Styever, evcil hayvanlarınızla olan sevgi bağınızı ve anılarınızı yaşatmanız için oluşturulmuş bir
           anı platformudur. Evcil hayvanınızın hayatını sonsuzlaştırmak ve onu her zaman yakınınızda tutmak için
           içten bir anma alanı yaratın.
         </div>
@@ -12,7 +12,7 @@
           <div class="row">
             <div class="w-50">
               <a (click)="goToOffers()"
-                class="btn btn-custom btn-active-dark btn-color-dark btn-secondary w-100 fs-4 fw-bolder"
+                class="btn btn-custom btn-active-dark btn-color-primary btn-secondary w-100 fs-4 fw-bolder"
                 data-kt-menu-flip="top-end">
                 <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr004.svg'"
                   class="svg-icon svg-icon-2 me-1"></span>
@@ -20,7 +20,8 @@
               </a>
             </div>
             <div class="w-50">
-              <a (click)="goToMemories()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
+              <a (click)="goToMemories()"
+                class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
                 data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                 <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'"
                   class="svg-icon svg-icon-2 me-1"></span>
@@ -36,12 +37,12 @@
 <section id="offers" class="mx-10">
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-light-info">
+      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
         Sunduklarımız
       </span>
     </div>
     <div class="col-lg-6">
-      <h1 class="heading-3">Anılarını sonsuza kadar yaşat.</h1>
+      <h1 class="heading-3 text-primary">Anılarını sonsuza kadar yaşat.</h1>
     </div>
   </div>
 
@@ -50,15 +51,14 @@
       <div class="card">
         <div class="card-header border-0">
           <h3 class="card-title align-items-start flex-column">
-            <span (click)="goToSignUp()"
-              class="cursor-pointer card-label fw-bolder text-gray-900 text-hover-primary">Hemen Şimdi Başla</span>
-            <span class="text-muted mt-3 fw-bold fs-sm">Birkaç dakika içinde en yakın dostunla
+            <span (click)="goToSignUp()" class="cursor-pointer card-label fw-bolder text-primary">Hemen Şimdi
+              Başla</span>
+            <span class="text-light-primary mt-3 fw-bold fs-sm">Birkaç dakika içinde en yakın dostunla
               anılarını paylaş.</span>
           </h3>
         </div>
         <div class="card-body">
-          <img style="width: 100%; height: auto;border-radius: 10px;"
-            src="./assets/media/patterns/section1-1.avif" />
+          <img style="width: 100%; height: auto;border-radius: 10px;" src="./assets/media/patterns/section1-1.avif" />
         </div>
       </div>
     </div>
@@ -68,17 +68,18 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-gray-900">AI destekli anı öneri asistanı </span>
+                <span class="fw-bolder text-primary">Video ve Görsel Kütüphanesi</span>
               </h3>
             </div>
             <div class="card-body">
               <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen020.svg'"
-                  class="svg-icon svg-icon-1"></span>
+                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'"
+                  class="svg-icon svg-icon-1 text-light-primary"></span>
               </div>
               <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-muted mt-3 fw-bold fs-sm">AI asistanı size en yakın arkadaşınızın yaşam
-                  kesitlerinden anılar önerir.</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">En yakın arkadaşınızın görsel ve videolarıyla onu
+                  hep
+                  canlı tutun.</span>
               </h3>
             </div>
           </div>
@@ -87,18 +88,18 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title text-center flex-column">
-                <span class="card-label fw-bolder text-gray-900">Anı Kitabı</span>
+                <span class="card-label fw-bolder text-primary">Bağış</span>
               </h3>
             </div>
             <div class="card-body">
               <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen026.svg'"
-                  class="svg-icon svg-icon-1"></span>
+                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen008.svg'"
+                  class="svg-icon svg-icon-1 text-light-primary"></span>
               </div>
               <h3 class="card-title text-center flex-column mx-2 my-10">
-                <span class="text-muted mt-3 fw-bold fs-sm">En yakın
-                  arkadaşınızın hatıralarını Anı Kitabı ile
-                  yaşatın.</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">İsteğinize bağlı olarak paket ücretinizin %5'lik
+                  kısmını
+                  seçtiğiniz bir kuruma bağışlayın ve barınaklarda yaşayan diğer dostlarınızı mutlu edin.</span>
               </h3>
             </div>
           </div>
@@ -109,36 +110,16 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-gray-900">Video ve Görsel Kütüphanesi</span>
+                <span class="fw-bolder text-primary">Reklam Yok</span>
               </h3>
             </div>
             <div class="card-body">
               <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen010.svg'"
-                  class="svg-icon svg-icon-1"></span>
+                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen020.svg'"
+                  class="svg-icon svg-icon-1 text-light-primary"></span>
               </div>
               <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-muted mt-3 fw-bold fs-sm">En yakın arkadaşınızın görsel ve videolarıyla onu hep
-                  canlı tutun.</span>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="card" style="height: 300px;">
-            <div class="card-header">
-              <h3 class="card-title text-center flex-column">
-                <span class="card-label fw-bolder text-gray-900">Bağış</span>
-              </h3>
-            </div>
-            <div class="card-body">
-              <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen008.svg'"
-                  class="svg-icon svg-icon-1"></span>
-              </div>
-              <h3 class="card-title text-center flex-column mx-2 my-10">
-                <span class="text-muted mt-3 fw-bold fs-sm">İsteğinize bağlı olarak paket ücretinizin %5'lik kısmını
-                  seçtiğiniz bir kuruma bağışlayın ve barınaklarda yaşayan diğer dostlarınızı mutlu edin.</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">"Açıklama"</span>
               </h3>
             </div>
           </div>
@@ -150,23 +131,24 @@
 <section id="about" class="mx-10">
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-light-info">
+      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
         Hakkımızda
       </span>
     </div>
   </div>
   <div class="row px-10 py-10">
-    <div class="col-lg-6 px-0">
-      <div class="card border-0" style="height: 600px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+    <div class="col-lg-6" style="padding-right: 0px;">
+      <div class="card bg-primary border-0"
+        style="height: 600px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder text-gray-900">Neden Styver?</span>
+            <span class="fw-bolder text-white">Neden Styver?</span>
           </h3>
         </div>
         <div class="card-body">
           <h3 class="card-title flex-column mx-2 my-2">
-            <span class="text-muted mt-3 fw-bold fs-sm">
-              Evcil hayvanınızı kaybetmek, asla geçmeyen bir acı bırakır. styever'ı, Türkiye'de evcil hayvan
+            <span class="text-white mt-3 fw-bold fs-sm">
+              Evcil hayvanınızı kaybetmek, asla geçmeyen bir acı bırakır. Styever'ı, Türkiye'de evcil hayvan
               anma törenleri için sakin ve reklamsız bir çevrimiçi alan olarak, evcil hayvanınızın hayatını
               kutlayabileceğiniz ve kalıcı anılarınızı paylaşabileceğiniz huzurlu bir yuva olarak yarattık. Hayatı
               boyunca hayvanları seven Clonakilty, Batı Cork'lu Mick Hanly tarafından kurulan Rest Easy Friend, her
@@ -181,7 +163,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 px-0">
+    <div class="col-lg-6" style="padding-left: 0px;">
       <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
         <img style="width: 100%; height: 600px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
           src="./assets/media/patterns/about-img-1.jpg" />
@@ -190,44 +172,52 @@
   </div>
 </section>
 <section id="options" class="mx-10">
-  <div class="row px-10 pt-10" style="border-bottom: 2px solid #ebebeb;">
-    <div class="col-lg-6">
-      <div class="my-10">
-        <h3 class="card-title align-items-start flex-column py-3">
-          <span class="fw-bolder text-gray-900">En iyi arkadaşını sonsuza kadar yaşat.</span>
-        </h3>
-        <h3 class="card-title flex-column py-5">
-          <span class="text-muted mt-3 fw-bold fs-sm">
-            Değerli anılarınızı ve hikayelerinizi paylaşarak, sevdiğiniz bir arkadaşınızın mirasını onurlandırın ve
-            ruhunu canlı tutun.
-          </span>
-        </h3>
-        <div class="text-center">
-          <a (click)="goToSignUp()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
-            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-            <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'" class="svg-icon svg-icon-2"></span>
-            Yeni Anı Paylaş
-          </a>
+  <div class="row px-10 pt-10">
+    <div class="col-lg-6" style="padding-right: 0px;">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title align-items-start flex-column py-3">
+            <span class="fw-bolder text-primary">En iyi arkadaşını sonsuza kadar yaşat.</span>
+          </h3>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title flex-column py-5">
+            <span class="text-light-primary mt-3 fw-bold fs-sm">
+              Değerli anılarınızı ve hikayelerinizi paylaşarak, sevdiğiniz bir arkadaşınızın mirasını onurlandırın ve
+              ruhunu canlı tutun.
+            </span>
+          </h3>
+          <div class="text-center">
+            <a (click)="goToSignUp()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
+              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+              <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'" class="svg-icon svg-icon-2"></span>
+              Yeni Anı Paylaş
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="my-10">
-        <h3 class="card-title align-items-start flex-column py-3">
-          <span class="fw-bolder text-gray-900">Diğer dostları da nazik bir şekilde anın.</span>
-        </h3>
-        <h3 class="card-title flex-column py-5">
-          <span class="text-muted mt-3 fw-bold fs-sm">
-            Diğer dostların anısını onurlandırmak için içten taziyelerinizi ifade edin ve rahatlatıcı bir mesaj
-            paylaşın.
-          </span>
-        </h3>
-        <div class="text-center">
-          <a (click)="goToMemories()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100" data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-            <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
-            Anılar
-          </a>
+    <div class="col-lg-6" style="padding-right: 0px;">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title align-items-start flex-column py-3">
+            <span class="fw-bolder text-primary">Diğer dostları da nazik bir şekilde anın.</span>
+          </h3>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title flex-column py-5">
+            <span class="text-light-primary mt-3 fw-bold fs-sm">
+              Diğer dostların anısını onurlandırmak için içten taziyelerinizi ifade edin ve rahatlatıcı bir mesaj
+              paylaşın.
+            </span>
+          </h3>
+          <div class="text-center">
+            <a (click)="goToMemories()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
+              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+              <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
+              Anılar
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -236,28 +226,28 @@
 <section id="gift" class="mx-10">
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-light-info">
+      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
         Size Özel Hediyeler
       </span>
     </div>
   </div>
   <div class="row px-10 py-10">
-    <div class="col-lg-6 px-0">
-      <div class="card" style="height: 400px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+    <div class="col-lg-6" style="padding-right: 0px;">
+      <div class="card bg-primary" style="height: 400px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder text-gray-900">Hediyelik eşyalar ile dostunuzu ölümsüzleştirin.</span>
+            <span class="fw-bolder text-white">Hediyelik eşyalar ile dostunuzu ölümsüzleştirin.</span>
           </h3>
         </div>
         <div class="card-body">
-          <h3 class="card-title flex-column mx-2 mt-5 mb-20">
-            <span class="text-muted mt-3 fw-bold fs-sm mb-20">
-              styever artık abonelik hizmetimiz için özel olarak hediyeler sunuyor; bu, en çok ihtiyaç
+          <h3 class="card-title flex-column mx-2 mt-5 mb-20" style="height: 85px;">
+            <span class="text-white mt-3 fw-bold fs-sm mb-20">
+              Styever artık abonelik hizmetimiz için özel olarak hediyeler sunuyor; bu, en çok ihtiyaç
               duyulduğunda gerçek rahatlığı sağlamanın nazik ve düşünceli bir yoludur.
             </span>
           </h3>
           <div class="text-center">
-            <a (click)="goToSignUp()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 mt-20"
+            <a (click)="goToSignUp()" class="btn btn-custom btn-active-primary btn-color-primary btn-secondary w-100 mt-20"
               data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
               <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
               Hemen Kayıt Ol
@@ -266,7 +256,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 px-0">
+    <div class="col-lg-6" style="padding-left: 0px;">
       <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
         <img style="width: 100%; height: 400px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
           src="./assets/media/patterns/gift.jpg" />

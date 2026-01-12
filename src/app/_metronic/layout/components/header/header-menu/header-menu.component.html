@@ -3,16 +3,16 @@
   id="#kt_header_menu" data-kt-menu="true">
 
   <ng-container *ngFor="let menu of menuList">
-    <div class="menu-item me-lg-1" *ngIf="menu.childMenus?.length == 0 && !menu.isForbid">
-      <a class="menu-link py-3" routerLinkActive="active" routerLink="{{menu.url}}"><span
-          class="menu-title">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span></a>
+    <div class="menu-item me-lg-1 text-white" *ngIf="menu.childMenus?.length == 0 && !menu.isForbid">
+      <a class="menu-link text-white py-3" routerLinkActive="active" routerLink="{{menu.url}}"><span
+          class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span></a>
     </div>
 
 
     <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown" data-kt-menu-trigger="click"
       data-kt-menu-placement="bottom-start" *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid">
-      <span class="menu-link py-3" [ngClass]="calculateMenuItemCssClass('{{menu.url}}')">
-        <span class="menu-title">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
+      <span class="menu-link text-white py-3" [ngClass]="calculateMenuItemCssClass('{{menu.url}}')">
+        <span class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
         <span class="menu-arrow d-lg-none"></span>
       </span>
 
