@@ -1,0 +1,52 @@
+.center-title-wrapper {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    text-align: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.card-header .icon-expanded {
+  display: none;
+}
+
+.card-header:not(.collapsed) .icon-expanded {
+  display: inline-block;
+}
+
+.card-header:not(.collapsed) .icon-collapsed {
+  display: none;
+}
+
+.card-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.faq-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.faq-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.faq-icons {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}

@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.router.navigate(["/payment"]);
           }
           else{
-            this.router.navigate(["/home"]);
+            this.router.navigate(["/about"]);
           }
         } else {
           this.hasError = true;

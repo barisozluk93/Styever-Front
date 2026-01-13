@@ -70,18 +70,18 @@
           <div class="row mb-8">
             <div class="col-xxl-6">
               <input class="form-check-input" type="checkbox" id="googleswitch" formControlName="isPrivate" />
-              <label class="form-check-label" htmlFor="googleswitch">&nbsp;Herkese Kapalı</label>
+              <label class="form-check-label text-primary fw-bolder" htmlFor="googleswitch">&nbsp;Herkese Kapalı</label>
             </div>
             <div class="col-xxl-6">
               <input class="form-check-input" type="checkbox" id="googleswitch" formControlName="isOpenToComment" />
-              <label class="form-check-label" htmlFor="googleswitch">&nbsp;Yoruma Açık</label>
+              <label class="form-check-label text-primary fw-bolder" htmlFor="googleswitch">&nbsp;Yoruma Açık</label>
             </div>
           </div>
           <div class="row mb-8">
             <div class="col-xxl-12">
-              <label class="form-label fs-6 fw-bolder text-gray-900">En Yakın Dostunuzun Türü</label>
+              <label class="form-label fs-6 fw-bolder text-primary">En Yakın Dostunuzun Türü</label>
               <select name="category" formControlName="categoryId" autocomplete="off"
-                class="form-select form-select-solid form-select-lg fw-bold" [ngClass]="{
+                class="form-select form-select-solid form-select-lg fw-bold text-primary" [ngClass]="{
                             'is-invalid': form.controls['categoryId'].invalid,
                             'is-valid': form.controls['categoryId'].valid
                           }">
@@ -100,8 +100,8 @@
           </div>
           <div class="row mb-8">
             <div class="col-xxl-12">
-              <label class="form-label fs-6 fw-bolder text-gray-900">En Yakın Dostunuzun Adı</label>
-              <input class="form-control bg-transparent" type="text" name="name" formControlName="name"
+              <label class="form-label fs-6 fw-bolder text-primary">En Yakın Dostunuzun Adı</label>
+              <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name"
                 autocomplete="off" [ngClass]="{
                         'is-invalid': form.controls['name'].invalid,
                         'is-valid': form.controls['name'].valid
@@ -115,8 +115,8 @@
           </div>
           <div class="row mb-8">
             <div class="col-xxl-6">
-              <label class="form-label fs-6 fw-bolder text-gray-900">Doğum Tarihi</label>
-              <input class="form-control bg-transparent" type="date" name="birthDate" formControlName="birthDate"
+              <label class="form-label fs-6 fw-bolder text-primary">Doğum Tarihi</label>
+              <input class="form-control bg-transparent text-light-primary" type="date" name="birthDate" formControlName="birthDate"
                 autocomplete="off" [ngClass]="{
                         'is-invalid': form.controls['birthDate'].invalid,
                         'is-valid': form.controls['birthDate'].valid
@@ -128,8 +128,8 @@
                       }"></ng-container>
             </div>
             <div class="col-xxl-6">
-              <label class="form-label fs-6 fw-bolder text-gray-900">Vefat Tarihi</label>
-              <input class="form-control bg-transparent" type="date" name="deathDate" formControlName="deathDate"
+              <label class="form-label fs-6 fw-bolder text-primary">Vefat Tarihi</label>
+              <input class="form-control bg-transparent text-light-primary" type="date" name="deathDate" formControlName="deathDate"
                 autocomplete="off" [ngClass]="{
                         'is-invalid': form.controls['deathDate'].invalid,
                         'is-valid': form.controls['deathDate'].valid
@@ -142,10 +142,10 @@
             </div>
           </div>
           <div class="row mb-8">
-            <label class="form-label fs-6 fw-bolder text-gray-900">
+            <label class="form-label fs-6 fw-bolder text-primary">
               Anı
             </label>
-            <textarea class="form-control bg-transparent" type="text" name="text" formControlName="text"
+            <textarea class="form-control bg-transparent text-light-primary" type="text" name="text" formControlName="text"
               autocomplete="off" rows="20" [ngClass]="{
                     'is-invalid': form.controls['text'].invalid,
                     'is-valid': form.controls['text'].valid

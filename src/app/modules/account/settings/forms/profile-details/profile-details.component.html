@@ -36,15 +36,15 @@
                 <img [src]="avatarUrl" />
               </div>
             </div>
-            
+
             <div style="width: 125px;">
-              <input type="file" style="display:none" accept="image/*" (change)="onFileChange($event)" #fileUpload/>
-              <a style="width: 125px;" title="Click to Add" class="btn btn-sm btn-primary text-white" (click)="fileUpload.click()">
-                  <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
-                      class="svg-icon svg-icon-3"></span>                                
-                      {{user.fileId == undefined ? ('UPLOAD' | translate) : ('CHANGE' | translate)}}
+              <input type="file" style="display:none" accept="image/*" (change)="onFileChange($event)" #fileUpload />
+              <a style="width: 125px;" title="Click to Add" class="btn btn-sm btn-primary text-white"
+                (click)="fileUpload.click()">
+                <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
+                {{user.fileId == undefined ? ('UPLOAD' | translate) : ('CHANGE' | translate)}}
               </a>
-          </div>
+            </div>
           </div>
         </div>
         <div class="row mb-6">
@@ -58,22 +58,22 @@
                   " placeholder="{{ 'FIRST_NAME' | translate }}" name="name" formControlName="name" [ngClass]="{
                     'is-invalid': form.controls['name'].invalid,
                     'is-valid': form.controls['name'].valid
-                  }"/>
+                  }" />
 
-                  <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: 'Name is required',
                     control: form.controls['name']
                   }"></ng-container>
               </div>
               <div class="col-lg-6 fv-row">
-                <input type="text" class="form-control form-control-lg form-control-solid text-light-primary" placeholder="{{ 'LAST_NAME' | translate}}"
-                  name="surname" formControlName="surname" [ngClass]="{
+                <input type="text" class="form-control form-control-lg form-control-solid text-light-primary"
+                  placeholder="{{ 'LAST_NAME' | translate}}" name="surname" formControlName="surname" [ngClass]="{
                     'is-invalid': form.controls['surname'].invalid,
                     'is-valid': form.controls['surname'].valid
-                  }"/>
+                  }" />
 
-                  <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: 'Surname is required',
                     control: form.controls['surname']
@@ -93,9 +93,9 @@
                   " placeholder="{{'USERNAME' | translate}}" name="username" formControlName="username" [ngClass]="{
                     'is-invalid': form.controls['username'].invalid,
                     'is-valid': form.controls['username'].valid
-                  }"/>
+                  }" />
 
-                  <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: 'Username is required',
                     control: form.controls['username']
@@ -105,15 +105,16 @@
           </div>
         </div>
         <div class="row mb-6">
-          <label class="col-lg-4 col-form-label fw-bold text-primary fs-6"><span class="required">{{'CONTRACT_PHONE' | translate}}</span></label>
+          <label class="col-lg-4 col-form-label fw-bold text-primary fs-6"><span class="required">{{'CONTRACT_PHONE' |
+              translate}}</span></label>
           <div class="col-lg-8 fv-row">
-            <input type="tel" class="form-control form-control-lg form-control-solid text-light-primary" placeholder="{{'CONTRACT_PHONE' | translate}}"
-              name="phone" formControlName="phone" [ngClass]="{
+            <input type="tel" class="form-control form-control-lg form-control-solid text-light-primary"
+              placeholder="{{'CONTRACT_PHONE' | translate}}" name="phone" formControlName="phone" [ngClass]="{
                 'is-invalid': form.controls['phone'].invalid,
                 'is-valid': form.controls['phone'].valid
-              }"/>
+              }" />
 
-              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                 validation: 'required',
                 message: 'Phone is required',
                 control: form.controls['phone']
@@ -131,12 +132,12 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
       <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-          <div class="fv-plugins-message-container">
-              <span role="alert">
-                  {{ message }}
-              </span>
-          </div>
+        <div class="fv-plugins-message-container">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
       </ng-container>
-  </ng-template>
+    </ng-template>
   </div>
 </div>

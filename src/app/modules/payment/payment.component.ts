@@ -51,7 +51,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
   }
 
   confirm() {
-    this.router.navigate(['/home'], {
+    this.router.navigate(['/about'], {
         queryParams: {},
       }); 
   }

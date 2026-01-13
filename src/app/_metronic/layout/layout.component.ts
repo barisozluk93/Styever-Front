@@ -156,13 +156,14 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   controlRoute() {
     var main = document.getElementById("main-element");
     
-    if (this.router.url.includes("/home")) {
+    if (this.router.url.includes("/about")) {
 
       main?.classList.remove("memory-background");
       main?.classList.remove("contactus-background");
       main?.classList.remove("payment-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("home-background");
       this.isWhitePage = false;
@@ -174,6 +175,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("payment-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("memory-background");
       this.isWhitePage = false;
@@ -185,8 +187,21 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("contactus-background");
       main?.classList.remove("payment-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("memoryeditsave-background");
+      this.isWhitePage = false;
+    }
+    else if (this.router.url == "/faq") {
+
+      main?.classList.remove("memory-background");
+      main?.classList.remove("home-background");
+      main?.classList.remove("contactus-background");
+      main?.classList.remove("payment-background");
+      main?.classList.remove("memoryeditsave-background");
+      main?.classList.remove("support-background");
+
+      main?.classList.add("faq-background");
       this.isWhitePage = false;
     }
     else if (this.router.url == "/contactus") {
@@ -196,6 +211,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("payment-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("contactus-background");
       this.isWhitePage = false;
@@ -207,17 +223,19 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("contactus-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("payment-background");
       this.isWhitePage = false;
     }
-    else if (this.router.url.includes("/articles")) {
+    else if (this.router.url.includes("/support")) {
 
       main?.classList.remove("home-background");
       main?.classList.remove("contactus-background");
       main?.classList.remove("payment-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("memory-background");
+      main?.classList.remove("faq-background");
 
       main?.classList.add("support-background");
       this.isWhitePage = false;
@@ -229,6 +247,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("payment-background");
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
 
       this.isWhitePage = true;
     }

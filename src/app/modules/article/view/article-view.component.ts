@@ -44,7 +44,7 @@ export class ArticleViewComponent implements OnInit, AfterViewInit {
   }
 
   goToArticles() {
-    this.router.navigate(['/articles'], {
+    this.router.navigate(['/support'], {
       queryParams: {},
     });
   }

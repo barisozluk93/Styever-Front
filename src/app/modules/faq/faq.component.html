@@ -1,0 +1,39 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">Frequently Asked Questions</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-10 my-10">
+  <ng-container *ngFor="let faq of faqs">
+    <div class="col-lg-6">
+      <div class="card mb-5 mb-xl-10">
+        <div class="card-header border-0 cursor-pointer collapsed faq-header" role="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#kt_faq' + faq.id" aria-expanded="true" [attr.aria-controls]="'kt_faq' + faq.id">
+          <h3 class="fw-bolder m-0 text-primary faq-title">
+            {{ ("LANG" | translate) === 'tr' ? faq.header : faq.headerEn }}
+          </h3>
+
+          <div class="faq-icons">
+            <span class="icon-collapsed svg-icon svg-icon-2 text-primary"
+              [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'">
+            </span>
+
+            <span class="icon-expanded svg-icon svg-icon-2 text-primary"
+              [inlineSVG]="'./assets/media/icons/duotune/arrows/arr014.svg'">
+            </span>
+          </div>
+        </div>
+        <div [id]="'kt_faq' + faq.id" class="collapse">
+          <div class="card-body border-top p-9">
+            <label class="col-form-label fw-bold text-light-primary fs-6">
+              {{("LANG" | translate) === 'tr' ? faq.content : faq.contentEn }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

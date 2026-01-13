@@ -1,6 +1,6 @@
 <div [ngClass]="footerContainerCssClasses" class="d-flex flex-column flex-md-row flex-stack">
   <!-- begin::Copyright  -->
-  <div class="order-2 order-md-1" routerLink="/home">
+  <div class="order-2 order-md-1" routerLink="/about">
     <span class="text-primary fw-bold me-2">{{ currentDateStr }} &copy;</span>
     <a class="text-light-primary text-hover-primary cursor-pointer"> Styever </a>
   </div>
@@ -22,6 +22,11 @@
           <i class="fa-brands fa-facebook text-primary"></i>&nbsp;  
       </a>
     </li>
+    <li class="menu-item" style="border-radius: 20px;">
+      <a href="https://www.linkedin.com/kullaniciadi" target="_blank" class="menu-link pe-0 pe-2 cursor-pointer"> 
+          <i class="fa-brands fa-linkedin text-primary"></i>&nbsp;  
+      </a>
+    </li>
   </ul>
 
   <!-- begin::Nav  -->
@@ -29,8 +34,8 @@
     <li class="menu-item" routerLink="/contactus">
       <a class="menu-link pe-0 pe-2 cursor-pointer"> Contact </a>
     </li>
-    <li class="menu-item">
-      <a class="menu-link pe-0 cursor-pointer"> F.A.Q</a>
+    <li class="menu-item" routerLink="/faq">
+      <a class="menu-link pe-0 cursor-pointer">FAQS</a>
     </li>
   </ul>
   <!-- end::Nav  -->

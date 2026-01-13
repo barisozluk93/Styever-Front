@@ -15,7 +15,7 @@ const Routing: Routes = [
       import('../modules/user-management/user-management.module').then((m) => m.UserManagementModule),
   },
   {
-    path: 'home',
+    path: 'about',
     loadChildren: () =>
       import('../modules/home/home.module').then((m) => m.HomeModule),
   },
@@ -25,9 +25,14 @@ const Routing: Routes = [
       import('../modules/memory/memory.module').then((m) => m.MemoryModule),
   },
   {
-    path: 'articles',
+    path: 'support',
     loadChildren: () =>
       import('../modules/article/article.module').then((m) => m.ArticleModule),
+  },
+  {
+    path: 'faq',
+    loadChildren: () =>
+      import('../modules/faq/faq.module').then((m) => m.FAQModule),
   },
   {
     path: 'contactus',
@@ -48,7 +53,7 @@ const Routing: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/about',
     pathMatch: 'full',
   },
   {
