@@ -1,9 +1,45 @@
-<ngb-carousel>
-    <ng-container *ngFor="let file of files">
-        <ng-template ngbSlide>
-            <div>
-                <img class="image" [src]="file.fileUrl" />
-            </div>
-        </ng-template>
-    </ng-container>
-</ngb-carousel>
+<div class="carousel-wrapper">
+    <ngb-carousel [activeId]="activeSlideId"
+ (slide)="onSlide($event)" [interval]="0" [pauseOnHover]="true">
+        <ng-container *ngFor="let file of files; let i = index">
+            <ng-template ngbSlide [id]="'slide-' + i">
+                <div *ngIf="file.file.contentType.includes('image')">
+                    <img class="image" [src]="file.fileUrl" />
+                </div>
+                <div *ngIf="!file.file.contentType.includes('image')">
+                    <video autoplay="true" class="image">
+                        <source style="height: 100%;" [src]="file.fileUrl" type="video/mp4">
+                    </video>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-container *ngIf="!files || files.length == 0">
+            <ng-template ngbSlide>
+                <div>
+                    <img class="image" src="./assets/media/patterns/blank.jpg" />
+                </div>
+            </ng-template>
+        </ng-container>
+    </ngb-carousel>
+
+    <!-- DELETE (SOL ALT ORTA) -->
+    <button (click)="onDelete()" *ngIf="isEdit && files && files.length > 0" class="carousel-btn carousel-btn-left btn btn-danger" type="button">
+        <i class="bi bi-trash"></i>
+    </button>
+
+    <!-- UPLOAD (SAĞ ALT ORTA) -->
+    <input type="file" style="display:none" accept="video/mp4" (change)="onFileChange($event)" #fileUpload />
+    <button (click)="fileUpload.click()" *ngIf="isVideoUploadAllowed && isEdit" class="carousel-btn carousel-btn-right btn btn-primary" type="button">
+        <i class="fas fa-video" style="padding: 10;"></i>
+    </button>
+
+    <input type="file" style="display:none" accept="image/*" (change)="onFileChange($event)" #fileUpload2 />
+    <button (click)="fileUpload2.click()" *ngIf="isImageUploadAllowed && isEdit" class="carousel-btn carousel-btn-right-2 btn btn-primary" type="button">
+        <i class="fas fa-image"></i>
+    </button>
+
+    <div *ngIf="files && files.length > 0 && (files[activeMediaIndex] && files[activeMediaIndex].file.contentType.includes('image')) && isEdit" class="carousel-primary">
+        <input (change)="onPrimaryChange($event)" class="form-check-input" type="checkbox" id="googleswitch" [checked]="files[activeMediaIndex].isPrimary" [disabled]="files[activeMediaIndex].isPrimary" />
+        <label class="form-check-label text-white fw-bolder" htmlFor="googleswitch">&nbsp;{{'IS_PRIMARY' | translate}}</label>
+    </div>    
+</div>

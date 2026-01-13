@@ -332,7 +332,29 @@ export const locale = {
     INVOICE_ADDRESS: 'Invoice Address',
     SAME_ADDRESS: 'Send My Invoice to the Same Address',
     ORDER: 'Order',
-    IS_PRIMARY: "Primary"
+    IS_PRIMARY: "Primary",
+
+    FAQ: "FAQs",
+
+    MEMORY_HEADER: "Keep their memories alive forever.",
+    MEMORY_SUBHEADER: "Share your memories with your closest friend in just a few minutes.",
+    SELECT_PET: "Select...",
+    ADD_MEMORY: "New",
+    LIKES: "Likes",
+    COMMENTS: "Comments",
+    BIRTH_DATE: "Birth Date",
+    DEATH_DATE: "Death Date",
+    POST_DATE: "Post Date",
+    COMMENT: "Comment",
+    MEMORY_TEXT: "Memory Text",
+    BF_NAME: "Best Friend's Name",
+    BF_TYPE: "Best Friend's Type",
+    OPEN_TO_COMMENT: "Open To Comment",
+    IS_PRIVATE: "Private",
+    SEARCH_PETS: "Search Pets",
+
+    SUPPORT_HEADER: "Support",
+    SUPPORT_SUBHEADER: "A sincere and heartfelt guide to advice."
     // END (TR-EN-LANGUAGE-BRANCH)
   }
 };

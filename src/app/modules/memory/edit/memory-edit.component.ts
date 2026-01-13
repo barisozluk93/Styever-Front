@@ -26,11 +26,11 @@ import { environment } from 'src/environments/environment';
 export class MemoryEditComponent implements OnInit, AfterViewInit {
   private route = inject(ActivatedRoute);
   memoryId: number;
-  memoryImageFiles: MemoryFileModel[] = [];
-  memoryVideoFiles: MemoryFileModel[] = [];
   isImageUploadAllowed: boolean = true;
   isVideoUploadAllowed: boolean = false;
   form: FormGroup;
+  mediaFiles: MemoryFileModel[] = [];
+  activeMediaIndex: number = 0;
 
   bannerHeight?: number;
   bannerToolPaddingTopHeight?: number;
@@ -56,18 +56,18 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   }
 
 
-  getById() {
+  getById(file?: any) {
     this.memoryManagementService.getById(this.memoryId)
       .subscribe(result => {
         if (result.isSuccess) {
-          if (this.memoryImageFiles.length == 0) {
+          if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length == 0) {
             this.form.get("fileUrl")?.patchValue(undefined);
           }
 
           if (this.currentUser?.roles.includes("2")) {
             this.isVideoUploadAllowed = false;
 
-            if (this.memoryImageFiles.length >= 1) {
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 1) {
               this.isImageUploadAllowed = false;
             }
             else {
@@ -76,14 +76,14 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
           }
           else if (this.currentUser?.roles.includes("3")) {
-            if (this.memoryImageFiles.length >= 4) {
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
               this.isImageUploadAllowed = false;
             }
             else {
               this.isImageUploadAllowed = true;
             }
 
-            if (this.memoryVideoFiles.length == 2) {
+            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
               this.isVideoUploadAllowed = false;
             }
             else {
@@ -91,33 +91,34 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             }
           }
           else if (this.currentUser?.roles.includes("4")) {
-            if (this.memoryImageFiles.length >= 2) {
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 2) {
               this.isImageUploadAllowed = false;
             }
             else {
               this.isImageUploadAllowed = true;
             }
 
-            if (this.memoryVideoFiles.length == 1) {
+            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 1) {
               this.isVideoUploadAllowed = false;
             }
             else {
               this.isVideoUploadAllowed = true;
             }
           }
+          else {
+            this.isImageUploadAllowed = true;
+            this.isVideoUploadAllowed = true;
+          }
 
           result.data.files?.forEach(file => {
             if (file.file) {
-              file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];
+              file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
 
               if (file.isPrimary) {
                 result.data.fileUrl = file.fileUrl;
               }
             }
           })
-
-          this.memoryImageFiles = result.data.files!.filter(f => f.file ? f.file.contentType.includes("image") : false);
-          this.memoryVideoFiles = result.data.files!.filter(f => f.file ? !f.file.contentType.includes("image") : false);
 
           result.data.likes?.forEach(like => {
             if (like.userId == this.currentUser?.id) {
@@ -132,10 +133,36 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           result.data.deathDateStr = formatDate(result.data.deathDate!, "dd.MM.yyyy", this.locale);
 
           result.data.files?.forEach(file => {
-              if (file.isPrimary && file.file) {
-                result.data.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];                
-              }
-            })
+            if (file.isPrimary && file.file) {
+              result.data.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
+            }
+          })
+
+          result.data?.files!.sort((a, b) => {
+            const aIsImage = a.file?.contentType?.includes('image') ? 1 : 0;
+            const bIsImage = b.file?.contentType?.includes('image') ? 1 : 0;
+
+            const aIsPrimary = a.isPrimary ? 1 : 0;
+            const bIsPrimary = b.isPrimary ? 1 : 0;
+
+            if (aIsPrimary !== bIsPrimary) {
+              return bIsPrimary - aIsPrimary;
+            }
+
+            if (aIsImage !== bIsImage) {
+              return bIsImage - aIsImage;
+            }
+
+            return 0;
+          });
+          this.mediaFiles = result.data?.files!;
+
+          if (file && !file.type.includes("image")) {
+            this.activeMediaIndex = this.mediaFiles.length - 1;
+          }
+          else if (file && file.type.includes("image")) {
+            this.activeMediaIndex = this.mediaFiles.filter(f => f.file?.contentType.includes('image')).length-1;
+          }
 
           this.form.patchValue(result.data);
         }
@@ -161,7 +188,6 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       id: 0,
       userId: this.currentUser?.id,
       fileUrl: undefined,
-      fileResult: '',
       userName: '',
       postDateStr: '',
       birthDateStr: '',
@@ -225,7 +251,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.memoryId = this.route.snapshot.params['id'];
 
     if (this.memoryId) {
-      this.getById();
+      this.getById(undefined);
     }
     else {
       this.form.get("userName")?.patchValue(this.currentUser?.name + " " + this.currentUser?.surname);
@@ -250,7 +276,8 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   onCheckboxClicked(fileId: number) {
     this.memoryManagementService.setMemoryFileIsPrimary(fileId).subscribe(result => {
       if (result.isSuccess) {
-        this.getById();
+        this.getById(undefined);
+        this.activeMediaIndex = 0;
       }
     })
   }
@@ -266,11 +293,11 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
       this.memoryManagementService.upload(formData).subscribe(result => {
         if (result.isSuccess) {
-          var data: MemoryFileModel = { id: 0, memoryId: this.memoryId, fileId: result.data.id, isPrimary: this.memoryImageFiles.length > 0 ? false : true};
+          var data: MemoryFileModel = { id: 0, memoryId: this.memoryId, fileId: result.data.id, isPrimary: this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length > 0 ? false : true };
           this.memoryManagementService.memoryFileAdd(data).subscribe(result => {
             if (result.isSuccess) {
               // this.alertService.createAlert("success", result.message);
-              this.getById();
+              this.getById(file);
             }
             else {
               // this.alertService.createAlert("danger", result.message);
@@ -290,7 +317,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     if (this.memoryId > 0) {
       this.memoryManagementService.edit(data).subscribe(result => {
         if (result.isSuccess) {
-          this.getById();
+          this.getById(undefined);
         }
       })
     }
@@ -299,7 +326,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       this.memoryManagementService.save(data).subscribe(result => {
         if (result.isSuccess) {
           this.memoryId = result.data.id;
-          this.getById();
+          this.getById(undefined);
         }
       })
     }
@@ -310,10 +337,33 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       if (result.isSuccess) {
         this.memoryManagementService.memoryFileDelete(memoryFileId).subscribe(result => {
           if (result.isSuccess) {
-            this.getById();
+            this.getById(undefined);
+
+            if ((this.mediaFiles.length - 1) == 1 || (this.mediaFiles.length - 1) == 0) {
+              this.activeMediaIndex = 0;
+            }
+            else {
+              if (this.mediaFiles.length - 1 == this.activeMediaIndex) {
+                this.activeMediaIndex = this.activeMediaIndex - 1;
+              }
+            }
           }
         })
       }
     })
+  }
+
+  isFileDeleted(event: number) {
+    let file = this.mediaFiles[event];
+    this.deleteFile(file.fileId, file.id);
+  }
+
+  isCheckboxClicked(event: number) {
+    let file = this.mediaFiles[event];
+    this.onCheckboxClicked(file.id);
+  }
+
+  onActiveMediaIndexChanged(event: number) {
+    this.activeMediaIndex = event;
   }
 }

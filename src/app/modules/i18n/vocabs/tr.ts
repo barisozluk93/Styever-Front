@@ -335,8 +335,29 @@ export const locale = {
         INVOICE_ADDRESS: 'Fatura Adresi',
         SAME_ADDRESS: 'Faturamı Aynı Adrese Gönder',
         ORDER: 'Siparişi Tamamla',
-        IS_PRIMARY: "Birincil"
+        IS_PRIMARY: "Birincil",
 
+        FAQ: "Sıkça Sorulan Sorular",
+
+        MEMORY_HEADER: "Anılarını sonsuza kadar yaşat.",
+        MEMORY_SUBHEADER: "Birkaç dakika içinde en yakın dostunla anularını paylaş.",
+        SELECT_PET: "Seçiniz...",
+        ADD_MEMORY: "Yeni",
+        LIKES: "Beğenenler",
+        COMMENTS: "Yorumlar",
+        BIRTH_DATE: "Doğum Tarihi",
+        DEATH_DATE: "Ölüm Tarihi",
+        POST_DATE: "Post Tarihi",
+        COMMENT: "Yorum Yap",
+        MEMORY_TEXT: "Anı Yazısı",
+        BF_NAME: "En Yakın Arkadaşınızın Adı",
+        BF_TYPE: "En Yakın Dostunuzun Türü",
+        OPEN_TO_COMMENT: "Yoruma Açık",
+        IS_PRIVATE: "Herkese Kapalı",
+        SEARCH_PETS: "Evcil Hayvan Ara",
+
+        SUPPORT_HEADER: "Destek Köşesi",
+        SUPPORT_SUBHEADER: "Samimi ve içten bir danışma rehberi."
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };

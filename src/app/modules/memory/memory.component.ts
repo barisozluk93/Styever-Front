@@ -74,6 +74,8 @@ export class MemoryComponent implements OnInit, AfterViewInit {
         if (result.isSuccess) {
           result.data.items.forEach(item => {
             
+            item.userAvatarFileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar?.path.split("\\")[item.userAvatar?.path.split("\\").length-1];                
+
             item.files?.forEach(file => {
               if (file.isPrimary && file.file) {
                 item.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];                
@@ -81,7 +83,7 @@ export class MemoryComponent implements OnInit, AfterViewInit {
             })
 
             item.likes?.forEach(like => {
-              if (like.userId == this.auth.currentUserValue?.id) {
+              if (like.userId === this.auth.currentUserValue?.id) {
                 item.ownLike = true;
               }
             })

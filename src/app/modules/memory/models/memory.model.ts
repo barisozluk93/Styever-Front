@@ -26,8 +26,9 @@ export class MemoryModel {
     postDate?: string;
     postDateStr?: string;
     text: string;
-    fileResult?: any;
+    userAvatar: FileModel;
     fileUrl?: string;
+    userAvatarFileUrl?: string;
     ownLike?: boolean;
     isPrivate: boolean;
     isOpenToComment: boolean;

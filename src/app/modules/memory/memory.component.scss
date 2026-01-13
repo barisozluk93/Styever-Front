@@ -1,19 +1,150 @@
 .image {
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .center-title-wrapper {
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    text-align: center;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  text-align: center;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.image-card {
+  position: relative;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #000;
+}
+
+/* BACKGROUND IMAGE */
+.image-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.image-card:hover .image-bg {
+  transform: scale(1.05);
+}
+
+/* OVERLAY */
+.image-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+
+  display: flex;
+  /* 🔥 tek flex */
+}
+
+/* ALT BLOK – TÜM İÇERİĞİ AŞAĞI İTER */
+.overlay-content-bottom {
+  margin-top: auto;
+  /* 🔥 en kritik satır */
+  width: 100%;
+}
+
+/* USER INFO (DIVIDERIN ÜSTÜ) */
+.overlay-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-type {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.date {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* DIVIDER */
+.overlay-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  margin-bottom: 12px;
+}
+
+/* POST INFO (LENA + ICONLAR) */
+.overlay-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.username {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ACTION ICONS */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.action i {
+  font-size: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .image-card {
+    height: 260px;
+  }
+
+  .username {
+    font-size: 20px;
+  }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+  }
 }

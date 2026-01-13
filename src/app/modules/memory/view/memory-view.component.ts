@@ -23,8 +23,6 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   private route = inject(ActivatedRoute);
   memoryId: number;
   memory: MemoryModel | undefined;
-  memoryImageFiles: MemoryFileModel[] = [];
-  memoryVideoFiles: MemoryFileModel[] = [];
 
   bannerHeight?: number;
   bannerToolPaddingTopHeight?: number;
@@ -72,9 +70,6 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
               }
             }
           })
-
-          this.memoryImageFiles = result.data.files!.filter(f => f.file ? f.file.contentType.includes("image") : false);
-          this.memoryVideoFiles = result.data.files!.filter(f => f.file ? !f.file.contentType.includes("image") : false);
 
           result.data.likes?.forEach(like => {
             if (like.userId == this.currentUser?.id) {

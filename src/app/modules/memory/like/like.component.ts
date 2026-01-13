@@ -6,6 +6,7 @@ import { MemoryCommentModel } from "../models/comment.model";
 import { MemoryLikeModel } from "../models/like.model";
 import { formatDate } from "@angular/common";
 import { environment } from "src/environments/environment";
+import { forkJoin } from "rxjs";
 
 @Component({
     selector: 'app-memory-like',
@@ -34,10 +35,21 @@ export class LikeComponent {
     }
 
     openModal(memoryId: number) {
+        const keys = ['LIKES', 'CANCEL'];
+        const translations: any = {};
+        
+        const observables = keys.map(key => this.translate.get(key));
+        
+        forkJoin(observables).subscribe((results) => {
+            keys.forEach((key, index) => {
+                translations[key] = results[index]
+            })
+        })
+
         this.modalConfig = {
-            modalTitle: "Beğenenler",
+            modalTitle: translations['LIKES'],
             hideDismissButton: () => true,
-            closeButtonLabel: "İptal"
+            closeButtonLabel: translations['CANCEL']
         };
 
         this.memoryManagementService.likeAll(memoryId).subscribe(result => {

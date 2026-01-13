@@ -14,7 +14,6 @@ import { LikeComponent } from './like/like.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MemoryViewComponent } from './view/memory-view.component';
 import { MemoryEditComponent } from './edit/memory-edit.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     LikeComponent,
     MemoryViewComponent,
     CarouselComponent,
-    VideoPlayerComponent,
     MemoryEditComponent
   ],
   imports: [

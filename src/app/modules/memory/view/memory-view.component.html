@@ -1,89 +1,76 @@
 <div [ngStyle]="{'height.px': bannerHeight}">
   <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
-    <div class="col-lg-10">
+    <div class="col-lg-9">
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <a (click)="goToMemories()"
         class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
         data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
         <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2 me-1"></span>
-        Anılar
+        {{ 'SEARCH_PETS' | translate }}
       </a>
     </div>
   </div>
 </div>
-<div class="row mx-10 my-10">
-  <div class="col-lg-12 mb-10">
-    <div class="card">
-      <div class="card-body px-0 py-0">
-        <div class="d-flex flex-wrap flex-sm-nowrap">
-          <div class="me-7">
-            <img *ngIf="memory?.fileUrl" class="image" [src]="memory?.fileUrl" />
-            <img *ngIf="!memory?.fileUrl" class="image" src="./../../../assets/media/patterns/blank.jpg" />
-          </div>
-          <div class="flex-grow-1">
-            <div class="text-center py-9" style="height: 80px;">
-              <span class="text-hover-primary fs-2 fw-bolder me-2">{{memory?.name}}</span>
-              <button *ngIf="memory?.userId == currentUser?.id" type="button" style="float: right;" (click)="edit()"
-                class="btn btn-sm btn-icon btn-color-success btn-active-light-success me-4" title="Delete">
-                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
-              </button>
-            </div>
-            <div class="separator"></div>
-            <div class="px-5 py-12" style="height: 140px;">
-              <div>
-                <label class="form-label fw-bolder text-gray-600">Türü</label>
-                <span class="fw-bolder me-2" style="float: right;">{{memory?.category?.name}}</span>
-              </div>
-              <div>
-                <label class="form-label fw-bolder text-gray-600">Doğum Tarihi</label>
-                <span class="fw-bolder me-2" style="float: right;"><i
-                    class="bi fs-6 bi-calendar me-2"></i>{{memory?.birthDate}}</span>
-              </div>
-              <div>
-                <label class="form-label fw-bolder text-gray-600">Ölüm Tarihi</label>
-                <span class="fw-bolder me-2" style="float: right;"><i
-                    class="bi fs-6 bi-calendar me-2"></i>{{memory?.deathDate}}</span>
-              </div>
-            </div>
-            <div class="separator"></div>
-            <div class="px-5 py-9" style="height: 80px;">
-              <span class="text-hover-primary fw-bolder me-2" style="float: left;"><i
-                  class="bi fs-6 bi-person me-2"></i>{{memory?.userName!}}</span>
 
-              <span class="text-hover-primary fw-bolder me-2" style="float: right;"><i
-                  class="bi fs-6 bi-calendar me-2"></i>{{memory?.postDate}}</span>
-            </div>
-          </div>
+<div class="row mx-10 my-10">
+  <div class="card">
+    <div class="card-body pt-2">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <app-carousel [isEdit]="false" [files]="memory?.files!"></app-carousel>
         </div>
-      </div>
-    </div>
-  </div>
-  <div [ngClass]="memory?.files!.length > 0 ? 'col-lg-6' : 'col-lg-12'" [ngStyle]="{'border-right': (memoryId > 0 && memory?.files!.length > 0) ? '2px solid #F1F1F4' : ''}">
-    <div class="card">
-      <div class="card-body">
-        <span class="text-gray-900 fs-4">
-          {{memory?.text}}
-        </span>
+        <div class="col-lg-2 mx-0 px-0">
+          <a (click)="edit()" class="btn btn-custom btn-active-white btn-color-white btn-primary"
+              style="float: right;">
+                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
+              {{'EDIT' | translate}}
+            </a>
+        </div>
+
+        <div class="col-lg-6 mt-10">
+          <label class="form-label fs-4 fw-bolder text-primary">{{'POST_DATE' | translate}}</label>
+        </div>
+        <div class="col-lg-6 mt-10">
+          <label class="form-label fs-4 fw-bolder text-primary" style="float: right;">{{'DEATH_DATE' |
+            translate}}</label>
+          <label class="form-label fs-4 fw-bolder text-primary me-10" style="float: right;">{{'BIRTH_DATE' |
+            translate}}</label>
+        </div>
+        <div class="col-lg-6">
+          <label class="form-label fs-4 text-light-primary">{{memory?.postDate}}</label>
+        </div>
+        <div class="col-lg-6">
+          <label class="form-label text-light-primary fs-4" style="float: right;">{{memory?.deathDate}}</label>
+          <label class="form-label text-light-primary fs-4 me-10" style="float: right;">{{memory?.birthDate}}</label>
+        </div>
+        <div class="col-lg-12 mt-10">
+          <label class="form-label fs-2 fw-bolder text-primary fs-4">{{memory?.name}}</label>
+        </div>
+        <div class="col-lg-12">
+          <label class="form-label fs-3 text-light-primary fs-4">{{memory?.text}}</label>
+        </div>
         <div class="separator mt-5"></div>
         <div class="py-5" style="height: 50px;">
-          <a *ngIf="memory?.isOpenToComment" (click)="showCloseCommentBox()" class="text-primary fw-bolder cursor-pointer me-2"
-            style="float: left;">Yorum Yap</a>
+          <a *ngIf="memory?.isOpenToComment" (click)="showCloseCommentBox()"
+            class="text-primary fs-4 fw-bolder cursor-pointer me-2" style="float: left;">{{'COMMENT' | translate}}</a>
           <a (click)="openLikesModal(memory?.id!, memory?.likesCount!)"
-            class="text-gray-900 text-hover-primary fw-bolder cursor-pointer me-2"
-            style="float: right;">{{memory?.likesCount}}</a>
-          <a (click)="like()" class="text-hover-primary cursor-pointer" style="float: right;"><i
-              [ngClass]="memory?.ownLike! ? 'text-primary' : ''" class="bi fs-6 bi-heart-fill me-2"></i></a>
+            class="text-primary fw-bolder cursor-pointer me-2" style="float: right;">{{memory?.likesCount}}</a>
+          <a (click)="like()" class="text-primary cursor-pointer" style="float: right;"><i
+              [ngClass]="memory?.ownLike! ? 'text-primary' : ''"
+              class="bi fs-4 bi-heart-fill me-2 text-primary"></i></a>
           <a (click)="openCommentsModal(memory?.id!, memory?.commentsCount!)"
-            class="text-gray-900 text-hover-primary fw-bolder cursor-pointer me-2"
-            style="float: right;">{{memory?.commentsCount}}</a>
-          <a class="text-hover-primary cursor-pointer" style="float: right;"><i class="bi fs-6 bi-chat me-2"></i></a>
+            class="text-primary fw-bolder cursor-pointer me-2" style="float: right;">{{memory?.commentsCount}}</a>
+          <a class="text-primary cursor-pointer" style="float: right;"><i
+              class="bi fs-4 bi-chat me-2 text-primary"></i></a>
         </div>
         <div class="separator mb-5"></div>
-        <div class="row mb-5" *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment">
+        <div class="row mb-5"
+          *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment">
           <div class="col-lg-4"></div>
           <div class="col-lg-8" style="float: right;">
-            <textarea class="form-control bg-transparent" type="text" name="comment" [(ngModel)]="comment"></textarea>
+            <textarea class="form-control bg-transparent text-light-primary" type="text" name="comment" [(ngModel)]="comment"></textarea>
           </div>
         </div>
         <div class="row" *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment">
@@ -91,33 +78,10 @@
           <div class="col-lg-6" style="float: right;">
             <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
               style="float: right;">
-              Gönder
+              {{'SUBMIT' | translate}}
             </a>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="memoryImageFiles.length > 0 || memoryVideoFiles.length > 0" class="col-lg-6">
-    <div class="card mb-2" *ngIf="memoryImageFiles.length > 0">
-      <div class="card-header">
-        <h3 class="card-title align-items-center flex-column">
-          <span class="fw-bolder text-gray-900">Fotoğraf Kütüphanesi</span>
-        </h3>
-      </div>
-      <div class="card-body">
-        <app-carousel [files]="memoryImageFiles"></app-carousel>
-      </div>
-    </div>
-
-    <div class="card" *ngIf="memoryVideoFiles.length > 0">
-      <div class="card-header">
-        <h3 class="card-title align-items-center flex-column">
-          <span class="fw-bolder text-gray-900">Video Kütüphanesi</span>
-        </h3>
-      </div>
-      <div class="card-body">
-        <app-video-player style="width: 100% !important;" [files]="memoryVideoFiles"></app-video-player>
       </div>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize
 import { ArticleManagementService } from './article-management.service';
 import { ArticleModel } from './models/article.model';
 import { environment } from 'src/environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -27,15 +28,15 @@ export class ArticleComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private articleManagementService: ArticleManagementService,
-    private auth: AuthService,
+    private translate: TranslateService,
     private windowResizeService: WindowResizeService,
     @Inject(LOCALE_ID) public locale: string) {
   }
 
   loadData() {
     this.searchTerm == "" ? null : this.searchTerm;
-
-    this.articleManagementService.getAll(this.searchTerm)
+    
+    this.articleManagementService.getAll(this.searchTerm, this.translate.currentLang)
       .subscribe(result => {
         if (result.isSuccess) {
           result.data.forEach(item => {
@@ -73,6 +74,6 @@ export class ArticleComponent implements OnInit, AfterViewInit {
   }
 
   articleEditView(articleId: number) {
-    this.router.navigate(['articles/' + articleId]);
+    this.router.navigate(['support/' + articleId]);
   }
 }

@@ -21,9 +21,9 @@ export class ArticleManagementService {
         return this.http.get<ResultModel<ArticleModel>>(`${API_ARTICLE_URL}/${id}`);
     }
 
-    getAll(searchTerm?: string): Observable<ResultModel<ArticleModel[]>> {
+    getAll(searchTerm?: string, language?: string): Observable<ResultModel<ArticleModel[]>> {
         return this.http.get<ResultModel<ArticleModel[]>>(`${API_ARTICLE_URL}/GetAll`,
-            { params: new HttpParams().set("FilterText", searchTerm!==undefined ? searchTerm : '')}
+            { params: new HttpParams().set("FilterText", searchTerm!==undefined ? searchTerm : '').set("Language", language!==undefined ? language : '')}
         );
     }
     
