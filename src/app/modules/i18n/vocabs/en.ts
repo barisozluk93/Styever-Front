@@ -354,7 +354,8 @@ export const locale = {
     SEARCH_PETS: "Search Pets",
 
     SUPPORT_HEADER: "Support",
-    SUPPORT_SUBHEADER: "A sincere and heartfelt guide to advice."
+    SUPPORT_SUBHEADER: "A sincere and heartfelt guide to advice.",
+    SHARE: "Share"
     // END (TR-EN-LANGUAGE-BRANCH)
   }
 };

@@ -91,7 +91,7 @@ export class MemoryComponent implements OnInit, AfterViewInit {
             item.postDate = formatDate(item.postDate!, "dd/MM/yyyy HH:mm", this.locale);
             item.birthDate = formatDate(item.birthDate!, "dd/MM/yyyy", this.locale);
             item.deathDate = formatDate(item.deathDate!, "dd/MM/yyyy", this.locale);
-
+            item.qrData = `${environment.appUrl}/#/memories/${item.id}`;
           })
           this.dataSource = result.data.items;
           this.totalCount = result.data.totalCount;

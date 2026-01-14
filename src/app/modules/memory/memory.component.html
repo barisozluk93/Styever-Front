@@ -9,11 +9,12 @@
 
   <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
     <div [ngClass]="isNewMemoryVisible ? 'col-lg-2' : 'col-lg-4'">
-      <select class="form-select form-select-solid form-select-lg fw-bold" name="petType"
+      <select class="form-select form-select-solid form-select-lg text-light-primary fw-bold" name="petType"
         (change)="onPetTypeChange($event)">
-        <option value="">{{ 'SELECT_PET' | translate}}</option>
+        <option class="text-light-primary" value="">{{ 'SELECT_PET' | translate}}</option>
         <ng-container *ngFor="let category of categoryList">
-          <option value={{category.id}}>{{("LANG" | translate) === 'tr' ? category.name : category.nameEn }}</option>
+          <option class="text-light-primary" value={{category.id}}>{{("LANG" | translate) === 'tr' ? category.name :
+            category.nameEn }}</option>
         </ng-container>
       </select>
     </div>
@@ -56,11 +57,12 @@
 
         <div *ngIf="!data.fileUrl" class="image-bg" [style.backgroundImage]="'url(./assets/media/patterns/blank.jpg)'">
         </div>
-
         <div class="image-overlay">
-
+          <div class="qr-top-right">
+            <qrcode [qrdata]="data.qrData!" [width]="80" [errorCorrectionLevel]="'M'">
+            </qrcode>
+          </div>
           <div class="overlay-content-bottom">
-
             <div class="overlay-user">
               <img *ngIf="data.userAvatar" class="avatar" [src]="data.userAvatarFileUrl" />
               <img *ngIf="!data.userAvatar" class="avatar" src="./assets/media/avatars/blank.png" />
@@ -80,8 +82,9 @@
                   <i class="bi bi-chat"></i> {{ data.commentsCount }}
                 </span>
                 <span class="action">
-                  <i class="bi" [ngClass]="data.ownLike! ? 'bi-heart-fill' : 'bi-heart'" ></i>
-                  <span class="cursor: pointer" (click)="openLikesModal(data.id, data.likesCount)"> {{ data.likesCount }} </span>
+                  <i class="bi" [ngClass]="data.ownLike! ? 'bi-heart-fill' : 'bi-heart'"></i>
+                  <span class="cursor: pointer" (click)="openLikesModal(data.id, data.likesCount)"> {{ data.likesCount
+                    }} </span>
                 </span>
               </div>
             </div>

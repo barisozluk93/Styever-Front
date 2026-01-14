@@ -32,5 +32,6 @@ export class MemoryModel {
     ownLike?: boolean;
     isPrivate: boolean;
     isOpenToComment: boolean;
+    qrData?: string;
   }
   

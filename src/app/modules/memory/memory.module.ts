@@ -14,6 +14,7 @@ import { LikeComponent } from './like/like.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MemoryViewComponent } from './view/memory-view.component';
 import { MemoryEditComponent } from './edit/memory-edit.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MemoryEditComponent } from './edit/memory-edit.component';
     InlineSVGModule,
     NgbPaginationModule,
     ModalsModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    QRCodeModule
   ],
 })
 export class MemoryModule {}

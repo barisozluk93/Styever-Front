@@ -357,7 +357,8 @@ export const locale = {
         SEARCH_PETS: "Evcil Hayvan Ara",
 
         SUPPORT_HEADER: "Destek Köşesi",
-        SUPPORT_SUBHEADER: "Samimi ve içten bir danışma rehberi."
+        SUPPORT_SUBHEADER: "Samimi ve içten bir danışma rehberi.",
+        SHARE: "Paylaş"
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };

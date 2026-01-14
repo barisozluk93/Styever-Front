@@ -5,3 +5,22 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.social-center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: var(--bs-primary);
+  cursor: pointer;
+}
