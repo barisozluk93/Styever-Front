@@ -70,17 +70,22 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-    submit() {
+  submit() {
     this.hasError = false;
     const loginSubscr = this.authService
       .login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe((user: UserModelAuth | undefined) => {
         if (user) {
-          if(this.authService.getAuthFromLocalStorage()?.isPaymentRequired) {
-            this.router.navigate(["/payment"]);
+          if (this.authService.getAuthFromLocalStorage()?.isPaymentRequired) {
+            this.router.navigate(["/payment"], {
+              queryParams: {
+                typeId: 1,
+                role: user.roles.includes("2") ? 2 : user.roles.includes("3") ? 3 : 4,
+              }
+            });
           }
-          else{
+          else {
             this.router.navigate(["/about"]);
           }
         } else {

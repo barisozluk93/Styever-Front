@@ -1,0 +1,185 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">{{ 'GIFT' | translate}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0"
+      style="height: 425px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-primary">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_FIRST_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-light-primary mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_FIRST_CONTENT' | translate}}
+          </span>
+        </h3>
+        <div>
+          <a (click)="goToPlans()" class="btn btn-custom btn-primary mt-20" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+            data-kt-menu-flip="top-end">
+            {{ 'PURCHASE_VOUCHER' | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 425px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0 bg-primary"
+      style="height: 300px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_SECOND_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-white mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_SECOND_CONTENT' | translate}}
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 300px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0"
+      style="height: 250px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-primary">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_THIRD_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-light-primary mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_THIRD_CONTENT' | translate}}
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 250px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0 bg-primary"
+      style="height: 250px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_FOURTH_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-white mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_FOURTH_CONTENT' | translate}}
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 250px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0"
+      style="height: 250px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-primary">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_FIFTH_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-light-primary mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_FIFTH_CONTENT' | translate}}
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 250px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<div class="row px-10 pt-10">
+  <div class="col-lg-6" style="padding-right: 0px;">
+    <div class="card border-0 bg-primary"
+      style="height: 250px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+      <div class="card-header">
+        <h3 class="card-title align-items-start flex-column">
+          <a routerLink="/about" class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary rounded-4 h-40px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'GIFT_SIXTH_HEADER' | translate}}
+          </a>
+        </h3>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title flex-column mx-2 my-2">
+          <span class="text-white mt-3 fw-bold fs-sm" style="white-space: pre-line;">
+            {{ 'GIFT_SIXTH_CONTENT' | translate}}
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6" style="padding-left: 0px;">
+    <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+      <img style="width: 100%; height: 250px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
+        src="./assets/media/patterns/687521385876841ee6d961f7_REF16.avif" />
+    </div>
+  </div>
+</div>
+<section id="plans" class="px-10 pt-10">
+<app-plans [isStandByPage]="true"></app-plans>
+</section>

@@ -49,7 +49,7 @@
               </div>
             </form>
           </div>
-          <div id="kt_signin_email_button" class="ms-auto false">
+          <div *ngIf="isUserActive" id="kt_signin_email_button" class="ms-auto false">
             <button class="btn btn-primary" (click)="toggleEmailForm(true)">
               {{'CHANGE_EMAIL' | translate}}
             </button>
@@ -110,7 +110,7 @@
             <div class="fs-6 fw-bolder text-primary mb-1">{{'PASSWORD' |translate}}</div>
             <div class="fw-bold text-light-primary">************</div>
           </div>
-          <div id="kt_signin_password_button" class="ms-auto false">
+          <div *ngIf="isUserActive" id="kt_signin_password_button" class="ms-auto false">
             <button class="btn btn-primary" (click)="togglePasswordForm(true)">
               {{'RESET_PASSWORD' | translate}}
             </button>

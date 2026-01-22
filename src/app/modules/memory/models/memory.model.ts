@@ -3,15 +3,20 @@ import { CategoryModel } from "./category.model";
 import { MemoryCommentModel } from "./comment.model";
 import { MemoryFileModel } from "./file.model";
 import { MemoryLikeModel } from "./like.model";
+import { MemoryCandleModel } from "./candle.model";
 
 export class MemoryModel {
     id: number;
     name: string;
     userId: number;
     isDeleted: boolean;
+    isLinkOnly: boolean;
+    belongToOldPackage: boolean;
     categoryName?: string;
     categoryId: number;
     category?: CategoryModel;
+    candles?: MemoryCandleModel[];
+    candlesCount: number;
     comments?: MemoryCommentModel[];
     commentsCount: number;
     likes?: MemoryLikeModel[];
@@ -33,5 +38,6 @@ export class MemoryModel {
     isPrivate: boolean;
     isOpenToComment: boolean;
     qrData?: string;
+    hasDonation?: boolean;
   }
   

@@ -1,14 +1,18 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LayoutService } from 'src/app/_metronic/layout';
 import { LayoutInitService } from 'src/app/_metronic/layout/core/layout-init.service';
 import { UserManagementService } from '../user-management/user-management.service';
-import { AuthService } from '../auth';
+import { AuthService, UserType } from '../auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthModel } from '../auth/models/auth.model';
 import { UserAddressModel } from '../user-management/models/user-address.model';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
 import { AddressEditSaveComponent } from '../account/addresses/forms/list/edit-save/edit-save.component';
+import { GiftModel } from '../gift/models/gift.model';
+import { GiftManagementService } from '../gift/gift-management.service';
+import { MemoryManagementService } from '../memory/memory-management.service';
+import { MemoryCandleModel } from '../memory/models/candle.model';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -28,17 +32,15 @@ export class PaymentComponent implements OnInit, AfterViewInit {
   bannerPaddingTopHeight?: number;
 
   paymentForm: FormGroup;
+  currentUser: UserType;
 
   totalPrice: number = 0.0;
-  activeTabId: PaymentTabsType = "address";
+  activeTabId: PaymentTabsType = "payment";
 
-  deliveryAddresses: UserAddressModel[] = [];
-  invoiceAddresses: UserAddressModel[] = [];
-  selectedDeliveryAddressId: number;
-  selectedDeliveryAddress: UserAddressModel;
-  selectedInvoiceAddressId: number;
-  currentUser: any;
- 
+  typeId: number;
+  planId: number;
+  candleData: MemoryCandleModel;
+
   @ViewChild('editSaveComponent') private editSaveComponent: AddressEditSaveComponent;
 
   constructor(
@@ -47,165 +49,148 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private router: Router,
     private fb: FormBuilder,
     private windowResizeService: WindowResizeService,
+    private route: ActivatedRoute,
+    private giftService: GiftManagementService,
+    private memoryService: MemoryManagementService
   ) {
   }
 
   confirm() {
-    this.router.navigate(['/about'], {
-        queryParams: {},
-      }); 
+    if(this.typeId == 1) {
+      this.userManagementService.pay(this.currentUser?.id!).subscribe(result => {
+        if(result.isSuccess) {
+          //alert
+
+          this.auth.logout();
+        }
+      })
+    }
+    else if(this.typeId == 2) {
+      this.memoryService.updateCandle(this.candleData).subscribe(result => {
+        if(result.isSuccess) {
+          //alert
+
+          this.router.navigate(['/memories/' + this.candleData.memoryId]);
+        }
+      })
+    }
+    else if(this.typeId == 3) {
+      var data: GiftModel = this.paymentForm.getRawValue();
+      data.price = this.totalPrice;
+      if(this.currentUser) {
+        data.userId = this.currentUser?.id!;
+      }
+
+      this.giftService.addGift(data).subscribe(result => {
+        if(result.isSuccess) {
+          //alert
+
+          this.router.navigate(['/standby']);
+        }
+      })
+
+    }
+    if(this.typeId == 4) {
+      this.userManagementService.buyPackage(this.currentUser?.id!, this.planId).subscribe(result => {
+        if(result.isSuccess) {
+          //alert
+
+          this.auth.logout();
+        }
+      })
+    }
   }
 
   initForm() {
-      this.paymentForm = this.fb.group(
+    this.paymentForm = this.fb.group(
       {
         fullname: ['', Validators.required],
         cardno: ['', Validators.required],
         expiryDate: ['', Validators.required],
         cvv: ['', Validators.required],
       });
-    }
-
-  loadDeliveryAddresses() {
-    this.userManagementService.userAddressList(this.currentUser.id).subscribe(result => {
-      if(result.isSuccess) {
-        let i = 0;
-        result.data.forEach(item => {
-          if(i == 0) {
-            item.selected = true;
-            this.selectedDeliveryAddressId = item.id;
-            this.selectedDeliveryAddress = item;
-          }
-          else{
-            item.selected = false;
-          }
-
-          i++;
-        })
-
-        this.deliveryAddresses = result.data;
-      }
-      else{
-        this.deliveryAddresses = [];
-      }
-    })
-  }
-
-  loadInvoiceAddresses() {
-    this.userManagementService.userAddressList(this.currentUser.id).subscribe(result => {
-      if(result.isSuccess) {
-        let i = 0;
-        result.data.forEach(item => {
-          if(i == 0) {
-            item.selected = true;
-            this.selectedInvoiceAddressId = item.id;
-          }
-          else{
-            item.selected = false;
-          }
-
-          i++;
-        })
-
-        this.invoiceAddresses = result.data;
-      }
-      else{
-        this.invoiceAddresses = [];
-      }
-    })
   }
 
   ngOnInit(): void {
     this.windowResizeService.resize$
-    .subscribe(size => {
-      this.bannerHeight =  (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
-      this.bannerPaddingTopHeight = this.bannerHeight / 4;
-    });
+      .subscribe(size => {
+        this.bannerHeight = (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
+        this.bannerPaddingTopHeight = this.bannerHeight / 4;
+      });
 
     this.initForm();
+    this.currentUser = this.auth.currentUserValue!;
 
-    const currentUser = this.auth.currentUserValue;
-    if (currentUser) {
-      this.currentUser = currentUser;
-      
-      if (currentUser?.roles) {
-        let roleList = (JSON.parse(currentUser?.roles) as number[]);
+    this.route.queryParams.subscribe(params => {
+      this.typeId = params.typeId;
+      if (params.typeId == 1) {
+        this.paymentForm.removeControl('senderEmail');
+        this.paymentForm.removeControl('receiverEmail');
+        this.paymentForm.removeControl('message');
+        this.paymentForm.removeControl('planId');
 
-        if(roleList[0] == 2) {
+        if (params.role == 2) {
           this.totalPrice = 359.00;
         }
-        else if(roleList[0] == 3) {
+        else if (params.role == 3) {
           this.totalPrice = 559.00;
         }
-        else if(roleList[0] == 4) {
+        else if (params.role == 4) {
           this.totalPrice = 959.00;
         }
       }
+      else if (params.typeId == 2) {
+        this.paymentForm.removeControl('senderEmail');
+        this.paymentForm.removeControl('receiverEmail');
+        this.paymentForm.removeControl('message');
+        this.paymentForm.removeControl('planId');
 
-      this.loadDeliveryAddresses();
-      this.loadInvoiceAddresses();
-    }
+        this.candleData = JSON.parse(params.data);
+        this.totalPrice = this.candleData.donation!;
+      }
+      else if (params.typeId == 3) {
+        if(!this.currentUser) {
+          this.paymentForm.addControl('senderEmail', this.fb.control('', Validators.required));
+        }
+        
+        this.paymentForm.addControl('receiverEmail', this.fb.control('', Validators.required));
+        this.paymentForm.addControl('message', this.fb.control('', Validators.required));
+        this.paymentForm.addControl('planId', this.fb.control(params.selectedPlan, Validators.required));
+
+        this.planId = params.selectedPlan;
+        if (params.selectedPlan == 2) {
+          this.totalPrice = 359.00;
+        }
+        else if (params.selectedPlan == 3) {
+          this.totalPrice = 559.00;
+        }
+        else if (params.selectedPlan == 4) {
+          this.totalPrice = 959.00;
+        }
+      }
+      else if (params.typeId == 4) {
+        this.paymentForm.removeControl('senderEmail');        
+        this.paymentForm.removeControl('receiverEmail');
+        this.paymentForm.removeControl('message');
+        this.paymentForm.removeControl('planId');
+
+        this.planId = params.selectedPlan;
+
+        if (params.selectedPlan == 2) {
+          this.totalPrice = 359.00;
+        }
+        else if (params.selectedPlan == 3) {
+          this.totalPrice = 559.00;
+        }
+        else if (params.selectedPlan == 4) {
+          this.totalPrice = 959.00;
+        }
+      }
+    });
   }
 
   ngAfterViewInit(): void {
-    
-  }
 
-  onCheckboxClicked() {
-    if(this.selectedDeliveryAddressId == this.selectedInvoiceAddressId) {
-      this.invoiceAddresses.forEach(item => {
-        if(item.id == this.selectedInvoiceAddressId) {
-          item.selected = false;
-        }
-      })
-
-      this.selectedInvoiceAddressId = 0;
-    }
-    else{
-      this.invoiceAddresses.forEach(item => {
-        item.selected = false;
-
-        if(item.id == this.selectedDeliveryAddressId) {
-          item.selected = true;
-        }
-      })
-
-      this.selectedInvoiceAddressId = this.selectedDeliveryAddressId;
-    }
-  }
-
-  selectDeliveryAddress(id: number) {
-    if(id != this.selectedDeliveryAddressId) {
-      this.deliveryAddresses.forEach(item => {
-        if(item.id == id) {
-          item.selected = true;
-          this.selectedDeliveryAddress = item;
-        }
-
-        if(item.id == this.selectedDeliveryAddressId) {
-          item.selected = false;
-        }
-      })
-
-      this.selectedDeliveryAddressId = id;
-    }
-
-  }
-
-  selectInvoiceAddress(id: number) {
-    if(id != this.selectedInvoiceAddressId) {
-      this.invoiceAddresses.forEach(item => {
-        if(item.id == id) {
-          item.selected = true;
-        }
-
-        if(item.id == this.selectedInvoiceAddressId) {
-          item.selected = false;
-        }
-      })
-
-      this.selectedInvoiceAddressId = id;
-    }
   }
 
   setActiveTabId(tabId: PaymentTabsType) {
@@ -213,15 +198,10 @@ export class PaymentComponent implements OnInit, AfterViewInit {
   }
 
   openEditModal(id: number) {
-    this.editSaveComponent.openModal(this.currentUser.id, id);
+    this.editSaveComponent.openModal(this.currentUser?.id!, id);
   }
 
   openSaveModal() {
-    this.editSaveComponent.openModal(this.currentUser.id, undefined);
-  }
-
-  isSuccess(event: boolean) {
-    this.loadDeliveryAddresses();
-    this.loadInvoiceAddresses();
+    this.editSaveComponent.openModal(this.currentUser?.id!, undefined);
   }
 }

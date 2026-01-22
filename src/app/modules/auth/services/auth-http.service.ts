@@ -33,6 +33,9 @@ export class AuthHTTPService {
 
   // CREATE =>  POST: add a new user to the server
   createUser(user: UserModel): Observable<ResultModel<UserModel>> {
+    if(user.voucher) {
+      return this.http.post<ResultModel<UserModel>>(`${API_USERS_URL}/RegisterWithVoucher`, user);
+    }
     return this.http.post<ResultModel<UserModel>>(`${API_USERS_URL}/Register`, user);
   }
 

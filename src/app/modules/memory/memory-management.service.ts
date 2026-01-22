@@ -9,6 +9,7 @@ import { MemoryModel } from './models/memory.model';
 import { MemoryCommentModel } from './models/comment.model';
 import { MemoryLikeModel } from './models/like.model';
 import { MemoryFileModel } from './models/file.model';
+import { MemoryCandleModel } from './models/candle.model';
 
 const API_MEMORY_URL = `${environment.apiUrl}/Memory`;
 const API_FILE_URL = `${environment.apiUrl}/File`;
@@ -22,9 +23,9 @@ export class MemoryManagementService {
 
     // public methods
 
-    paging(pageNumber: number, pageSize: number, filterText?: string, categoryId?: number): Observable<ResultModel<PagingResult<MemoryModel[]>>> {
+    paging(pageNumber: number, pageSize: number, filterText?: string, categoryId?: number, userId?: number): Observable<ResultModel<PagingResult<MemoryModel[]>>> {
         return this.http.get<ResultModel<PagingResult<MemoryModel[]>>>(`${API_MEMORY_URL}/Paginate`, 
-            { params: new HttpParams().set("PageNumber", pageNumber).set("PageSize", pageSize).set("FilterText", filterText!==undefined ? filterText : '').set("CategoryId", categoryId!==undefined ? categoryId : '') });
+            { params: new HttpParams().set("PageNumber", pageNumber).set("PageSize", pageSize).set("FilterText", filterText!==undefined ? filterText : '').set("CategoryId", categoryId!==undefined ? categoryId : '').set("UserId", userId!==undefined ? userId : '') });
     }
 
     getById(id: number): Observable<ResultModel<MemoryModel>> {
@@ -59,6 +60,14 @@ export class MemoryManagementService {
         return this.http.post<ResultModel<MemoryCommentModel>>(`${API_MEMORY_URL}/AddComment`, data);
     }
 
+    lightCandle(data: MemoryCandleModel) : Observable<ResultModel<MemoryCandleModel>> {
+        return this.http.post<ResultModel<MemoryCandleModel>>(`${API_MEMORY_URL}/LightCandle`, data);
+    }
+
+    updateCandle(data: MemoryCandleModel) : Observable<ResultModel<MemoryCandleModel>> {
+        return this.http.post<ResultModel<MemoryCandleModel>>(`${API_MEMORY_URL}/UpdateCandle`, data);
+    }
+
     deleteComment(commentId: number) : Observable<ResultModel<MemoryCommentModel>> {
         return this.http.get<ResultModel<MemoryCommentModel>>(`${API_MEMORY_URL}/DeleteComment/${commentId}`,);
     }
@@ -77,6 +86,10 @@ export class MemoryManagementService {
 
     likeAll(memoryId: number): Observable<ResultModel<MemoryLikeModel[]>> {
         return this.http.get<ResultModel<MemoryLikeModel[]>>(`${API_MEMORY_URL}/LikeAll/${memoryId}`);
+    }
+
+    candleAll(memoryId: number): Observable<ResultModel<MemoryCandleModel[]>> {
+        return this.http.get<ResultModel<MemoryCandleModel[]>>(`${API_MEMORY_URL}/CandleAll/${memoryId}`);
     }
 
     getMemoryCount(userId: number): Observable<ResultModel<number>> {

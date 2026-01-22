@@ -6,6 +6,7 @@ import { ResultModel } from 'src/app/models/result.model';
 import { AuthService, ConfirmPasswordValidator, UserType } from 'src/app/modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
 
 @Component({
   selector: 'app-sign-in-method',
@@ -18,6 +19,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
   changeEmailForm: FormGroup;
 
   @Input() user: UserModel;
+  isUserActive: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -54,6 +56,8 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
     this.initChangeEmailForm();
     this.initChangePasswordForm();
     this.changePasswordForm.get("id")?.setValue(this.user?.id);
+
+    this.isUserActive = parseBoolean(this.authService.currentUserValue?.isActive);
   }
 
   toggleEmailForm(show: boolean) {

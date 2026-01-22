@@ -1,0 +1,45 @@
+<div class="row gy-5 g-xl-8">
+  <ng-container *ngFor="let item of planList">
+    <div class="col-xxl-4" (click)="onPlanSelect(item.id)">
+      <div class="card card-xl-stretch mb-xl-8 d-flex flex-column"
+        [ngClass]="activePlan == item.id ? 'selected-plan' : ''">
+        <div class="card-header border-1 py-5 d-flex flex-column align-items-center">
+          <h3 class="card-title fw-bolder text-primary text-center">
+            {{ item.name.toUpperCase() }}
+          </h3>
+
+          <div class="fw-bold text-light-primary text-center">
+            {{ item.price }}
+          </div>
+        </div>
+        <div class="card-body py-3 d-flex flex-column flex-grow-1">
+          <div class="row">
+            <div class="col-lg-6 d-flex align-items-center mb-2" *ngFor="let prop of item.properties">
+              <i class="bi bi-check text-primary me-2"></i>
+              <span class="text-light-primary">{{ prop }}</span>
+            </div>
+          </div>
+
+          <div *ngIf="isStandByPage && userIsActive" class="row mt-auto pt-4 mb-5">
+            <button (click)="onPay(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
+              {{'PURCHASE_VOUCHER' | translate }}
+            </button>
+          </div>
+
+          <div *ngIf="isProfilePage" class="row mt-auto pt-4 mb-5">
+            <button (click)="onBuy(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
+              {{'BUY' | translate }}
+            </button>
+          </div>
+
+          <div *ngIf="!isProfilePage" class="row">
+            <div class="col-lg-10 trialBadge text-center">
+              <span class="text-white">{{ 'trial' | translate }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

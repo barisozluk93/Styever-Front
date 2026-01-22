@@ -2,9 +2,10 @@ import { ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, Simp
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { AlertService } from 'src/app/_metronic/partials/layout/alert/alert.service';
-import { UserType } from 'src/app/modules/auth';
+import { AuthService, UserType } from 'src/app/modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,11 +15,11 @@ import { environment } from 'src/environments/environment';
 export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
   private unsubscribe: Subscription[] = [];
   form: FormGroup;
-  
+  isUserActive: boolean;
   avatarUrl: string = '';
   @Input() user: UserModel;
   constructor(private fb: FormBuilder, private userManagementService: UserManagementService,
-    private alertService: AlertService
+    private alertService: AlertService, private authService: AuthService
   ) {
 
   }
@@ -100,6 +101,8 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
 
 ngOnInit(): void {
   this.initForm();
+
+  this.isUserActive = parseBoolean(this.authService.currentUserValue?.isActive);
 }
 
 saveSettings() {

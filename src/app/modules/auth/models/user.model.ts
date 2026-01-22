@@ -15,6 +15,7 @@ export class UserModelAuth extends AuthModel {
   address?: AddressModel;
   socialNetworks?: SocialNetworksModel;
   roles: string;
+  isActive: boolean;
   permissions: string;
   // personal information
   name: string;
@@ -60,6 +61,7 @@ export class UserModelAuth extends AuthModel {
     this.email = user.email || '';
     this.pic = user.pic || './assets/media/avatars/blank.png';
     this.roles = user.roles || '';
+    this.isActive = user.isActive;
     this.occupation = user.occupation || '';
     this.companyName = user.companyName || '';
     this.phone = user.phone || '';

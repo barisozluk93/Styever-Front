@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 import { UserModelAuth } from '../../models/user.model';
 import { UserAddressModel } from 'src/app/modules/user-management/models/user-address.model';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
+import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
 
 @Component({
   selector: 'app-registration',
@@ -22,8 +23,11 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   isLoading$: Observable<boolean>;
 
   activeState: string = 'paymentPlan';
-  activePlan: string = 'standard';
+  activeVoucherPlan: number = -1;
+  activePlan: number = 2;
   totalPrice: number = 359.00;
+  useVoucher: boolean;
+  voucher: string = "";
 
   // private fields
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
@@ -31,7 +35,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userService: UserManagementService,
   ) {
     this.isLoading$ = this.authService.isLoading$;
     // redirect to home if already logged in
@@ -48,16 +53,16 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.initForm();
   }
 
-  onPlanSelect(plan: string) {
+  isPlanSelect(plan: number) {
     this.activePlan = plan;
 
-    if (this.activePlan == 'standard') {
+    if (this.activePlan == 2) {
       this.totalPrice = 359.00;
     }
-    else if (this.activePlan == 'premium') {
+    else if (this.activePlan == 3) {
       this.totalPrice = 559.00;
     }
-    else if (this.activePlan == 'ultra') {
+    else if (this.activePlan == 4) {
       this.totalPrice = 959.00;
     }
   }
@@ -142,7 +147,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
             Validators.required,
           ]),
         ],
-        agree: [false, Validators.compose([Validators.required])],
       },
       {
         validator: ConfirmPasswordValidator.MatchPassword,
@@ -189,9 +193,13 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   submit() {
     this.hasError = false;
     var newUser = this.registrationForm.getRawValue() as UserModel;
-    newUser.roles = this.activePlan == 'standard' ? [1] : (this.activePlan == 'premium' ? [2] : [3]); 
+    newUser.roles = [this.activePlan];
     newUser.username = newUser.email;
     newUser.userAddress = this.addressForm.getRawValue() as UserAddressModel;
+
+    if(this.useVoucher) {
+      newUser.voucher = this.voucher;
+    }
 
     const registrationSubscr = this.authService
       .registration(newUser)
@@ -208,5 +216,34 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
+  }
+
+  onCheckboxChange(event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+    this.useVoucher = checked;
+
+    if(this.useVoucher) {
+      this.activePlan = -1;
+    }
+    else{
+      this.activePlan = 2;
+    }
+  }
+
+  onVoucherSearch() {
+    this.userService.voucherControl(this.voucher).subscribe(result => {
+      if(result.isSuccess) {
+        if(result.data) {
+          this.activePlan = result.data.planId;
+          this.totalPrice = result.data.price;
+        }
+        else{
+
+        }
+      }
+      else{
+
+      }
+    })
   }
 }

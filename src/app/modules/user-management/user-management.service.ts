@@ -9,6 +9,7 @@ import { RoleModel } from './models/role.model';
 import { UserModel } from './models/user.model';
 import { FileModel } from 'src/app/models/file.model';
 import { UserAddressModel } from './models/user-address.model';
+import { GiftModel } from '../gift/models/gift.model';
 
 const API_USER_PERMISSION_URL = `${environment.apiUrl}/Permission`;
 const API_USER_ROLE_URL = `${environment.apiUrl}/Role`;
@@ -150,5 +151,17 @@ export class UserManagementService {
 
     getUserAddressById(id: number): Observable<ResultModel<UserAddressModel>> {
         return this.http.get<ResultModel<UserAddressModel>>(`${API_USER_URL}/UserAddressById/${id}`);
+    }
+
+    pay(id: number): Observable<ResultModel<boolean>> {
+        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/Pay/${id}`);
+    }
+
+    buyPackage(id: number, planId: number): Observable<ResultModel<boolean>> {
+        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/BuyPackage/${id}/${planId}`);
+    }
+
+    voucherControl(voucher: string): Observable<ResultModel<GiftModel>> {
+        return this.http.get<ResultModel<GiftModel>>(`${API_USER_URL}/VoucherControl/${voucher}`);
     }
 }

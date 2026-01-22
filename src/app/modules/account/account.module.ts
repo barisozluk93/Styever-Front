@@ -20,6 +20,8 @@ import { AddressesComponent } from './addresses/addresses.component';
 import { AddressListComponent } from './addresses/forms/list/list.component';
 import { ConfirmationModule } from '../confirmation/confirmation.module';
 import { AddressEditSaveComponent } from './addresses/forms/list/edit-save/edit-save.component';
+import { MembershipComponent } from './membership/membership.component';
+import { PlansModule } from '../common/plans/plans.module';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,10 @@ import { AddressEditSaveComponent } from './addresses/forms/list/edit-save/edit-
     EmailPreferencesComponent,
     NotificationsComponent,
     SignInMethodComponent,
+    MembershipComponent
   ],
   imports: [
+    PlansModule,
     CommonModule,
     ConfirmationModule,
     AccountRoutingModule,

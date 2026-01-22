@@ -59,6 +59,15 @@ input[type="search"]::-webkit-search-cancel-button {
     height: 50vh;
 }
 
+.gift-background {
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/gift.jpg');
+    background-position: center center;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    position: relative;
+    height: 50vh;
+}
+
 .memory-background {
     background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
     background-position: center center;
@@ -92,6 +101,7 @@ input[type="search"]::-webkit-search-cancel-button {
     background-repeat: repeat, no-repeat;
     position: relative;
     height: 50vh;
+    width: 100%;
 }
 
 .support-background {

@@ -50,11 +50,11 @@ export class AuthService implements OnDestroy {
     this.isLoadingSubject.next(true);
     return this.authHttpService.login(email, password).pipe(
       map((result: ResultModel<AuthModel>) => {
-        if(result.isSuccess) {
+        if (result.isSuccess) {
           const auth = this.setAuthFromLocalStorage(result.data);
           return auth;
         }
-        else{
+        else {
           return of(result.message);
         }
       }),
@@ -83,13 +83,12 @@ export class AuthService implements OnDestroy {
 
     this.isLoadingSubject.next(true);
     var user: UserType = JSON.parse(atob(auth.accessToken.split('.')[1]));
-
     if (user) {
       this.currentUserSubject.next(user);
     } else {
       this.logout();
     }
-    
+
     this.isLoadingSubject.next(false);
 
     return of(user);

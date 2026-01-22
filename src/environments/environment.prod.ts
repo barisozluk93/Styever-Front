@@ -12,7 +12,7 @@ export const environment = {
   avatarUploadFolderUrl: "https://styever.com/Uploads/Avatars",
   articleUploadFolderUrl: "https://styever.com/Uploads/Articles",
   memoryUploadFolderUrl: "https://styever.com/Uploads/Memories",
-  wsUrl: 'http://159.223.219.238:5161/ws',
+  wssUrl: 'https://styever.com/ws',
   appThemeName: 'Metronic',
   appPurchaseUrl: 'https://1.envato.market/EA4JP',
   appHTMLIntegration:

@@ -18,7 +18,7 @@
         </ng-container>
       </select>
     </div>
-    <div class="col-lg-8">
+    <div [ngClass]="isMyListVisible ? 'col-lg-6' : 'col-lg-8'">
       <form class="form-inline" (ngSubmit)="onSearch()">
         <div class="input-group mb-3">
           <input class="form-control" type="search" placeholder="{{'SEARCH_BAR' | translate}}" aria-label="Ara"
@@ -36,6 +36,10 @@
           </div>
         </div>
       </form>
+    </div>
+    <div *ngIf="isMyListVisible" [ngClass]="isMyListVisible ? 'col-lg-2 text-center py-3' : 'text-center py-3'">
+      <input class="form-check-input" type="checkbox" id="mine"  (change)="onCheckboxChange($event)" />
+      <label class="form-check-label text-white fs-3 fw-bolder" htmlFor="mine">&nbsp;{{'MY_MEMORIES' | translate}}</label>
     </div>
     <div *ngIf="isNewMemoryVisible" [ngClass]="isNewMemoryVisible ? 'col-lg-2' : ''">
       <a class="btn btn-custom btn-active-white btn-color-white btn-primary w-100" data-bs-toggle="modal"
@@ -58,6 +62,9 @@
         <div *ngIf="!data.fileUrl" class="image-bg" [style.backgroundImage]="'url(./assets/media/patterns/blank.jpg)'">
         </div>
         <div class="image-overlay">
+          <div *ngIf="data.hasDonation" class="qr-top-left" title="{{ 'BADGE' | translate}}">
+            <i class="fa-solid fa-ribbon text-white fs-1"></i>
+          </div>
           <div class="qr-top-right">
             <qrcode [qrdata]="data.qrData!" [width]="80" [errorCorrectionLevel]="'M'">
             </qrcode>

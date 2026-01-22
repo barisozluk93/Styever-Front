@@ -6,6 +6,8 @@ import { UserAddressModel } from 'src/app/modules/user-management/models/user-ad
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
 import { AddressEditSaveComponent } from './edit-save/edit-save.component';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
+import { AuthService } from 'src/app/modules/auth';
 
 @Component({
   selector: 'app-address-list',
@@ -18,10 +20,11 @@ export class AddressListComponent implements OnInit, OnDestroy {
 
   @Input() user: UserModel;
   addresses: UserAddressModel[] = [];
+  isUserActive: boolean;
 
   constructor(private userManagementService: UserManagementService,
-    private alertService: AlertService, private translate: TranslateService
-
+    private alertService: AlertService, private translate: TranslateService,
+    private authService: AuthService
   ) {
 
   }
@@ -64,7 +67,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    
+    this.isUserActive = parseBoolean(this.authService.currentUserValue?.isActive);
   }
 
   ngOnDestroy() {

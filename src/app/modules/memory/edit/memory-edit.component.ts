@@ -235,7 +235,14 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           Validators.required,
         ]),
       ],
-      isDeleted: false
+      isLinkOnly: [
+        false,
+        Validators.compose([
+          Validators.required,
+        ]),
+      ],
+      isDeleted: false,
+      belongToOldPackage: false
     });
   }
 
@@ -270,6 +277,32 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
     this.form.get('deathDate')?.valueChanges.subscribe(result => {
       this.form.get("deathDateStr")?.patchValue(formatDate(result, "dd.MM.yyyy", this.locale));
+    })
+
+    this.form.get('isPrivate')?.valueChanges.subscribe(result => {
+      if(result == true) {
+        this.form.get("isLinkOnly")?.disable();
+        this.form.get("isOpenToComment")?.patchValue(false);
+        this.form.get("isOpenToComment")?.disable();
+      }
+      else if(result == false) {
+        this.form.get("isLinkOnly")?.enable();
+        this.form.get("isOpenToComment")?.patchValue(false);
+        this.form.get("isOpenToComment")?.enable();
+      }
+    })
+
+    this.form.get('isLinkOnly')?.valueChanges.subscribe(result => {
+      if(result == true) {
+        this.form.get("isPrivate")?.disable();
+        this.form.get("isOpenToComment")?.patchValue(false);
+        this.form.get("isOpenToComment")?.disable();
+      }
+      else if(result == false) {
+        this.form.get("isPrivate")?.enable();
+        this.form.get("isOpenToComment")?.patchValue(false);
+        this.form.get("isOpenToComment")?.enable();
+      }
     })
   }
 

@@ -3,6 +3,7 @@ import { webSocket, WebSocketSubject } from "rxjs/webSocket";
 import { AlertService } from "src/app/_metronic/partials/layout/alert/alert.service";
 import { NotificationService } from "src/app/_metronic/partials/layout/extras/dropdown-inner/notifications-inner/notification.service";
 import { environment } from "src/environments/environment";
+import { UserType } from "../auth";
 
 @Injectable({
     providedIn: 'root',
@@ -34,14 +35,15 @@ export class WebSocketService {
         });
     }
 
-    openWebSocket(userId: number) {
+    openWebSocket(token: string) {
         this.socket = webSocket({
-            url: `${environment.wsUrl}?userId=${userId}`,
+            url: `${environment.wssUrl}?token=${token}`,
             deserializer: msg => msg.data
 
         });        
         
-        this.connectToWebSocket(userId); 
+        var user: UserType = JSON.parse(atob(token.split('.')[1]));
+        this.connectToWebSocket(user?.id!); 
     }
 
     closeWebSocket() {

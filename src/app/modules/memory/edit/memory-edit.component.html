@@ -28,15 +28,19 @@
         <div class="col-lg-12 mt-10">
           <form class="form w-100" [formGroup]="form" novalidate="novalidate">
             <div class="row mb-8">
-              <div class="col-xxl-4">
-                <input class="form-check-input" type="checkbox" id="googleswitch" formControlName="isPrivate" />
-                <label class="form-check-label text-primary fw-bolder" htmlFor="googleswitch">&nbsp;{{'IS_PRIVATE' | translate}}</label>
+              <div class="col-xxl-3">
+                <input class="form-check-input" type="checkbox" id="isPrivate" formControlName="isPrivate" />
+                <label class="form-check-label text-primary fw-bolder" htmlFor="isPrivate">&nbsp;{{'IS_PRIVATE' | translate}}</label>
               </div>
-              <div class="col-xxl-4">
-                <input class="form-check-input" type="checkbox" id="googleswitch" formControlName="isOpenToComment" />
-                <label class="form-check-label text-primary fw-bolder" htmlFor="googleswitch">&nbsp;{{'OPEN_TO_COMMENT' | translate}}</label>
+              <div class="col-xxl-3">
+                <input class="form-check-input" type="checkbox" id="isLinkOnly" formControlName="isLinkOnly" />
+                <label class="form-check-label text-primary fw-bolder" htmlFor="isLinkOnly">&nbsp;{{'LINK_ONLY' | translate}}</label>
               </div>
-              <div class="col-xxl-4">
+              <div class="col-xxl-3">
+                <input class="form-check-input" type="checkbox" id="isOpenToComment" formControlName="isOpenToComment" />
+                <label class="form-check-label text-primary fw-bolder" htmlFor="isOpenToComment">&nbsp;{{'OPEN_TO_COMMENT' | translate}}</label>
+              </div>
+              <div class="col-xxl-3">
                 <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_TYPE' | translate}}</label>
                 <select name="category" formControlName="categoryId" autocomplete="off"
                   class="form-select form-select-solid form-select-lg fw-bold text-light-primary" [ngClass]="{

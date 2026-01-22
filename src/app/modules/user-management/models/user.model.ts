@@ -13,10 +13,13 @@ export class UserModel {
     createdDate: string;
     userAddress: UserAddressModel;
     trialExpirationDate: string;
+    expirationDate: string;
     isTrial: boolean;
     isDeleted: boolean;
     isSystemData: boolean;
     roles: number[];
     fileId?: number;
     file?: FileModel;
+    isActive: boolean;
+    voucher?: string;
 }

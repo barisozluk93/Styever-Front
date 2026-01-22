@@ -19,7 +19,6 @@ import { AuthService } from 'src/app/modules/auth';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  @Input() isWhitePage: boolean = false;
   headerContainerCssClasses: string = '';
   @ViewChild('ktPageTitle', { static: true }) ktPageTitle: ElementRef;
   isUserLoggedIn: boolean;

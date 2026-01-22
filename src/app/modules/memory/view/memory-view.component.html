@@ -18,23 +18,44 @@
     <div class="card-body pt-2">
       <div class="row">
         <div class="col-lg-3">
-          <qrcode style="float: left !important; margin-top: 75px; margin-bottom: 75px;" [qrdata]="shareLink" [width]="250" [errorCorrectionLevel]="'M'"></qrcode>
+          <div style="height: 250px;">
+            <qrcode style="float: left !important;" [qrdata]="shareLink" [width]="250" [errorCorrectionLevel]="'M'">
+            </qrcode>
+          </div>
+          <div *ngIf="memory?.candlesCount! > 0" class="separator mt-5 mb-5"></div>
+          <div *ngIf="memory?.candlesCount! > 0" class="candle-text-wrapper">
+            <div class="candle-wrapper" [class.lit]="true">
+              <div class="flame"></div>
+              <div class="wick"></div>
+              <div class="wax"></div>
+            </div>
+
+            <a class="candle-text" (click)="openCandlesModal(memory?.id!, memory?.candlesCount!)">
+              <div class="fw-bolder text-primary fs-3">
+                {{ 'CANDLE_COUNT' | translate}}
+              </div>
+              <div class="fw-bolder text-light-primary fs-4">{{memory?.candlesCount}}</div>
+            </a>
+          </div>
         </div>
         <div class="col-lg-7">
           <app-carousel [isEdit]="false" [files]="memory?.files!"></app-carousel>
         </div>
         <div class="col-lg-2">
-          <a (click)="edit()" style="float: right !important"
+          <a *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive" (click)="edit()" style="float: right !important"
             class="btn btn-custom btn-active-white btn-color-white btn-primary w-100">
             <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
             {{'EDIT' | translate}}
           </a>
         </div>
 
-        <div class="col-lg-6 mt-10">
+        <div class="col-lg-5 mt-10">
           <label class="form-label fs-4 fw-bolder text-primary">{{'POST_DATE' | translate}}</label>
         </div>
-        <div class="col-lg-6 mt-10">
+        <div *ngIf="memory?.hasDonation" class="col-lg-2 mt-10 text-center" title="{{ 'BADGE' | translate}}">
+          <i class="fa-solid fa-ribbon text-primary fs-1"></i>
+        </div>
+        <div class="col-lg-5 mt-10">
           <label class="form-label fs-4 fw-bolder text-primary" style="float: right;">{{'DEATH_DATE' |
             translate}}</label>
           <label class="form-label fs-4 fw-bolder text-primary me-10" style="float: right;">{{'BIRTH_DATE' |
@@ -55,21 +76,19 @@
         </div>
         <div class="separator mt-5"></div>
         <div class="py-5 action-bar">
-          <a *ngIf="memory?.isOpenToComment" (click)="showCloseCommentBox()"
+          <a *ngIf="currentUser && memory?.isOpenToComment" (click)="showCloseCommentBox()"
             class="text-primary fs-4 fw-bolder cursor-pointer me-2">{{'COMMENT' | translate}}</a>
 
           <div class="social-center">
-            <a (click)="shareLinkedIn()" title="{{ 'SHARE' | translate}}"
-              class="cursor-pointer me-2">
+            <a (click)="shareLinkedIn()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
               <i class="fa-brands fa-linkedin text-primary fs-2"></i>&nbsp;
             </a>
 
-            <a (click)="shareX()"  title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
+            <a (click)="shareX()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
               <i class="fa-brands fa-x text-primary fs-2"></i>&nbsp;
             </a>
 
-            <a (click)="shareFacebook()" title="{{ 'SHARE' | translate}}"
-              class="cursor-pointer me-2">
+            <a (click)="shareFacebook()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
               <i class="fa-brands fa-facebook text-primary fs-2"></i>&nbsp;
             </a>
           </div>
@@ -78,15 +97,20 @@
             <a (click)="openLikesModal(memory?.id!, memory?.likesCount!)"
               class="text-primary fs-3 fw-bolder cursor-pointer me-2" style="float: right;">{{memory?.likesCount}}</a>
 
-            <a (click)="like()" class="text-primary cursor-pointer" style="float: right;"><i
+            <a title="{{ 'LIKE' | translate}}" (click)="like()" class="text-primary cursor-pointer" style="float: right;"><i
                 [ngClass]="memory?.ownLike! ? 'bi bi-heart-fill' : 'bi bi-heart'"
                 class="fs-2 text-primary me-2"></i></a>
 
             <a (click)="openCommentsModal(memory?.id!, memory?.commentsCount!)"
-              class="text-primary fs-3 fw-bolder cursor-pointer me-2" style="float: right;">{{memory?.commentsCount}}</a>
+              class="text-primary fs-3 fw-bolder cursor-pointer me-2"
+              style="float: right;">{{memory?.commentsCount}}</a>
 
-            <a class="text-primary cursor-pointer" style="float: right;"><i
+            <a title="{{ 'COMMENT' | translate}}" class="text-primary cursor-pointer" style="float: right;"><i
                 class="bi fs-2 bi-chat me-2 text-primary"></i></a>
+
+            <a *ngIf="currentUser && isUserActive" title="{{ 'LIGHT_CANDLE' | translate}}" (click)="openLightCandleModal(memory?.id!)" class="text-primary cursor-pointer" style="float: right;">
+              <i class="fa-solid fa-hanukiah fs-2 me-2 text-primary"></i>
+            </a>
           </div>
         </div>
         <div class="separator mb-5"></div>
@@ -98,7 +122,7 @@
               [(ngModel)]="comment"></textarea>
           </div>
         </div>
-        <div class="row" *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment">
+        <div class="row" *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment && isUserActive">
           <div class="col-lg-6"></div>
           <div class="col-lg-6" style="float: right;">
             <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
@@ -114,3 +138,5 @@
 
 <app-memory-comment #commentsComponent (isSuccess)="isSuccess($event)"></app-memory-comment>
 <app-memory-like #likesComponent></app-memory-like>
+<app-memory-candlelist #candlesComponent></app-memory-candlelist>
+<app-memory-lightcandle #lightCandleComponent (isSuccess)="isSuccess($event)"></app-memory-lightcandle>

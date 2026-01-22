@@ -39,7 +39,7 @@
 
             <div style="width: 125px;">
               <input type="file" style="display:none" accept="image/*" (change)="onFileChange($event)" #fileUpload />
-              <a style="width: 125px;" title="Click to Add" class="btn btn-sm btn-primary text-white"
+              <a *ngIf="isUserActive" style="width: 125px;" title="Click to Add" class="btn btn-sm btn-primary text-white"
                 (click)="fileUpload.click()">
                 <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
                 {{user.fileId == undefined ? ('UPLOAD' | translate) : ('CHANGE' | translate)}}
@@ -124,7 +124,7 @@
       </div>
 
       <div class="card-footer d-flex justify-content-end py-6 px-9">
-        <button type="button" class="btn btn-primary" (click)="saveSettings()">
+        <button *ngIf="isUserActive" type="button" class="btn btn-primary" (click)="saveSettings()">
           <ng-container>{{'SAVE_CHANGES' | translate}}</ng-container>
         </button>
       </div>

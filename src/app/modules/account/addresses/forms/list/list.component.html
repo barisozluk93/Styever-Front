@@ -7,7 +7,7 @@
     <div class="card-title m-0">
       <h3 class="fw-bolder m-0 text-primary">{{'MYADDRESSES' | translate}}</h3>
     </div>
-    <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
+    <div *ngIf="isUserActive" class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
       <a (click)="openSaveModal()" title="Click to Add" class="btn btn-sm btn-primary">
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
         {{'MENU.NEW' | translate}}
@@ -24,7 +24,7 @@
                 <h3 class="fw-bolder m-0"> {{item.addressHeader}}
                 </h3>
               </div>
-              <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
+              <div *ngIf="isUserActive" class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
                 <button (click)="openDeleteModal(item.id)" type="button" class="btn btn-sm btn-icon btn-color-danger btn-active-light-danger me-4"
                   title="Delete">
                   <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"

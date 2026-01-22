@@ -12,6 +12,10 @@ import { MemoryCommentModel } from '../models/comment.model';
 import { MemoryFileModel } from '../models/file.model';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { CandleListComponent } from '../candle/list/list.component';
+import { LightCandleComponent } from '../candle/new/new.component';
+import { MemoryCandleModel } from '../models/candle.model';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -31,9 +35,12 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   isCommentBoxVisible: boolean = false;
   currentUser: UserType | undefined;
   shareLink: string = '';
-
+  isUserActive: boolean;
+  
   @ViewChild('commentsComponent') private commentsComponent: CommentComponent;
   @ViewChild('likesComponent') private likesComponent: LikeComponent;
+  @ViewChild('candlesComponent') private candlesComponent: CandleListComponent;
+  @ViewChild('lightCandleComponent') private lightCandleComponent: LightCandleComponent;
 
   constructor(
     private memoryManagementService: MemoryManagementService,
@@ -103,20 +110,22 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   }
 
   like() {
-    if (this.memory?.ownLike) {
-      this.memoryManagementService.dislike(this.currentUser?.id!, this.memoryId).subscribe(result => {
-        if (result.isSuccess) {
-          this.getById();
-        }
-      })
-    }
-    else {
-      var data: MemoryLikeModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, isDeleted: false }
-      this.memoryManagementService.like(data).subscribe(result => {
-        if (result.isSuccess) {
-          this.getById();
-        }
-      })
+    if (this.currentUser && this.isUserActive) {
+      if (this.memory?.ownLike) {
+        this.memoryManagementService.dislike(this.currentUser?.id!, this.memoryId).subscribe(result => {
+          if (result.isSuccess) {
+            this.getById();
+          }
+        })
+      }
+      else {
+        var data: MemoryLikeModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, isDeleted: false }
+        this.memoryManagementService.like(data).subscribe(result => {
+          if (result.isSuccess) {
+            this.getById();
+          }
+        })
+      }
     }
   }
 
@@ -128,6 +137,8 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
       });
 
     this.currentUser = this.auth.currentUserValue;
+    this.isUserActive = parseBoolean(this.currentUser?.isActive);
+
     this.memoryId = this.route.snapshot.params['id'];
 
     this.shareLink = `${environment.appUrl}/#/memories/${this.memoryId}`;
@@ -138,10 +149,27 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
 
   }
 
+  openCandlesModal(memoryId: number, candleCount: number) {
+    if (candleCount > 0) {
+      this.candlesComponent.openModal(memoryId);
+    }
+  }
+
   openCommentsModal(memoryId: number, commentCount: number) {
     if (commentCount > 0) {
       this.commentsComponent.openModal(memoryId);
     }
+  }
+
+  openLightCandleModal(memoryId: number) {
+    let data: MemoryCandleModel = { id: 0, memoryId: this.memory?.id!, userId: this.currentUser?.id!, isDeleted: false };
+
+    this.memoryManagementService.lightCandle(data).subscribe(result => {
+      if (result.isSuccess) {
+        this.getById();
+        this.lightCandleComponent.openModal(result.data.id, memoryId, this.memory?.name!, this.currentUser?.id);
+      }
+    })
   }
 
   openLikesModal(memoryId: number, likeCount: number) {
@@ -175,10 +203,10 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   shareX() {
     var url = encodeURIComponent(this.shareLink);
     var text = '';
-    if(this.translate.currentLang == 'tr') {
+    if (this.translate.currentLang == 'tr') {
       text = encodeURIComponent('Can dostum, ' + this.memory?.name + ' ile olan anılarımı sen de paylaş!\n');
     }
-    else{
+    else {
       text = encodeURIComponent('Join me in sharing memories with my best friend ' + this.memory?.name + '!\n');
     }
     window.open(

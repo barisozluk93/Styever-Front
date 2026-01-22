@@ -25,6 +25,11 @@ const Routing: Routes = [
       import('../modules/memory/memory.module').then((m) => m.MemoryModule),
   },
   {
+    path: 'standby',
+    loadChildren: () =>
+      import('../modules/gift/gift.module').then((m) => m.GiftModule),
+  },
+  {
     path: 'support',
     loadChildren: () =>
       import('../modules/article/article.module').then((m) => m.ArticleModule),
@@ -41,7 +46,6 @@ const Routing: Routes = [
   },
   {
     path: 'payment',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('../modules/payment/payment.module').then((m) => m.PaymentModule),
   },

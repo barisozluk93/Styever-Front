@@ -41,7 +41,7 @@ export class FAQComponent implements OnInit, AfterViewInit {
     this.windowResizeService.resize$
     .subscribe(size => {
       this.bannerHeight =  (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
-      this.bannerPaddingTopHeight = this.bannerHeight / 4;
+      this.bannerPaddingTopHeight = this.bannerHeight / 3;
     });
 
     this.loadData();

@@ -11,6 +11,7 @@ import { AuthComponent } from './auth.component';
 import { TranslationModule } from '../i18n/translation.module';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { PlansModule } from '../common/plans/plans.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     AuthComponent,
   ],
   imports: [
+    PlansModule,
     CommonModule,
     InlineSVGModule,
     TranslationModule,

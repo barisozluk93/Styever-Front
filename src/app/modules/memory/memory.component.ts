@@ -12,6 +12,7 @@ import { MemoryModel } from './models/memory.model';
 import { LikeComponent } from './like/like.component';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
 import { environment } from 'src/environments/environment';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -31,6 +32,7 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   bannerPaddingTopHeight?: number;
   bannerToolPaddingTopHeight?: number;
 
+  myList: boolean = false;
   selectedCategoryId: number;
   categoryList: CategoryModel[] = [
     { id: 1, name: "Kuş", nameEn: "Bird", isDeleted: false },
@@ -43,6 +45,7 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   ]
 
   isNewMemoryVisible: boolean;
+  isMyListVisible: boolean;
 
   @ViewChild('commentsComponent') private commentsComponent: CommentComponent;
   @ViewChild('likesComponent') private likesComponent: LikeComponent;
@@ -69,16 +72,16 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   }
 
   loadData() {
-    this.memoryManagementService.paging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.searchTerm, this.selectedCategoryId)
+    this.memoryManagementService.paging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.searchTerm, this.selectedCategoryId, this.myList ? this.auth.currentUserValue?.id : undefined)
       .subscribe(result => {
         if (result.isSuccess) {
           result.data.items.forEach(item => {
-            
-            item.userAvatarFileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar?.path.split("\\")[item.userAvatar?.path.split("\\").length-1];                
+
+            item.userAvatarFileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar?.path.split("\\")[item.userAvatar?.path.split("\\").length - 1];
 
             item.files?.forEach(file => {
               if (file.isPrimary && file.file) {
-                item.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length-1];                
+                item.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
               }
             })
 
@@ -91,7 +94,10 @@ export class MemoryComponent implements OnInit, AfterViewInit {
             item.postDate = formatDate(item.postDate!, "dd/MM/yyyy HH:mm", this.locale);
             item.birthDate = formatDate(item.birthDate!, "dd/MM/yyyy", this.locale);
             item.deathDate = formatDate(item.deathDate!, "dd/MM/yyyy", this.locale);
-            item.qrData = `${environment.appUrl}/#/memories/${item.id}`;
+
+            if (!item.isPrivate || item.userId == this.auth.currentUserValue?.id) {
+              item.qrData = `${environment.appUrl}/#/memories/${item.id}`;
+            }
           })
           this.dataSource = result.data.items;
           this.totalCount = result.data.totalCount;
@@ -117,19 +123,29 @@ export class MemoryComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.auth.currentUserValue) {
-      this.memoryManagementService.getMemoryCount(this.auth.currentUserValue?.id).subscribe(result => {
-        if (result.isSuccess) {
-          if (this.auth.currentUserValue?.roles.includes("2") || this.auth.currentUserValue?.roles.includes("3")) {
-            if (result.data >= 1) {
-              this.isNewMemoryVisible = false;
+      this.isMyListVisible = true;
+      
+      if(!parseBoolean(this.auth.currentUserValue.isActive)) {
+        this.isNewMemoryVisible = false;
+      }
+      else{
+        this.memoryManagementService.getMemoryCount(this.auth.currentUserValue?.id).subscribe(result => {
+          if (result.isSuccess) {
+            if (this.auth.currentUserValue?.roles.includes("2") || this.auth.currentUserValue?.roles.includes("3")) {
+              if (result.data >= 1) {
+                this.isNewMemoryVisible = false;
+              }
+              else {
+                this.isNewMemoryVisible = true;
+              }
             }
-            else {
-              this.isNewMemoryVisible = true;
-            }
-          }
-          else if (this.auth.currentUserValue?.roles.includes("4")) {
-            if (result.data >= 4) {
-              this.isNewMemoryVisible = false;
+            else if (this.auth.currentUserValue?.roles.includes("4")) {
+              if (result.data >= 4) {
+                this.isNewMemoryVisible = false;
+              }
+              else {
+                this.isNewMemoryVisible = true;
+              }
             }
             else {
               this.isNewMemoryVisible = true;
@@ -138,14 +154,12 @@ export class MemoryComponent implements OnInit, AfterViewInit {
           else {
             this.isNewMemoryVisible = true;
           }
-        }
-        else{
-          this.isNewMemoryVisible = true;
-        }
-      })
+        })
+      }
     }
     else {
       this.isNewMemoryVisible = true;
+      this.isMyListVisible = false;
     }
   }
 
@@ -180,7 +194,29 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   }
 
   memoryEditView(memoryId: number) {
-    var memory = this.dataSource.filter(f => f.id == memoryId && f.userId == this.auth.currentUserValue?.id)[0];
-    this.router.navigate(['memories/' + memoryId]);
+    var memory = this.dataSource.filter(f => f.id == memoryId)[0];
+
+    if (!memory.isPrivate) {
+      this.router.navigate(['memories/' + memoryId]);
+    }
+    else {
+      if (this.auth.currentUserValue && memory.userId == this.auth.currentUserValue?.id) {
+        this.router.navigate(['memories/' + memoryId]);
+      }
+      else {
+        //Uyarı mesajı
+      }
+    }
+  }
+
+  onCheckboxChange(event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+    if (checked) {
+      this.myList = true;
+    } else {
+      this.myList = false;
+    }
+
+    this.loadData();
   }
 }

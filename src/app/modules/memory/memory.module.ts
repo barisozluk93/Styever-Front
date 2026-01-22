@@ -15,6 +15,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { MemoryViewComponent } from './view/memory-view.component';
 import { MemoryEditComponent } from './edit/memory-edit.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { LightCandleComponent } from './candle/new/new.component';
+import { CandleListComponent } from './candle/list/list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { QRCodeModule } from 'angularx-qrcode';
     LikeComponent,
     MemoryViewComponent,
     CarouselComponent,
-    MemoryEditComponent
+    MemoryEditComponent,
+    LightCandleComponent,
+    CandleListComponent
   ],
   imports: [
     CommonModule,
