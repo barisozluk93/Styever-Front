@@ -28,6 +28,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   memoryId: number;
   isImageUploadAllowed: boolean = true;
   isVideoUploadAllowed: boolean = false;
+  allowedCharacterCount: number = 0;
   form: FormGroup;
   mediaFiles: MemoryFileModel[] = [];
   activeMediaIndex: number = 0;
@@ -64,7 +65,13 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             this.form.get("fileUrl")?.patchValue(undefined);
           }
 
+          var control = this.form.get('text');
+
           if (this.currentUser?.roles.includes("2")) {
+            control?.addValidators(Validators.maxLength(1000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 1000;
+
             this.isVideoUploadAllowed = false;
 
             if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 1) {
@@ -76,6 +83,10 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
           }
           else if (this.currentUser?.roles.includes("3")) {
+            control?.addValidators(Validators.maxLength(5000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 5000;
+
             if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
               this.isImageUploadAllowed = false;
             }
@@ -91,14 +102,18 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             }
           }
           else if (this.currentUser?.roles.includes("4")) {
-            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 2) {
+            control?.addValidators(Validators.maxLength(5000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 5000;
+
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
               this.isImageUploadAllowed = false;
             }
             else {
               this.isImageUploadAllowed = true;
             }
 
-            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 1) {
+            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
               this.isVideoUploadAllowed = false;
             }
             else {
@@ -106,6 +121,10 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             }
           }
           else {
+            control?.addValidators(Validators.maxLength(20000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 20000;
+
             this.isImageUploadAllowed = true;
             this.isVideoUploadAllowed = true;
           }
@@ -261,6 +280,25 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       this.getById(undefined);
     }
     else {
+      const control = this.form.get('text');
+
+      if(this.currentUser?.roles.includes("2")) {
+        control?.addValidators(Validators.maxLength(1000));
+        control?.updateValueAndValidity();
+        this.allowedCharacterCount = 1000;
+      }
+      else if(this.currentUser?.roles.includes("3") || this.currentUser?.roles.includes("4")) {
+        control?.addValidators(Validators.maxLength(5000));
+        control?.updateValueAndValidity();
+        
+        this.allowedCharacterCount = 5000;
+      }
+      else {
+        control?.addValidators(Validators.maxLength(20000));
+        control?.updateValueAndValidity();
+
+        this.allowedCharacterCount = 20000;
+      }
       this.form.get("userName")?.patchValue(this.currentUser?.name + " " + this.currentUser?.surname);
       this.form.get("postDateStr")?.patchValue(formatDate(new Date(), 'dd.MM.yyyy', this.locale));
     }
@@ -279,31 +317,31 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       this.form.get("deathDateStr")?.patchValue(formatDate(result, "dd.MM.yyyy", this.locale));
     })
 
-    this.form.get('isPrivate')?.valueChanges.subscribe(result => {
-      if(result == true) {
-        this.form.get("isLinkOnly")?.disable();
-        this.form.get("isOpenToComment")?.patchValue(false);
-        this.form.get("isOpenToComment")?.disable();
-      }
-      else if(result == false) {
-        this.form.get("isLinkOnly")?.enable();
-        this.form.get("isOpenToComment")?.patchValue(false);
-        this.form.get("isOpenToComment")?.enable();
-      }
-    })
+    // this.form.get('isPrivate')?.valueChanges.subscribe(result => {
+    //   if(result == true) {
+    //     this.form.get("isLinkOnly")?.disable();
+    //     this.form.get("isOpenToComment")?.patchValue(false);
+    //     this.form.get("isOpenToComment")?.disable();
+    //   }
+    //   else if(result == false) {
+    //     this.form.get("isLinkOnly")?.enable();
+    //     this.form.get("isOpenToComment")?.patchValue(false);
+    //     this.form.get("isOpenToComment")?.enable();
+    //   }
+    // })
 
-    this.form.get('isLinkOnly')?.valueChanges.subscribe(result => {
-      if(result == true) {
-        this.form.get("isPrivate")?.disable();
-        this.form.get("isOpenToComment")?.patchValue(false);
-        this.form.get("isOpenToComment")?.disable();
-      }
-      else if(result == false) {
-        this.form.get("isPrivate")?.enable();
-        this.form.get("isOpenToComment")?.patchValue(false);
-        this.form.get("isOpenToComment")?.enable();
-      }
-    })
+    // this.form.get('isLinkOnly')?.valueChanges.subscribe(result => {
+    //   if(result == true) {
+    //     this.form.get("isPrivate")?.disable();
+    //     this.form.get("isOpenToComment")?.patchValue(false);
+    //     this.form.get("isOpenToComment")?.disable();
+    //   }
+    //   else if(result == false) {
+    //     this.form.get("isPrivate")?.enable();
+    //     this.form.get("isOpenToComment")?.patchValue(false);
+    //     this.form.get("isOpenToComment")?.enable();
+    //   }
+    // })
   }
 
   onCheckboxClicked(fileId: number) {
@@ -398,5 +436,17 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
   onActiveMediaIndexChanged(event: number) {
     this.activeMediaIndex = event;
+  }
+
+  onIsPrivateChange(event: any) {
+    if(event.target.checked) {
+      this.form.get("isLinkOnly")?.patchValue(false);
+    }
+  }
+
+  onIsLinkOnlyChange(event: any) {
+    if(event.target.checked) {
+      this.form.get("isPrivate")?.patchValue(false);
+    }
   }
 }

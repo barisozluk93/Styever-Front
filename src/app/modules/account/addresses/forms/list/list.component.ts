@@ -8,6 +8,8 @@ import { UserManagementService } from 'src/app/modules/user-management/user-mana
 import { AddressEditSaveComponent } from './edit-save/edit-save.component';
 import { parseBoolean } from 'src/app/utils/parse-boolean';
 import { AuthService } from 'src/app/modules/auth';
+import { ToastrService } from 'ngx-toastr';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
 
 @Component({
   selector: 'app-address-list',
@@ -23,7 +25,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
   isUserActive: boolean;
 
   constructor(private userManagementService: UserManagementService,
-    private alertService: AlertService, private translate: TranslateService,
+    private toastr: ToastrService, private translate: TranslateService,
     private authService: AuthService
   ) {
 
@@ -31,12 +33,21 @@ export class AddressListComponent implements OnInit, OnDestroy {
 
   delete(event: number) {
     this.userManagementService.userAddressDelete(event).subscribe(result => {
-      if(result.isSuccess) {
-        this.alertService.createAlert('success', result.message);
+      if (result.isSuccess) {
+        scrollToTop();
+        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
         this.loadData();
       }
-      else{
-        this.alertService.createAlert('danger', result.message);
+      else {
+        scrollToTop();
+
+        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
       }
     })
   }
@@ -47,10 +58,10 @@ export class AddressListComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.userManagementService.userAddressList(this.user.id).subscribe(result => {
-      if(result.isSuccess) {
+      if (result.isSuccess) {
         this.addresses = result.data;
       }
-      else{
+      else {
         this.addresses = [];
       }
 
@@ -59,9 +70,9 @@ export class AddressListComponent implements OnInit, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes.user) {
-      if(this.user) {
-        this.loadData();      
+    if (changes.user) {
+      if (this.user) {
+        this.loadData();
       }
     }
   }
@@ -75,7 +86,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
 
   openDeleteModal(id: number) {
     var deleteText = "";
-    this.translate.get('DELETE').subscribe((translation)=> {
+    this.translate.get('DELETE').subscribe((translation) => {
       deleteText = translation
     })
     this.confirmationComponent.openModal(deleteText, id);

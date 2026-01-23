@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/modules/auth';
 const menuList = [
   {
     "id": 1,
-    "name": "Hakkımızda",
+    "name": "Hakkında",
     "nameEn": "About",
     "url": "/about",
     "icon": undefined,

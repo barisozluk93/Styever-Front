@@ -1,12 +1,14 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject, first, Subscription } from 'rxjs';
-import { AlertService } from 'src/app/_metronic/partials/layout/alert/alert.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { first } from 'rxjs';
 import { ResultModel } from 'src/app/models/result.model';
 import { AuthService, ConfirmPasswordValidator, UserType } from 'src/app/modules/auth';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
 import { parseBoolean } from 'src/app/utils/parse-boolean';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
 
 @Component({
   selector: 'app-sign-in-method',
@@ -23,35 +25,35 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService, 
+    private authService: AuthService,
     private userManagementService: UserManagementService,
-    private alertService: AlertService
-  ) {
+    private toastr: ToastrService,
+    private translateService: TranslateService) {
   }
 
   setForm() {
-    if(this.user) {
-        this.changeEmailForm.patchValue(this.user);
+    if (this.user) {
+      this.changeEmailForm.patchValue(this.user);
 
-        this.changeEmailForm.get("password")?.setValue("***");
-        this.changeEmailForm.get("cPassword")?.setValue("***");
-        this.changeEmailForm.get("roles")?.setValue(this.user.roles[0])
-      }
+      this.changeEmailForm.get("password")?.setValue("***");
+      this.changeEmailForm.get("cPassword")?.setValue("***");
+      this.changeEmailForm.get("roles")?.setValue(this.user.roles[0])
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes.user) {
-      if(!this.changeEmailForm) {
+    if (changes.user) {
+      if (!this.changeEmailForm) {
         this.initChangeEmailForm();
       }
 
-      if(!this.changePasswordForm) {
+      if (!this.changePasswordForm) {
         this.initChangePasswordForm();
       }
       this.setForm();
     }
   }
-  
+
   ngOnInit(): void {
     this.initChangeEmailForm();
     this.initChangePasswordForm();
@@ -79,12 +81,24 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
 
       this.userManagementService.userProfileEdit(data).subscribe(result => {
         if (result.isSuccess) {
-          this.alertService.createAlert("success", result.message);
-          this.authService.logout();
-          document.location.reload();
+          scrollToTop();
+
+          this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+
+          setTimeout(() => {
+            this.authService.logout();
+            document.location.reload();
+          }, 3000);
         }
         else {
-          this.alertService.createAlert("danger", result.message);
+          scrollToTop();
+          this.toastr.error(result.message, this.translateService.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
     }
@@ -105,12 +119,25 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
         .subscribe((result: ResultModel<boolean>) => {
 
           if (result.isSuccess) {
-            this.alertService.createAlert("success", result.message);
-            this.authService.logout();
-            document.location.reload();
+            scrollToTop();
+
+            this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
+
+            setTimeout(() => {
+              this.authService.logout();
+              document.location.reload();
+            }, 3000);
           }
           else {
-            this.alertService.createAlert("danger", result.message);
+            scrollToTop();
+
+            this.toastr.error(result.message, this.translateService.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
           }
         });
     }

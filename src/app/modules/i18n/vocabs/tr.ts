@@ -151,6 +151,9 @@ export const locale = {
         SIGNUP: 'Hesap Aç',
 
         RESETPASSWORDMAIL: 'Şifrenizi yenilemek için mail adresinizi giriniz.',
+        RESET_PASSWORD_SUBHEADER: 'Yeni şifrenizi ve onay şifreniz giriniz.',
+        RESET_PASSWORD_ERROR: 'Bilgilerinizi kontrol ediniz!',
+        RESET_PASSWORD_SUCCESS: 'Şifreniz başarıyla değiştirildi.',
 
 
         // START (TR-EN-LANGUAGE-BRANCH)
@@ -371,6 +374,7 @@ export const locale = {
         SUPPORT_SUBHEADER: "Samimi ve içten bir danışma rehberi.",
         SHARE: "Paylaş",
         VOUCHER: "Kupon Kodu",
+        VOUCHERS: "Kupon Kodları",
 
         GIFT: "Kırık bir kalbe anlamlı bir hediye.",
         GIFT_FIRST_HEADER: "Çiçekten öte: kalıcı bir anı sayfası.",
@@ -422,7 +426,7 @@ export const locale = {
         CARD_NUMBER: "Kart Numarası",
         VALIDITY_DATE: "Geçerlilik Tarihi",
         VALIDITY_DATE_PH: "AA/YY",
-        CVC: "CVC",
+        CVC: "CVC / CVV",
         PAYMENT: "Ödeme Yap",
         PAYMENT_SUMMARY: "Ödeme Özeti",
         PAYMENT_SUBHEADER: "Ödemeni saniyeler içerisinde kolayca gerçekleştir.",
@@ -442,6 +446,66 @@ export const locale = {
         trial: "7 Günlük Deneme Sürümü",
         TRIAL_EXPIRED: "Deneme süreniz doldu!",
         BUY: "Satın Al",
+
+        HOME_HEADER: "Styever, kaybettiğiniz evcil dostunuzun bıraktığı sevgi dolu izleri yaşatmanız için hazırlanmış sessiz, huzurlu ve kalıcı bir anı alanıdır." 
+                    + " Fotoğraflarını, videolarını ve birlikte yaşadığınız anıları paylaşarak "
+                    + "onun hikâyesini sonsuza taşıyabilirsiniz.",
+        EXPLORE: "Keşfet",
+        MEMORIES: "Anılar",
+        CREATE_MEMORY: "Anı Oluştur",
+        OFFERS: "Sunduklarımız",
+        OFFERS_HEADER: "Anılarını sonsuza kadar yaşat.",
+        OFFERS_FIRST_CONTENT_HEADER: "Hemen Şimdi Başla",
+        OFFERS_FIRST_CONTENT_SUBHEADER: "Birkaç dakika içinde en yakın dostunla anılarını paylaş.",
+        OFFERS_SECOND_CONTENT_HEADER: "Fotoğraf ve Video Kütüphanesi",
+        OFFERS_SECOND_CONTENT_SUBHEADER: "Sevgi dolu anılarınızı düzenleyin ve saklayın.",
+        OFFERS_THIRD_CONTENT_HEADER: "Bağış Yapma İmkanı",
+        OFFERS_THIRD_CONTENT_SUBHEADER: "Sevgi dolu anılarınızla barınaklara destek olun.",
+        OFFERS_FOURTH_CONTENT_HEADER: "Reklamsız",
+        OFFERS_FOURTH_CONTENT_SUBHEADER: "Dikkat dağıtıcı unsurlardan uzak, huzurlu bir anma alanının tadını çıkarın.",
+        OFFERS_FIFTH_CONTENT_HEADER: "Topluluk Desteği",
+        OFFERS_FIFTH_CONTENT_SUBHEADER: "Benzer deneyimler yaşayanlarla bağ kurun ve destek alın.",
+        ABOUT: "Hakkında",
+        ABOUT_HEADER: "Neden Styever?",
+        ABOUT_CONTENT: "Evcil dostumuzu kaybetmek, kalbimizde hiç geçmeyen bir boşluk bırakır. Styever’ı, bu derin acıyı taşıyan herkes için sakin, güvenli ve reklamsız bir anı alanı oluşturmak amacıyla kurduk.\n\n" +
+                        "Burada, dostunuzun hayatını sevgiyle anabilir; fotoğraflarını, videolarını ve birlikte yaşadığınız en özel anıları paylaşarak onun izini sonsuza kadar yaşatabilirsiniz.\n\n" +
+                        "Styever; samimi ve küçük bir ekibin kalpten gelen bir projesidir. Tek odağımız, kaybettiğiniz dostunuzla aranızdaki sevgi, bağ ve bıraktığı hatıraların değeridir. Aynı zamanda bu hatıraları yaşatırken, birlikte çalıştığımız derneklere bağış yapılmasını teşvik ederek hayvan dostlarımıza destek olmak da en büyük amaçlarımızdan biridir.\n\n" +
+                        "Styever, dostlarınızın hatıralarına kalıcı ve huzurlu bir yuva sunmak için var.",
+        SHORTCUT_FIRST_HEADER: "En İyi Arkadaşını Sonsuza Kadar Yaşat",
+        SHORTCUT_FIRST_CONTENT: "Styever ile sevgili evcil hayvanınıza kalıcı bir anıt yaratın.",
+        SHORTCUT_SECOND_HEADER: "Benzer Deneyimler Yaşayanlarla Destek Olun",
+        SHORTCUT_SECOND_CONTENT: "Sizinle benzer deneyimler yaşayanlara destek olmak için içten taziyelerinizi ifade edin ve rahatlatıcı bir mesaj bırakın.",
+        STANDBY_HEADER: "Yanında Olduğunu Hissettir",
+        STANDBY_CONTENT: "Bazen bir hediye, sadece bir hediyeden fazlasıdır. Acının en derin olduğu anda uzatılan bir destek eli,sevgiyle anılan bir dostun hatırasını yaşatır. Bu hediye karti, tam da o anlar için.",
+        
+        ABOUT_HEADER_CONTENT: "Styever — sevginin izini sürmek için var.",
+        ABOUT_SUBHEADER: "Evcil dostlarımız hayatımıza girdikleri anda bize koşulsuz sevgiyi, sadakati ve neşeyi öğretirler. Bir gün aramızdan ayrıldıklarında ise, kalbimizde kelimelere sığmayan bir boşluk bırakırlar. Ama onların sevgisi hiçbir zaman yok olmaz, sadece şekil değiştirir.\n" +
+                    "Styever, kaybettiğimiz can yoldaşlarımızın anılarını yaşatabilmek için oluşturulmuş sakin ve güvenli bir yuvadir. Burada onların hikayesini paylaşabilir, yaşamlarını sevgiyle anabilir ve hatıralarını daima taze tutabilirsin. Aileniz ve dostlarınız da bu özel alana uğrayıp duygulariniza ortak olabilir.\n" +
+                    "Biz, aynı sevgiyi paylaşan bir topluluğuz. Çünkü inanıyoruz ki;\n" +   
+                    "Sevgi biterse anılar solar.\n" +
+                    "Anılar yaşarsa sevgi sonsuza kadar sürer.\n" +
+                    "Onları hiç unutmayalım.\n" +
+                    "Hep birlikte, hep sevgiyle.",
+        ABOUT_FIRST_CONTENT_HEADER: "Görevimiz",
+        ABOUT_FIRST_CONTENT: "Hayvan dostlarımızın anılarını sevgiyle yaşatabileceğimiz, paylaşılan hikâyelerde birbirimize destek olabileceğimiz şefkat dolu bir alan sunmak.",
+        ABOUT_SECOND_CONTENT_HEADER: "Topluluk Etkisi",
+        ABOUT_SECOND_CONTENT: "Through memories shared with love, we bring together animal friends who share the same pain and love."
++ "Please add the following content to the rest of the page with a different image (it can be an image of only one animal, a fish, a bird, or a different animal)."
++ "We remember them with love, we're so glad they were there."
++ "Styever is a meeting point where we can keep alive the memories of our friends who touched our lives, a place that understands us. We know how deep the bond we have with them is. We are here to help you honor this special bond and keep it alive forever."
++ "Afterwards, let's add the following text with an image of an animal and a human. After the text below, let's add a link to the memory creation page with our logo and a box that says 'Create your memory'."
++ " With love to their unique journey…"
++ " Moments that seem small to us turn into huge memories with their presence. Stever offers a heartfelt home where we can cherish the beautiful memories our friends left us. Share your memories, celebrate their lives with love, and stand side-by-side with a community that understands both the pain and the love.",
+        ABOUT_THIRD_CONTENT_HEADER: "Anı oluşturun",
+        ABOUT_THIRD_CONTENT: "Sevdiğiniz dostunuzun hatırasını, onun kadar özel bir anma sayfasıyla ölümsüzleştirin. Her fotoğraf, her kelime, kalbinizdeki bağın bir devamı olsun.",
+        ABOUT_FOURTH_CONTENT_HEADER: "Anıları paylaşın",
+        ABOUT_FOURTH_CONTENT_: "Aileniz ve arkadaşlarınızla, birlikte gülümsediğiniz ve sarıldığınız anlara yeniden dönün.\nÇünkü bazı sevgiler, zamanla değil; hatırladıkça büyür.",
+        SUCCESS: "Başarılı",
+        SUCCESS_MESSAGE: "İşlem başarıyla tamamlandı.",
+        ERROR: "Hata",
+        INFO: "Bilgi",
+        WARNING: "Uyarı",
+        PLEASE_UPLOAD_IMAGE_SIZE_300X300: "Lütfen 300x300 boyutlarında bir resim dosyası yükleyiniz!",
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };

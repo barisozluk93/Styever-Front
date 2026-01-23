@@ -1,0 +1,11 @@
+.center-title-wrapper {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    text-align: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}

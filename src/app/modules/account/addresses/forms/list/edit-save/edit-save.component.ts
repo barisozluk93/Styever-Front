@@ -6,13 +6,16 @@ import { TranslateService } from "@ngx-translate/core";
 import { forkJoin } from "rxjs";
 import { UserManagementService } from "src/app/modules/user-management/user-management.service";
 import { UserAddressModel } from "src/app/modules/user-management/models/user-address.model";
+import { Toast } from "bootstrap";
+import { ToastrService } from "ngx-toastr";
+import { scrollToTop } from "src/app/utils/scrolltotop";
 
 @Component({
     selector: 'app-address-editsave',
     templateUrl: './edit-save.component.html',
     styleUrls: ['./edit-save.component.scss'],
 })
-export class AddressEditSaveComponent implements OnInit, AfterViewInit{
+export class AddressEditSaveComponent implements OnInit, AfterViewInit {
 
     @ViewChild('modal') private modalComponent: ModalComponent;
     @Output() isSuccess: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -31,10 +34,10 @@ export class AddressEditSaveComponent implements OnInit, AfterViewInit{
     ];
 
     constructor(
-        private fb: FormBuilder, 
-        private userManagementService: UserManagementService, 
+        private fb: FormBuilder,
+        private userManagementService: UserManagementService,
         private translate: TranslateService,
-        private alertService: AlertService
+        private toastr: ToastrService
     ) { }
 
     disableSubmitButton(): boolean {
@@ -119,11 +122,11 @@ export class AddressEditSaveComponent implements OnInit, AfterViewInit{
 
     ngAfterViewInit() {
         this.form.get("invoiceType")?.valueChanges.subscribe(value => {
-            if(value == 2) {
+            if (value == 2) {
                 this.form.get('vkn')?.setValidators(Validators.compose([
                     Validators.required,
-                ])); 
-                
+                ]));
+
                 this.form.get('vergiDairesi')?.setValidators(Validators.compose([
                     Validators.required,
                 ]));
@@ -132,7 +135,7 @@ export class AddressEditSaveComponent implements OnInit, AfterViewInit{
                     Validators.required,
                 ]));
             }
-            else{
+            else {
                 this.form.get('vkn')?.setValue(undefined);
                 this.form.get('vkn')?.clearValidators();
                 this.form.get('vkn')?.updateValueAndValidity();
@@ -190,23 +193,40 @@ export class AddressEditSaveComponent implements OnInit, AfterViewInit{
             var data = this.form.getRawValue() as UserAddressModel;
             if (data.id == 0) {
                 this.userManagementService.userAddressSave(data).subscribe(result => {
-                    if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                    if (result.isSuccess) {
+                        scrollToTop();
+                        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
                         this.isSuccess.emit(true);
                     }
-                    else{
-                        this.alertService.createAlert("danger", result.message);
+                    else {
+                        scrollToTop();
+                        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
                     }
                 })
             }
             else {
                 this.userManagementService.userAddressUpdate(data).subscribe(result => {
-                    if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                    if (result.isSuccess) {
+                        scrollToTop();
+                        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
                         this.isSuccess.emit(true);
                     }
-                    else{
-                        this.alertService.createAlert("danger", result.message);
+                    else {
+                        scrollToTop();
+
+                        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
                     }
                 })
             }

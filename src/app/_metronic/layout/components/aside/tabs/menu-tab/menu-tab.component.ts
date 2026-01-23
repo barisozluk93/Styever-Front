@@ -22,7 +22,7 @@ import { MenuModel } from 'src/app/models/menu.model';
 const menuList = [
   {
     "id": 1,
-    "name": "Hakkımızda",
+    "name": "Hakkında",
     "nameEn": "About",
     "url": "/about",
     "icon": undefined,

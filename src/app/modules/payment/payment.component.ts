@@ -13,6 +13,9 @@ import { GiftModel } from '../gift/models/gift.model';
 import { GiftManagementService } from '../gift/gift-management.service';
 import { MemoryManagementService } from '../memory/memory-management.service';
 import { MemoryCandleModel } from '../memory/models/candle.model';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -41,8 +44,6 @@ export class PaymentComponent implements OnInit, AfterViewInit {
   planId: number;
   candleData: MemoryCandleModel;
 
-  @ViewChild('editSaveComponent') private editSaveComponent: AddressEditSaveComponent;
-
   constructor(
     private userManagementService: UserManagementService,
     private auth: AuthService,
@@ -51,63 +52,146 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private windowResizeService: WindowResizeService,
     private route: ActivatedRoute,
     private giftService: GiftManagementService,
-    private memoryService: MemoryManagementService
+    private memoryService: MemoryManagementService,
+    private toastr: ToastrService,
+    private translate: TranslateService
   ) {
   }
 
   confirm() {
-    if(this.typeId == 1) {
+    if (this.typeId == 1) {
       this.userManagementService.pay(this.currentUser?.id!).subscribe(result => {
-        if(result.isSuccess) {
-          //alert
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
 
-          this.auth.logout();
+          setTimeout(() => {
+            this.auth.logout();
+          }, 3000);
+        }
+        else{
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
     }
-    else if(this.typeId == 2) {
+    else if (this.typeId == 2) {
       this.memoryService.updateCandle(this.candleData).subscribe(result => {
-        if(result.isSuccess) {
-          //alert
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
 
-          this.router.navigate(['/memories/' + this.candleData.memoryId]);
+          setTimeout(() => {
+            this.router.navigate(['/memories/' + this.candleData.memoryId]);
+          }, 3000);
         }
+        else {
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });}
       })
     }
-    else if(this.typeId == 3) {
+    else if (this.typeId == 3) {
       var data: GiftModel = this.paymentForm.getRawValue();
       data.price = this.totalPrice;
-      if(this.currentUser) {
+      if (this.currentUser) {
         data.userId = this.currentUser?.id!;
       }
 
       this.giftService.addGift(data).subscribe(result => {
-        if(result.isSuccess) {
-          //alert
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
 
-          this.router.navigate(['/standby']);
+          setTimeout(() => {
+            this.router.navigate(['/standby']);
+          }, 3000);
+        }
+        else{
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
 
     }
-    if(this.typeId == 4) {
+    if (this.typeId == 4) {
       this.userManagementService.buyPackage(this.currentUser?.id!, this.planId).subscribe(result => {
-        if(result.isSuccess) {
-          //alert
-
-          this.auth.logout();
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+          
+          setTimeout(() => {
+            this.auth.logout();
+          }, 3000);
+        }
+        else{
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
     }
+  }
+
+  formatCvc(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    value = value.substring(0, 4); // AMEX için 4 hane
+    this.paymentForm.get('cvv')?.setValue(value, { emitEvent: false });
+  }
+
+  formatCardHolder(event: any) {
+    let value = event.target.value
+      .toUpperCase()
+      .replace(/[^A-ZÇĞİÖŞÜ ]/g, '');
+
+    this.paymentForm.get('fullname')?.setValue(value, { emitEvent: false });
+  }
+
+  formatCardNumber(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    value = value.substring(0, 16);
+    value = value.replace(/(.{4})/g, '$1 ').trim();
+    this.paymentForm.get('cardno')?.setValue(value, { emitEvent: false });
+  }
+
+  formatExpiry(event: any) {
+    let value = event.target.value.replace(/\D/g, '');
+    if (value.length >= 3) {
+      value = value.substring(0, 4);
+      value = value.replace(/(\d{2})(\d{1,2})/, '$1/$2');
+    }
+    this.paymentForm.get('expiryDate')?.setValue(value, { emitEvent: false });
   }
 
   initForm() {
     this.paymentForm = this.fb.group(
       {
-        fullname: ['', Validators.required],
-        cardno: ['', Validators.required],
-        expiryDate: ['', Validators.required],
-        cvv: ['', Validators.required],
+        fullname: ['', Validators.required, Validators.pattern(/^[A-ZÇĞİÖŞÜ ]{2,}$/)],
+        cardno: ['', Validators.required, Validators.pattern(/^\d{4} \d{4} \d{4} \d{4}$/)],
+        expiryDate: ['', Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)],
+        cvv: ['', Validators.required, Validators.pattern(/^\d{3,4}$/)],
       });
   }
 
@@ -149,10 +233,10 @@ export class PaymentComponent implements OnInit, AfterViewInit {
         this.totalPrice = this.candleData.donation!;
       }
       else if (params.typeId == 3) {
-        if(!this.currentUser) {
+        if (!this.currentUser) {
           this.paymentForm.addControl('senderEmail', this.fb.control('', Validators.required));
         }
-        
+
         this.paymentForm.addControl('receiverEmail', this.fb.control('', Validators.required));
         this.paymentForm.addControl('message', this.fb.control('', Validators.required));
         this.paymentForm.addControl('planId', this.fb.control(params.selectedPlan, Validators.required));
@@ -169,7 +253,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
         }
       }
       else if (params.typeId == 4) {
-        this.paymentForm.removeControl('senderEmail');        
+        this.paymentForm.removeControl('senderEmail');
         this.paymentForm.removeControl('receiverEmail');
         this.paymentForm.removeControl('message');
         this.paymentForm.removeControl('planId');
@@ -195,13 +279,5 @@ export class PaymentComponent implements OnInit, AfterViewInit {
 
   setActiveTabId(tabId: PaymentTabsType) {
     this.activeTabId = tabId;
-  }
-
-  openEditModal(id: number) {
-    this.editSaveComponent.openModal(this.currentUser?.id!, id);
-  }
-
-  openSaveModal() {
-    this.editSaveComponent.openModal(this.currentUser?.id!, undefined);
   }
 }

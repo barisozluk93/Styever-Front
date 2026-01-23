@@ -8,9 +8,8 @@ import {
 } from '@angular/core';
 import { LayoutService } from './core/layout.service';
 import { LayoutInitService } from './core/layout-init.service';
-import { NavigationCancel, NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
-import { WebSocketService } from 'src/app/modules/common/web-socket.service';
 import { AuthService } from 'src/app/modules/auth';
 
 @Component({
@@ -58,7 +57,6 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
     private initService: LayoutInitService,
     private layout: LayoutService,
     private router: Router,
-    private wsService: WebSocketService,
     private authService: AuthService
   ) {
     this.initService.init();
@@ -134,15 +132,6 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   routingChanges() {
     let currentUser = this.authService.currentUserValue;
 
-    if ((!this.wsService.socket || this.wsService.socket.closed) && currentUser) {
-      const auth = this.authService.getAuthFromLocalStorage();
-
-      this.wsService.openWebSocket(auth?.accessToken!);
-    }
-    else {
-      this.wsService.closeWebSocket();
-    }
-
     const routerSubscription = this.router.events.subscribe((event) => {
 
       this.setMobility(window.innerWidth);
@@ -156,8 +145,22 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   controlRoute() {
     var main = document.getElementById("main-element");
     
-    if (this.router.url.includes("/about")) {
+    if (this.router.url.includes("/home")) {
+      main?.classList.remove("memory-background");
+      main?.classList.remove("contactus-background");
+      main?.classList.remove("payment-background");
+      main?.classList.remove("memoryeditsave-background");
+      main?.classList.remove("support-background");
+      main?.classList.remove("faq-background");
+      main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
+      main?.classList.add("home-background");
+      this.isWhitePage = false;
+    }
+    else if (this.router.url.includes("/about")) {
+
+      main?.classList.remove("home-background");
       main?.classList.remove("memory-background");
       main?.classList.remove("contactus-background");
       main?.classList.remove("payment-background");
@@ -166,7 +169,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
 
-      main?.classList.add("home-background");
+      main?.classList.add("about-background");
       this.isWhitePage = false;
     }
     else if (this.router.url == "/memories") {
@@ -178,6 +181,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("memory-background");
       this.isWhitePage = false;
@@ -191,6 +195,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("memoryeditsave-background");
       this.isWhitePage = false;
@@ -204,6 +209,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("faq-background");
       this.isWhitePage = false;
@@ -217,6 +223,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("memoryeditsave-background");
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("gift-background");
       this.isWhitePage = false;
@@ -230,6 +237,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("contactus-background");
       this.isWhitePage = false;
@@ -243,6 +251,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("payment-background");
       this.isWhitePage = false;
@@ -256,6 +265,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("memory-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       main?.classList.add("support-background");
       this.isWhitePage = false;
@@ -269,6 +279,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("support-background");
       main?.classList.remove("faq-background");
       main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
 
       this.isWhitePage = true;
     }

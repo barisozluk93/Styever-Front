@@ -8,11 +8,11 @@ import { AuthService } from '../auth';
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class AboutComponent implements OnInit, AfterViewInit {
 
   bannerHeight?: number;
   bannerPaddingTopHeight?: number;
@@ -60,10 +60,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.windowResizeService.resize$
-      .subscribe(size => {
-        this.bannerHeight = window.innerHeight - (document.getElementById("kt_header")?.clientHeight! + 1);
-        this.bannerPaddingTopHeight = this.bannerHeight / 4;
-      });
+    .subscribe(size => {
+      this.bannerHeight =  (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
+      this.bannerPaddingTopHeight = this.bannerHeight / 6;
+    });
   }
 
   ngAfterViewInit(): void {

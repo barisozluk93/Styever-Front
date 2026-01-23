@@ -150,6 +150,9 @@ export const locale = {
     NOTMEMBERYET: 'Not a Member yet?',
     SIGNUP: 'Sign up',
     RESETPASSWORDMAIL: 'Enter your email to reset your password.',
+    RESET_PASSWORD_SUBHEADER: 'Enter your new password and confirmation code.',
+    RESET_PASSWORD_ERROR: 'Please check your information!',
+    RESET_PASSWORD_SUCCESS: 'Your password has been successfully changed.',
 
 
     // START (TR-EN-LANGUAGE-BRANCH)
@@ -419,7 +422,7 @@ export const locale = {
     CARD_NUMBER: "Card Number",
     VALIDITY_DATE: "Validity Date",
     VALIDITY_DATE_PH: "MM/YY",
-    CVC: "CVC",
+    CVC: "CVC / CVV",
     PAYMENT: "Make Payment",
     PAYMENT_SUMMARY: "Payment Summary",
     PAYMENT_SUBHEADER: "Make your payment easily in seconds.",
@@ -439,6 +442,66 @@ export const locale = {
     trial: "7-Day Free Trial",
     TRIAL_EXPIRED: "Your trial period has expired!",
     BUY: "Buy",
-    // END (TR-EN-LANGUAGE-BRANCH)
+
+    HOME_HEADER: "Stever is a quiet, peaceful, and lasting memorial space designed to keep alive the loving memory of your lost pet. Share photos, videos, and memories you shared together, immortalizing their story.",
+    EXPLORE: "Explore",
+    MEMORIES: "Memories",
+    CREATE_MEMORY: "Add Memory",
+    OFFERS: "What we offer?",
+    OFFERS_HEADER: "Keep their memories alive forever.",
+    OFFERS_FIRST_CONTENT_HEADER: "Get Started Now",
+    OFFERS_FIRST_CONTENT_SUBHEADER: "Share your memories with your closest friend in just a few minutes.",
+    OFFERS_SECOND_CONTENT_HEADER: "Photo and Video Library",
+    OFFERS_SECOND_CONTENT_SUBHEADER: "Store and showcase your cherished moments with ease.",
+    OFFERS_THIRD_CONTENT_HEADER: "Opportunity to Donate",
+    OFFERS_THIRD_CONTENT_SUBHEADER: "Support animal shelters in memory of your beloved pet.",
+    OFFERS_FOURTH_CONTENT_HEADER: "Ad-free Experience",
+    OFFERS_FOURTH_CONTENT_SUBHEADER: "Enjoy a peaceful memorial space without distractions.",
+    OFFERS_FIFTH_CONTENT_HEADER: "Community Support",
+    OFFERS_FIFTH_CONTENT_SUBHEADER: "Connect with others who have shared similar experiences and find support.",
+    ABOUT: "About",
+    ABOUT_HEADER: "Why Styever?",
+    ABOUT_CONTENT: "We lost our beloved pet, and a parting of us remains in our hearts forever. We founded Styever to create a calm, safe, and unadvertised memorial space for everyone who carries this deep sorrow.\n\n" +
+      "Here, your friends' lives can be lovingly understood; you can keep their memory alive by sharing videos and your most cherished moments together.\n\n" +
+      "Styever is a heartfelt project by a small, dedicated team. Our sole focus is on the value of the love, bond, and memories you shared with your lost friend. At the same time, one of our greatest aims is to support our animal friends by encouraging donations to the charities we work with, while preserving these memories.\n\n" +
+      "Styever exists to provide a lasting and peaceful home for the memories of your beloved pet.",
+    SHORTCUT_FIRST_HEADER: "Keep Their Memory Alive",
+    SHORTCUT_FIRST_CONTENT: "Create a lasting tribute to your beloved pet with Styever.",
+    SHORTCUT_SECOND_HEADER: "Offer Support to Others Who Have Had Similar Experiences",
+    SHORTCUT_SECOND_CONTENT: "To support those who have experienced similar events, express your sincere condolences and leave a comforting message.",
+    STANDBY_HEADER: "Make Them Feel You're There",
+    STANDBY_CONTENT: "Sometimes a gift is more than just a gift. A helping hand extended at the moment when the pain is deepest, keeps alive the memory of a friend remembered with love. This gift card is just for those moments.",
+    ABOUT_HEADER_CONTENT: "Styever — there to trace the path of love.",
+    ABOUT_SUBHEADER: "The moment our animal friends enter our lives, they teach us unconditional love, loyalty, and joy. When they leave us one day, they leave an indescribable void in our hearts. But their love never truly disappears; it simply transforms.\n\n" +
+      "Styever is a calm and secure haven created to keep alive the memories of our lost companions. Here, you can share their story, remember their lives with love, and keep their memories fresh. Your family and friends can also visit this special place and share in your feelings.\n\n" +
+      "We are a community that shares the same love. Because we believe that;\n" +
+      "If love ends, memories fade.\n" +
+      "If memories live, love lasts forever.\n" +
+      "Let's never forget them.\n" +
+      "Together, always with love.",
+    ABOUT_FIRST_CONTENT_HEADER: "Our Mission",
+    ABOUT_FIRST_CONTENT: "To provide a compassionate space where we can cherish the memories of our beloved animal companions, and support each other through shared stories.",
+    ABOUT_SECOND_CONTENT_HEADER: "Community Impact",
+    ABOUT_SECOND_CONTENT: "Through shared memories filled with love, we bring together animal companions who have experienced the same sorrow and affection."
+      + " sayfanin devamina asagidaki icerigi farkli bir gorselle(sadece bir hayvanin gorseli olabilir, balik, kus. farkli bir hayvan) ekleyelim lutfen."
+      + " Sevgiyle hatırlıyoruz, iyi ki vardılar."
+      + " Styever; hayatımıza dokunan dostlarımızın anılarını yaşatabileceğimiz, bizi anlayan bir buluşma noktasıdır. Onlarla kurduğumuz bağın ne kadar derin olduğunu biliyoruz. Bu özel bağı onurlandırmanız ve sonsuza dek yaşatmanız için yanınızdayız."
+      + " sonrasinda asagidaki metni yine bir hayvan ve bir insan gorseli ile ekleyelim. asagidaki metinden sonra da logomuzla birlikte bir kutucuk icinde ‘sizin aninizi olusturun’ ile ani olusturma sayfasina link ekleyelim."
+      + " Onların eşsiz yolculuğuna sevgiyle…"
+      + " Bizler için küçük görünen anlar, onların varlığıyla kocaman hatıralara dönüşür."
+      + " Styever, dostlarımızın bize bıraktığı bu güzel izleri yaşatabileceğimiz kalpten bir yuva sunar."
+      + " Anılarınızı paylaşın, yaşamlarını sevgiyle kutlayın ve aynı acıyı da sevgiyi de anlayan bir toplulukla yan yana olun.",
+    ABOUT_THIRD_CONTENT_HEADER: "Create Memory",
+    ABOUT_THIRD_CONTENT: "Immortalize the memory of your beloved friend with a memorial page as special as they were. Let every photograph, every word, be a continuation of the bond in your hearts.",
+    ABOUT_FOURTH_CONTENT_HEADER: "Share Memories",
+    ABOUT_FOURTH_CONTENT: "Relive the moments you shared with your family and friends, smiling and hugging together. Because some loves grow not with time, but with remembrance.",
+
+    SUCCESS: "Success",
+    SUCCESS_MESSAGE: "Operation completed successfully.",
+    ERROR: "Error",
+    INFO: "Information",
+    WARNING: "Warning",
+    PLEASE_UPLOAD_IMAGE_SIZE_300X300: "Please upload an image file with dimensions 300x300!",
+    // END (TR-EN-LANGUAGE-BRANCH
   }
 };

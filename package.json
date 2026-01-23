@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.0.8",
+    "@angular/animations": "^17.3.12",
     "@angular/common": "^17.0.8",
     "@angular/compiler": "^17.0.8",
     "@angular/core": "^17.0.8",
@@ -49,6 +49,7 @@
     "ng-inline-svg-2": "^15.0.1",
     "ng2-pdf-viewer": "^10.2.2",
     "ngx-clipboard": "16.0.0",
+    "ngx-toastr": "^19.1.0",
     "nouislider": "^15.7.0",
     "object-path": "0.11.8",
     "prism-themes": "1.9.0",

@@ -38,8 +38,9 @@
       </form>
     </div>
     <div *ngIf="isMyListVisible" [ngClass]="isMyListVisible ? 'col-lg-2 text-center py-3' : 'text-center py-3'">
-      <input class="form-check-input" type="checkbox" id="mine"  (change)="onCheckboxChange($event)" />
-      <label class="form-check-label text-white fs-3 fw-bolder" htmlFor="mine">&nbsp;{{'MY_MEMORIES' | translate}}</label>
+      <input class="form-check-input" type="checkbox" id="mine" (change)="onCheckboxChange($event)" />
+      <label class="form-check-label text-white fs-3 fw-bolder" htmlFor="mine">&nbsp;{{'MY_MEMORIES' |
+        translate}}</label>
     </div>
     <div *ngIf="isNewMemoryVisible" [ngClass]="isNewMemoryVisible ? 'col-lg-2' : ''">
       <a class="btn btn-custom btn-active-white btn-color-white btn-primary w-100" data-bs-toggle="modal"

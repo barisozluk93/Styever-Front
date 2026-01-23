@@ -4,9 +4,7 @@
       <div class="col-lg-5">
         <div class="fw-bolder text-white py-5" style="text-shadow: 0 1px 3px #000000a1;
     font-size: 20px;border-bottom: 2px solid rgba(255, 255, 255, 0.1)">
-          Styever, evcil hayvanlarınızla olan sevgi bağınızı ve anılarınızı yaşatmanız için oluşturulmuş bir
-          anı platformudur. Evcil hayvanınızın hayatını sonsuzlaştırmak ve onu her zaman yakınınızda tutmak için
-          içten bir anma alanı yaratın.
+          {{ 'HOME_HEADER' | translate }}
         </div>
         <div class="py-5">
           <div class="row">
@@ -16,7 +14,7 @@
                 data-kt-menu-flip="top-end">
                 <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr004.svg'"
                   class="svg-icon svg-icon-2 me-1"></span>
-                Keşfet
+                {{ 'EXPLORE' | translate }}
               </a>
             </div>
             <div class="w-50">
@@ -25,7 +23,7 @@
                 data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                 <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'"
                   class="svg-icon svg-icon-2 me-1"></span>
-                Anılar
+                {{ 'MEMORIES' | translate }}
               </a>
             </div>
           </div>
@@ -38,11 +36,14 @@
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
       <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-        Sunduklarımız
+       <a class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'OFFERS' | translate}}
+        </a>
       </span>
     </div>
     <div class="col-lg-6">
-      <h1 class="heading-3 text-primary">Anılarını sonsuza kadar yaşat.</h1>
+      <h1 class="heading-3 text-primary">{{ 'OFFERS_HEADER' | translate }}</h1>
     </div>
   </div>
 
@@ -51,10 +52,8 @@
       <div class="card">
         <div class="card-header border-0">
           <h3 class="card-title align-items-start flex-column">
-            <span (click)="goToSignUp()" class="cursor-pointer card-label fw-bolder text-primary">Hemen Şimdi
-              Başla</span>
-            <span class="text-light-primary mt-3 fw-bold fs-sm">Birkaç dakika içinde en yakın dostunla
-              anılarını paylaş.</span>
+            <span (click)="goToSignUp()" class="cursor-pointer card-label fw-bolder text-hover-light-primary text-primary">{{ 'OFFERS_FIRST_CONTENT_HEADER' | translate }}</span>
+            <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FIRST_CONTENT_SUBHEADER' | translate }}</span>
           </h3>
         </div>
         <div class="card-body">
@@ -68,7 +67,7 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-primary">Video ve Görsel Kütüphanesi</span>
+                <span class="fw-bolder text-primary">{{ 'OFFERS_SECOND_CONTENT_HEADER' | translate }}</span>
               </h3>
             </div>
             <div class="card-body">
@@ -77,9 +76,7 @@
                   class="svg-icon svg-icon-1 text-light-primary"></span>
               </div>
               <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">En yakın arkadaşınızın görsel ve videolarıyla onu
-                  hep
-                  canlı tutun.</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_SECOND_CONTENT_SUBHEADER' | translate }}</span>
               </h3>
             </div>
           </div>
@@ -88,18 +85,15 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title text-center flex-column">
-                <span class="card-label fw-bolder text-primary">Bağış</span>
+                <span class="card-label fw-bolder text-primary">{{ 'OFFERS_THIRD_CONTENT_HEADER' | translate }}</span>
               </h3>
             </div>
             <div class="card-body">
               <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen008.svg'"
-                  class="svg-icon svg-icon-1 text-light-primary"></span>
+                <i class="fa fa-ribbon text-light-primary fs-1"></i>
               </div>
               <h3 class="card-title text-center flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">İsteğinize bağlı olarak paket ücretinizin %5'lik
-                  kısmını
-                  seçtiğiniz bir kuruma bağışlayın ve barınaklarda yaşayan diğer dostlarınızı mutlu edin.</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_THIRD_CONTENT_SUBHEADER' | translate }}</span>
               </h3>
             </div>
           </div>
@@ -110,16 +104,32 @@
           <div class="card" style="height: 300px;">
             <div class="card-header">
               <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-primary">Reklam Yok</span>
+                <span class="fw-bolder text-primary">{{ 'OFFERS_FOURTH_CONTENT_HEADER' | translate }}</span>
               </h3>
             </div>
             <div class="card-body">
               <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen020.svg'"
-                  class="svg-icon svg-icon-1 text-light-primary"></span>
+                <i class="fa fa-ban text-light-primary fs-1"></i>
               </div>
               <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">"Açıklama"</span>
+                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FOURTH_CONTENT_SUBHEADER' | translate }}</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              <h3 class="card-title align-items-start flex-column">
+                <span class="fw-bolder text-primary">{{ 'OFFERS_FIFTH_CONTENT_HEADER' | translate }}</span>
+              </h3>
+            </div>
+            <div class="card-body">
+              <div style="text-align: center;">
+                <i class="fa-solid fa-heart text-light-primary fs-1"></i>
+              </div>
+              <h3 class="card-title align-items-start flex-column mx-2 my-10">
+                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FIFTH_CONTENT_SUBHEADER' | translate }}</span>
               </h3>
             </div>
           </div>
@@ -132,7 +142,10 @@
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
       <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-        Hakkımızda
+        <a class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'ABOUT' | translate}}
+          </a>
       </span>
     </div>
   </div>
@@ -142,22 +155,13 @@
         style="height: 600px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder text-white">Neden Styever?</span>
+            <span (click)="goToAbout()" class="cursor-pointer  fw-bolder text-white">{{ 'ABOUT_HEADER' | translate }}</span>
           </h3>
         </div>
         <div class="card-body">
           <h3 class="card-title flex-column mx-2 my-2">
-            <span class="text-white mt-3 fw-bold fs-sm">
-              Evcil hayvanınızı kaybetmek, asla geçmeyen bir acı bırakır. Styever'ı, Türkiye'de evcil hayvan
-              anma törenleri için sakin ve reklamsız bir çevrimiçi alan olarak, evcil hayvanınızın hayatını
-              kutlayabileceğiniz ve kalıcı anılarınızı paylaşabileceğiniz huzurlu bir yuva olarak yarattık. Hayatı
-              boyunca hayvanları seven Clonakilty, Batı Cork'lu Mick Hanly tarafından kurulan Rest Easy Friend, her
-              hikayenin sevgi ve saygıyla ele alındığı, evcil hayvanlar için sade ve içten bir RIP web sitesi
-              oluşturma
-              isteğinden ilham aldı. Tek seferlik anma planlarıyla desteklenen küçük ve bağımsız bir İrlanda ekibiyiz.
-              Asla reklam yayınlamayız veya veri satmayız, bu nedenle odak noktamız her zaman anma, bağ ve sevgili
-              evcil
-              hayvanınızla paylaştığınız bağdır.
+            <span class="text-white mt-3 fw-bold fs-sm" style="white-space: pre-line">
+              {{ 'ABOUT_CONTENT' | translate }}
             </span>
           </h3>
         </div>
@@ -174,48 +178,46 @@
 <section id="options" class="mx-10">
   <div class="row px-10 pt-10">
     <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card">
+      <div class="card" style="height: 247px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column py-3">
-            <span class="fw-bolder text-primary">En iyi arkadaşını sonsuza kadar yaşat.</span>
+            <span class="fw-bolder text-primary">{{ 'SHORTCUT_FIRST_HEADER' | translate }}</span>
           </h3>
         </div>
         <div class="card-body">
           <h3 class="card-title flex-column py-5">
             <span class="text-light-primary mt-3 fw-bold fs-sm">
-              Değerli anılarınızı ve hikayelerinizi paylaşarak, sevdiğiniz bir arkadaşınızın mirasını onurlandırın ve
-              ruhunu canlı tutun.
+              {{ 'SHORTCUT_FIRST_CONTENT' | translate }}
             </span>
           </h3>
           <div class="text-center">
             <a (click)="goToSignUp()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
               data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
               <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'" class="svg-icon svg-icon-2"></span>
-              Yeni Anı Paylaş
+              {{ 'CREATE_MEMORY' | translate }}
             </a>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card">
+      <div class="card" style="height: 247px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column py-3">
-            <span class="fw-bolder text-primary">Diğer dostları da nazik bir şekilde anın.</span>
+            <span class="fw-bolder text-primary">{{ 'SHORTCUT_SECOND_HEADER' | translate }}</span>
           </h3>
         </div>
         <div class="card-body">
           <h3 class="card-title flex-column py-5">
             <span class="text-light-primary mt-3 fw-bold fs-sm">
-              Diğer dostların anısını onurlandırmak için içten taziyelerinizi ifade edin ve rahatlatıcı bir mesaj
-              paylaşın.
+              {{ 'SHORTCUT_SECOND_CONTENT' | translate }}
             </span>
           </h3>
           <div class="text-center">
             <a (click)="goToMemories()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
               data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
               <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
-              Anılar
+              {{ 'MEMORIES' | translate }}
             </a>
           </div>
         </div>
@@ -227,7 +229,10 @@
   <div class="row px-10 pt-10">
     <div class="col-lg-6">
       <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-        Size Özel Hediyeler
+        <a class="fw-bolder text-white">
+            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
+            &nbsp;{{ 'VOUCHERS' | translate}}
+          </a>
       </span>
     </div>
   </div>
@@ -236,23 +241,15 @@
       <div class="card bg-primary" style="height: 400px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
         <div class="card-header">
           <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder text-white">Hediyelik eşyalar ile dostunuzu ölümsüzleştirin.</span>
+            <span (click)="goToStandBy()" class="cursor-pointer fw-bolder text-white">{{ 'STANDBY_HEADER' | translate }}</span>
           </h3>
         </div>
         <div class="card-body">
           <h3 class="card-title flex-column mx-2 mt-5 mb-20" style="height: 85px;">
             <span class="text-white mt-3 fw-bold fs-sm mb-20">
-              Styever artık abonelik hizmetimiz için özel olarak hediyeler sunuyor; bu, en çok ihtiyaç
-              duyulduğunda gerçek rahatlığı sağlamanın nazik ve düşünceli bir yoludur.
+              {{ 'STANDBY_CONTENT' | translate }}
             </span>
           </h3>
-          <div class="text-center">
-            <a (click)="goToSignUp()" class="btn btn-custom btn-active-primary btn-color-primary btn-secondary w-100 mt-20"
-              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-              <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
-              Hemen Kayıt Ol
-            </a>
-          </div>
         </div>
       </div>
     </div>

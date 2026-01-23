@@ -15,9 +15,14 @@ const Routing: Routes = [
       import('../modules/user-management/user-management.module').then((m) => m.UserManagementModule),
   },
   {
-    path: 'about',
+    path: 'home',
     loadChildren: () =>
       import('../modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('../modules/about/about.module').then((m) => m.AboutModule),
   },
   {
     path: 'memories',
@@ -50,14 +55,8 @@ const Routing: Routes = [
       import('../modules/payment/payment.module').then((m) => m.PaymentModule),
   },
   {
-    path: 'dashboard',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-  },
-  {
     path: '',
-    redirectTo: '/about',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {

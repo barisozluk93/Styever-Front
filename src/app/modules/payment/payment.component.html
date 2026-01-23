@@ -81,7 +81,7 @@
 
               <label class="form-label fw-bolder text-gray-900 fs-6">{{'CARD_HOLDER' | translate}}</label>
               <input class="form-control bg-transparent mb-5" type="text" name="fullname" formControlName="fullname"
-                placeholder="{{'CARD_HOLDER' | translate}}" autocomplete="off" [ngClass]="{
+                placeholder="{{'CARD_HOLDER' | translate}}" (input)="formatCardHolder($event)" autocomplete="off" [ngClass]="{
         'is-invalid': paymentForm.controls['fullname'].invalid,
         'is-valid': paymentForm.controls['fullname'].valid
       }" />
@@ -92,8 +92,9 @@
 
               <label class="form-label fw-bolder text-gray-900 fs-6">{{'CARD_NUMBER' | translate}}</label>
               <input class="form-control bg-transparent" type="text" name="cardno" formControlName="cardno"
-                placeholder="{{'CARD_NUMBER' | translate}}" autocomplete="off" [ngClass]="{
-        'is-invalid': paymentForm.controls['cardno'].invalid,
+                placeholder="{{'CARD_NUMBER' | translate}}" (input)="formatCardNumber($event)"
+                autocomplete="off" [ngClass]="{
+        'is-invalid': paymentForm.controls['cardno'].invalid ,
         'is-valid': paymentForm.controls['cardno'].valid
       }" />
               <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation: 'required',
@@ -105,7 +106,7 @@
               <div class="col-lg-6">
                 <label class="form-label fw-bolder text-gray-900 fs-6">{{'VALIDITY_DATE' | translate}}</label>
                 <input class="form-control bg-transparent" type="text" name="expiryDate" formControlName="expiryDate"
-                  placeholder="{{'VALIDITY_DATE_PH' | translate}}" autocomplete="off" [ngClass]="{
+                  placeholder="{{'VALIDITY_DATE_PH' | translate}}" (input)="formatExpiry($event)" autocomplete="off" [ngClass]="{
         'is-invalid': paymentForm.controls['expiryDate'].invalid,
         'is-valid': paymentForm.controls['expiryDate'].valid
       }" />
@@ -117,8 +118,9 @@
               <div class="col-lg-6">
                 <label class="form-label fw-bolder text-gray-900 fs-6">{{'CVC' | translate }}</label>
 
-                <input class="form-control bg-transparent" type="text" name="cvv" formControlName="cvv"
-                  placeholder="{{'CVC' | translate}}" autocomplete="off" [ngClass]="{
+                <input class="form-control bg-transparent" type="password" name="cvv" formControlName="cvv" maxlength="4"
+                  placeholder="{{'CVC' | translate}}"   inputmode="numeric"
+ (input)="formatCvc($event)" autocomplete="off" [ngClass]="{
         'is-invalid': paymentForm.controls['cvv'].invalid,
         'is-valid': paymentForm.controls['cvv'].valid
       }" />
