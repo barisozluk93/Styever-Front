@@ -16,6 +16,8 @@ import { CandleListComponent } from '../candle/list/list.component';
 import { LightCandleComponent } from '../candle/new/new.component';
 import { MemoryCandleModel } from '../models/candle.model';
 import { parseBoolean } from 'src/app/utils/parse-boolean';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
+import { ToastrService } from 'ngx-toastr';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -48,19 +50,36 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     private windowResizeService: WindowResizeService,
     private translate: TranslateService,
     @Inject(LOCALE_ID) public locale: string,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService,
+  ) {
   }
 
   addComment() {
-    var data: MemoryCommentModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, comment: this.comment };
 
-    this.memoryManagementService.addComment(data).subscribe(result => {
-      if (result.isSuccess) {
-        this.getById();
-        this.comment = "";
-        this.isCommentBoxVisible = false;
-      }
-    })
+    if (this.currentUser && this.isUserActive) {
+      var data: MemoryCommentModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, comment: this.comment };
+
+      this.memoryManagementService.addComment(data).subscribe(result => {
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+          this.getById();
+          this.comment = "";
+          this.isCommentBoxVisible = false;
+        }
+        else {
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+        }
+      })
+    }
   }
 
   edit() {
@@ -114,7 +133,19 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
       if (this.memory?.ownLike) {
         this.memoryManagementService.dislike(this.currentUser?.id!, this.memoryId).subscribe(result => {
           if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
             this.getById();
+          }
+          else {
+            scrollToTop();
+            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
           }
         })
       }
@@ -122,7 +153,19 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
         var data: MemoryLikeModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, isDeleted: false }
         this.memoryManagementService.like(data).subscribe(result => {
           if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
             this.getById();
+          }
+          else {
+            scrollToTop();
+            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
           }
         })
       }
@@ -157,7 +200,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
 
   openCommentsModal(memoryId: number, commentCount: number) {
     if (commentCount > 0) {
-      this.commentsComponent.openModal(memoryId);
+      this.commentsComponent.openModal(this.memory!);
     }
   }
 

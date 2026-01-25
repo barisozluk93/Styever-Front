@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td width="5%" *ngIf="comment.own" class="text-end">
+                            <td width="5%" *ngIf="comment.own || isMemoryMine" class="text-end">
                                 <div class="d-flex flex-column w-100 me-2">
                                     <div class="d-flex flex-stack mb-2">
                                         <button type="button" (click)="deleteComment(comment.id)"

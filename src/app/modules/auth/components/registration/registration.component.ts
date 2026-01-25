@@ -238,11 +238,13 @@ export class RegistrationComponent implements OnInit, OnDestroy {
           this.totalPrice = result.data.price;
         }
         else{
-
+          this.activePlan = -1;
+          this.hasError = true;
         }
       }
       else{
-
+        this.activePlan = -1;
+        this.hasError = true;
       }
     })
   }

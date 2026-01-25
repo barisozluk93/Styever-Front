@@ -6,6 +6,8 @@ import { MemoryCommentModel } from "../models/comment.model";
 import { formatDate } from "@angular/common";
 import { AuthService } from "../../auth";
 import { environment } from "src/environments/environment";
+import { scrollToTop } from "src/app/utils/scrolltotop";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
     selector: 'app-memory-comment',
@@ -24,23 +26,38 @@ export class CommentComponent {
         private memoryManagementService: MemoryManagementService,
         private translate: TranslateService,
         private auth: AuthService,
-        @Inject(LOCALE_ID) public locale: string
+        @Inject(LOCALE_ID) public locale: string,
+        private toastr: ToastrService,
+    
     ) { }
 
     deleteComment(commentId: number) {
         this.memoryManagementService.deleteComment(commentId).subscribe(result => {
-            if(result.isSuccess) {
+            if (result.isSuccess) {
+                scrollToTop();
+                this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
+
                 this.loadData();
+            }
+            else {
+                scrollToTop();
+                this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
             }
         })
     }
 
     loadData() {
         this.memoryManagementService.commentAll(this.memoryId).subscribe(result => {
-            if(result.isSuccess) {
+            if (result.isSuccess) {
                 result.data.forEach(item => {
-                    if(item.userAvatar) {
-                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length-1];
+                    if (item.userAvatar) {
+                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length - 1];
                     }
 
                     item.own = item.userId == this.auth.currentUserValue?.id ? true : false;
@@ -50,7 +67,7 @@ export class CommentComponent {
                 this.comments = result.data;
             }
 
-            this.modalComponent.open({size : 'md', backdrop: 'static'});
+            this.modalComponent.open({ size: 'md', backdrop: 'static' });
         })
     }
 

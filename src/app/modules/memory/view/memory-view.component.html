@@ -122,7 +122,7 @@
               [(ngModel)]="comment"></textarea>
           </div>
         </div>
-        <div class="row" *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment && isUserActive">
+        <div class="row" *ngIf="isCommentBoxVisible && memory?.isOpenToComment && isUserActive">
           <div class="col-lg-6"></div>
           <div class="col-lg-6" style="float: right;">
             <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"

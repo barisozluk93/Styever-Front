@@ -165,7 +165,7 @@ export class MemoryComponent implements OnInit, AfterViewInit {
 
   openCommentsModal(memoryId: number, commentCount: number) {
     if (commentCount > 0) {
-      this.commentsComponent.openModal(memoryId);
+      this.commentsComponent.openModal(this.dataSource.filter(f => f.id == memoryId)[0]);
     }
   }
 

@@ -7,6 +7,8 @@ import { forkJoin } from "rxjs";
 import { MemoryManagementService } from "../../memory-management.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { scrollToTop } from "src/app/utils/scrolltotop";
 
 @Component({
     selector: 'app-memory-lightcandle',
@@ -27,7 +29,8 @@ export class LightCandleComponent {
         private memoryManagementService: MemoryManagementService,
         private translate: TranslateService,
         @Inject(LOCALE_ID) public locale: string,
-        private router: Router
+        private router: Router,
+        private toastr: ToastrService,
     ) { }
 
     disableSubmitButton(): boolean {
@@ -98,7 +101,20 @@ export class LightCandleComponent {
             else {
                 this.memoryManagementService.updateCandle(data).subscribe(result => {
                     if (result.isSuccess) {
+                        scrollToTop();
+                        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
+
                         this.isSuccess.emit();
+                    }
+                    else {
+                        scrollToTop();
+                        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000
+                        });
                     }
                 })
             }

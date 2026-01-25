@@ -15,6 +15,9 @@ import { MemoryCommentModel } from '../models/comment.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MemoryFileModel } from '../models/file.model';
 import { environment } from 'src/environments/environment';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -53,7 +56,9 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     private windowResizeService: WindowResizeService,
     private fb: FormBuilder,
     @Inject(LOCALE_ID) public locale: string,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService,
+    private translate: TranslateService,) {
   }
 
 
@@ -180,7 +185,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             this.activeMediaIndex = this.mediaFiles.length - 1;
           }
           else if (file && file.type.includes("image")) {
-            this.activeMediaIndex = this.mediaFiles.filter(f => f.file?.contentType.includes('image')).length-1;
+            this.activeMediaIndex = this.mediaFiles.filter(f => f.file?.contentType.includes('image')).length - 1;
           }
 
           this.form.patchValue(result.data);
@@ -282,15 +287,15 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     else {
       const control = this.form.get('text');
 
-      if(this.currentUser?.roles.includes("2")) {
+      if (this.currentUser?.roles.includes("2")) {
         control?.addValidators(Validators.maxLength(1000));
         control?.updateValueAndValidity();
         this.allowedCharacterCount = 1000;
       }
-      else if(this.currentUser?.roles.includes("3") || this.currentUser?.roles.includes("4")) {
+      else if (this.currentUser?.roles.includes("3") || this.currentUser?.roles.includes("4")) {
         control?.addValidators(Validators.maxLength(5000));
         control?.updateValueAndValidity();
-        
+
         this.allowedCharacterCount = 5000;
       }
       else {
@@ -347,8 +352,21 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   onCheckboxClicked(fileId: number) {
     this.memoryManagementService.setMemoryFileIsPrimary(fileId).subscribe(result => {
       if (result.isSuccess) {
+        scrollToTop();
+        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
+        
         this.getById(undefined);
         this.activeMediaIndex = 0;
+      }
+      else {
+        scrollToTop();
+        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
       }
     })
   }
@@ -367,16 +385,28 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           var data: MemoryFileModel = { id: 0, memoryId: this.memoryId, fileId: result.data.id, isPrimary: this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length > 0 ? false : true };
           this.memoryManagementService.memoryFileAdd(data).subscribe(result => {
             if (result.isSuccess) {
-              // this.alertService.createAlert("success", result.message);
+              scrollToTop();
+              this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                positionClass: 'toast-top-right',
+                timeOut: 3000
+              });
               this.getById(file);
             }
             else {
-              // this.alertService.createAlert("danger", result.message);
+              scrollToTop();
+              this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                positionClass: 'toast-top-right',
+                timeOut: 3000
+              });
             }
           })
         }
         else {
-          // this.alertService.createAlert("danger", result.message);
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
     }
@@ -388,7 +418,19 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     if (this.memoryId > 0) {
       this.memoryManagementService.edit(data).subscribe(result => {
         if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
           this.getById(undefined);
+        }
+        else {
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
         }
       })
     }
@@ -396,9 +438,21 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       data.userId = this.currentUser?.id!;
       this.memoryManagementService.save(data).subscribe(result => {
         if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
           this.memoryId = result.data.id;
           this.getById(undefined);
         }
+        else {
+          scrollToTop();
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+        } 
       })
     }
   }
@@ -408,6 +462,11 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       if (result.isSuccess) {
         this.memoryManagementService.memoryFileDelete(memoryFileId).subscribe(result => {
           if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
             this.getById(undefined);
 
             if ((this.mediaFiles.length - 1) == 1 || (this.mediaFiles.length - 1) == 0) {
@@ -419,7 +478,21 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
               }
             }
           }
+          else {
+            scrollToTop();
+            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
+          }
         })
+      }
+      else {
+        scrollToTop();
+        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
       }
     })
   }
@@ -439,13 +512,13 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   }
 
   onIsPrivateChange(event: any) {
-    if(event.target.checked) {
+    if (event.target.checked) {
       this.form.get("isLinkOnly")?.patchValue(false);
     }
   }
 
   onIsLinkOnlyChange(event: any) {
-    if(event.target.checked) {
+    if (event.target.checked) {
       this.form.get("isPrivate")?.patchValue(false);
     }
   }

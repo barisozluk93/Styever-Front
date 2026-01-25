@@ -7,6 +7,9 @@ import { formatDate } from "@angular/common";
 import { AuthService } from "../../auth";
 import { environment } from "src/environments/environment";
 import { forkJoin } from "rxjs";
+import { MemoryModel } from "../models/memory.model";
+import { scrollToTop } from "src/app/utils/scrolltotop";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
     selector: 'app-memory-comment',
@@ -21,29 +24,44 @@ export class CommentComponent {
     modalConfig: ModalConfig;
     comments: MemoryCommentModel[] = [];
     memoryId: number;
+    isMemoryMine: boolean = false;
 
     constructor(
         private memoryManagementService: MemoryManagementService,
         private translate: TranslateService,
         private auth: AuthService,
-        @Inject(LOCALE_ID) public locale: string
+        @Inject(LOCALE_ID) public locale: string,
+        private toastr: ToastrService,
     ) { }
 
     deleteComment(commentId: number) {
         this.memoryManagementService.deleteComment(commentId).subscribe(result => {
-            if(result.isSuccess) {
+            if (result.isSuccess) {
+                scrollToTop();
+                this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
+
                 this.modalComponent.close();
                 this.isSuccess.emit();
+            }
+            else {
+                scrollToTop();
+                this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
             }
         })
     }
 
     loadData() {
         this.memoryManagementService.commentAll(this.memoryId).subscribe(result => {
-            if(result.isSuccess) {
+            if (result.isSuccess) {
                 result.data.forEach(item => {
-                    if(item.userAvatar) {
-                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length-1];
+                    if (item.userAvatar) {
+                        item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length - 1];
                     }
 
                     item.own = item.userId == this.auth.currentUserValue?.id ? true : false;
@@ -53,7 +71,7 @@ export class CommentComponent {
                 this.comments = result.data;
             }
 
-            this.modalComponent.open({size : 'lg', backdrop: 'static', scrollable: true});
+            this.modalComponent.open({ size: 'lg', backdrop: 'static', scrollable: true });
         })
     }
 
@@ -64,12 +82,12 @@ export class CommentComponent {
 
     }
 
-    openModal(memoryId: number) {
+    openModal(memory: MemoryModel) {
         const keys = ['COMMENTS', 'CANCEL'];
         const translations: any = {};
-        
+
         const observables = keys.map(key => this.translate.get(key));
-        
+
         forkJoin(observables).subscribe((results) => {
             keys.forEach((key, index) => {
                 translations[key] = results[index]
@@ -82,7 +100,8 @@ export class CommentComponent {
             closeButtonLabel: translations['CANCEL']
         };
 
-        this.memoryId = memoryId;
+        this.isMemoryMine = memory.userId == this.auth.currentUserValue?.id;
+        this.memoryId = memory.id;
         this.loadData();
     }
 }
