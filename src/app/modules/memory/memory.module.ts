@@ -17,6 +17,7 @@ import { MemoryEditComponent } from './edit/memory-edit.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { LightCandleComponent } from './candle/new/new.component';
 import { CandleListComponent } from './candle/list/list.component';
+import { YoutubeComponent } from './add-memory-youtube/add-memory-youtube.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CandleListComponent } from './candle/list/list.component';
     CarouselComponent,
     MemoryEditComponent,
     LightCandleComponent,
-    CandleListComponent
+    CandleListComponent,
+    YoutubeComponent
   ],
   imports: [
     CommonModule,

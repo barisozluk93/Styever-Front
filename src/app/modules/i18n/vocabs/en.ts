@@ -417,7 +417,7 @@ export const locale = {
 
     SENDER_EMAIL: "Sender E-mail",
     RECEIVER_EMAIL: "Recipient E-mail",
-    MESSAGE: "Gift Message",
+    MESSAGE: "Message",
     CARD_HOLDER: "Card Holder",
     CARD_NUMBER: "Card Number",
     VALIDITY_DATE: "Validity Date",
@@ -502,6 +502,13 @@ export const locale = {
     INFO: "Information",
     WARNING: "Warning",
     PLEASE_UPLOAD_IMAGE_SIZE_300X300: "Please upload an image file with dimensions 300x300!",
+
+    CONTACT_US: "Contact Us",
+    SUBJECT: "Subject",
+    ADD_YOUTUBE_LINK: "Add Youtube Link",
+    LINK: "Link",
+    SELECT_A_MEMORY: "Select a Memory",
+    DOWNGRADE_PACKAGE: "You are downgrading from your previous package to a lower package. Please select the memory you wish to continue with.",
     // END (TR-EN-LANGUAGE-BRANCH
   }
 };

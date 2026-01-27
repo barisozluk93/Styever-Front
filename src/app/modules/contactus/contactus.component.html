@@ -1,7 +1,7 @@
 <div [ngStyle]="{'height.px': bannerHeight}">
   <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
     <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">Bize Ulaşın</span>
+      <span class="text-white fw-bolder" style="font-size: 30px;">{{ 'CONTACT_US' | translate }}</span>
     </div>
   </div>
 </div>
@@ -13,15 +13,15 @@
       <form class="form w-100" [formGroup]="contactForm">
         <div class="text-center mb-5 mt-5">
           <h1 class="text-gray-900 fw-bolder">
-            Bize Ulaşın
+            {{ 'CONTACT_US' | translate }}
           </h1>
         </div>
         <div class="separator mb-5"></div>
         <div class="row g-3 mb-8">
           <div class="col-lg-6">
-            <label class="form-label fs-6 fw-bolder text-gray-900">Ad Soyad</label>
+            <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'FULL_NAME' | translate }}</label>
             <input class="form-control bg-transparent" type="text" name="fullname" formControlName="fullname"
-            placeholder="Ad Soyad"
+            placeholder="{{ 'FULL_NAME' |  translate }}"
               autocomplete="off" [ngClass]="{
         'is-invalid': contactForm.controls['fullname'].invalid,
         'is-valid': contactForm.controls['fullname'].valid
@@ -29,48 +29,48 @@
 
             <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Fullname is required',
+        message: ('FULL_NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
         control: contactForm.controls['fullname']
       }"></ng-container>
 
           </div>
           <div class="col-lg-6">
-            <label class="form-label fs-6 fw-bolder text-gray-900">E-posta</label>
+            <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'EMAIL' | translate }}</label>
             <input class="form-control bg-transparent" type="email" name="email" formControlName="email"
-              placeholder="E-posta" autocomplete="off" [ngClass]="{
+              placeholder="{{ 'EMAIL' | translate }}" autocomplete="off" [ngClass]="{
         'is-invalid': contactForm.controls['email'].invalid,
         'is-valid': contactForm.controls['email'].valid
       }" />
             <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'EMail is required',
+        message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
         control: contactForm.controls['email']
       }"></ng-container>
           </div>
         </div>
         <div class="row-fv g-3 mb-8">
-          <label class="form-label fs-6 fw-bolder text-gray-900">Konu</label>
+          <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'SUBJECT' | translate }}</label>
           <input class="form-control bg-transparent" type="text" name="subject" formControlName="subject"
-            placeholder="Konu" autocomplete="off" [ngClass]="{
+            placeholder="{{ 'SUBJECT' | translate }}" autocomplete="off" [ngClass]="{
         'is-invalid': contactForm.controls['subject'].invalid,
         'is-valid': contactForm.controls['subject'].valid
       }" />
           <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Subject is required',
+        message: ('SUBJECT' | translate) + ' ' + ('IS_REQUIRED' | translate),
         control: contactForm.controls['subject']
       }"></ng-container>
         </div>
         <div class="row-fv g-3 mb-8">
-          <label class="form-label fs-6 fw-bolder text-gray-900">Mesaj</label>
+          <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'MESSAGE' | translate }}</label>
           <input class="form-control bg-transparent" type="text" name="message" formControlName="message"
-            placeholder="Mesaj" autocomplete="off" [ngClass]="{
+            placeholder="{{ 'MESSAGE' | translate }}" autocomplete="off" [ngClass]="{
         'is-invalid': contactForm.controls['message'].invalid,
         'is-valid': contactForm.controls['message'].valid
       }" />
           <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Message is required',
+        message: ('MESSAGE' | translate) + ' ' + ('IS_REQUIRED' | translate),
         control: contactForm.controls['message']
       }"></ng-container>
 
@@ -78,8 +78,8 @@
 
         <div class="row-fv g-3">
           <div class="d-grid">
-            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="contactForm.invalid">
-              Gönder
+            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="contactForm.invalid" (click)="submit()">
+              {{ 'SUBMIT' | translate }}
             </button>
           </div>
         </div>

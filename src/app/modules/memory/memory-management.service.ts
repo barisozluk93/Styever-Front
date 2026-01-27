@@ -10,6 +10,7 @@ import { MemoryCommentModel } from './models/comment.model';
 import { MemoryLikeModel } from './models/like.model';
 import { MemoryFileModel } from './models/file.model';
 import { MemoryCandleModel } from './models/candle.model';
+import { MemoryYoutubeLinkModel } from './models/youtubeLink.model';
 
 const API_MEMORY_URL = `${environment.apiUrl}/Memory`;
 const API_FILE_URL = `${environment.apiUrl}/File`;
@@ -46,6 +47,14 @@ export class MemoryManagementService {
 
     deleteFile(id: number): Observable<ResultModel<FileModel>> {
         return this.http.delete<ResultModel<FileModel>>(`${API_FILE_URL}/Delete/${id}`);
+    }
+
+    memoryYoutubeLinkDelete(id: number): Observable<ResultModel<MemoryFileModel>> {
+        return this.http.delete<ResultModel<MemoryFileModel>>(`${API_MEMORY_URL}/MemoryYoutubeLinkDelete/${id}`);
+    }
+
+    memoryYoutubeLinkAdd(memoryFile: MemoryYoutubeLinkModel): Observable<ResultModel<MemoryYoutubeLinkModel>> {
+        return this.http.post<ResultModel<MemoryYoutubeLinkModel>>(`${API_MEMORY_URL}/MemoryYoutubeLinkAdd`, memoryFile);
     }
 
     memoryFileDelete(id: number): Observable<ResultModel<MemoryFileModel>> {

@@ -42,6 +42,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
 
   typeId: number;
   planId: number;
+  memoryId: number;
   candleData: MemoryCandleModel;
 
   constructor(
@@ -132,7 +133,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
 
     }
     if (this.typeId == 4) {
-      this.userManagementService.buyPackage(this.currentUser?.id!, this.planId).subscribe(result => {
+      this.userManagementService.buyPackage(this.currentUser?.id!, this.planId, this.memoryId ? this.memoryId : 0).subscribe(result => {
         if (result.isSuccess) {
           scrollToTop();
           this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
@@ -188,10 +189,10 @@ export class PaymentComponent implements OnInit, AfterViewInit {
   initForm() {
     this.paymentForm = this.fb.group(
       {
-        fullname: ['', Validators.required, Validators.pattern(/^[A-ZÇĞİÖŞÜ ]{2,}$/)],
-        cardno: ['', Validators.required, Validators.pattern(/^\d{4} \d{4} \d{4} \d{4}$/)],
-        expiryDate: ['', Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)],
-        cvv: ['', Validators.required, Validators.pattern(/^\d{3,4}$/)],
+        fullname: ['', [Validators.required, Validators.pattern(/^[A-ZÇĞİÖŞÜ ]{2,}$/)]],
+        cardno: ['', [Validators.required, Validators.pattern(/^\d{4} \d{4} \d{4} \d{4}$/)]],
+        expiryDate: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]],
+        cvv: ['', [Validators.required, Validators.pattern(/^\d{3,4}$/)]],
       });
   }
 
@@ -259,6 +260,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
         this.paymentForm.removeControl('planId');
 
         this.planId = params.selectedPlan;
+        this.memoryId = params.memoryId;
 
         if (params.selectedPlan == 2) {
           this.totalPrice = 359.00;

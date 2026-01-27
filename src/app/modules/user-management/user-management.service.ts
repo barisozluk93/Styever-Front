@@ -157,8 +157,8 @@ export class UserManagementService {
         return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/Pay/${id}`);
     }
 
-    buyPackage(id: number, planId: number): Observable<ResultModel<boolean>> {
-        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/BuyPackage/${id}/${planId}`);
+    buyPackage(id: number, planId: number, memoryId: number): Observable<ResultModel<boolean>> {
+        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/BuyPackage/${id}/${planId}/${memoryId}`);
     }
 
     voucherControl(voucher: string): Observable<ResultModel<GiftModel>> {

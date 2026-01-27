@@ -39,10 +39,10 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <app-carousel [isEdit]="false" [files]="memory?.files!"></app-carousel>
+          <app-carousel [isEdit]="false" [youtubeLinks]="memory?.youtubeLinks!" [files]="memory?.files!"></app-carousel>
         </div>
         <div class="col-lg-2">
-          <a *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive" (click)="edit()" style="float: right !important"
+          <a *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive && !memory?.belongingToOldPackage" (click)="edit()" style="float: right !important"
             class="btn btn-custom btn-active-white btn-color-white btn-primary w-100">
             <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
             {{'EDIT' | translate}}

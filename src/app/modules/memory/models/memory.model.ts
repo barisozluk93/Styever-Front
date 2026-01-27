@@ -4,6 +4,7 @@ import { MemoryCommentModel } from "./comment.model";
 import { MemoryFileModel } from "./file.model";
 import { MemoryLikeModel } from "./like.model";
 import { MemoryCandleModel } from "./candle.model";
+import { MemoryYoutubeLinkModel } from "./youtubeLink.model";
 
 export class MemoryModel {
     id: number;
@@ -11,7 +12,6 @@ export class MemoryModel {
     userId: number;
     isDeleted: boolean;
     isLinkOnly: boolean;
-    belongToOldPackage: boolean;
     categoryName?: string;
     categoryId: number;
     category?: CategoryModel;
@@ -22,6 +22,7 @@ export class MemoryModel {
     likes?: MemoryLikeModel[];
     likesCount: number;
     files?: MemoryFileModel[];
+    youtubeLinks?: MemoryYoutubeLinkModel[];
     userName?: string;
     userCityCountry?: string;
     birthDate: string;
@@ -39,5 +40,6 @@ export class MemoryModel {
     isOpenToComment: boolean;
     qrData?: string;
     hasDonation?: boolean;
+    belongingToOldPackage: boolean;
   }
   

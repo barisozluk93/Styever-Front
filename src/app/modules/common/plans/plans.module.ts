@@ -6,15 +6,19 @@ import { NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 import { InlineSVGModule } from "ng-inline-svg-2";
 import { TranslationModule } from "../../i18n";
 import { PlansComponent } from "./plans.component";
+import { SelectMemoryComponent } from "./select-memory/select-memory.component";
+import { ModalsModule } from "src/app/_metronic/partials/layout/modals/modals.module";
 
 @NgModule({
     declarations: [
-      PlansComponent
+      PlansComponent,
+      SelectMemoryComponent
     ],
     exports: [
       PlansComponent,
     ],
     imports: [
+      ModalsModule,
       NgbPaginationModule,
       CommonModule,
       TranslationModule,

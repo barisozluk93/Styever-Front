@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
 import { MemoryManagementService } from '../../memory/memory-management.service';
+import { parseBoolean } from 'src/app/utils/parse-boolean';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {
@@ -16,35 +17,41 @@ export class AuthGuard {
           return false;
         }
         else {
-          this.memoryManagementService.getMemoryCount(currentUser?.id).subscribe(result => {
-            if (result.isSuccess) {
-              if (currentUser?.roles.includes("2") || currentUser?.roles.includes("3")) {
-                if (result.data >= 1) {
-                  this.router.navigate(['/memories']);
-                  return false;
+          if(!parseBoolean(currentUser.isActive)) {
+            this.router.navigate(['/memories']);
+            return false;
+          }
+          else{
+            this.memoryManagementService.getMemoryCount(currentUser?.id).subscribe(result => {
+              if (result.isSuccess) {
+                if (currentUser?.roles.includes("2") || currentUser?.roles.includes("3")) {
+                  if (result.data >= 1) {
+                    this.router.navigate(['/memories']);
+                    return false;
+                  }
+                  else {
+                    return true;
+                  }
                 }
-                else {
-                  return true;
-                }
-              }
-              else if (currentUser?.roles.includes("4")) {
-                if (result.data >= 4) {
-                  this.router.navigate(['/memories']);
-                  return false;
+                else if (currentUser?.roles.includes("4")) {
+                  if (result.data >= 4) {
+                    this.router.navigate(['/memories']);
+                    return false;
+                  }
+                  else {
+                    return true;
+                  }
                 }
                 else {
                   return true;
                 }
               }
               else {
-                return true;
+                this.router.navigate(['/memories']);
+                return false;
               }
-            }
-            else {
-              this.router.navigate(['/memories']);
-              return false;
-            }
-          })
+            })
+          }
         }
       }
       else if (state.url.includes('memories/edit')) {
@@ -54,22 +61,28 @@ export class AuthGuard {
         }
         else{
           var memoryId = parseInt(state.url.split('/')[state.url.split('/').length - 1]);
-
-          this.memoryManagementService.getById(memoryId).subscribe(result => {
-            if (result.isSuccess) { 
-              if(result.data.userId != currentUser?.id){
+          
+          if(!parseBoolean(currentUser.isActive)) {
+            this.router.navigate(['/memories/' + memoryId]);
+            return false;
+          }
+          else{
+            this.memoryManagementService.getById(memoryId).subscribe(result => {
+              if (result.isSuccess) { 
+                if(result.data.userId != currentUser?.id || result.data.belongingToOldPackage){
+                  this.router.navigate(['/memories/' + memoryId]);
+                  return false;
+                }
+                else{
+                  return true;
+                }
+              }
+              else{
                 this.router.navigate(['/memories/' + memoryId]);
                 return false;
               }
-              else{
-                return true;
-              }
-            }
-            else{
-              this.router.navigate(['/memories/' + memoryId]);
-              return false;
-            }
-          });
+            });
+          }
         }
       }
 

@@ -18,6 +18,8 @@ import { environment } from 'src/environments/environment';
 import { scrollToTop } from 'src/app/utils/scrolltotop';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { MemoryYoutubeLinkModel } from '../models/youtubeLink.model';
+import { YoutubeComponent } from '../add-memory-youtube/add-memory-youtube.component';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -27,13 +29,17 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./memory-edit.component.scss'],
 })
 export class MemoryEditComponent implements OnInit, AfterViewInit {
+  @ViewChild('youtubeComponent') private youtubeComponent: YoutubeComponent;
+
   private route = inject(ActivatedRoute);
   memoryId: number;
   isImageUploadAllowed: boolean = true;
   isVideoUploadAllowed: boolean = false;
+  isYoutubeLinkAllowed: boolean = false;
   allowedCharacterCount: number = 0;
   form: FormGroup;
   mediaFiles: MemoryFileModel[] = [];
+  youtubeLinks: MemoryYoutubeLinkModel[] = [];
   activeMediaIndex: number = 0;
 
   bannerHeight?: number;
@@ -62,78 +68,10 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
   }
 
 
-  getById(file?: any) {
+  getById(fileType?: any) {
     this.memoryManagementService.getById(this.memoryId)
       .subscribe(result => {
         if (result.isSuccess) {
-          if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length == 0) {
-            this.form.get("fileUrl")?.patchValue(undefined);
-          }
-
-          var control = this.form.get('text');
-
-          if (this.currentUser?.roles.includes("2")) {
-            control?.addValidators(Validators.maxLength(1000));
-            control?.updateValueAndValidity();
-            this.allowedCharacterCount = 1000;
-
-            this.isVideoUploadAllowed = false;
-
-            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 1) {
-              this.isImageUploadAllowed = false;
-            }
-            else {
-              this.isImageUploadAllowed = true;
-            }
-
-          }
-          else if (this.currentUser?.roles.includes("3")) {
-            control?.addValidators(Validators.maxLength(5000));
-            control?.updateValueAndValidity();
-            this.allowedCharacterCount = 5000;
-
-            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
-              this.isImageUploadAllowed = false;
-            }
-            else {
-              this.isImageUploadAllowed = true;
-            }
-
-            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
-              this.isVideoUploadAllowed = false;
-            }
-            else {
-              this.isVideoUploadAllowed = true;
-            }
-          }
-          else if (this.currentUser?.roles.includes("4")) {
-            control?.addValidators(Validators.maxLength(5000));
-            control?.updateValueAndValidity();
-            this.allowedCharacterCount = 5000;
-
-            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
-              this.isImageUploadAllowed = false;
-            }
-            else {
-              this.isImageUploadAllowed = true;
-            }
-
-            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
-              this.isVideoUploadAllowed = false;
-            }
-            else {
-              this.isVideoUploadAllowed = true;
-            }
-          }
-          else {
-            control?.addValidators(Validators.maxLength(20000));
-            control?.updateValueAndValidity();
-            this.allowedCharacterCount = 20000;
-
-            this.isImageUploadAllowed = true;
-            this.isVideoUploadAllowed = true;
-          }
-
           result.data.files?.forEach(file => {
             if (file.file) {
               file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
@@ -179,13 +117,102 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
 
             return 0;
           });
-          this.mediaFiles = result.data?.files!;
 
-          if (file && !file.type.includes("image")) {
+          this.mediaFiles = result.data?.files!;
+          this.youtubeLinks = result.data?.youtubeLinks!;
+
+          if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length == 0) {
+            this.form.get("fileUrl")?.patchValue(undefined);
+          }
+
+          var control = this.form.get('text');
+
+          if (this.currentUser?.roles.includes("2")) {
+            control?.addValidators(Validators.maxLength(1000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 1000;
+
+            this.isVideoUploadAllowed = false;
+            this.isYoutubeLinkAllowed = false;
+
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 1) {
+              this.isImageUploadAllowed = false;
+            }
+            else {
+              this.isImageUploadAllowed = true;
+            }
+
+          }
+          else if (this.currentUser?.roles.includes("3")) {
+            control?.addValidators(Validators.maxLength(5000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 5000;
+
+            if (this.youtubeLinks.length >= 2) {
+              this.isYoutubeLinkAllowed = false;
+            }
+            else {
+              this.isYoutubeLinkAllowed = true;
+            }
+
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
+              this.isImageUploadAllowed = false;
+            }
+            else {
+              this.isImageUploadAllowed = true;
+            }
+
+            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
+              this.isVideoUploadAllowed = false;
+            }
+            else {
+              this.isVideoUploadAllowed = true;
+            }
+          }
+          else if (this.currentUser?.roles.includes("4")) {
+            control?.addValidators(Validators.maxLength(5000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 5000;
+
+            if (this.youtubeLinks.length >= 2) {
+              this.isYoutubeLinkAllowed = false;
+            }
+            else {
+              this.isYoutubeLinkAllowed = true;
+            }
+
+            if (this.mediaFiles.filter(f => f.file?.contentType.includes("image")).length >= 4) {
+              this.isImageUploadAllowed = false;
+            }
+            else {
+              this.isImageUploadAllowed = true;
+            }
+
+            if (this.mediaFiles.filter(f => !f.file?.contentType.includes("image")).length == 2) {
+              this.isVideoUploadAllowed = false;
+            }
+            else {
+              this.isVideoUploadAllowed = true;
+            }
+          }
+          else {
+            control?.addValidators(Validators.maxLength(20000));
+            control?.updateValueAndValidity();
+            this.allowedCharacterCount = 20000;
+
+            this.isImageUploadAllowed = true;
+            this.isVideoUploadAllowed = true;
+            this.isYoutubeLinkAllowed = true;
+          }
+
+          if (fileType && fileType.includes("image")) {
+            this.activeMediaIndex = this.mediaFiles.filter(f => f.file?.contentType.includes('image')).length - 1;
+          }
+          else if (fileType && fileType.includes("video")) {
             this.activeMediaIndex = this.mediaFiles.length - 1;
           }
-          else if (file && file.type.includes("image")) {
-            this.activeMediaIndex = this.mediaFiles.filter(f => f.file?.contentType.includes('image')).length - 1;
+          else if(fileType && fileType.includes("youtube")) {
+            this.activeMediaIndex = (this.mediaFiles.length + this.youtubeLinks.length) - 1;
           }
 
           this.form.patchValue(result.data);
@@ -266,7 +293,6 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
         ]),
       ],
       isDeleted: false,
-      belongToOldPackage: false
     });
   }
 
@@ -357,7 +383,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           positionClass: 'toast-top-right',
           timeOut: 3000
         });
-        
+
         this.getById(undefined);
         this.activeMediaIndex = 0;
       }
@@ -390,7 +416,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
                 positionClass: 'toast-top-right',
                 timeOut: 3000
               });
-              this.getById(file);
+              this.getById(file.type);
             }
             else {
               scrollToTop();
@@ -452,9 +478,39 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             positionClass: 'toast-top-right',
             timeOut: 3000
           });
-        } 
+        }
       })
     }
+  }
+
+  deleteYoutubeLink(youtubeLinkId: number) {
+    this.memoryManagementService.memoryYoutubeLinkDelete(youtubeLinkId).subscribe(result => {
+      if (result.isSuccess) {
+        scrollToTop();
+        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
+
+        this.getById(undefined);
+
+        if (((this.mediaFiles.length + this.youtubeLinks.length) - 1) == 1 || ((this.mediaFiles.length + this.youtubeLinks.length) - 1) == 0) {
+          this.activeMediaIndex = 0;
+        }
+        else {
+          if ((this.mediaFiles.length + this.youtubeLinks.length) - 1 == this.activeMediaIndex) {
+            this.activeMediaIndex = this.activeMediaIndex - 1;
+          }
+        }
+      }
+      else {
+        scrollToTop();
+        this.toastr.error(result.message, this.translate.instant('ERROR'), {
+          positionClass: 'toast-top-right',
+          timeOut: 3000
+        });
+      }
+    });
   }
 
   deleteFile(fileId: number, memoryFileId: number) {
@@ -469,11 +525,11 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
             });
             this.getById(undefined);
 
-            if ((this.mediaFiles.length - 1) == 1 || (this.mediaFiles.length - 1) == 0) {
+            if (((this.mediaFiles.length + this.youtubeLinks.length) - 1) == 1 || ((this.mediaFiles.length + this.youtubeLinks.length) - 1) == 0) {
               this.activeMediaIndex = 0;
             }
             else {
-              if (this.mediaFiles.length - 1 == this.activeMediaIndex) {
+              if ((this.mediaFiles.length + this.youtubeLinks.length) - 1 == this.activeMediaIndex) {
                 this.activeMediaIndex = this.activeMediaIndex - 1;
               }
             }
@@ -497,9 +553,24 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     })
   }
 
+  openYoutubeLinkModal(event: any) {
+    this.youtubeComponent.openModal(this.memoryId);
+  }
+
+  isSuccess(event: boolean) {
+    this.getById("youtube");
+  }
+
   isFileDeleted(event: number) {
-    let file = this.mediaFiles[event];
-    this.deleteFile(file.fileId, file.id);
+    if (this.mediaFiles.length != 0 && event < this.mediaFiles.length) {
+      let file = this.mediaFiles[event];
+      this.deleteFile(file.fileId, file.id);
+    }
+    else {
+      let file = this.youtubeLinks[event - this.mediaFiles.length];
+      this.deleteYoutubeLink(file.id);
+    }
+
   }
 
   isCheckboxClicked(event: number) {

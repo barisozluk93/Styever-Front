@@ -47,7 +47,7 @@ export const locale = {
             },
             INPUT: {
                 EMAIL: 'E-posta',
-                FULLNAME: 'Adınız Soyadınız',
+                FULLNAME: 'Ad Soyad',
                 PASSWORD: 'Şifre',
                 CONFIRM_PASSWORD: 'Şifreyi Onayla',
                 USERNAME: 'Kullanıcı Adı'
@@ -275,7 +275,7 @@ export const locale = {
 
         PROFILE_DETAILS: "Profil Detayları",
         NAME: "Adınız",
-        FULL_NAME: "Adınız Soyadınız",
+        FULL_NAME: "Ad Soyad",
         FIRST_NAME: "Adınız",
         LAST_NAME: "Soyadınız",
         USERNAME: "Kullanıcı Adınız",
@@ -421,7 +421,7 @@ export const locale = {
 
         SENDER_EMAIL: "Gönderici E-posta",
         RECEIVER_EMAIL: "Alıcı E-posta",
-        MESSAGE: "Hediye Mesajı",
+        MESSAGE: "Mesaj",
         CARD_HOLDER: "Kart Sahibi",
         CARD_NUMBER: "Kart Numarası",
         VALIDITY_DATE: "Geçerlilik Tarihi",
@@ -506,6 +506,13 @@ export const locale = {
         INFO: "Bilgi",
         WARNING: "Uyarı",
         PLEASE_UPLOAD_IMAGE_SIZE_300X300: "Lütfen 300x300 boyutlarında bir resim dosyası yükleyiniz!",
+
+        CONTACT_US: "Bize Ulaşın",
+        SUBJECT: "Konu",
+        ADD_YOUTUBE_LINK: "Youtube Linki Ekle",
+        LINK: "Link",
+        SELECT_A_MEMORY: "Bir Anı Seçin",
+        DOWNGRADE_PACKAGE: "Bir önceki paketinizden alt bir pakete geçiş yapıyorsunuz. Devam etmek istediğiniz anınızı seçiniz.",
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };

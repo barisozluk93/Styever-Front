@@ -4,6 +4,11 @@ import { Router } from '@angular/router';
 import { LayoutService } from 'src/app/_metronic/layout';
 import { LayoutInitService } from 'src/app/_metronic/layout/core/layout-init.service';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
+import { ContactUsManagementService } from './contactus-management.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { ContactUsModel } from './models/contactus.model';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -15,63 +20,62 @@ import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize
 })
 export class ContactUsComponent implements OnInit, AfterViewInit {
   contactForm: FormGroup;
-  hasError: boolean;
 
   bannerHeight?: number;
   bannerPaddingTopHeight?: number;
 
   constructor(
     private windowResizeService: WindowResizeService,
+    private contactUsManagementService: ContactUsManagementService,
+    private translate: TranslateService,
+    private toastr: ToastrService,
     private fb: FormBuilder) {
   }
 
   initForm() {
     this.contactForm = this.fb.group(
       {
+        id: 0,
+        isDeleted: false,
         email: [
           "",
-           Validators.required,
+          Validators.compose([
+            Validators.required,
             Validators.email,
-            Validators.minLength(3),
-            Validators.maxLength(320),
+          ])
         ],
         fullname: [
           "",
           Validators.compose([
             Validators.required,
-            Validators.minLength(4),
-            Validators.maxLength(4),
           ]),
         ],
         subject: [
           "",
           Validators.compose([
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(4),
-        ]),],
+            Validators.required,
+          ]),],
         message: [
           "",
           Validators.compose([
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(4),
-        ]),]
+            Validators.required,
+          ]),
+        ]
       });
   }
 
   ngOnInit(): void {
     this.windowResizeService.resize$
-    .subscribe(size => {
-      this.bannerHeight =  (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
-      this.bannerPaddingTopHeight = this.bannerHeight / 4;
-    });
+      .subscribe(size => {
+        this.bannerHeight = (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
+        this.bannerPaddingTopHeight = this.bannerHeight / 4;
+      });
 
     this.initForm();
   }
 
   ngAfterViewInit(): void {
-    
+
   }
 
   get f() {
@@ -79,6 +83,27 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
-      
+    if (this.contactForm.valid) {
+      let data: ContactUsModel = this.contactForm.getRawValue();
+
+      this.contactUsManagementService.submit(data).subscribe(result => {
+        if (result.isSuccess) {
+          scrollToTop();
+
+          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+        }
+        else {
+          scrollToTop();
+
+          this.toastr.error(result.message, this.translate.instant('ERROR'), {
+            positionClass: 'toast-top-right',
+            timeOut: 3000
+          });
+        }
+      });
     }
+  }
 }
