@@ -119,7 +119,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
           });
 
           setTimeout(() => {
-            this.router.navigate(['/standby']);
+            this.router.navigate(['/giftvoucher']);
           }, 3000);
         }
         else{

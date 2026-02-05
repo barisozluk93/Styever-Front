@@ -64,6 +64,8 @@ export class CarouselComponent implements OnChanges {
             this.activeMediaIndex = this.links.findIndex(
                 (_, index) => 'slide-' + (this.files.length + index) === event.current
             );
+
+            this.activeMediaIndex = this.files.length + this.activeMediaIndex;
         }
 
         this.activeSlideId = "slide-" + this.activeMediaIndex;

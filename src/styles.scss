@@ -25,7 +25,7 @@
 
 .aside-fixed.aside-secondary-enabled[data-kt-sticky-header=on] .header {
     left: 0px !important;
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/support.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/contactus.jpeg');
 }
 
 .aside-secondary-enabled.aside-fixed .wrapper {
@@ -51,7 +51,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .faq-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/faq.jpg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
@@ -60,7 +60,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .gift-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/gift.jpg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/giftvoucher.jpg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
@@ -69,7 +69,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .about-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/about.jpg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
@@ -78,7 +78,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .memory-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/addmemory.jpg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
@@ -96,25 +96,23 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .contactus-background {
-    background-image: url('./assets/media/patterns/pattern-1.jpg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/contactus.jpeg');
     background-position: center center;
-    background-repeat: repeat, no-repeat;
     position: relative;
     height: 50vh;
     width: 100%;
 }
 
 .payment-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/azs.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/contactus.jpeg');
     background-position: center center;
-    background-repeat: repeat, no-repeat;
     position: relative;
     height: 50vh;
     width: 100%;
 }
 
 .support-background {
-    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/memory.jpeg');
+    background-image: linear-gradient(#00000080, #00000080), url('./assets/media/patterns/support.jpg');
     background-position: center center;
     background-repeat: repeat, no-repeat;
     background-size: cover;

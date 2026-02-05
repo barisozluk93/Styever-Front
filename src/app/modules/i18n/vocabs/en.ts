@@ -377,7 +377,7 @@ export const locale = {
     GIFT_FIRST_HEADER: "More than flowers: a page of lasting memories.",
     GIFT_FIRST_CONTENT: "When you know a friend or loved one is going through a heartbreak, flowers wilt, and sometimes words aren't enough. That's why Styever offers a subscription gift certificate. A truly supportive, embracing, and heartfelt gift for times of sorrow.\n\n" +
       "What truly makes a difference after the loss of a friend? With this gift certificate, you promise your friends a quiet but lasting space to cherish their most special moments, love, and memories. It's not just a service; it becomes a helping hand, a friend's touch.",
-    PURCHASE_VOUCHER: "Stand By",
+    PURCHASE_VOUCHER: "Gift Voucher",
     GIFT_SECOND_HEADER: "Why a subscription gift voucher?",
     GIFT_SECOND_CONTENT: "Grief never comes like a \"date marked on the calendar\"; the most challenging moments can come after the condolence cards fall silent. This gift offers support to those lonely hearts during that time.\n\n" +
       "By gifting the subscription, you're enabling your friend to create a memorial page for their lost beloved companion, sharing their story and photos — its presence being a silent but constant support.",
@@ -443,7 +443,7 @@ export const locale = {
     TRIAL_EXPIRED: "Your trial period has expired!",
     BUY: "Buy",
 
-    HOME_HEADER: "Stever is a quiet, peaceful, and lasting memorial space designed to keep alive the loving memory of your lost pet. Share photos, videos, and memories you shared together, immortalizing their story.",
+    HOME_HEADER: "Styever is a quiet, peaceful, and lasting memorial space designed to keep alive the loving memory of your lost pet. Share photos, videos, and memories you shared together, immortalizing their story.",
     EXPLORE: "Explore",
     MEMORIES: "Memories",
     CREATE_MEMORY: "Add Memory",

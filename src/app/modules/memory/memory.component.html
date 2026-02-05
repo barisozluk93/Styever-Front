@@ -129,5 +129,5 @@
   </ngb-pagination>
 </div>
 
-<app-memory-comment #commentsComponent></app-memory-comment>
+<app-memory-comment #commentsComponent (isSuccess)="isSuccess($event)"></app-memory-comment>
 <app-memory-like #likesComponent></app-memory-like>

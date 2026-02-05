@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   goToStandBy() {
-    this.router.navigate(['/standby'], {
+    this.router.navigate(['/giftvoucher'], {
       queryParams: {},
     });
   }

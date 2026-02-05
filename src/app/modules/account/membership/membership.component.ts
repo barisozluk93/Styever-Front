@@ -19,6 +19,9 @@ export class MembershipComponent implements OnInit {
 
   isUserActive: boolean;
   showPlans: boolean = false;
+  trialExpirationDate: string;
+  expirationDate: string;
+  createdDate: string;
 
   constructor(
     private auth: AuthService,
@@ -38,9 +41,9 @@ export class MembershipComponent implements OnInit {
         this.userData = result!;
 
         if(this.userData) {
-          this.userData.trialExpirationDate = formatDate(this.userData.trialExpirationDate!, "dd/MM/yyyy HH:mm", this.locale);
-          this.userData.expirationDate = formatDate(this.userData.expirationDate!, "dd/MM/yyyy HH:mm", this.locale);
-          this.userData.createdDate = formatDate(this.userData.createdDate!, "dd/MM/yyyy HH:mm", this.locale);
+          this.trialExpirationDate = formatDate(this.userData.trialExpirationDate!, "dd/MM/yyyy HH:mm", this.locale);
+          this.expirationDate = formatDate(this.userData.expirationDate!, "dd/MM/yyyy HH:mm", this.locale);
+          this.createdDate = formatDate(this.userData.createdDate!, "dd/MM/yyyy HH:mm", this.locale);
         }
       });
     });

@@ -30,7 +30,7 @@ const Routing: Routes = [
       import('../modules/memory/memory.module').then((m) => m.MemoryModule),
   },
   {
-    path: 'standby',
+    path: 'giftvoucher',
     loadChildren: () =>
       import('../modules/gift/gift.module').then((m) => m.GiftModule),
   },

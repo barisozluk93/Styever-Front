@@ -41,10 +41,10 @@
                                 <span class="text-light-primary">{{ 'end_date' | translate }}</span>
                             </div>
                             <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ userData.createdDate }}</span>
+                                <span class="text-light-primary">{{ createdDate }}</span>
                             </div>
                             <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ userData.expirationDate }}</span>
+                                <span class="text-light-primary">{{ expirationDate }}</span>
                             </div>
                             <div *ngIf="userData.isTrial" class="col-lg-2 mb-2"></div>
                             <div *ngIf="userData.isTrial" class="col-lg-8 mb-2">
@@ -54,7 +54,7 @@
                             <div *ngIf="userData.isTrial" class="col-lg-2 d-flex align-items-center mb-2"></div>
                             <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
                             <div *ngIf="userData.isTrial" class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ userData.trialExpirationDate }}</span>
+                                <span class="text-light-primary">{{ trialExpirationDate }}</span>
                             </div>
                             <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
 
@@ -65,20 +65,20 @@
                             <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
 
                             <div *ngIf="userData.isTrial && !isUserActive"
-                                class="col-lg-3 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="userData.isTrial && !isUserActive" class="col-lg-6 expireBadge text-center">
+                                class="col-lg-2 d-flex align-items-center mb-2"></div>
+                            <div *ngIf="userData.isTrial && !isUserActive" class="col-lg-8 expireBadge text-center">
                                 <span class="text-white">{{ 'TRIAL_EXPIRED' | translate }}</span>
                             </div>
                             <div *ngIf="userData.isTrial && !isUserActive"
-                                class="col-lg-3 d-flex align-items-center mb-2"></div>
+                                class="col-lg-2 d-flex align-items-center mb-2"></div>
 
                             <div *ngIf="!userData.isTrial && !isUserActive"
-                                class="col-lg-3 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="!userData.isTrial && !isUserActive" class="col-lg-6 expireBadge text-center">
+                                class="col-lg-2 d-flex align-items-center mb-2"></div>
+                            <div *ngIf="!userData.isTrial && !isUserActive" class="col-lg-8 expireBadge text-center">
                                 <span class="text-white">{{ 'PACKAGE_EXPIRED' | translate }}</span>
                             </div>
                             <div *ngIf="!userData.isTrial && !isUserActive"
-                                class="col-lg-3 d-flex align-items-center mb-2"></div>
+                                class="col-lg-2 d-flex align-items-center mb-2"></div>
                         </div>
                     </div>
                 </div>

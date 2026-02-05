@@ -111,8 +111,7 @@
     <a class="menu-link px-5 cursor-pointer">
       <span class="menu-link text-primary px-0 position-relative">
         {{'LANGUAGE' | translate}}
-        <span
-          class="
+        <span class="
             fs-8
             menu-title
             rounded
@@ -124,14 +123,9 @@
             top-50
             end-0
             text-primary
-          "
-        >
+          ">
           {{ ( 'LANG' | translate ) === 'tr' ? language.nameTr : language.nameEn }}{{ " " }}
-          <img
-            class="w-15px h-15px rounded-1 ms-2"
-            [src]="language.flag"
-            alt="metronic"
-          />
+          <img class="w-15px h-15px rounded-1 ms-2" [src]="language.flag" alt="metronic" />
         </span>
       </span>
     </a>
@@ -142,13 +136,14 @@
           <span class="symbol symbol-20px me-4">
             <img class="rounded-1" [src]="l.flag" alt="metronic" />
           </span>
-        {{ ( 'LANG' | translate ) === 'tr' ? l.nameTr : l.nameEn }}
+          {{ ( 'LANG' | translate ) === 'tr' ? l.nameTr : l.nameEn }}
         </a>
       </div>
     </div>
   </div>
 
   <div class="menu-item px-5">
-    <a (click)="logout()" class="menu-link text-primary px-5 cursor-pointer"> {{'AUTH.GENERAL.SIGNOUT_BUTTON' | translate}} </a>
+    <a (click)="logout()" class="menu-link text-primary px-5 cursor-pointer"> {{'AUTH.GENERAL.SIGNOUT_BUTTON' |
+      translate}} </a>
   </div>
 </ng-container>

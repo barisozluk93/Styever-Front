@@ -34,6 +34,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   bannerHeight?: number;
   bannerToolPaddingTopHeight?: number;
   comment: string = '';
+  nameSurname: string = '';
   isCommentBoxVisible: boolean = false;
   currentUser: UserType | undefined;
   shareLink: string = '';
@@ -56,9 +57,22 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   }
 
   addComment() {
+    let flag: boolean = false;
+    if(this.currentUser) {
+      if(this.isUserActive) {
+        if(this.comment && this.comment != '') {
+          flag = true;
+        }
+      }
+    }
+    else{
+      if(this.comment && this.comment != '' && this.nameSurname && this.nameSurname != '') {
+        flag = true;
+      }
+    }
 
-    if (this.currentUser && this.isUserActive) {
-      var data: MemoryCommentModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, comment: this.comment };
+    if (flag) {
+      var data: MemoryCommentModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, comment: this.comment, nameSurname: this.nameSurname, isApproved: this.currentUser?.id == this.memory?.userId};
 
       this.memoryManagementService.addComment(data).subscribe(result => {
         if (result.isSuccess) {
@@ -109,6 +123,9 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
           result.data.postDate = formatDate(result.data.postDate!, "dd/MM/yyyy HH:mm", this.locale);
           result.data.birthDate = formatDate(result.data.birthDate!, "dd/MM/yyyy", this.locale);
           result.data.deathDate = formatDate(result.data.deathDate!, "dd/MM/yyyy", this.locale);
+          if(result.data.userId != this.currentUser?.id) {
+            result.data.commentsCount = result.data.comments?.filter(f => f.isApproved).length!;
+          }
 
           this.memory = result.data;
         }
@@ -181,7 +198,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
 
     this.currentUser = this.auth.currentUserValue;
     this.isUserActive = parseBoolean(this.currentUser?.isActive);
-
+    console.log(this.currentUser)
     this.memoryId = this.route.snapshot.params['id'];
 
     this.shareLink = `${environment.appUrl}/#/memories/${this.memoryId}`;
@@ -245,15 +262,10 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
 
   shareX() {
     var url = encodeURIComponent(this.shareLink);
-    var text = '';
-    if (this.translate.currentLang == 'tr') {
-      text = encodeURIComponent('Can dostum, ' + this.memory?.name + ' ile olan anılarımı sen de paylaş!\n');
-    }
-    else {
-      text = encodeURIComponent('Join me in sharing memories with my best friend ' + this.memory?.name + '!\n');
-    }
+    var text = encodeURIComponent('Anısı bizimle yaşıyor 🐾\n');
+
     window.open(
-      `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+      `https://x.com/intent/tweet?url=${url}&text=${text}`,
       '_blank',
       'width=600,height=400'
     );

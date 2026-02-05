@@ -51,8 +51,8 @@ const menuList = [
   {
     "id": 3,
     "name": "Yanında Ol",
-    "nameEn": "Stand By",
-    "url": "/standby",
+    "nameEn": "Gift Voucher",
+    "url": "/giftvoucher",
     "icon": undefined,
     "permissionId": undefined,
     "isDeleted": false,

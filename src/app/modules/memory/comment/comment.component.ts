@@ -33,6 +33,28 @@ export class CommentComponent {
         @Inject(LOCALE_ID) public locale: string,
         private toastr: ToastrService,
     ) { }
+    
+    approveComment(commentId: number) {
+        this.memoryManagementService.approveComment(commentId).subscribe(result => {
+            if (result.isSuccess) {
+                scrollToTop();
+                this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
+
+                this.loadData();
+                this.isSuccess.emit();
+            }
+            else {
+                scrollToTop();
+                this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
+            }
+        })
+    }
 
     deleteComment(commentId: number) {
         this.memoryManagementService.deleteComment(commentId).subscribe(result => {
@@ -43,7 +65,7 @@ export class CommentComponent {
                     timeOut: 3000
                 });
 
-                this.modalComponent.close();
+                this.loadData();
                 this.isSuccess.emit();
             }
             else {
@@ -64,14 +86,17 @@ export class CommentComponent {
                         item.fileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar.path.split("\\")[item.userAvatar.path.split("\\").length - 1];
                     }
 
-                    item.own = item.userId == this.auth.currentUserValue?.id ? true : false;
+                    item.own = item.userId ? (item.userId == this.auth.currentUserValue?.id ? true : false) : false;
                     item.date = formatDate(item.date!, "dd/MM/yyyy HH:mm", this.locale);
                 })
 
-                this.comments = result.data;
+                if(!this.isMemoryMine) {
+                    this.comments = result.data.filter(f => f.isApproved);
+                }
+                else{
+                    this.comments = result.data;
+                }
             }
-
-            this.modalComponent.open({ size: 'lg', backdrop: 'static', scrollable: true });
         })
     }
 
@@ -103,5 +128,7 @@ export class CommentComponent {
         this.isMemoryMine = memory.userId == this.auth.currentUserValue?.id;
         this.memoryId = memory.id;
         this.loadData();
+
+        this.modalComponent.open({ size: 'lg', backdrop: 'static', scrollable: true });
     }
 }

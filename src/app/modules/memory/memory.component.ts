@@ -76,6 +76,9 @@ export class MemoryComponent implements OnInit, AfterViewInit {
       .subscribe(result => {
         if (result.isSuccess) {
           result.data.items.forEach(item => {
+            if (item.userId != this.auth.currentUserValue?.id) {
+              item.commentsCount = item.comments?.filter(f => f.isApproved).length!;
+            }
 
             item.userAvatarFileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar?.path.split("\\")[item.userAvatar?.path.split("\\").length - 1];
 
@@ -124,11 +127,11 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (this.auth.currentUserValue) {
       this.isMyListVisible = true;
-      
-      if(!parseBoolean(this.auth.currentUserValue.isActive)) {
+
+      if (!parseBoolean(this.auth.currentUserValue.isActive)) {
         this.isNewMemoryVisible = false;
       }
-      else{
+      else {
         this.memoryManagementService.getMemoryCount(this.auth.currentUserValue?.id).subscribe(result => {
           if (result.isSuccess) {
             if (this.auth.currentUserValue?.roles.includes("2") || this.auth.currentUserValue?.roles.includes("3")) {
@@ -217,6 +220,10 @@ export class MemoryComponent implements OnInit, AfterViewInit {
       this.myList = false;
     }
 
+    this.loadData();
+  }
+
+  isSuccess(event: boolean) {
     this.loadData();
   }
 }

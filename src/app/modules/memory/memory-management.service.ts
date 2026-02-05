@@ -77,6 +77,10 @@ export class MemoryManagementService {
         return this.http.post<ResultModel<MemoryCandleModel>>(`${API_MEMORY_URL}/UpdateCandle`, data);
     }
 
+    approveComment(commentId: number) : Observable<ResultModel<MemoryCommentModel>> {
+        return this.http.get<ResultModel<MemoryCommentModel>>(`${API_MEMORY_URL}/ApproveComment/${commentId}`,);
+    }
+
     deleteComment(commentId: number) : Observable<ResultModel<MemoryCommentModel>> {
         return this.http.get<ResultModel<MemoryCommentModel>>(`${API_MEMORY_URL}/DeleteComment/${commentId}`,);
     }

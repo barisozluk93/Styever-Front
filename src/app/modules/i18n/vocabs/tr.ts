@@ -489,17 +489,11 @@ export const locale = {
         ABOUT_FIRST_CONTENT_HEADER: "Görevimiz",
         ABOUT_FIRST_CONTENT: "Hayvan dostlarımızın anılarını sevgiyle yaşatabileceğimiz, paylaşılan hikâyelerde birbirimize destek olabileceğimiz şefkat dolu bir alan sunmak.",
         ABOUT_SECOND_CONTENT_HEADER: "Topluluk Etkisi",
-        ABOUT_SECOND_CONTENT: "Through memories shared with love, we bring together animal friends who share the same pain and love."
-+ "Please add the following content to the rest of the page with a different image (it can be an image of only one animal, a fish, a bird, or a different animal)."
-+ "We remember them with love, we're so glad they were there."
-+ "Styever is a meeting point where we can keep alive the memories of our friends who touched our lives, a place that understands us. We know how deep the bond we have with them is. We are here to help you honor this special bond and keep it alive forever."
-+ "Afterwards, let's add the following text with an image of an animal and a human. After the text below, let's add a link to the memory creation page with our logo and a box that says 'Create your memory'."
-+ " With love to their unique journey…"
-+ " Moments that seem small to us turn into huge memories with their presence. Stever offers a heartfelt home where we can cherish the beautiful memories our friends left us. Share your memories, celebrate their lives with love, and stand side-by-side with a community that understands both the pain and the love.",
+        ABOUT_SECOND_CONTENT: "Sevgiyle paylaşılan anılar aracılığıyla, aynı acıyı ve sevgiyi paylaşan hayvan dostlarımızı bir araya getiriyoruz. Lütfen sayfanın geri kalanına farklı bir görselle (sadece bir hayvan, bir balık, bir kuş veya farklı bir hayvanın resmi olabilir) aşağıdaki içeriği ekleyin. Onları sevgiyle hatırlıyoruz, orada oldukları için çok mutluyuz. Stever, hayatımıza dokunan arkadaşlarımızın anılarını canlı tutabileceğimiz, bizi anlayan bir buluşma noktasıdır. Onlarla olan bağımızın ne kadar derin olduğunu biliyoruz. Bu özel bağı onurlandırmanıza ve sonsuza dek canlı tutmanıza yardımcı olmak için buradayız. Ardından, bir hayvan ve bir insan resmiyle aşağıdaki metni ekleyelim. Aşağıdaki metnin ardından, logomuz ve 'Anılarınızı oluşturun' yazan bir kutu ile anı oluşturma sayfasına bir bağlantı ekleyelim. Eşsiz yolculuklarına sevgiyle… Bize küçük görünen anlar, onların varlığıyla büyük anılara dönüşüyor. Stever, arkadaşlarımızın bize bıraktığı güzel anıları yaşatabileceğimiz yürekten bir yuva sunuyor. Anılarınızı paylaşın, hayatlarını sevgiyle kutlayın ve hem acıyı hem de sevgiyi anlayan bir toplulukla omuz omuza durun.",
         ABOUT_THIRD_CONTENT_HEADER: "Anı oluşturun",
         ABOUT_THIRD_CONTENT: "Sevdiğiniz dostunuzun hatırasını, onun kadar özel bir anma sayfasıyla ölümsüzleştirin. Her fotoğraf, her kelime, kalbinizdeki bağın bir devamı olsun.",
         ABOUT_FOURTH_CONTENT_HEADER: "Anıları paylaşın",
-        ABOUT_FOURTH_CONTENT_: "Aileniz ve arkadaşlarınızla, birlikte gülümsediğiniz ve sarıldığınız anlara yeniden dönün.\nÇünkü bazı sevgiler, zamanla değil; hatırladıkça büyür.",
+        ABOUT_FOURTH_CONTENT: "Aileniz ve arkadaşlarınızla, birlikte gülümsediğiniz ve sarıldığınız anlara yeniden dönün.\nÇünkü bazı sevgiler, zamanla değil; hatırladıkça büyür.",
         SUCCESS: "Başarılı",
         SUCCESS_MESSAGE: "İşlem başarıyla tamamlandı.",
         ERROR: "Hata",

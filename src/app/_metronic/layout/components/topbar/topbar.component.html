@@ -11,7 +11,7 @@
 <div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-3" id="kt_header_user_menu_toggle">
   <!--begin::Menu wrapper-->
   <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-    data-kt-menu-placement="bottom-end" title="{{'USER_PROFILE' | translate}}"  >
+    data-kt-menu-placement="bottom-end" title="{{'USER_PROFILE' | translate}}">
     <img *ngIf="user?.fileId == undefined" src="./assets/media/avatars/blank.png" />
     <img *ngIf="user?.fileId != undefined" [src]="avatarUrl" alt="image" />
   </div>
@@ -21,14 +21,26 @@
 
 <div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-4 mt-1">
   <!--begin::Menu wrapper-->
-  <div class="btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light position-relative" (mouseenter)="getNotifications()"
-    data-kt-menu-trigger="{default: 'click'}" data-kt-menu-overflow="true" data-kt-menu-placement="top-start"
-    title="Notifications">
-    <i [inlineSVG]="'./assets/media/icons/duotune/communication/com004.svg'" class="svg-icon svg-icon-2 svg-icon-lg-1"></i>
+  <div class="btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light position-relative"
+    (mouseenter)="getNotifications()" data-kt-menu-trigger="{default: 'click'}" data-kt-menu-overflow="true"
+    data-kt-menu-placement="top-start" title="Notifications">
+    <i [inlineSVG]="'./assets/media/icons/duotune/communication/com004.svg'"
+      class="svg-icon svg-icon-2 svg-icon-lg-1"></i>
 
     <span *ngIf="unreadedNotificationCount > 0"
-            class="position-absolute top-0 start-100 translate-middle badge badge-circle badge-danger">{{unreadedNotificationCount}}</span>
+      class="position-absolute top-0 start-100 translate-middle badge badge-circle badge-danger">{{unreadedNotificationCount}}</span>
   </div>
   <!--end::Menu wrapper-->
-  <app-notifications-inner [notifications]="notifications" [totalNotificationCount]="totalNotificationCount" [unreadedNotificationCount]=unreadedNotificationCount></app-notifications-inner>
+  <app-notifications-inner [notifications]="notifications" [totalNotificationCount]="totalNotificationCount"
+    [unreadedNotificationCount]=unreadedNotificationCount></app-notifications-inner>
+</div>
+
+<div *ngIf="!isCurrentUserExist" class="d-flex align-items-center me-3" id="kt_header_user_menu_toggle">
+  <!--begin::Menu wrapper-->
+  <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+    data-kt-menu-placement="bottom-end" title="{{'LANGUAGE' | translate}}">
+    <img *ngIf="language" [src]="language.flag" />
+  </div>
+  <!--end::Menu wrapper-->
+    <app-language-inner></app-language-inner>
 </div>

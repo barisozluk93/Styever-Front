@@ -214,7 +214,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.add("faq-background");
       this.isWhitePage = false;
     }
-    else if (this.router.url == "/standby") {
+    else if (this.router.url == "/giftvoucher") {
 
       main?.classList.remove("memory-background");
       main?.classList.remove("home-background");

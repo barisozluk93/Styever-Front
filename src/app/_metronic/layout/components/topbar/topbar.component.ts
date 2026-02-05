@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/_metronic/partials/layout/extras/dropdown-inner/notifications-inner/notification.service';
 import { NotificationModel } from 'src/app/models/notification.model';
 import { AuthService } from 'src/app/modules/auth';
+import { TranslationService } from 'src/app/modules/i18n';
 import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
 import { environment } from 'src/environments/environment';
@@ -14,6 +15,8 @@ import { environment } from 'src/environments/environment';
 })
 export class TopbarComponent implements OnInit {
 
+  language: LanguageFlag;
+  langs = languages;
   isCurrentUserExist: boolean = true;
   user: UserModel;
 
@@ -27,6 +30,7 @@ export class TopbarComponent implements OnInit {
     private userManagementService: UserManagementService, 
     private router: Router,
     private translate: TranslateService,
+    private translationService: TranslationService
   ) { }
 
   dateDifference(actualDate: string) {
@@ -133,6 +137,12 @@ export class TopbarComponent implements OnInit {
       this.notificationService.updateNotifications(this.authService.currentUserValue?.id!);
     }
 
+    this.setLanguage(this.translate.currentLang);
+
+    this.translate.onLangChange.subscribe(result => {
+      this.setLanguage(result.lang);
+    })
+
     this.getNotifications();
     this.authService.currentUserSubject.asObservable().subscribe(result => {
       if (result) {
@@ -158,6 +168,39 @@ export class TopbarComponent implements OnInit {
   routeToLogin() {
     this.router.navigate(['/auth/login']);
   }
+
+  setLanguage(lang: string) {
+    this.langs.forEach((language: LanguageFlag) => {
+      if (language.lang === lang) {
+        language.active = true;
+        this.language = language;
+      } else {
+        language.active = false;
+      }
+    });
+  }
 }
 
+interface LanguageFlag {
+  lang: string;
+  nameTr: string;
+  nameEn: string;
+  flag: string;
+  active?: boolean;
+}
+
+const languages = [
+  {
+    lang: 'en',
+    nameTr: 'İngilizce',
+    nameEn: 'English',
+    flag: './assets/media/flags/united-states.svg',
+  },
+  {
+    lang: 'tr',
+    nameTr: 'Türkçe',
+    nameEn: 'Turkish',
+    flag: './assets/media/flags/turkey.svg',
+  },
+];
 

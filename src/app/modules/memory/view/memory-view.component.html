@@ -76,7 +76,7 @@
         </div>
         <div class="separator mt-5"></div>
         <div class="py-5 action-bar">
-          <a *ngIf="currentUser && memory?.isOpenToComment" (click)="showCloseCommentBox()"
+          <a *ngIf="memory?.isOpenToComment" (click)="showCloseCommentBox()"
             class="text-primary fs-4 fw-bolder cursor-pointer me-2">{{'COMMENT' | translate}}</a>
 
           <div class="social-center">
@@ -115,14 +115,20 @@
         </div>
         <div class="separator mb-5"></div>
         <div class="row mb-5"
-          *ngIf="memory?.userId !== currentUser?.id && isCommentBoxVisible && memory?.isOpenToComment">
+          *ngIf="isCommentBoxVisible && memory?.isOpenToComment">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-8 mb-2" style="float: right;">
+            <input class="form-control bg-transparent text-light-primary" type="text" name="nameSurname"
+                    [(ngModel)]="nameSurname" autocomplete="off" placeholder="{{'FULL_NAME' | translate}}"/>
+          </div>
+
           <div class="col-lg-4"></div>
           <div class="col-lg-8" style="float: right;">
             <textarea class="form-control bg-transparent text-light-primary" type="text" name="comment"
               [(ngModel)]="comment"></textarea>
           </div>
         </div>
-        <div class="row" *ngIf="isCommentBoxVisible && memory?.isOpenToComment && isUserActive">
+        <div class="row" *ngIf="isCommentBoxVisible && memory?.isOpenToComment && ((currentUser && isUserActive) || !currentUser)">
           <div class="col-lg-6"></div>
           <div class="col-lg-6" style="float: right;">
             <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
