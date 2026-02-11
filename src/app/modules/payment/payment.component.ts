@@ -83,25 +83,48 @@ export class PaymentComponent implements OnInit, AfterViewInit {
       })
     }
     else if (this.typeId == 2) {
-      this.memoryService.updateCandle(this.candleData).subscribe(result => {
-        if (result.isSuccess) {
-          scrollToTop();
-          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-            positionClass: 'toast-top-right',
-            timeOut: 3000
-          });
+      if(this.candleData.id > 0) {
+        this.memoryService.updateCandle(this.candleData).subscribe(result => {
+          if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
 
-          setTimeout(() => {
-            this.router.navigate(['/memories/' + this.candleData.memoryId]);
-          }, 3000);
-        }
-        else {
-          scrollToTop();
-          this.toastr.error(result.message, this.translate.instant('ERROR'), {
-            positionClass: 'toast-top-right',
-            timeOut: 3000
-          });}
-      })
+            setTimeout(() => {
+              this.router.navigate(['/memories/' + this.candleData.memoryId]);
+            }, 3000);
+          }
+          else {
+            scrollToTop();
+            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });}
+        })
+      }
+      else{
+        this.memoryService.lightCandle(this.candleData).subscribe(result => {
+          if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });
+
+            setTimeout(() => {
+              this.router.navigate(['/memories/' + this.candleData.memoryId]);
+            }, 3000);
+          }
+          else {
+            scrollToTop();
+            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+              positionClass: 'toast-top-right',
+              timeOut: 3000
+            });}
+        })
+      }
     }
     else if (this.typeId == 3) {
       var data: GiftModel = this.paymentForm.getRawValue();
@@ -132,7 +155,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
       })
 
     }
-    if (this.typeId == 4) {
+    else if (this.typeId == 4) {
       this.userManagementService.buyPackage(this.currentUser?.id!, this.planId, this.memoryId ? this.memoryId : 0).subscribe(result => {
         if (result.isSuccess) {
           scrollToTop();

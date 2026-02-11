@@ -4,6 +4,7 @@ export class MemoryCandleModel {
     id: number;
     userId: number;
     userName?: string;
+    nameSurname?: string;
     memoryId: number;
     memory?: MemoryModel;
     shelter?: string;

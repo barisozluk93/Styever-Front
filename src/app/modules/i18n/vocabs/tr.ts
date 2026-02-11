@@ -407,7 +407,6 @@ export const locale = {
         premiumProperty5: "1 Anı Yazısı Alanı (5000 Karakter)",
         premiumProperty6: "Barınak Bağışı Rozeti",
         premiumProperty7: "Hatırlatma Bildirimleri",
-        premiumProperty8: "Belirlenecek 1 Anı Ürünü",
         ultra: "Sonsuz",
         ultraProperty1: "4 Anı Sayfası",
         ultraProperty2: "4 Fotoğraf/anı sayfası",
@@ -416,7 +415,6 @@ export const locale = {
         ultraProperty5: "1 Anı Yazısı Alanı (5000 Karakter)/anı sayfası",
         ultraProperty6: "Barınak Bağışı Rozeti",
         ultraProperty7: "Hatırlatma Bildirimleri",
-        ultraProperty8: "Belirlenecek 1 Anı Ürünü/anı sayfası",
         year: "yıl",
 
         SENDER_EMAIL: "Gönderici E-posta",

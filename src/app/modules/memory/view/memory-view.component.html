@@ -108,7 +108,7 @@
             <a title="{{ 'COMMENT' | translate}}" class="text-primary cursor-pointer" style="float: right;"><i
                 class="bi fs-2 bi-chat me-2 text-primary"></i></a>
 
-            <a *ngIf="currentUser && isUserActive" title="{{ 'LIGHT_CANDLE' | translate}}" (click)="openLightCandleModal(memory?.id!)" class="text-primary cursor-pointer" style="float: right;">
+            <a *ngIf="!currentUser || (currentUser && isUserActive)" title="{{ 'LIGHT_CANDLE' | translate}}" (click)="openLightCandleModal()" class="text-primary cursor-pointer" style="float: right;">
               <i class="fa-solid fa-hanukiah fs-2 me-2 text-primary"></i>
             </a>
           </div>

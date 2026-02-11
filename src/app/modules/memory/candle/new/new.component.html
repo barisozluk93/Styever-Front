@@ -13,6 +13,15 @@
     </p>
 
     <form class="form w-100" [formGroup]="form" novalidate="novalidate">
+        <div class="row mb-8" *ngIf="form.get('userId')?.value == undefined">
+            <div class="col-lg-12">
+                <label class="form-label fs-6 fw-bolder text-primary">
+                    {{'FULL_NAME' | translate}}
+                </label>
+                <input class="form-control bg-transparent text-light-primary" type="text" name="nameSurname"
+                    formControlName="nameSurname" />
+            </div>
+        </div>
         <div class="row mb-8">
             <div class="col-lg-12">
                 <label class="form-label fs-6 fw-bolder text-primary">

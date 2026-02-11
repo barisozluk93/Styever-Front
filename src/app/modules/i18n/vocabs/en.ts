@@ -404,7 +404,6 @@ export const locale = {
     premiumProperty5: "1 Memoir Section (5000 char.)",
     premiumProperty6: "Shelter Donation Badge",
     premiumProperty7: "Reminder Notifications",
-    premiumProperty8: "One Memory Item will Be Selected",
     ultra: "Eternal",
     ultraProperty1: "4 Memory Pages",
     ultraProperty2: "4 Pictures/memory page",
@@ -413,7 +412,6 @@ export const locale = {
     ultraProperty5: "1 Memoir Section (5000 char.)/memory page",
     ultraProperty6: "Shelter Donation Badge",
     ultraProperty7: "Reminder Notifications",
-    ultraProperty8: "One Memory Item will Be Selected/memory page",
 
     SENDER_EMAIL: "Sender E-mail",
     RECEIVER_EMAIL: "Recipient E-mail",

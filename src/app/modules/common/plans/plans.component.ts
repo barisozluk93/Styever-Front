@@ -47,13 +47,13 @@ export class PlansComponent implements OnInit {
         id: 3,
         name: this.translate.instant('premium'),
         price: "₺559,00/" + this.translate.instant('year'),
-        properties: [this.translate.instant('premiumProperty1'), this.translate.instant('premiumProperty2'), this.translate.instant('premiumProperty3'), this.translate.instant('premiumProperty4'), this.translate.instant('premiumProperty5'), this.translate.instant('premiumProperty6'), this.translate.instant('premiumProperty7'), this.translate.instant('premiumProperty8')]
+        properties: [this.translate.instant('premiumProperty1'), this.translate.instant('premiumProperty2'), this.translate.instant('premiumProperty3'), this.translate.instant('premiumProperty4'), this.translate.instant('premiumProperty5'), this.translate.instant('premiumProperty6'), this.translate.instant('premiumProperty7')]
       },
       {
         id: 4,
         name: this.translate.instant('ultra'),
         price: "₺959,00/" + this.translate.instant('year'),
-        properties: [this.translate.instant('ultraProperty1'), this.translate.instant('ultraProperty2'), this.translate.instant('ultraProperty3'), this.translate.instant('ultraProperty4'), this.translate.instant('ultraProperty5'), this.translate.instant('ultraProperty6'), this.translate.instant('ultraProperty7'), this.translate.instant('ultraProperty8')]
+        properties: [this.translate.instant('ultraProperty1'), this.translate.instant('ultraProperty2'), this.translate.instant('ultraProperty3'), this.translate.instant('ultraProperty4'), this.translate.instant('ultraProperty5'), this.translate.instant('ultraProperty6'), this.translate.instant('ultraProperty7')]
       }
     ]
   }

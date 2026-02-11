@@ -5,7 +5,7 @@ import { formatDate } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { forkJoin } from "rxjs";
 import { MemoryManagementService } from "../../memory-management.service";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { scrollToTop } from "src/app/utils/scrolltotop";
@@ -47,6 +47,7 @@ export class LightCandleComponent {
             name: null,
             memoryId: undefined,
             userId: undefined,
+            nameSurname: undefined,
             shelter: 'xxxxxxxxxx xxxxx xxxxxx',
             donation: undefined,
             isDeleted: false,
@@ -81,8 +82,12 @@ export class LightCandleComponent {
             closeButtonLabel: translations['CANCEL']
         };
 
-        this.form.reset({ id: id, name: name, memoryId: memoryId, userId: userId, shelter: 'xxxxxxxxxx xxxxx xxxxxx', donation: undefined, isDeleted: false });
+        this.form.reset({ id: id, name: name, memoryId: memoryId, userId: userId, nameSurname: undefined, shelter: 'xxxxxxxxxx xxxxx xxxxxx', donation: undefined, isDeleted: false });
         this.form.get('shelter')?.disable();
+        if(!this.form.get('userId')?.value) {
+            this.form.get('nameSurname')?.addValidators([Validators.required]);
+            this.form.get('nameSurname')?.updateValueAndValidity();
+        }
         this.modalComponent.open({ size: 'lg', backdrop: 'static' });
     }
 
@@ -99,25 +104,50 @@ export class LightCandleComponent {
                 });
             }
             else {
-                this.memoryManagementService.updateCandle(data).subscribe(result => {
-                    if (result.isSuccess) {
-                        scrollToTop();
-                        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-                            positionClass: 'toast-top-right',
-                            timeOut: 3000
-                        });
+                if(data.id > 0) {
+                    this.memoryManagementService.updateCandle(data).subscribe(result => {
+                        if (result.isSuccess) {
+                            scrollToTop();
+                            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                                positionClass: 'toast-top-right',
+                                timeOut: 3000
+                            });
 
-                        this.isSuccess.emit();
-                    }
-                    else {
-                        scrollToTop();
-                        this.toastr.error(result.message, this.translate.instant('ERROR'), {
-                            positionClass: 'toast-top-right',
-                            timeOut: 3000
-                        });
-                    }
-                })
+                            this.isSuccess.emit();
+                        }
+                        else {
+                            scrollToTop();
+                            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                                positionClass: 'toast-top-right',
+                                timeOut: 3000
+                            });
+                        }
+                    })
+                }
+                else{
+                    this.memoryManagementService.lightCandle(data).subscribe(result => {
+                        if (result.isSuccess) {
+                            scrollToTop();
+                            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                                positionClass: 'toast-top-right',
+                                timeOut: 3000
+                            });
+
+                            this.isSuccess.emit();
+                        }
+                        else {
+                            scrollToTop();
+                            this.toastr.error(result.message, this.translate.instant('ERROR'), {
+                                positionClass: 'toast-top-right',
+                                timeOut: 3000
+                            });
+                        }
+                    });
+                }
             }
+        }
+        else{
+            return false;
         }
 
         return true;

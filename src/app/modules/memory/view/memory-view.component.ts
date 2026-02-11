@@ -198,7 +198,6 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
 
     this.currentUser = this.auth.currentUserValue;
     this.isUserActive = parseBoolean(this.currentUser?.isActive);
-    console.log(this.currentUser)
     this.memoryId = this.route.snapshot.params['id'];
 
     this.shareLink = `${environment.appUrl}/#/memories/${this.memoryId}`;
@@ -221,15 +220,20 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     }
   }
 
-  openLightCandleModal(memoryId: number) {
-    let data: MemoryCandleModel = { id: 0, memoryId: this.memory?.id!, userId: this.currentUser?.id!, isDeleted: false };
+  openLightCandleModal() {
+    if (this.currentUser) {
+      let data: MemoryCandleModel = { id: 0, memoryId: this.memory?.id!, userId: this.currentUser?.id!, isDeleted: false };
 
-    this.memoryManagementService.lightCandle(data).subscribe(result => {
-      if (result.isSuccess) {
-        this.getById();
-        this.lightCandleComponent.openModal(result.data.id, memoryId, this.memory?.name!, this.currentUser?.id);
-      }
-    })
+      this.memoryManagementService.lightCandle(data).subscribe(result => {
+        if (result.isSuccess) {
+          this.getById();
+          this.lightCandleComponent.openModal(result.data.id, this.memory?.id!, this.memory?.name!, this.currentUser?.id);
+        }
+      })
+    }
+    else {
+      this.lightCandleComponent.openModal(0, this.memory?.id!, this.memory?.name!, undefined);
+    }
   }
 
   openLikesModal(memoryId: number, likeCount: number) {
