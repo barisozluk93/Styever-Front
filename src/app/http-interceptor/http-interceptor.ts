@@ -2,10 +2,10 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse, HttpEvent
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthModel } from '../modules/auth/models/auth.model';
+import { AuthHTTPService } from '../modules/auth/services/auth-http';
 import { Router } from '@angular/router';
-import { Observable, catchError, map, switchMap } from 'rxjs';
+import { Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { ResultModel } from '../models/result.model';
-import { AuthHTTPService } from '../modules/auth/services/auth-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class Interceptor implements HttpInterceptor {
@@ -15,62 +15,70 @@ export class Interceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        let currentUser = localStorage.getItem(this.authLocalStorageToken)
+        const currentUser = localStorage.getItem(this.authLocalStorageToken);
+        const user: AuthModel = currentUser ? JSON.parse(currentUser) : null;
 
-        var user: AuthModel = currentUser ? JSON.parse(currentUser) : '';
-        const token = user.accessToken
-        let requestWithToken = request.clone({
-            setHeaders: {
-                Authorization: `Bearer ${token}`,
-            }
-        });
+        // Refresh endpoint ise intercept etme
+        if (request.url.includes('/auth/RefreshToken')) {
+            return next.handle(request);
+        }
 
-        return next.handle(requestWithToken).pipe(
-            catchError((requestError: HttpErrorResponse) => {
-                if (requestError.status === 401) {
+        let authRequest = request;
+
+        if (user?.accessToken) {
+            authRequest = request.clone({
+                setHeaders: {
+                    Authorization: `Bearer ${user.accessToken}`,
+                }
+            });
+        }
+
+        return next.handle(authRequest).pipe(
+            catchError((error: HttpErrorResponse) => {
+
+                if (error.status === 401 && user?.refreshToken) {
+
                     return this.authHttpService.refreshToken(user.accessToken, user.refreshToken).pipe(
                         switchMap((response: ResultModel<any>) => {
-                            if (response.isSuccess && response.data.refreshToken != null) {
+
+                            if (response.isSuccess) {
+
                                 user.accessToken = response.data.accessToken;
                                 user.refreshToken = response.data.refreshToken;
+
                                 localStorage.setItem(this.authLocalStorageToken, JSON.stringify(user));
 
-                                requestWithToken = request.clone({
+                                const retryRequest = request.clone({
                                     setHeaders: {
                                         Authorization: `Bearer ${user.accessToken}`,
                                     }
                                 });
-                            }
-                            else {
-                                localStorage.removeItem(this.authLocalStorageToken);
-                                this.router.navigate(['/auth/login'], {
-                                    queryParams: {},
-                                });
-                                document.location.reload();
+
+                                return next.handle(retryRequest);
                             }
 
-                            return next.handle(requestWithToken).pipe(
-                                catchError((requestError: HttpErrorResponse) => {
-                                    if (requestError.status === 403) {
-                                        this.router.navigate(['/error/500']);
-                    
-                                        return next.handle(requestWithToken);
-                                    }
-                                    else{
-                                        return next.handle(requestWithToken);
-                                    }
-                                }));
+                            this.logout();
+                            return throwError(() => error);
+                        }),
+                        catchError(() => {
+                            this.logout();
+                            return throwError(() => error);
                         })
                     );
                 }
-                else if (requestError.status === 403) {
-                    this.router.navigate(['/error/500']);
 
-                    return next.handle(requestWithToken);
+                if (error.status === 403) {
+                    this.router.navigate(['/error/500']);
                 }
-                else {
-                    return next.handle(requestWithToken);
-                }
-            }));
+
+                return throwError(() => error);
+            })
+        );
     }
+
+    private logout() {
+        localStorage.removeItem(this.authLocalStorageToken);
+        this.router.navigate(['/home']);
+    }
+
 }
