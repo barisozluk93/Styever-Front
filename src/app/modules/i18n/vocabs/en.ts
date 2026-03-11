@@ -507,6 +507,8 @@ export const locale = {
     LINK: "Link",
     SELECT_A_MEMORY: "Select a Memory",
     DOWNGRADE_PACKAGE: "You are downgrading from your previous package to a lower package. Please select the memory you wish to continue with.",
+    COPY_LINK: "Copy Link"
+
     // END (TR-EN-LANGUAGE-BRANCH
   }
 };

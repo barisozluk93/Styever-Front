@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, inject, Inject, LOCALE_ID, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  LOCALE_ID,
+  OnInit,
+  ViewChild,
+  inject
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
@@ -9,7 +17,6 @@ import { MemoryManagementService } from '../memory-management.service';
 import { MemoryModel } from '../models/memory.model';
 import { MemoryLikeModel } from '../models/like.model';
 import { MemoryCommentModel } from '../models/comment.model';
-import { MemoryFileModel } from '../models/file.model';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { CandleListComponent } from '../candle/list/list.component';
@@ -19,8 +26,6 @@ import { parseBoolean } from 'src/app/utils/parse-boolean';
 import { scrollToTop } from 'src/app/utils/scrolltotop';
 import { ToastrService } from 'ngx-toastr';
 
-// const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
-
 @Component({
   selector: 'app-memory-view',
   templateUrl: './memory-view.component.html',
@@ -28,6 +33,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MemoryViewComponent implements OnInit, AfterViewInit {
   private route = inject(ActivatedRoute);
+
   memoryId: number;
   memory: MemoryModel | undefined;
 
@@ -39,7 +45,9 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
   currentUser: UserType | undefined;
   shareLink: string = '';
   isUserActive: boolean;
-  
+
+  isShareModalOpen: boolean = false;
+
   @ViewChild('commentsComponent') private commentsComponent: CommentComponent;
   @ViewChild('likesComponent') private likesComponent: LikeComponent;
   @ViewChild('candlesComponent') private candlesComponent: CandleListComponent;
@@ -53,146 +61,13 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     @Inject(LOCALE_ID) public locale: string,
     private router: Router,
     private toastr: ToastrService,
-  ) {
-  }
-
-  addComment() {
-    let flag: boolean = false;
-    if(this.currentUser) {
-      if(this.isUserActive) {
-        if(this.comment && this.comment != '') {
-          flag = true;
-        }
-      }
-    }
-    else{
-      if(this.comment && this.comment != '' && this.nameSurname && this.nameSurname != '') {
-        flag = true;
-      }
-    }
-
-    if (flag) {
-      var data: MemoryCommentModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, comment: this.comment, nameSurname: this.nameSurname, isApproved: this.currentUser?.id == this.memory?.userId};
-
-      this.memoryManagementService.addComment(data).subscribe(result => {
-        if (result.isSuccess) {
-          scrollToTop();
-          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-            positionClass: 'toast-top-right',
-            timeOut: 3000
-          });
-          this.getById();
-          this.comment = "";
-          this.isCommentBoxVisible = false;
-        }
-        else {
-          scrollToTop();
-          this.toastr.error(result.message, this.translate.instant('ERROR'), {
-            positionClass: 'toast-top-right',
-            timeOut: 3000
-          });
-        }
-      })
-    }
-  }
-
-  edit() {
-    this.router.navigate(["memories/edit/" + this.memoryId])
-  }
-
-  getById() {
-    this.memoryManagementService.getById(this.memoryId)
-      .subscribe(result => {
-        if (result.isSuccess) {
-          result.data.files?.forEach(file => {
-            if (file.file) {
-              file.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
-
-              if (file.isPrimary) {
-                result.data.fileUrl = file.fileUrl;
-              }
-            }
-          })
-
-          result.data.likes?.forEach(like => {
-            if (like.userId == this.currentUser?.id) {
-              result.data.ownLike = true;
-            }
-          })
-
-          result.data.postDate = formatDate(result.data.postDate!, "dd/MM/yyyy HH:mm", this.locale);
-          result.data.birthDate = formatDate(result.data.birthDate!, "dd/MM/yyyy", this.locale);
-          result.data.deathDate = formatDate(result.data.deathDate!, "dd/MM/yyyy", this.locale);
-          if(result.data.userId != this.currentUser?.id) {
-            result.data.commentsCount = result.data.comments?.filter(f => f.isApproved).length!;
-          }
-
-          this.memory = result.data;
-        }
-        else {
-          this.memory = undefined;
-        }
-      })
-  }
-
-  goToMemories() {
-    this.router.navigate(['/memories'], {
-      queryParams: {},
-    });
-  }
-
-  isSuccess(event: boolean) {
-    this.getById();
-  }
-
-  like() {
-    if (this.currentUser && this.isUserActive) {
-      if (this.memory?.ownLike) {
-        this.memoryManagementService.dislike(this.currentUser?.id!, this.memoryId).subscribe(result => {
-          if (result.isSuccess) {
-            scrollToTop();
-            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-              positionClass: 'toast-top-right',
-              timeOut: 3000
-            });
-            this.getById();
-          }
-          else {
-            scrollToTop();
-            this.toastr.error(result.message, this.translate.instant('ERROR'), {
-              positionClass: 'toast-top-right',
-              timeOut: 3000
-            });
-          }
-        })
-      }
-      else {
-        var data: MemoryLikeModel = { id: 0, memoryId: this.memoryId, userId: this.currentUser?.id!, isDeleted: false }
-        this.memoryManagementService.like(data).subscribe(result => {
-          if (result.isSuccess) {
-            scrollToTop();
-            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-              positionClass: 'toast-top-right',
-              timeOut: 3000
-            });
-            this.getById();
-          }
-          else {
-            scrollToTop();
-            this.toastr.error(result.message, this.translate.instant('ERROR'), {
-              positionClass: 'toast-top-right',
-              timeOut: 3000
-            });
-          }
-        })
-      }
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.windowResizeService.resize$
       .subscribe(size => {
-        this.bannerHeight = (size.height / 4) - document.getElementById("kt_header")?.clientHeight!;
+        this.bannerHeight =
+          (size.height / 4) - document.getElementById('kt_header')?.clientHeight!;
         this.bannerToolPaddingTopHeight = this.bannerHeight / 6;
       });
 
@@ -204,50 +79,269 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     this.getById();
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void {}
 
+  addComment(): void {
+    let flag: boolean = false;
+
+    if (this.currentUser) {
+      if (this.isUserActive) {
+        if (this.comment && this.comment !== '') {
+          flag = true;
+        }
+      }
+    } else {
+      if (
+        this.comment &&
+        this.comment !== '' &&
+        this.nameSurname &&
+        this.nameSurname !== ''
+      ) {
+        flag = true;
+      }
+    }
+
+    if (flag) {
+      const data: MemoryCommentModel = {
+        id: 0,
+        memoryId: this.memoryId,
+        userId: this.currentUser?.id!,
+        comment: this.comment,
+        nameSurname: this.nameSurname,
+        isApproved: this.currentUser?.id == this.memory?.userId
+      };
+
+      this.memoryManagementService.addComment(data).subscribe(result => {
+        if (result.isSuccess) {
+          scrollToTop();
+          this.toastr.success(
+            this.translate.instant('SUCCESS_MESSAGE'),
+            this.translate.instant('SUCCESS'),
+            {
+              positionClass: 'toast-top-center',
+              timeOut: 3000
+            }
+          );
+          this.getById();
+          this.nameSurname = '';
+          this.comment = '';
+          this.isCommentBoxVisible = false;
+        } else {
+          scrollToTop();
+          this.toastr.error(
+            result.message,
+            this.translate.instant('ERROR'),
+            {
+              positionClass: 'toast-top-center',
+              timeOut: 3000
+            }
+          );
+        }
+      });
+    }
   }
 
-  openCandlesModal(memoryId: number, candleCount: number) {
+  edit(): void {
+    this.router.navigate(['memories/edit/' + this.memoryId]);
+  }
+
+  getById(): void {
+    this.memoryManagementService.getById(this.memoryId)
+      .subscribe(result => {
+        if (result.isSuccess) {
+          result.data.files?.forEach(file => {
+            if (file.file) {
+              file.fileUrl =
+                environment.memoryUploadFolderUrl +
+                '/' +
+                file.file?.path.split('\\')[file.file?.path.split('\\').length - 1];
+
+              if (file.isPrimary) {
+                result.data.fileUrl = file.fileUrl;
+              }
+            }
+          });
+
+          result.data.likes?.forEach(like => {
+            if (like.userId == this.currentUser?.id) {
+              result.data.ownLike = true;
+            }
+          });
+
+          result.data.postDate = formatDate(
+            result.data.postDate!,
+            'dd/MM/yyyy HH:mm',
+            this.locale
+          );
+          result.data.birthDate = formatDate(
+            result.data.birthDate!,
+            'dd/MM/yyyy',
+            this.locale
+          );
+          result.data.deathDate = formatDate(
+            result.data.deathDate!,
+            'dd/MM/yyyy',
+            this.locale
+          );
+
+          if (result.data.userId != this.currentUser?.id) {
+            result.data.commentsCount =
+              result.data.comments?.filter(f => f.isApproved).length!;
+          }
+
+          this.memory = result.data;
+        } else {
+          this.memory = undefined;
+        }
+      });
+  }
+
+  goToMemories(): void {
+    this.router.navigate(['/memories'], {
+      queryParams: {},
+    });
+  }
+
+  isSuccess(event: boolean): void {
+    this.getById();
+  }
+
+  like(): void {
+    if (this.currentUser && this.isUserActive) {
+      if (this.memory?.ownLike) {
+        this.memoryManagementService
+          .dislike(this.currentUser?.id!, this.memoryId)
+          .subscribe(result => {
+            if (result.isSuccess) {
+              scrollToTop();
+              this.toastr.success(
+                this.translate.instant('SUCCESS_MESSAGE'),
+                this.translate.instant('SUCCESS'),
+                {
+                  positionClass: 'toast-top-center',
+                  timeOut: 3000
+                }
+              );
+              this.getById();
+            } else {
+              scrollToTop();
+              this.toastr.error(
+                result.message,
+                this.translate.instant('ERROR'),
+                {
+                  positionClass: 'toast-top-center',
+                  timeOut: 3000
+                }
+              );
+            }
+          });
+      } else {
+        const data: MemoryLikeModel = {
+          id: 0,
+          memoryId: this.memoryId,
+          userId: this.currentUser?.id!,
+          isDeleted: false
+        };
+
+        this.memoryManagementService.like(data).subscribe(result => {
+          if (result.isSuccess) {
+            scrollToTop();
+            this.toastr.success(
+              this.translate.instant('SUCCESS_MESSAGE'),
+              this.translate.instant('SUCCESS'),
+              {
+                positionClass: 'toast-top-center',
+                timeOut: 3000
+              }
+            );
+            this.getById();
+          } else {
+            scrollToTop();
+            this.toastr.error(
+              result.message,
+              this.translate.instant('ERROR'),
+              {
+                positionClass: 'toast-top-center',
+                timeOut: 3000
+              }
+            );
+          }
+        });
+      }
+    }
+  }
+
+  openCandlesModal(memoryId: number, candleCount: number): void {
     if (candleCount > 0) {
       this.candlesComponent.openModal(memoryId);
     }
   }
 
-  openCommentsModal(memoryId: number, commentCount: number) {
+  openCommentsModal(memoryId: number, commentCount: number): void {
     if (commentCount > 0) {
       this.commentsComponent.openModal(this.memory!);
     }
   }
 
-  openLightCandleModal() {
+  openLightCandleModal(): void {
     if (this.currentUser) {
-      let data: MemoryCandleModel = { id: 0, memoryId: this.memory?.id!, userId: this.currentUser?.id!, isDeleted: false };
+      const data: MemoryCandleModel = {
+        id: 0,
+        memoryId: this.memory?.id!,
+        userId: this.currentUser?.id!,
+        isDeleted: false
+      };
 
       this.memoryManagementService.lightCandle(data).subscribe(result => {
         if (result.isSuccess) {
           this.getById();
-          this.lightCandleComponent.openModal(result.data.id, this.memory?.id!, this.memory?.name!, this.currentUser?.id);
+          this.lightCandleComponent.openModal(
+            result.data.id,
+            this.memory?.id!,
+            this.memory?.name!,
+            this.currentUser?.id
+          );
         }
-      })
-    }
-    else {
-      this.lightCandleComponent.openModal(0, this.memory?.id!, this.memory?.name!, undefined);
+      });
+    } else {
+      this.lightCandleComponent.openModal(
+        0,
+        this.memory?.id!,
+        this.memory?.name!,
+        undefined
+      );
     }
   }
 
-  openLikesModal(memoryId: number, likeCount: number) {
+  openLikesModal(memoryId: number, likeCount: number): void {
     if (likeCount > 0) {
       this.likesComponent.openModal(memoryId);
     }
   }
 
-  showCloseCommentBox() {
+  showCloseCommentBox(): void {
     this.isCommentBoxVisible = !this.isCommentBoxVisible;
   }
 
-  shareFacebook() {
+  openShareModal(): void {
+    this.prepareShareLink();
+    this.isShareModalOpen = true;
+  }
+
+  closeShareModal(): void {
+    this.isShareModalOpen = false;
+  }
+
+  prepareShareLink(): void {
+    if (!this.shareLink || this.shareLink.trim() === '') {
+      this.shareLink = `${environment.appUrl}/#/memories/${this.memoryId}`;
+    }
+  }
+
+  shareFacebook(): void {
+    this.prepareShareLink();
     const url = encodeURIComponent(this.shareLink);
+
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       '_blank',
@@ -255,8 +349,10 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     );
   }
 
-  shareLinkedIn() {
+  shareLinkedIn(): void {
+    this.prepareShareLink();
     const url = encodeURIComponent(this.shareLink);
+
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
       '_blank',
@@ -264,14 +360,58 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     );
   }
 
-  shareX() {
-    var url = encodeURIComponent(this.shareLink);
-    var text = encodeURIComponent('Anısı bizimle yaşıyor 🐾\n');
+  shareX(): void {
+    this.prepareShareLink();
+    const url = encodeURIComponent(this.shareLink);
+    const text = encodeURIComponent('Anısı bizimle yaşıyor 🐾\n');
 
     window.open(
       `https://x.com/intent/tweet?url=${url}&text=${text}`,
       '_blank',
       'width=600,height=400'
     );
+  }
+
+  shareFacebookFromModal(): void {
+    this.shareFacebook();
+  }
+
+  shareLinkedInFromModal(): void {
+    this.shareLinkedIn();
+  }
+
+  shareXFromModal(): void {
+    this.shareX();
+  }
+
+  copyShareLink(): void {
+    this.prepareShareLink();
+
+    navigator.clipboard.writeText(this.shareLink).then(() => {
+      this.toastr.success(
+        this.translate.instant('LINK_COPIED'),
+        this.translate.instant('SUCCESS'),
+        {
+          positionClass: 'toast-top-center',
+          timeOut: 3000
+        }
+      );
+    }).catch(() => {
+      const input = document.createElement('input');
+      input.value = this.shareLink;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+
+      this.toastr.success(
+        this.translate.instant('LINK_COPIED'),
+        this.translate.instant('SUCCESS'),
+        {
+          positionClass: 'toast-top-center',
+          timeOut: 3000
+        }
+      );
+    });
   }
 }

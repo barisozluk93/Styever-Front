@@ -21,7 +21,6 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AsideMenuComponent } from './components/aside/aside-menu/aside-menu.component';
 import { TabsAsideComponent } from './components/aside/tabs-aside/tabs-aside.component';
 import { TabsAsideInnerComponent } from './components/aside/tabs-aside/tabs-aside-inner.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
 import { PageTitleComponent } from './components/header/page-title/page-title.component';
 import { HeaderMenuComponent } from './components/header/header-menu/header-menu.component';
 import {
@@ -43,6 +42,7 @@ import { ThemeModeModule } from '../partials/layout/theme-mode-switcher/theme-mo
 import { SharedModule } from '../shared/shared.module';
 import { AlertModule } from '../partials/layout/alert/alert.module';
 import { AppScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 const routes: Routes = [
   {

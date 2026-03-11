@@ -19,10 +19,17 @@
       <div class="row">
         <div class="col-lg-3">
           <div style="height: 250px;">
-            <qrcode style="float: left !important;" [qrdata]="shareLink" [width]="250" [errorCorrectionLevel]="'M'">
+            <qrcode
+              style="float: left !important;"
+              [qrdata]="shareLink"
+              [width]="250"
+              [errorCorrectionLevel]="'M'"
+            >
             </qrcode>
           </div>
+
           <div *ngIf="memory?.candlesCount! > 0" class="separator mt-5 mb-5"></div>
+
           <div *ngIf="memory?.candlesCount! > 0" class="candle-text-wrapper">
             <div class="candle-wrapper" [class.lit]="true">
               <div class="flame"></div>
@@ -38,12 +45,22 @@
             </a>
           </div>
         </div>
+
         <div class="col-lg-7">
-          <app-carousel [isEdit]="false" [youtubeLinks]="memory?.youtubeLinks!" [files]="memory?.files!"></app-carousel>
+          <app-carousel
+            [isEdit]="false"
+            [youtubeLinks]="memory?.youtubeLinks!"
+            [files]="memory?.files!"
+          ></app-carousel>
         </div>
+
         <div class="col-lg-2">
-          <a *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive && !memory?.belongingToOldPackage" (click)="edit()" style="float: right !important"
-            class="btn btn-custom btn-active-white btn-color-white btn-primary w-100">
+          <a
+            *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive && !memory?.belongingToOldPackage"
+            (click)="edit()"
+            style="float: right !important"
+            class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
+          >
             <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
             {{'EDIT' | translate}}
           </a>
@@ -52,87 +69,141 @@
         <div class="col-lg-5 mt-10">
           <label class="form-label fs-4 fw-bolder text-primary">{{'POST_DATE' | translate}}</label>
         </div>
+
         <div *ngIf="memory?.hasDonation" class="col-lg-2 mt-10 text-center" title="{{ 'BADGE' | translate}}">
           <i class="fa-solid fa-ribbon text-primary fs-1"></i>
         </div>
+
         <div class="col-lg-5 mt-10">
-          <label class="form-label fs-4 fw-bolder text-primary" style="float: right;">{{'DEATH_DATE' |
-            translate}}</label>
-          <label class="form-label fs-4 fw-bolder text-primary me-10" style="float: right;">{{'BIRTH_DATE' |
-            translate}}</label>
+          <label class="form-label fs-4 fw-bolder text-primary" style="float: right;">{{'DEATH_DATE' | translate}}</label>
+          <label class="form-label fs-4 fw-bolder text-primary me-10" style="float: right;">{{'BIRTH_DATE' | translate}}</label>
         </div>
+
         <div class="col-lg-6">
           <label class="form-label fs-4 text-light-primary">{{memory?.postDate}}</label>
         </div>
+
         <div class="col-lg-6">
           <label class="form-label text-light-primary fs-4" style="float: right;">{{memory?.deathDate}}</label>
           <label class="form-label text-light-primary fs-4 me-10" style="float: right;">{{memory?.birthDate}}</label>
         </div>
+
         <div class="col-lg-12 mt-10">
           <label class="form-label fs-2 fw-bolder text-primary fs-4">{{memory?.name}}</label>
         </div>
+
         <div class="col-lg-12">
           <label class="form-label fs-3 text-light-primary fs-4">{{memory?.text}}</label>
         </div>
+
         <div class="separator mt-5"></div>
+
         <div class="py-5 action-bar">
-          <a *ngIf="memory?.isOpenToComment" (click)="showCloseCommentBox()"
-            class="text-primary fs-4 fw-bolder cursor-pointer me-2">{{'COMMENT' | translate}}</a>
-
-          <div class="social-center">
-            <a (click)="shareLinkedIn()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
-              <i class="fa-brands fa-linkedin text-primary fs-2"></i>&nbsp;
-            </a>
-
-            <a (click)="shareX()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
-              <i class="fa-brands fa-x text-primary fs-2"></i>&nbsp;
-            </a>
-
-            <a (click)="shareFacebook()" title="{{ 'SHARE' | translate}}" class="cursor-pointer me-2">
-              <i class="fa-brands fa-facebook text-primary fs-2"></i>&nbsp;
-            </a>
-          </div>
+          <a
+            *ngIf="memory?.isOpenToComment"
+            (click)="showCloseCommentBox()"
+            class="text-primary fs-4 fw-bolder cursor-pointer me-2"
+          >
+            {{'COMMENT' | translate}}
+          </a>
 
           <div>
-            <a (click)="openLikesModal(memory?.id!, memory?.likesCount!)"
-              class="text-primary fs-3 fw-bolder cursor-pointer me-2" style="float: right;">{{memory?.likesCount}}</a>
-
-            <a title="{{ 'LIKE' | translate}}" (click)="like()" class="text-primary cursor-pointer" style="float: right;"><i
-                [ngClass]="memory?.ownLike! ? 'bi bi-heart-fill' : 'bi bi-heart'"
-                class="fs-2 text-primary me-2"></i></a>
-
-            <a (click)="openCommentsModal(memory?.id!, memory?.commentsCount!)"
+            <a
+              (click)="openLikesModal(memory?.id!, memory?.likesCount!)"
               class="text-primary fs-3 fw-bolder cursor-pointer me-2"
-              style="float: right;">{{memory?.commentsCount}}</a>
+              style="float: right;"
+            >
+              {{memory?.likesCount}}
+            </a>
 
-            <a title="{{ 'COMMENT' | translate}}" class="text-primary cursor-pointer" style="float: right;"><i
-                class="bi fs-2 bi-chat me-2 text-primary"></i></a>
+            <a
+              title="{{ 'LIKE' | translate}}"
+              (click)="like()"
+              class="text-primary cursor-pointer"
+              style="float: right;"
+            >
+              <i
+                [ngClass]="memory?.ownLike! ? 'bi bi-heart-fill' : 'bi bi-heart'"
+                class="fs-2 text-primary me-2"
+              ></i>
+            </a>
 
-            <a *ngIf="!currentUser || (currentUser && isUserActive)" title="{{ 'LIGHT_CANDLE' | translate}}" (click)="openLightCandleModal()" class="text-primary cursor-pointer" style="float: right;">
+            <a
+              (click)="openCommentsModal(memory?.id!, memory?.commentsCount!)"
+              class="text-primary fs-3 fw-bolder cursor-pointer me-2"
+              style="float: right;"
+            >
+              {{memory?.commentsCount}}
+            </a>
+
+            <a
+              title="{{ 'COMMENT' | translate}}"
+              class="text-primary cursor-pointer"
+              style="float: right;"
+            >
+              <i class="bi fs-2 bi-chat me-2 text-primary"></i>
+            </a>
+
+            <a
+              title="{{ 'SHARE' | translate}}"
+              (click)="openShareModal()"
+              class="text-primary cursor-pointer"
+              style="float: right;"
+            >
+              <i class="bi bi-share fs-2 me-2 text-primary"></i>
+            </a>
+
+            <a
+              *ngIf="!currentUser || (currentUser && isUserActive)"
+              title="{{ 'LIGHT_CANDLE' | translate}}"
+              (click)="openLightCandleModal()"
+              class="text-primary cursor-pointer"
+              style="float: right;"
+            >
               <i class="fa-solid fa-hanukiah fs-2 me-2 text-primary"></i>
             </a>
           </div>
         </div>
+
         <div class="separator mb-5"></div>
-        <div class="row mb-5"
-          *ngIf="isCommentBoxVisible && memory?.isOpenToComment">
-          <div class="col-lg-4"></div>
-          <div class="col-lg-8 mb-2" style="float: right;">
-            <input class="form-control bg-transparent text-light-primary" type="text" name="nameSurname"
-                    [(ngModel)]="nameSurname" autocomplete="off" placeholder="{{'FULL_NAME' | translate}}"/>
+
+        <div class="row mb-5" *ngIf="isCommentBoxVisible && memory?.isOpenToComment">
+          <div *ngIf="!currentUser" class="col-lg-4"></div>
+
+          <div *ngIf="!currentUser" class="col-lg-8 mb-2" style="float: right;">
+            <input
+              class="form-control bg-transparent text-light-primary"
+              type="text"
+              name="nameSurname"
+              [(ngModel)]="nameSurname"
+              autocomplete="off"
+              placeholder="{{'FULL_NAME' | translate}}"
+            />
           </div>
 
           <div class="col-lg-4"></div>
+
           <div class="col-lg-8" style="float: right;">
-            <textarea class="form-control bg-transparent text-light-primary" type="text" name="comment"
-              [(ngModel)]="comment"></textarea>
+            <textarea
+              class="form-control bg-transparent text-light-primary"
+              type="text"
+              name="comment"
+              [(ngModel)]="comment"
+            ></textarea>
           </div>
         </div>
-        <div class="row" *ngIf="isCommentBoxVisible && memory?.isOpenToComment && ((currentUser && isUserActive) || !currentUser)">
+
+        <div
+          class="row"
+          *ngIf="isCommentBoxVisible && memory?.isOpenToComment && ((currentUser && isUserActive) || !currentUser)"
+        >
           <div class="col-lg-6"></div>
           <div class="col-lg-6" style="float: right;">
-            <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
-              style="float: right;">
+            <a
+              (click)="addComment()"
+              class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
+              style="float: right;"
+            >
               {{'SUBMIT' | translate}}
             </a>
           </div>
@@ -146,3 +217,91 @@
 <app-memory-like #likesComponent></app-memory-like>
 <app-memory-candlelist #candlesComponent></app-memory-candlelist>
 <app-memory-lightcandle #lightCandleComponent (isSuccess)="isSuccess($event)"></app-memory-lightcandle>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  [ngClass]="{ 'show d-block': isShareModalOpen }"
+  [style.background]="'rgba(0,0,0,0.5)'"
+  *ngIf="isShareModalOpen"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="fw-bolder text-primary mb-0">
+          {{ 'SHARE' | translate }}
+        </h2>
+
+        <button
+          type="button"
+          class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+          (click)="closeShareModal()"
+        >
+          <i class="bi bi-x-lg fs-3"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+  <div class="d-flex flex-column gap-3">
+    <button
+      type="button"
+      class="btn d-flex align-items-center text-start"
+      style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
+      onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
+      onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
+      (click)="shareLinkedIn()"
+    >
+      <i class="fa-brands fa-linkedin fs-2 me-3" style="color: var(--bs-primary);"></i>
+      LinkedIn
+    </button>
+
+    <button
+      type="button"
+      class="btn d-flex align-items-center text-start"
+      style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
+      onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
+      onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
+      (click)="shareX()"
+    >
+      <i class="fa-brands fa-x-twitter fs-2 me-3" style="color: var(--bs-primary);"></i>
+      X
+    </button>
+
+    <button
+      type="button"
+      class="btn d-flex align-items-center text-start"
+      style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
+      onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
+      onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
+      (click)="shareFacebook()"
+    >
+      <i class="fa-brands fa-facebook fs-2 me-3" style="color: var(--bs-primary);"></i>
+      Facebook
+    </button>
+
+    <button
+      type="button"
+      class="btn d-flex align-items-center text-start"
+      style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
+      onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
+      onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
+      (click)="copyShareLink()"
+    >
+      <i class="bi bi-clipboard fs-2 me-3" style="color: var(--bs-primary);"></i>
+      {{ 'COPY_LINK' | translate }}
+    </button>
+  </div>
+</div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-light"
+          (click)="closeShareModal()"
+        >
+          {{ 'CLOSE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

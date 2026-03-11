@@ -126,7 +126,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
           scrollToTop();
 
           this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-center',
             timeOut: 3000
           });
           this.userManagementService.updateUser(data.id);
@@ -134,7 +134,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
         else {
           scrollToTop();
           this.toastr.error(result.message, this.translateService.instant('ERROR'), {
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-center',
             timeOut: 3000
           });
         }
@@ -173,7 +173,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
                   scrollToTop();
 
                   this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
-                    positionClass: 'toast-top-right',
+                    positionClass: 'toast-top-center',
                     timeOut: 3000
                   }); this.userManagementService.updateUser(this.user.id);
                 }
@@ -181,7 +181,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
                   scrollToTop();
 
                   this.toastr.error(result.message, this.translateService.instant('ERROR'), {
-                    positionClass: 'toast-top-right',
+                    positionClass: 'toast-top-center',
                     timeOut: 3000
                   });
                 }
@@ -191,7 +191,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
               scrollToTop();
 
               this.toastr.error(result.message, this.translateService.instant('ERROR'), {
-                positionClass: 'toast-top-right',
+                positionClass: 'toast-top-center',
                 timeOut: 3000
               });
             }
@@ -201,7 +201,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy, OnChanges {
           scrollToTop();
 
           this.toastr.warning(this.translateService.instant('PLEASE_UPLOAD_IMAGE_SIZE_300X300'), this.translateService.instant('WARNING'), {
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-center',
             timeOut: 3000
           });
           

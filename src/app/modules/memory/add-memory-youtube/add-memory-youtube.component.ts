@@ -101,7 +101,7 @@ export class YoutubeComponent {
                 if (result.isSuccess) {
                     scrollToTop();
                     this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
-                        positionClass: 'toast-top-right',
+                        positionClass: 'toast-top-center',
                         timeOut: 3000
                     });
 
@@ -110,7 +110,7 @@ export class YoutubeComponent {
                 else {
                     scrollToTop();
                     this.toastr.error(result.message, this.translate.instant('ERROR'), {
-                        positionClass: 'toast-top-right',
+                        positionClass: 'toast-top-center',
                         timeOut: 3000
                     });
                 }

@@ -11,6 +11,8 @@ import { LayoutInitService } from './core/layout-init.service';
 import { Router } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/modules/auth';
+import { NotificationSignalrService } from 'src/app/modules/common/signalR.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -57,7 +59,8 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
     private initService: LayoutInitService,
     private layout: LayoutService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private notificationService: NotificationSignalrService
   ) {
     this.initService.init();
 
@@ -104,6 +107,16 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
     this.headerCSSClasses = this.layout.getStringCSSClasses('header');
     this.headerHTMLAttributes = this.layout.getHTMLAttributes('headerMenu');
     this.footerCSSClasses = this.layout.getStringCSSClasses('footer')
+
+    if(this.authService.currentUserValue) {
+      const authLocalStorageToken = `${environment.appVersion}-${environment.USERDATA_KEY}`;
+      const lsValue = localStorage.getItem(authLocalStorageToken);
+      const authData = JSON.parse(lsValue!);
+
+      if(authData?.accessToken){
+        this.notificationService.startConnection(authData?.accessToken);
+      }
+    }
 
     // window.addEventListener("resize", this.onresize(this));
   }

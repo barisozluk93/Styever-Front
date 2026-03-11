@@ -2,10 +2,10 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse, HttpEvent
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthModel } from '../modules/auth/models/auth.model';
-import { AuthHTTPService } from '../modules/auth/services/auth-http';
 import { Router } from '@angular/router';
 import { Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { ResultModel } from '../models/result.model';
+import { AuthHTTPService } from '../modules/auth/services/auth-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class Interceptor implements HttpInterceptor {

@@ -84,7 +84,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
           scrollToTop();
 
           this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-center',
             timeOut: 3000
           });
 
@@ -96,7 +96,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
         else {
           scrollToTop();
           this.toastr.error(result.message, this.translateService.instant('ERROR'), {
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-center',
             timeOut: 3000
           });
         }
@@ -122,7 +122,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
             scrollToTop();
 
             this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
-              positionClass: 'toast-top-right',
+              positionClass: 'toast-top-center',
               timeOut: 3000
             });
 
@@ -135,7 +135,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
             scrollToTop();
 
             this.toastr.error(result.message, this.translateService.instant('ERROR'), {
-              positionClass: 'toast-top-right',
+              positionClass: 'toast-top-center',
               timeOut: 3000
             });
           }
