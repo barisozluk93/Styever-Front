@@ -7,6 +7,7 @@ import { NotificationService } from './notification.service';
 @Component({
   selector: 'app-notifications-inner',
   templateUrl: './notifications-inner.component.html',
+  styleUrls: ['./notifications-inner.component.scss']
 })
 export class NotificationsInnerComponent implements OnInit {
   @HostBinding('class')

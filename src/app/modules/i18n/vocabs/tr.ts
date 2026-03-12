@@ -505,7 +505,8 @@ export const locale = {
         LINK: "Link",
         SELECT_A_MEMORY: "Bir Anı Seçin",
         DOWNGRADE_PACKAGE: "Bir önceki paketinizden alt bir pakete geçiş yapıyorsunuz. Devam etmek istediğiniz anınızı seçiniz.",
-        COPY_LINK: "Bağlantıyı Kopyala"
+        COPY_LINK: "Bağlantıyı Kopyala",
+        UNREAD: "Okunmamış"
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };
