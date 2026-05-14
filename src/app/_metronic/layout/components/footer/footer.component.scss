@@ -1,0 +1,13 @@
+.footer {
+  img {
+    object-fit: contain;
+  }
+
+  .letter-spacing {
+    letter-spacing: 0.18em;
+  }
+
+  a {
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+}

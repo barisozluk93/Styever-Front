@@ -18,10 +18,13 @@
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <app-carousel [isEdit]="form.get('id')?.value > 0" [youtubeLinks]="youtubeLinks" [files]="mediaFiles" [activeMediaIndex]="activeMediaIndex" 
-          [isImageUploadAllowed]="isImageUploadAllowed" [isVideoUploadAllowed]="isVideoUploadAllowed" [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
-          (isFileChanged)="onFileChange($event)" (isFileDeleted)="isFileDeleted($event)" (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"  (isCheckboxClicked)="isCheckboxClicked($event)"
-          (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)"></app-carousel>
+          <app-carousel [isEdit]="form.get('id')?.value > 0" [youtubeLinks]="youtubeLinks" [files]="mediaFiles"
+            [activeMediaIndex]="activeMediaIndex" [isImageUploadAllowed]="isImageUploadAllowed"
+            [isVideoUploadAllowed]="isVideoUploadAllowed" [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
+            (isFileChanged)="onFileChange($event)" (isFileDeleted)="isFileDeleted($event)"
+            (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"
+            (isCheckboxClicked)="isCheckboxClicked($event)"
+            (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)"></app-carousel>
         </div>
         <div class="col-lg-2"></div>
 
@@ -29,16 +32,28 @@
           <form class="form w-100" [formGroup]="form" novalidate="novalidate">
             <div class="row mb-8">
               <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isPrivate" formControlName="isPrivate" (change)="onIsPrivateChange($event)"/>
-                <label class="form-check-label text-primary fw-bolder" htmlFor="isPrivate">&nbsp;{{'IS_PRIVATE' | translate}}</label>
+                <input class="form-check-input" type="checkbox" id="isPrivate" formControlName="isPrivate"
+                  (change)="onIsPrivateChange($event)" />
+                <label class="form-check-label text-primary fw-bolder d-inline-flex align-items-center"
+                  htmlFor="isPrivate">
+                  &nbsp;{{ 'IS_PRIVATE' | translate }}
+
+                  <i class="bi bi-info-circle ms-2 text-primary cursor-pointer" style="font-size: 14px;"
+                    data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="top" data-bs-html="true"
+                    [attr.data-bs-content]="'PUBLIC_PROFILE_WARNING_TEXT' | translate"></i>
+                </label>
               </div>
               <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isLinkOnly" formControlName="isLinkOnly" (change)="onIsLinkOnlyChange($event)"/>
-                <label class="form-check-label text-primary fw-bolder" htmlFor="isLinkOnly">&nbsp;{{'LINK_ONLY' | translate}}</label>
+                <input class="form-check-input" type="checkbox" id="isLinkOnly" formControlName="isLinkOnly"
+                  (change)="onIsLinkOnlyChange($event)" />
+                <label class="form-check-label text-primary fw-bolder" htmlFor="isLinkOnly">&nbsp;{{'LINK_ONLY' |
+                  translate}}</label>
               </div>
               <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isOpenToComment" formControlName="isOpenToComment" />
-                <label class="form-check-label text-primary fw-bolder" htmlFor="isOpenToComment">&nbsp;{{'OPEN_TO_COMMENT' | translate}}</label>
+                <input class="form-check-input" type="checkbox" id="isOpenToComment"
+                  formControlName="isOpenToComment" />
+                <label class="form-check-label text-primary fw-bolder"
+                  htmlFor="isOpenToComment">&nbsp;{{'OPEN_TO_COMMENT' | translate}}</label>
               </div>
               <div class="col-xxl-3">
                 <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_TYPE' | translate}}</label>
@@ -49,7 +64,8 @@
                           }">
                   <option class="text-light-primary" value="">{{ 'SELECT_PET' | translate}}</option>
                   <ng-container *ngFor="let category of categoryList">
-                    <option class="text-light-primary" value={{category.id}}>{{("LANG" | translate) === 'tr' ? category.name : category.nameEn}}</option>
+                    <option class="text-light-primary" value={{category.id}}>{{("LANG" | translate) === 'tr' ?
+                      category.name : category.nameEn}}</option>
                   </ng-container>
                 </select>
 
@@ -61,20 +77,20 @@
               </div>
             </div>
             <div class="row mb-8">
-            <div class="col-xxl-12">
-              <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_NAME' | translate}}</label>
-              <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name"
-                autocomplete="off" [ngClass]="{
+              <div class="col-xxl-12">
+                <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_NAME' | translate}}</label>
+                <input class="form-control bg-transparent text-light-primary" type="text" name="name"
+                  formControlName="name" autocomplete="off" [ngClass]="{
                         'is-invalid': form.controls['name'].invalid,
                         'is-valid': form.controls['name'].valid
                       }" />
-              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                         validation: 'required',
                         message: ('BF_NAME'| translate) + ' ' + ('IS_REQUIRED'| translate),
                         control: form.controls['name']
                       }"></ng-container>
+              </div>
             </div>
-          </div>
             <div class="row mb-8">
               <div class="col-xxl-6">
                 <label class="form-label fs-6 fw-bolder text-primary">{{ 'BIRTH_DATE' | translate}}</label>
@@ -117,15 +133,15 @@
                         message: ('MEMORY_TEXT'| translate) + ' ' + ('IS_REQUIRED'| translate),
                         control: form.controls['text']
                       }"></ng-container>
-                      
+
             </div>
             <div class="row mb-8">
-            <button type="button" (click)="submit()" [disabled]="disableSubmitButton()"
-              class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
-              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-              {{ 'SUBMIT' | translate}}
-            </button>
-          </div>
+              <button type="button" (click)="submit()" [disabled]="disableSubmitButton()"
+                class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
+                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                {{ 'SUBMIT' | translate}}
+              </button>
+            </div>
           </form>
 
           <ng-template #formError let-control="control" let-message="message" let-validation="validation">

@@ -1,0 +1,38 @@
+.legal-content {
+  h2 {
+    color: var(--bs-gray-900);
+    font-weight: 800;
+    font-size: 1.35rem;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: var(--bs-gray-900);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--bs-gray-700);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .legal-content {
+    h2 {
+      font-size: 1.15rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}

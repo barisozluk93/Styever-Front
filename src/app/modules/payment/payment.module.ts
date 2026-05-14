@@ -8,6 +8,7 @@ import { InlineSVGModule } from 'ng-inline-svg-2';
 import { PaymentComponent } from './payment.component';
 import { PaymentRoutingModule } from './payment-routing.module';
 import { AccountModule } from '../account/account.module';
+import { ModalsModule } from 'src/app/_metronic/partials';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AccountModule } from '../account/account.module';
     ReactiveFormsModule,
     HttpClientModule,
     InlineSVGModule,
-    AccountModule
+    AccountModule,
+    ModalsModule
   ],
 })
 export class PaymentModule {}

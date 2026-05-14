@@ -9,3 +9,51 @@
     margin-right: auto;
     display: flex;
 }
+
+.company-info-card {
+  border: 1px solid #eff2f5;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9fafb;
+}
+
+.company-info-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #181c32;
+  margin-bottom: 16px;
+}
+
+.company-info-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eff2f5;
+  font-size: 14px;
+  color: #3f4254;
+
+  span {
+    min-width: 220px;
+    font-weight: 600;
+  }
+
+  strong {
+    font-weight: 500;
+    color: #181c32;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-info-row {
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      min-width: unset;
+    }
+  }
+}

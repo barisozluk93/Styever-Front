@@ -25,6 +25,7 @@ import { MemoryCandleModel } from '../models/candle.model';
 import { parseBoolean } from 'src/app/utils/parse-boolean';
 import { scrollToTop } from 'src/app/utils/scrolltotop';
 import { ToastrService } from 'ngx-toastr';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-memory-view',
@@ -61,7 +62,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     @Inject(LOCALE_ID) public locale: string,
     private router: Router,
     private toastr: ToastrService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.windowResizeService.resize$
@@ -79,7 +80,17 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
     this.getById();
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+      );
+
+      popoverTriggerList.map((popoverTriggerEl: any) => {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+    }, 300);
+  }
 
   addComment(): void {
     let flag: boolean = false;
@@ -412,6 +423,16 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
           timeOut: 3000
         }
       );
+    });
+  }
+
+  reportMemory(): void {
+    this.prepareShareLink();
+
+    this.router.navigate(['/report-content'], {
+      queryParams: {
+        pagedLink: this.shareLink
+      }
     });
   }
 }

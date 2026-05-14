@@ -28,9 +28,11 @@
         </div>
         <div [id]="'kt_faq' + faq.id" class="collapse">
           <div class="card-body border-top p-9">
-            <label class="col-form-label fw-bold text-light-primary fs-6">
-              {{("LANG" | translate) === 'tr' ? faq.content : faq.contentEn }}
-            </label>
+
+            <div class="fw-bold text-light-primary fs-6"
+              [innerHTML]="('LANG' | translate) === 'tr' ? faq.content : faq.contentEn">
+            </div>
+
           </div>
         </div>
       </div>

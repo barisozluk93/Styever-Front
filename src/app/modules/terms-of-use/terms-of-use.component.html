@@ -1,0 +1,111 @@
+<div class="container-xxl py-10 py-lg-15">
+
+  <div class="card">
+    <div class="card-body p-8 p-lg-12">
+
+      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
+        <i class="ki-duotone ki-information-5 fs-2hx text-primary me-4">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+        </i>
+
+        <div>
+          <h4 class="fw-bold text-gray-900 mb-1">
+            {{ 'TERMS.INFO_TITLE' | translate }}
+          </h4>
+          <span class="text-gray-700 fs-6">
+            {{ 'TERMS.INFO_TEXT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="terms-content">
+
+        <section class="mb-8" *ngFor="let item of termsItems">
+          <h3>{{ item.title | translate }}</h3>
+          <p>{{ item.text | translate }}</p>
+        </section>
+
+        <div class="separator separator-dashed my-10"></div>
+
+        <section class="mb-8">
+          <h3>{{ 'TERMS.SELLER_INFO.TITLE' | translate }}</h3>
+
+          <div class="table-responsive">
+            <table class="table table-row-dashed align-middle">
+              <tbody>
+                <tr>
+                  <td class="fw-bold text-gray-800 w-200px">
+                    {{ 'TERMS.SELLER_INFO.COMPANY_TITLE_LABEL' | translate }}
+                  </td>
+                  <td class="text-gray-700">
+                    {{ 'TERMS.SELLER_INFO.COMPANY_TITLE' | translate }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="fw-bold text-gray-800">
+                    {{ 'TERMS.SELLER_INFO.ADDRESS_LABEL' | translate }}
+                  </td>
+                  <td class="text-gray-700">
+                    {{ 'TERMS.SELLER_INFO.ADDRESS' | translate }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="fw-bold text-gray-800">
+                    {{ 'TERMS.SELLER_INFO.EMAIL_LABEL' | translate }}
+                  </td>
+                  <td>
+                    <a href="mailto:info&#64;styever.com" class="text-primary fw-semibold">
+                      info&#64;styever.com
+                    </a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="fw-bold text-gray-800">
+                    {{ 'TERMS.SELLER_INFO.TAX_NO_LABEL' | translate }}
+                  </td>
+                  <td class="text-gray-700">
+                    {{ 'TERMS.SELLER_INFO.TAX_NO' | translate }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mb-8">
+          <h3>{{ 'TERMS.SERVICE_FEATURES.TITLE' | translate }}</h3>
+          <p>{{ 'TERMS.SERVICE_FEATURES.TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h3>{{ 'TERMS.TOTAL_PRICE.TITLE' | translate }}</h3>
+          <p>{{ 'TERMS.TOTAL_PRICE.TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h3>{{ 'TERMS.RIGHT_OF_WITHDRAWAL.TITLE' | translate }}</h3>
+          <p>{{ 'TERMS.RIGHT_OF_WITHDRAWAL.TEXT' | translate }}</p>
+        </section>
+
+        <section>
+          <h3>{{ 'TERMS.COMPLAINT.TITLE' | translate }}</h3>
+          <p>
+            {{ 'TERMS.COMPLAINT.TEXT_BEFORE_EMAIL' | translate }}
+            <a href="mailto:info&#64;styever.com" class="text-primary fw-semibold">
+              info&#64;styever.com
+            </a>
+            {{ 'TERMS.COMPLAINT.TEXT_AFTER_EMAIL' | translate }}
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -226,4 +226,14 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   isSuccess(event: boolean) {
     this.loadData();
   }
+
+  reportMemory(memoryId: number) {
+    const pageLink = `${environment.appUrl}/#/memories/${memoryId}`;
+
+    this.router.navigate(['/report-content'], {
+      queryParams: {
+        pagedLink: pageLink
+      }
+    });
+  }
 }

@@ -55,6 +55,61 @@ const Routing: Routes = [
       import('../modules/payment/payment.module').then((m) => m.PaymentModule),
   },
   {
+    path: 'terms-of-use',
+    loadChildren: () =>
+      import('../modules/terms-of-use/terms-of-use.module').then((m) => m.TermsOfUseModule),
+  },
+  {
+    path: 'distance-sales-agreement',
+    loadChildren: () =>
+      import('../modules/distance-sales-agreement/distance-sales-agreement.module').then((m) => m.DistanceSalesAgreementModule),
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () =>
+      import('../modules/privacy-policy/privacy-policy.module').then((m) => m.PrivacyPolicyModule),
+  },
+  {
+    path: 'cookie-policy',
+    loadChildren: () =>
+      import('../modules/cookie-policy/cookie-policy.module').then((m) => m.CookiePolicyModule),
+  },
+  {
+    path: 'kvkk',
+    loadChildren: () =>
+      import('../modules/kvkk/kvkk.module').then((m) => m.KvkkModule),
+  },
+  {
+    path: 'legal-warning',
+    loadChildren: () =>
+      import('../modules/legal-warning/legal-warning.module').then((m) => m.LegalWarningModule),
+  },
+  {
+    path: 'social-responsibility-policy',
+    loadChildren: () =>
+      import('../modules/social-responsibility-policy/social-responsibility-policy.module').then((m) => m.SocialResponsibilityPolicyModule),
+  },
+  {
+    path: 'community-rules',
+    loadChildren: () =>
+      import('../modules/community-rules/community-rules.module').then((m) => m.CommunityRulesModule),
+  },
+  {
+    path: 'moderation-policy',
+    loadChildren: () =>
+      import('../modules/moderation-policy/moderation-policy.module').then((m) => m.ModerationPolicyModule),
+  },
+  {
+    path: 'content-removal-policy',
+    loadChildren: () =>
+      import('../modules/content-removal-policy/content-removal-policy.module').then((m) => m.ContentRemovalPolicyModule),
+  },
+  {
+    path: 'report-content',
+    loadChildren: () =>
+      import('../modules/report-content/report-content.module').then((m) => m.ReportContentModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',

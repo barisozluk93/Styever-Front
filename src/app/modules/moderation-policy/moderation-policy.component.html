@@ -1,0 +1,145 @@
+<div class="container-xxl py-10 py-lg-15">
+
+  <div class="card">
+    <div class="card-body p-8 p-lg-12">
+
+      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-primary me-4">
+          <span class="path1"></span>
+          <span class="path2"></span>
+        </i>
+
+        <div>
+          <h4 class="fw-bold text-gray-900 mb-1">
+            {{ 'MODERATION_POLICY.INFO_TITLE' | translate }}
+          </h4>
+
+          <span class="text-gray-700 fs-6">
+            {{ 'MODERATION_POLICY.INFO_TEXT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="legal-content">
+
+        <section class="mb-8">
+          <p>{{ 'MODERATION_POLICY.INTRO' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'MODERATION_POLICY.HOSTING_PROVIDER.TITLE' | translate }}</h2>
+          <p>{{ 'MODERATION_POLICY.HOSTING_PROVIDER.TEXT' | translate }}</p>
+        </section>
+
+        <div class="separator separator-dashed my-10"></div>
+
+        <section class="mb-10">
+          <h2>{{ 'MODERATION_POLICY.PURPOSES.TITLE' | translate }}</h2>
+
+          <div class="row g-4 mt-2">
+            <div class="col-12 col-md-4" *ngFor="let item of purposeItems">
+              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
+                <i class="ki-duotone ki-check-circle fs-2 text-primary me-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+
+                <span class="text-gray-700 fw-semibold">
+                  {{ item | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-10">
+          <h2>{{ 'MODERATION_POLICY.SCOPE.TITLE' | translate }}</h2>
+
+          <p class="mb-6">
+            {{ 'MODERATION_POLICY.SCOPE.TEXT' | translate }}
+          </p>
+
+          <div class="row g-4">
+            <div class="col-12 col-md-6" *ngFor="let item of scopeItems">
+              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
+                <i class="ki-duotone ki-eye fs-2 text-primary me-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </i>
+
+                <span class="text-gray-700 fw-semibold">
+                  {{ item | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-10">
+          <h2>{{ 'MODERATION_POLICY.DECISIONS.TITLE' | translate }}</h2>
+
+          <div class="row g-4 mt-2">
+            <div class="col-12 col-md-6" *ngFor="let item of decisionItems">
+              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
+                <i class="ki-duotone ki-setting-2 fs-2 text-primary me-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+
+                <span class="text-gray-700 fw-semibold">
+                  {{ item | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-10">
+          <h2>{{ 'MODERATION_POLICY.CRITERIA.TITLE' | translate }}</h2>
+
+          <p class="mb-6">
+            {{ 'MODERATION_POLICY.CRITERIA.TEXT' | translate }}
+          </p>
+
+          <div class="row g-4">
+            <div class="col-12 col-md-6" *ngFor="let item of criteriaItems">
+              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
+                <i class="ki-duotone ki-cross-circle fs-2 text-danger me-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+
+                <span class="text-gray-700 fw-semibold">
+                  {{ item | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'MODERATION_POLICY.REPORTING.TITLE' | translate }}</h2>
+          <p>{{ 'MODERATION_POLICY.REPORTING.TEXT' | translate }}</p>
+        </section>
+
+        <section>
+          <div class="notice d-flex bg-light-info rounded border-info border border-dashed p-6">
+            <i class="ki-duotone ki-information-5 fs-2hx text-info me-4">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+            </i>
+
+            <div class="text-gray-800 fw-semibold fs-6">
+              {{ 'MODERATION_POLICY.TRANSPARENCY' | translate }}
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

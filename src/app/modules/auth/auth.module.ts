@@ -12,6 +12,7 @@ import { TranslationModule } from '../i18n/translation.module';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { PlansModule } from '../common/plans/plans.module';
+import { ModalsModule } from 'src/app/_metronic/partials/layout/modals/modals.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PlansModule } from '../common/plans/plans.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ModalsModule
   ],
 })
 export class AuthModule {}

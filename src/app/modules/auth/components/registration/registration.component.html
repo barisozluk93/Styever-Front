@@ -1,26 +1,31 @@
 <div class="text-center mb-5" routerLink="/home">
-  <img alt="Logo" src="./assets/media/logos/icon.png" class="h-150px w-150px" style="border-radius:  20px;" />
+  <img alt="Logo" src="./assets/media/logos/icon.png" class="h-150px w-150px" style="border-radius: 20px;" />
 </div>
+
 <div class="checkout-steps d-flex justify-content-center align-items-center">
   <div class="step" [ngClass]="activeState == 'paymentPlan' ? 'active' : ''">
     <i class="bi bi-wallet" [ngClass]="activeState == 'paymentPlan' ? 'text-white' : 'text-primary'"></i>
-    <span>{{"PLANS" | translate}}</span>
+    <span>{{ 'PLANS' | translate }}</span>
   </div>
+
   <div class="line"></div>
+
   <div class="step" [ngClass]="activeState == 'membershipInfo' ? 'active' : ''">
     <i class="bi bi-person" [ngClass]="activeState == 'membershipInfo' ? 'text-white' : 'text-primary'"></i>
-    <span>{{"MEMBERSHIP_INFOS" | translate}}</span>
+    <span>{{ 'MEMBERSHIP_INFOS' | translate }}</span>
   </div>
+
   <div class="line"></div>
+
   <div class="step" [ngClass]="activeState == 'addressInfo' ? 'active' : ''">
     <i class="bi bi-card-text" [ngClass]="activeState == 'addressInfo' ? 'text-white' : 'text-primary'"></i>
-    <span>{{"ADDRESS_INFOS" | translate}}</span>
+    <span>{{ 'ADDRESS_INFOS' | translate }}</span>
   </div>
 
   <ng-container *ngIf="hasError">
     <div class="mb-lg-15 alert alert-danger">
       <div class="alert-text font-weight-bold">
-        {{ 'RESET_PASSWORD_ERROR' | translate}}
+        {{ 'RESET_PASSWORD_ERROR' | translate }}
       </div>
     </div>
   </ng-container>
@@ -29,40 +34,57 @@
 <ng-container *ngIf="activeState == 'paymentPlan'">
   <div class="text-center mb-5 mt-5">
     <h1 class="text-primary fw-bolder">
-      {{"PLANS" | translate}}
+      {{ 'PLANS' | translate }}
     </h1>
   </div>
 
-  <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
+  <div class="separator mb-5">
+    <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
+  </div>
+
   <div class="row my-10">
     <div class="col-xxl-3">
       <input class="form-check-input" type="checkbox" id="useVoucher" (change)="onCheckboxChange($event)" />
-      <label class="form-check-label text-primary fw-bolder" htmlFor="useVoucher">&nbsp;{{'USE_VOUCHER' |
-        translate}}</label>
+      <label class="form-check-label text-primary fw-bolder" for="useVoucher">
+        &nbsp;{{ 'USE_VOUCHER' | translate }}
+      </label>
     </div>
   </div>
+
   <div *ngIf="useVoucher" class="row my-10 cursor-pointer">
     <form class="form-inline" (ngSubmit)="onVoucherSearch()">
       <div class="input-group mb-3">
-        <input class="form-control" type="search" placeholder="{{'VOUCHER' | translate}}" aria-label="Ara"
-          [(ngModel)]="voucher" name="voucher">
-        <div class="input-group-append">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="{{ 'VOUCHER' | translate }}"
+          aria-label="Ara"
+          [(ngModel)]="voucher"
+          name="voucher"
+        />
 
-          <button type="submit" class="btn btn-custom btn-active-white btn-color-white btn-primary"
-            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
-            <ng-container>
-              <span class="indicator-label">
-                {{'SEARCH' | translate}}
-              </span>
-            </ng-container>
+        <div class="input-group-append">
+          <button
+            type="submit"
+            class="btn btn-custom btn-active-white btn-color-white btn-primary"
+            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
+          >
+            <span class="indicator-label">
+              {{ 'SEARCH' | translate }}
+            </span>
           </button>
         </div>
       </div>
     </form>
   </div>
+
   <div class="row my-10 cursor-pointer">
-    <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false"
-      (isPlanSelect)="isPlanSelect($event)"></app-plans>
+    <app-plans
+      [useVoucher]="useVoucher"
+      [activePlan]="activePlan"
+      [isStandByPage]="false"
+      (isPlanSelect)="isPlanSelect($event)"
+    ></app-plans>
   </div>
 </ng-container>
 
@@ -70,118 +92,271 @@
   <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="registrationForm">
     <div class="text-center mb-5 mt-5">
       <h1 class="text-primary fw-bolder">
-        {{"MEMBERSHIP_INFOS" | translate}}
+        {{ 'MEMBERSHIP_INFOS' | translate }}
       </h1>
     </div>
 
-    <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'NAME' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name"
-        placeholder="{{ 'NAME' | translate}}" autocomplete="off" [ngClass]="{
-        'is-invalid': registrationForm.controls['name'].invalid,
-        'is-valid': registrationForm.controls['name'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: registrationForm.controls['name']
-      }"></ng-container>
-    </div>
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'SURNAME' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="surname" formControlName="surname"
-        placeholder="{{ 'SURNAME' | translate}}" autocomplete="off" [ngClass]="{
-        'is-invalid': registrationForm.controls['surname'].invalid,
-        'is-valid': registrationForm.controls['surname'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: 'Soyad is required',
-        control: registrationForm.controls['surname']
-      }"></ng-container>
+    <div class="separator mb-5">
+      <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
     </div>
 
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'EMAIL' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="email" placeholder="{{ 'EMAIL' | translate}}"
-        name="email" formControlName="email" autocomplete="off" [ngClass]="{
-        'is-invalid': registrationForm.controls['email'].invalid,
-        'is-valid': registrationForm.controls['email'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: registrationForm.controls['email']
-      }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'email',
-        message: ('EMAIL' | translate) + ' ' + ('IS_INVALID' | translate),
-        control: registrationForm.controls['email']
-      }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'PHONE' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" placeholder="{{ 'PHONE' | translate}}"
-        name="phone" formControlName="phone" autocomplete="off" [ngClass]="{
-        'is-invalid': registrationForm.controls['phone'].invalid,
-        'is-valid': registrationForm.controls['phone'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('PHONE' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: registrationForm.controls['phone']
-      }"></ng-container>
-
-    </div>
-    <!--end::Form group-->
-
-    <!--begin::Form group-->
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'PASSWORD' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="password"
-        placeholder="{{ 'PASSWORD' | translate}}" name="password" formControlName="password" autocomplete="off"
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'NAME' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        name="name"
+        formControlName="name"
+        placeholder="{{ 'NAME' | translate }}"
+        autocomplete="off"
         [ngClass]="{
-        'is-invalid': registrationForm.controls['password'].invalid,
-        'is-valid': registrationForm.controls['password'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: registrationForm.controls['password']
-      }"></ng-container>
+          'is-invalid': registrationForm.controls['name'].invalid,
+          'is-valid': registrationForm.controls['name'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['name']
+        }"
+      ></ng-container>
     </div>
-    <!--end::Form group-->
 
-    <!--begin::Form group-->
     <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'CONFIRM_PASSWORD' | translate}}</label>
-      <input class="form-control bg-transparent text-light-primary" type="password"
-        placeholder="{{ 'CONFIRM_PASSWORD' | translate}}" name="cPassword" autocomplete="off"
-        formControlName="cPassword" [ngClass]="{
-        'is-invalid': registrationForm.controls['cPassword'].invalid,
-        'is-valid': registrationForm.controls['cPassword'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('CONFIRM_PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: registrationForm.controls['cPassword']
-      }"></ng-container>
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'SURNAME' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        name="surname"
+        formControlName="surname"
+        placeholder="{{ 'SURNAME' | translate }}"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': registrationForm.controls['surname'].invalid,
+          'is-valid': registrationForm.controls['surname'].valid
+        }"
+      />
 
-      <ng-container *ngIf="
-        registrationForm.controls['cPassword'].errors &&
-        registrationForm.controls['cPassword'].errors.ConfirmPassword
-      ">
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('SURNAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['surname']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'EMAIL' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="email"
+        placeholder="{{ 'EMAIL' | translate }}"
+        name="email"
+        formControlName="email"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': registrationForm.controls['email'].invalid,
+          'is-valid': registrationForm.controls['email'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['email']
+        }"
+      ></ng-container>
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'email',
+          message: ('EMAIL' | translate) + ' ' + ('IS_INVALID' | translate),
+          control: registrationForm.controls['email']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'PHONE' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        placeholder="{{ 'PHONE' | translate }}"
+        name="phone"
+        formControlName="phone"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': registrationForm.controls['phone'].invalid,
+          'is-valid': registrationForm.controls['phone'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('PHONE' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['phone']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'PASSWORD' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="password"
+        placeholder="{{ 'PASSWORD' | translate }}"
+        name="password"
+        formControlName="password"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': registrationForm.controls['password'].invalid,
+          'is-valid': registrationForm.controls['password'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['password']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="fv-row mb-8">
+      <label class="form-label fw-bolder text-primary fs-6">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="password"
+        placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
+        name="cPassword"
+        autocomplete="off"
+        formControlName="cPassword"
+        [ngClass]="{
+          'is-invalid': registrationForm.controls['cPassword'].invalid,
+          'is-valid': registrationForm.controls['cPassword'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('CONFIRM_PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: registrationForm.controls['cPassword']
+        }"
+      ></ng-container>
+
+      <ng-container
+        *ngIf="
+          registrationForm.controls['cPassword'].errors &&
+          registrationForm.controls['cPassword'].errors.ConfirmPassword
+        "
+      >
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
-            {{ 'NOMATCH_PASSWORD' | translate}}
+            {{ 'NOMATCH_PASSWORD' | translate }}
           </div>
         </div>
       </ng-container>
     </div>
-    <!--end::Form group-->
+
+    <div class="form-check mb-5">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="termsAndPrivacyAccepted"
+        formControlName="termsAndPrivacyAccepted"
+      />
+
+      <label class="form-check-label text-primary fw-semibold" for="termsAndPrivacyAccepted">
+        <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
+          {{ 'TERMS.TITLE' | translate }}
+        </a>
+
+        {{ 'AND' | translate }}
+
+        <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
+          {{ 'PRIVACY_POLICY.TITLE' | translate }}
+        </a>
+
+        {{ 'LEGAL_CHECKBOXES.TERMS_PRIVACY_ACCEPT_SUFFIX' | translate }}
+      </label>
+    </div>
+
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: ('LEGAL_CHECKBOXES.TERMS_AND_PRIVACY_REQUIRED' | translate),
+        control: registrationForm.controls['termsAndPrivacyAccepted']
+      }"
+    ></ng-container>
+
+    <div class="form-check mb-5">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="kvkkAccepted"
+        formControlName="kvkkAccepted"
+      />
+
+      <label class="form-check-label text-primary fw-semibold" for="kvkkAccepted">
+        {{ 'LEGAL_CHECKBOXES.KVKK_PREFIX' | translate }}
+
+        <a href="javascript:void(0)" class="legal-link" (click)="openKvkkModal()">
+          {{ 'KVKK.TITLE' | translate }}
+        </a>
+
+        {{ 'LEGAL_CHECKBOXES.KVKK_SUFFIX' | translate }}
+      </label>
+    </div>
+
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: ('LEGAL_CHECKBOXES.KVKK_REQUIRED' | translate),
+        control: registrationForm.controls['kvkkAccepted']
+      }"
+    ></ng-container>
+
+    <div class="form-check mb-5">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="commercialPermission"
+        formControlName="commercialPermission"
+      />
+
+      <label class="form-check-label text-primary fw-semibold" for="commercialPermission">
+        {{ 'LEGAL_CHECKBOXES.COMMERCIAL_MESSAGE_PERMISSION' | translate }}
+      </label>
+    </div>
+
+    <div class="form-check mb-5">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="socialResponsibilityConsent"
+        formControlName="socialResponsibilityConsent"
+      />
+
+      <label class="form-check-label text-primary fw-semibold" for="socialResponsibilityConsent">
+        {{ 'LEGAL_CHECKBOXES.SOCIAL_RESPONSIBILITY_CONSENT' | translate }}
+      </label>
+    </div>
   </form>
 
   <ng-template #formError let-control="control" let-message="message" let-validation="validation">
@@ -201,82 +376,141 @@
   <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="addressForm">
     <div class="text-center mb-5 mt-5">
       <h1 class="text-primary fw-bolder">
-        {{"ADDRESS_INFOS" | translate}}
+        {{ 'ADDRESS_INFOS' | translate }}
       </h1>
     </div>
 
-    <div class="separator mb-5"><span class="w-125px text-gray-500 fw-semibold fs-7"></span></div>
+    <div class="separator mb-5">
+      <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
+    </div>
+
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'COUNTRY' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="country" formControlName="country"
-        placeholder="{{ 'COUNTRY' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': addressForm.controls['country'].invalid,
-        'is-valid': addressForm.controls['country'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('COUNTRY' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: addressForm.controls['country']
-      }"></ng-container>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        name="country"
+        formControlName="country"
+        placeholder="{{ 'COUNTRY' | translate }}"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': addressForm.controls['country'].invalid,
+          'is-valid': addressForm.controls['country'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('COUNTRY' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: addressForm.controls['country']
+        }"
+      ></ng-container>
     </div>
+
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'CITY' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="city" formControlName="city"
-        placeholder="{{ 'CITY' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': addressForm.controls['city'].invalid,
-        'is-valid': addressForm.controls['city'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('CITY' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: addressForm.controls['city']
-      }"></ng-container>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        name="city"
+        formControlName="city"
+        placeholder="{{ 'CITY' | translate }}"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': addressForm.controls['city'].invalid,
+          'is-valid': addressForm.controls['city'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('CITY' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: addressForm.controls['city']
+        }"
+      ></ng-container>
     </div>
+
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'DISTRICT' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="district"
-        formControlName="district" placeholder="{{ 'DISTRICT' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': addressForm.controls['district'].invalid,
-        'is-valid': addressForm.controls['district'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('DISTRICT' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: addressForm.controls['district']
-      }"></ng-container>
+      <input
+        class="form-control bg-transparent text-light-primary"
+        type="text"
+        name="district"
+        formControlName="district"
+        placeholder="{{ 'DISTRICT' | translate }}"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': addressForm.controls['district'].invalid,
+          'is-valid': addressForm.controls['district'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('DISTRICT' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: addressForm.controls['district']
+        }"
+      ></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fs-6 fw-bolder text-primary">
         {{ 'ADDRESS' | translate }}
       </label>
-      <textarea class="form-control bg-transparent text-light-primary" type="text" name="address"
-        formControlName="address" autocomplete="off" [ngClass]="{
-                    'is-invalid': addressForm.controls['address'].invalid,
-                    'is-valid': addressForm.controls['address'].valid
-                }"></textarea>
 
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('ADDRESS' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: addressForm.controls['address']
-      }"></ng-container>
+      <textarea
+        class="form-control bg-transparent text-light-primary"
+        name="address"
+        formControlName="address"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': addressForm.controls['address'].invalid,
+          'is-valid': addressForm.controls['address'].valid
+        }"
+      ></textarea>
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('ADDRESS' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: addressForm.controls['address']
+        }"
+      ></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fs-6 fw-bolder text-primary">
         {{ 'ADDRESS_HEADER' | translate }}
       </label>
-      <input class="form-control bg-transparent text-light-primary" placeholder="{{ 'ADDRESS_HEADER' | translate }}"
-        type="text" name="addressHeader" formControlName="addressHeader" autocomplete="off" [ngClass]="{
-                    'is-invalid': addressForm.controls['addressHeader'].invalid,
-                    'is-valid': addressForm.controls['addressHeader'].valid
-                }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('ADDRESS_HEADER' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: addressForm.controls['addressHeader']
-      }"></ng-container>
+
+      <input
+        class="form-control bg-transparent text-light-primary"
+        placeholder="{{ 'ADDRESS_HEADER' | translate }}"
+        type="text"
+        name="addressHeader"
+        formControlName="addressHeader"
+        autocomplete="off"
+        [ngClass]="{
+          'is-invalid': addressForm.controls['addressHeader'].invalid,
+          'is-valid': addressForm.controls['addressHeader'].valid
+        }"
+      />
+
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: ('ADDRESS_HEADER' | translate) + ' ' + ('IS_REQUIRED' | translate),
+          control: addressForm.controls['addressHeader']
+        }"
+      ></ng-container>
     </div>
   </form>
 
@@ -296,31 +530,170 @@
 <ng-container>
   <div class="row">
     <div class="col-lg-6">
-      <a *ngIf="activeState != 'paymentPlan'" style="float: left"
+      <a
+        *ngIf="activeState != 'paymentPlan'"
+        style="float: left"
         (click)="changeState(activeState == 'membershipInfo' ? 'paymentPlan' : 'membershipInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
-        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        class="btn btn-custom btn-active-white btn-color-white btn-primary"
+      >
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr002.svg'" class="svg-icon svg-icon-2"></span>
-        {{ 'PREV' | translate}}
+        {{ 'PREV' | translate }}
       </a>
     </div>
+
     <div class="col-lg-6">
-      <a [class.disabled-link]="(activeState == 'paymentPlan' &&
-        activePlan < 2) || (activeState == 'membershipInfo' &&
-        registrationForm.invalid)" *ngIf="activeState != 'addressInfo'" style="float: right"
+      <a
+        [class.disabled-link]="
+          (activeState == 'paymentPlan' && activePlan < 2) ||
+          (activeState == 'membershipInfo' && registrationForm.invalid)
+        "
+        *ngIf="activeState != 'addressInfo'"
+        style="float: right"
         (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
-        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        class="btn btn-custom btn-active-white btn-color-white btn-primary"
+      >
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr001.svg'" class="svg-icon svg-icon-2"></span>
-        {{ 'NEXT' | translate}}
+        {{ 'NEXT' | translate }}
       </a>
 
-      <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
-        *ngIf="activeState == 'addressInfo'" style="float: right"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary" data-kt-menu-trigger="click"
-        data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-        {{ 'SUBMIT' | translate}}
+      <a
+        (click)="submit()"
+        [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
+        *ngIf="activeState == 'addressInfo'"
+        style="float: right"
+        class="btn btn-custom btn-active-white btn-color-white btn-primary"
+      >
+        {{ 'SUBMIT' | translate }}
       </a>
     </div>
   </div>
 </ng-container>
+
+<app-modal #termsPrivacyModal [modalConfig]="termsPrivacyModalConfig">
+  <div class="legal-modal-content">
+    <h4 class="fw-bolder mb-4">
+      {{ 'TERMS.TITLE' | translate }}
+    </h4>
+
+    <p><strong>{{ 'TERMS.SECTIONS.PLATFORM.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PLATFORM.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.ACCOUNT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.ACCOUNT.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.USER_CONTENT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.USER_CONTENT.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.PROHIBITED_CONTENT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PROHIBITED_CONTENT.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.COMMENTS.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.COMMENTS.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.SOCIAL_RESPONSIBILITY.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.SOCIAL_RESPONSIBILITY.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.HOSTING_PROVIDER.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.HOSTING_PROVIDER.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.PAYMENTS.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PAYMENTS.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.REFUND.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.REFUND.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.SECTIONS.APPLICABLE_LAW.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.APPLICABLE_LAW.TEXT' | translate }}</p>
+
+    <p>
+      <strong>{{ 'TERMS.SELLER_INFO.TITLE' | translate }}:</strong><br />
+      {{ 'TERMS.SELLER_INFO.COMPANY_TITLE_LABEL' | translate }}:
+      {{ 'TERMS.SELLER_INFO.COMPANY_TITLE' | translate }}<br />
+      {{ 'TERMS.SELLER_INFO.ADDRESS_LABEL' | translate }}:
+      {{ 'TERMS.SELLER_INFO.ADDRESS' | translate }}<br />
+      {{ 'TERMS.SELLER_INFO.EMAIL_LABEL' | translate }}:
+      info&#64;styever.com<br />
+      {{ 'TERMS.SELLER_INFO.TAX_NO_LABEL' | translate }}:
+      {{ 'TERMS.SELLER_INFO.TAX_NO' | translate }}
+    </p>
+
+    <p><strong>{{ 'TERMS.SERVICE_FEATURES.TITLE' | translate }}:</strong> {{ 'TERMS.SERVICE_FEATURES.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.TOTAL_PRICE.TITLE' | translate }}:</strong> {{ 'TERMS.TOTAL_PRICE.TEXT' | translate }}</p>
+    <p><strong>{{ 'TERMS.RIGHT_OF_WITHDRAWAL.TITLE' | translate }}:</strong> {{ 'TERMS.RIGHT_OF_WITHDRAWAL.TEXT' | translate }}</p>
+
+    <p>
+      <strong>{{ 'TERMS.COMPLAINT.TITLE' | translate }}:</strong>
+      {{ 'TERMS.COMPLAINT.TEXT_BEFORE_EMAIL' | translate }}
+      info&#64;styever.com
+      {{ 'TERMS.COMPLAINT.TEXT_AFTER_EMAIL' | translate }}
+    </p>
+
+    <div class="separator my-5"></div>
+
+    <h4 class="fw-bolder mb-4">
+      {{ 'PRIVACY_POLICY.TITLE' | translate }}
+    </h4>
+
+    <p>{{ 'PRIVACY_POLICY.INTRO.P1' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.INTRO.P2' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.INTRO.P3' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.INTRO.P4' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.INTRO.P5' | translate }}</p>
+
+    <p><strong>{{ 'PRIVACY_POLICY.COLLECTED_DATA.TITLE' | translate }}:</strong></p>
+    <ul>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.EMAIL' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.PHOTOS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.MEMORIAL_TEXTS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.COMMENTS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.IP_ADDRESS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.DEVICE_INFO' | translate }}</li>
+    </ul>
+
+    <p><strong>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.TITLE' | translate }}:</strong></p>
+    <ul>
+      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.PROVIDE_SERVICE' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.SECURITY' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.ACCOUNTS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.PERFORMANCE' | translate }}</li>
+    </ul>
+
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.DATA_SHARING.TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.DATA_SHARING.TEXT' | translate }}
+    </p>
+    <ul>
+      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.PAYMENT_PROVIDERS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.HOSTING_PROVIDERS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.AUTHORITIES' | translate }}</li>
+    </ul>
+
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.DATA_RETENTION.TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.DATA_RETENTION.TEXT' | translate }}
+    </p>
+
+    <p><strong>{{ 'PRIVACY_POLICY.USER_RIGHTS.TITLE' | translate }}:</strong></p>
+    <ul>
+      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.ACCESS' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.CORRECTION' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.DELETION' | translate }}</li>
+    </ul>
+
+    <p>{{ 'PRIVACY_POLICY.UPDATE_NOTICE' | translate }}</p>
+  </div>
+</app-modal>
+
+<app-modal #kvkkModal [modalConfig]="kvkkModalConfig">
+  <div class="legal-modal-content">
+    <h4 class="fw-bolder mb-4">
+      {{ 'KVKK.TITLE' | translate }}
+    </h4>
+
+    <p>
+      <strong>{{ 'KVKK.SECTIONS.DATA_CONTROLLER.TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTIONS.DATA_CONTROLLER.TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'KVKK.SECTIONS.PROCESSING_PURPOSES.TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTIONS.PROCESSING_PURPOSES.TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'KVKK.SECTIONS.DATA_STORAGE.TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTIONS.DATA_STORAGE.TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'KVKK.SECTIONS.DATA_TRANSFER.TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTIONS.DATA_TRANSFER.TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'KVKK.SECTIONS.RIGHTS.TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTIONS.RIGHTS.TEXT' | translate }}
+    </p>
+  </div>
+</app-modal>

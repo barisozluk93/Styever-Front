@@ -1,0 +1,52 @@
+<div class="container-xxl py-10 py-lg-15">
+  <div class="card">
+    <div class="card-body p-8 p-lg-12">
+
+      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
+        <i class="ki-duotone ki-information-5 fs-2hx text-primary me-4">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+        </i>
+
+        <div>
+          <h4 class="fw-bold text-gray-900 mb-1">
+            {{ 'DISTANCE_SALES.INFO_TITLE' | translate }}
+          </h4>
+
+          <span class="text-gray-700 fs-6">
+            {{ 'DISTANCE_SALES.INFO_TEXT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="legal-content">
+
+        <section class="mb-10">
+          <h2>{{ 'DISTANCE_SALES.PRE_INFO.TITLE' | translate }}</h2>
+
+          <div class="separator separator-dashed my-6"></div>
+
+          <div class="mb-7" *ngFor="let item of preInfoItems">
+            <h3>{{ item.title | translate }}</h3>
+            <p>{{ item.text | translate }}</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>{{ 'DISTANCE_SALES.AGREEMENT.TITLE' | translate }}</h2>
+
+          <div class="separator separator-dashed my-6"></div>
+
+          <div class="mb-7" *ngFor="let item of agreementItems">
+            <h3>{{ item.title | translate }}</h3>
+            <p>{{ item.text | translate }}</p>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

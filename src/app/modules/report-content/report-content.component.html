@@ -1,0 +1,238 @@
+<div [ngStyle]="{'height.px': bannerHeight}">
+  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
+    <div class="center-title-wrapper">
+      <span class="text-white fw-bolder" style="font-size: 30px;">
+        {{ 'REPORT_CONTENT' | translate }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex flex-column flex-lg-row flex-column-fluid mx-10 my-10">
+  <div
+    class="d-flex flex-column flex-lg-row-fluid w-lg-100 p-10 order-2 order-lg-1 bg-white"
+    style="border-radius: 10px;"
+  >
+    <div class="d-flex flex-center flex-column flex-lg-row-fluid">
+      <form class="form w-100" [formGroup]="reportForm">
+        <div class="text-center mb-5 mt-5">
+          <h1 class="text-gray-900 fw-bolder">
+            {{ 'REPORT_CONTENT' | translate }}
+          </h1>
+        </div>
+
+        <div class="separator mb-5"></div>
+
+        <div class="company-info-card mb-8">
+          <h3 class="company-info-title">
+            {{ 'REPORT_CONTENT_INFO_TITLE' | translate }}
+          </h3>
+
+          <p class="text-gray-800 fs-6 mb-4">
+            {{ 'REPORT_CONTENT_TEXT_1' | translate }}
+          </p>
+
+          <p class="text-gray-800 fs-6 mb-4">
+            {{ 'REPORT_CONTENT_TEXT_2' | translate }}
+          </p>
+
+          <p class="text-gray-800 fs-6 mb-0">
+            {{ 'REPORT_CONTENT_TEXT_3' | translate }}
+          </p>
+        </div>
+
+        <div class="text-center mb-5 mt-5">
+          <h3 class="text-gray-900 fw-bolder">
+            {{ 'COMPLAINT_FORM' | translate }}
+          </h3>
+        </div>
+
+        <p class="text-gray-800 fs-6 mb-8 text-center">
+          {{ 'COMPLAINT_FORM_DESCRIPTION' | translate }}
+        </p>
+
+        <div class="row g-3 mb-8" *ngIf="!currentUser">
+          <div class="col-lg-6">
+            <label class="form-label fs-6 fw-bolder text-gray-900">
+              {{ 'FULL_NAME' | translate }}
+            </label>
+
+            <input
+              class="form-control bg-transparent"
+              type="text"
+              name="fullName"
+              formControlName="fullName"
+              placeholder="{{ 'FULL_NAME' | translate }}"
+              autocomplete="off"
+              [ngClass]="{
+                'is-invalid': reportForm.controls['fullName'].invalid,
+                'is-valid': reportForm.controls['fullName'].valid
+              }"
+            />
+
+            <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: ('FULL_NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
+                control: reportForm.controls['fullName']
+              }"
+            ></ng-container>
+          </div>
+
+          <div class="col-lg-6">
+            <label class="form-label fs-6 fw-bolder text-gray-900">
+              {{ 'EMAIL' | translate }}
+            </label>
+
+            <input
+              class="form-control bg-transparent"
+              type="email"
+              name="email"
+              formControlName="email"
+              placeholder="{{ 'EMAIL' | translate }}"
+              autocomplete="off"
+              [ngClass]="{
+                'is-invalid': reportForm.controls['email'].invalid,
+                'is-valid': reportForm.controls['email'].valid
+              }"
+            />
+
+            <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
+                control: reportForm.controls['email']
+              }"
+            ></ng-container>
+
+            <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+                validation: 'email',
+                message: ('EMAIL' | translate) + ' ' + ('IS_INVALID' | translate),
+                control: reportForm.controls['email']
+              }"
+            ></ng-container>
+          </div>
+        </div>
+
+        <div class="row-fv g-3 mb-8">
+          <label class="form-label fs-6 fw-bolder text-gray-900">
+            {{ 'COMPLAINT_TYPE' | translate }}
+          </label>
+
+          <select
+            class="form-control bg-transparent"
+            name="complaintType"
+            formControlName="complaintType"
+            [ngClass]="{
+              'is-invalid': reportForm.controls['complaintType'].invalid,
+              'is-valid': reportForm.controls['complaintType'].valid
+            }"
+          >
+            <option value="">
+              {{ 'SELECT' | translate }}
+            </option>
+
+            <option *ngFor="let type of complaintTypes" [value]="type">
+              {{ type | translate }}
+            </option>
+          </select>
+
+          <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: ('COMPLAINT_TYPE' | translate) + ' ' + ('IS_REQUIRED' | translate),
+              control: reportForm.controls['complaintType']
+            }"
+          ></ng-container>
+        </div>
+
+        <div class="row-fv g-3 mb-8">
+          <label class="form-label fs-6 fw-bolder text-gray-900">
+            {{ 'REPORTED_PAGE_URL' | translate }}
+          </label>
+
+          <input
+            class="form-control bg-transparent"
+            type="text"
+            name="reportedUrl"
+            formControlName="reportedUrl"
+            placeholder="{{ 'REPORTED_PAGE_URL' | translate }}"
+            autocomplete="off"
+            [ngClass]="{
+              'is-invalid': reportForm.controls['reportedUrl'].invalid,
+              'is-valid': reportForm.controls['reportedUrl'].valid
+            }"
+          />
+
+          <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: ('REPORTED_PAGE_URL' | translate) + ' ' + ('IS_REQUIRED' | translate),
+              control: reportForm.controls['reportedUrl']
+            }"
+          ></ng-container>
+        </div>
+
+        <div class="row-fv g-3 mb-8">
+          <label class="form-label fs-6 fw-bolder text-gray-900">
+            {{ 'DESCRIPTION' | translate }}
+          </label>
+
+          <textarea
+            class="form-control bg-transparent"
+            rows="5"
+            name="description"
+            formControlName="description"
+            placeholder="{{ 'DESCRIPTION' | translate }}"
+            autocomplete="off"
+            [ngClass]="{
+              'is-invalid': reportForm.controls['description'].invalid,
+              'is-valid': reportForm.controls['description'].valid
+            }"
+          ></textarea>
+
+          <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: ('DESCRIPTION' | translate) + ' ' + ('IS_REQUIRED' | translate),
+              control: reportForm.controls['description']
+            }"
+          ></ng-container>
+        </div>
+
+        <div class="row-fv g-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              id="kt_report_content_submit"
+              class="btn btn-primary"
+              [disabled]="reportForm.invalid"
+              (click)="submit()"
+            >
+              {{ 'SEND' | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+        <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+          <div class="fv-plugins-message-container">
+            <div class="fv-help-block">
+              <span role="alert">
+                {{ message }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+</div>

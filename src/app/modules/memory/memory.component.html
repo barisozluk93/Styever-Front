@@ -86,6 +86,9 @@
             <div class="overlay-bottom">
               <div (click)="memoryEditView(data.id)" class="username">{{ data.name }}</div>
               <div class="actions">
+                <span class="action" (click)="reportMemory(data.id)">
+                  <i class="bi bi-flag"></i>
+                </span>
                 <span class="action" (click)="openCommentsModal(data.id, data.commentsCount)">
                   <i class="bi bi-chat"></i> {{ data.commentsCount }}
                 </span>

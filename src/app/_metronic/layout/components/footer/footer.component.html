@@ -1,32 +1,162 @@
-<div [ngClass]="footerContainerCssClasses" class="d-flex flex-column flex-md-row flex-stack">
-  <!-- begin::Copyright  -->
-  <div class="order-2 order-md-1" routerLink="/home">
-    <span class="text-primary fw-bold me-2">{{ currentDateStr }} &copy;</span>
-    <a class="text-light-primary text-hover-primary cursor-pointer"> Styever </a>
+<footer class="footer border-top border-gray-800"
+  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/media/patterns/contactus.jpeg);">
+  <div [ngClass]="footerContainerCssClasses" class="py-10 py-lg-12">
+
+    <div class="row g-10 align-items-start">
+
+      <!-- Brand -->
+      <div class="col-12 col-lg-3">
+        <div class="d-flex flex-column align-items-start">
+          <a routerLink="/home" class="mb-5">
+            <img style="border-radius: 20px !important;" src="assets/media/logos/icon.png" alt="Styever"
+              class="h-125px h-lg-150px" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <h4 class="text-primary fw-bold fs-6 text-uppercase mb-6">
+          {{ 'FOOTER.LEGAL' | translate }}
+        </h4>
+
+        <div class="d-flex flex-column gap-3">
+          <a routerLink="/terms-of-use" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.TERMS_OF_USE' | translate }}
+          </a>
+
+          <a routerLink="/distance-sales-agreement" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.DISTANCE_SALES_AGREEMENT' | translate }}
+          </a>
+
+          <a routerLink="/privacy-policy" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.PRIVACY_POLICY' | translate }}
+          </a>
+
+          <a routerLink="/cookie-policy" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.COOKIE_POLICY' | translate }}
+          </a>
+
+          <a routerLink="/kvkk" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.KVKK' | translate }}
+          </a>
+
+          <a routerLink="/legal-warning" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.LEGAL_WARNING' | translate }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <h4 class="text-primary fw-bold fs-6 text-uppercase mb-6">
+          {{ 'FOOTER.COMMUNITY' | translate }}
+        </h4>
+
+        <div class="d-flex flex-column gap-3">
+          <a routerLink="/social-responsibility-policy" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.SOCIAL_RESPONSIBILITY_POLICY' | translate }}
+          </a>
+
+          <a routerLink="/community-rules" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.COMMUNITY_RULES' | translate }}
+          </a>
+
+          <a routerLink="/moderation-policy" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.MODERATION_POLICY' | translate }}
+          </a>
+
+          <a routerLink="/content-removal-policy" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.CONTENT_REMOVAL_POLICY' | translate }}
+          </a>
+
+          <a routerLink="/report-content" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FOOTER.REPORT_CONTENT' | translate }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <h4 class="text-primary fw-bold fs-6 text-uppercase mb-6">
+          {{ 'FOOTER.SUPPORT' | translate }}
+        </h4>
+
+        <div class="d-flex flex-column gap-3">
+          <a routerLink="/contactus" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'CONTACT_US' | translate }}
+          </a>
+
+          <a routerLink="/faq" class="text-gray-500 text-hover-primary fw-semibold">
+            {{ 'FAQ' | translate }}
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <!-- end::Copyright  -->
 
-  <ul class="menu menu-primary fw-bold order-1">
-    <li class="menu-item rounded">
-      <a href="https://www.instagram.com/sty.ever" target="_blank" class="menu-link pe-0 pe-2 cursor-pointer"> 
-          <i class="fa-brands fa-instagram text-primary"></i>&nbsp;  
-      </a>
-    </li>
-    <li class="menu-item" style="border-radius: 20px;">
-      <a href="https://www.linkedin.com/sty.ever" target="_blank" class="menu-link pe-0 pe-2 cursor-pointer"> 
-          <i class="fa-brands fa-linkedin text-primary"></i>&nbsp;  
-      </a>
-    </li>
-  </ul>
+  <div [ngClass]="footerContainerCssClasses" class="pb-6">
+    <div class="border-top border-gray-700 pt-4 mt-2">
+      <div class="text-gray-400 fs-7 text-center lh-lg">
+        <div>
+          <strong>{{ 'FOOTER.COMPANY_TITLE_LABEL' | translate }}:</strong>
+          {{ 'FOOTER.COMPANY_TITLE' | translate }}
+        </div>
 
-  <!-- begin::Nav  -->
-  <ul class="menu menu-primary fw-bold order-3">
-    <li class="menu-item" routerLink="/contactus">
-      <a class="menu-link pe-0 pe-2 cursor-pointer"> {{'CONTACT_US' | translate}} </a>
-    </li>
-    <li class="menu-item" routerLink="/faq">
-      <a class="menu-link pe-0 cursor-pointer">{{'FAQ' | translate}}</a>
-    </li>
-  </ul>
-  <!-- end::Nav  -->
-</div>
+        <div>
+          <strong>{{ 'FOOTER.ADDRESS_LABEL' | translate }}:</strong>
+          {{ 'FOOTER.ADDRESS' | translate }}
+        </div>
+
+        <div>
+          <strong>{{ 'FOOTER.TAX_NUMBER_LABEL' | translate }}:</strong>
+          {{ 'FOOTER.TAX_NUMBER' | translate }}
+        </div>
+
+        <div>
+          <strong>{{ 'FOOTER.CONTACT_LABEL' | translate }}:</strong>
+
+          <a href="mailto:info@styever.com" class="text-gray-400 text-hover-primary">
+            {{ 'FOOTER.CONTACT_EMAIL' | translate }}
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-top border-gray-800">
+    <div [ngClass]="footerContainerCssClasses"
+      class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 py-5">
+
+      <div class="text-gray-500 fs-7 fw-semibold text-center text-md-start">
+        © {{ currentDateStr }} Styever – {{ 'FOOTER.ALL_RIGHTS_RESERVED' | translate }}
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="https://www.instagram.com/sty.ever" target="_blank" class="btn btn-icon btn-sm btn-primary"
+          aria-label="Instagram">
+          <i class="fa-brands fa-instagram fs-4"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/sty.ever" target="_blank" class="btn btn-icon btn-sm btn-primary"
+          aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin fs-4"></i>
+        </a>
+      </div>
+
+      <div class="d-flex align-items-center gap-5">
+        <a routerLink="/privacy-policy" class="text-gray-500 text-hover-primary fw-semibold fs-7">
+          {{ 'FOOTER.PRIVACY_POLICY' | translate }}
+        </a>
+
+        <a routerLink="/terms-of-use" class="text-gray-500 text-hover-primary fw-semibold fs-7">
+          {{ 'FOOTER.TERMS_OF_USE' | translate }}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>

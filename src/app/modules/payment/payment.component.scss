@@ -9,3 +9,23 @@
     margin-right: auto;
     display: flex;
 }
+.legal-link {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--bs-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.legal-modal-content {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+
+  p {
+    color: #3f4254;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+}

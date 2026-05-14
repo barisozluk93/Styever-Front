@@ -283,6 +283,20 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.add("support-background");
       this.isWhitePage = false;
     }
+    else if (this.router.url.includes("/report-content")) {
+
+      main?.classList.remove("home-background");
+      main?.classList.remove("support-background");
+      main?.classList.remove("payment-background");
+      main?.classList.remove("memoryeditsave-background");
+      main?.classList.remove("memory-background");
+      main?.classList.remove("faq-background");
+      main?.classList.remove("gift-background");
+      main?.classList.remove("about-background");
+
+      main?.classList.add("contactus-background");
+      this.isWhitePage = false;
+    }
     else {
       main?.classList.remove("home-background");
       main?.classList.remove("memory-background");
@@ -296,5 +310,6 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.isWhitePage = true;
     }
+    
   }
 }

@@ -1,0 +1,33 @@
+<div class="container-xxl py-10 py-lg-15">
+
+  <div class="card">
+    <div class="card-body p-8 p-lg-12">
+
+      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
+        <i class="ki-duotone ki-heart fs-2hx text-primary me-4">
+          <span class="path1"></span>
+          <span class="path2"></span>
+        </i>
+
+        <div>
+          <h4 class="fw-bold text-gray-900 mb-1">
+            {{ 'SOCIAL_RESPONSIBILITY_POLICY.INFO_TITLE' | translate }}
+          </h4>
+
+          <span class="text-gray-700 fs-6">
+            {{ 'SOCIAL_RESPONSIBILITY_POLICY.INFO_TEXT' | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="legal-content">
+        <section class="mb-8" *ngFor="let item of policyItems">
+          <h2>{{ item.title | translate }}</h2>
+          <p>{{ item.text | translate }}</p>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+</div>

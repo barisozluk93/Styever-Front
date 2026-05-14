@@ -20,6 +20,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { MemoryYoutubeLinkModel } from '../models/youtubeLink.model';
 import { YoutubeComponent } from '../add-memory-youtube/add-memory-youtube.component';
+import * as bootstrap from 'bootstrap';
 
 // const BODY_CLASSES = ['bgi-size-cover', 'bgi-position-center', 'bgi-no-repeat'];
 
@@ -211,7 +212,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           else if (fileType && fileType.includes("video")) {
             this.activeMediaIndex = this.mediaFiles.length - 1;
           }
-          else if(fileType && fileType.includes("youtube")) {
+          else if (fileType && fileType.includes("youtube")) {
             this.activeMediaIndex = (this.mediaFiles.length + this.youtubeLinks.length) - 1;
           }
 
@@ -347,6 +348,16 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.form.get('deathDate')?.valueChanges.subscribe(result => {
       this.form.get("deathDateStr")?.patchValue(formatDate(result, "dd.MM.yyyy", this.locale));
     })
+
+    setTimeout(() => {
+      const popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+      );
+
+      popoverTriggerList.map((popoverTriggerEl: any) => {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+    }, 300);
 
     // this.form.get('isPrivate')?.valueChanges.subscribe(result => {
     //   if(result == true) {
