@@ -2,33 +2,90 @@
   <div class="card">
     <div class="card-body p-8 p-lg-12">
 
-      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
-        <i class="ki-duotone ki-shield-tick fs-2hx text-primary me-4">
-          <span class="path1"></span>
-          <span class="path2"></span>
-        </i>
-
-        <div>
-          <h4 class="fw-bold text-gray-900 mb-1">
-            {{ 'KVKK.INFO_TITLE' | translate }}
-          </h4>
-
-          <span class="text-gray-700 fs-6">
-            {{ 'KVKK.INFO_TEXT' | translate }}
-          </span>
-        </div>
+      <div class="text-center mb-10">
+        <h1 class="fw-bold text-gray-900 fs-2hx">
+          {{ 'KVKK.PAGE_TITLE' | translate }}
+        </h1>
       </div>
 
       <div class="legal-content">
 
-        <section class="mb-8" *ngFor="let item of kvkkItems">
-          <h2>{{ item.title | translate }}</h2>
-          <p>{{ item.text | translate }}</p>
+        <section class="mb-8">
+          <h2>{{ 'KVKK.SECTION_1_TITLE' | translate }}</h2>
+          <p>{{ 'KVKK.SECTION_1_TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'KVKK.SECTION_2_TITLE' | translate }}</h2>
+          <p>{{ 'KVKK.SECTION_2_TEXT' | translate }}</p>
+
+          <ul>
+            <li>{{ 'KVKK.PURPOSE_1' | translate }}</li>
+            <li>{{ 'KVKK.PURPOSE_2' | translate }}</li>
+            <li>{{ 'KVKK.PURPOSE_3' | translate }}</li>
+            <li>{{ 'KVKK.PURPOSE_4' | translate }}</li>
+            <li>{{ 'KVKK.PURPOSE_5' | translate }}</li>
+            <li>{{ 'KVKK.PURPOSE_6' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'KVKK.SECTION_3_TITLE' | translate }}</h2>
+          <p>{{ 'KVKK.SECTION_3_TEXT' | translate }}</p>
+
+          <ul>
+            <li>{{ 'KVKK.TRANSFER_1' | translate }}</li>
+            <li>{{ 'KVKK.TRANSFER_2' | translate }}</li>
+            <li>{{ 'KVKK.TRANSFER_3' | translate }}</li>
+          </ul>
+
+          <p>{{ 'KVKK.SECTION_3_NOTE' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'KVKK.SECTION_4_TITLE' | translate }}</h2>
+
+          <p>{{ 'KVKK.SECTION_4_TEXT' | translate }}</p>
+
+          <ul>
+            <li>{{ 'KVKK.LEGAL_BASIS_1' | translate }}</li>
+            <li>{{ 'KVKK.LEGAL_BASIS_2' | translate }}</li>
+            <li>{{ 'KVKK.LEGAL_BASIS_3' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'KVKK.SECTION_5_TITLE' | translate }}</h2>
+
+          <p>{{ 'KVKK.SECTION_5_TEXT_1' | translate }}</p>
+          <p>{{ 'KVKK.SECTION_5_TEXT_2' | translate }}</p>
+          <p>{{ 'KVKK.SECTION_5_TEXT_3' | translate }}</p>
+        </section>
+
+        <section>
+          <h2>{{ 'KVKK.SECTION_6_TITLE' | translate }}</h2>
+
+          <p>{{ 'KVKK.SECTION_6_TEXT' | translate }}</p>
+
+          <ul>
+            <li>{{ 'KVKK.RIGHT_1' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_2' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_3' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_4' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_5' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_6' | translate }}</li>
+            <li>{{ 'KVKK.RIGHT_7' | translate }}</li>
+          </ul>
+
+          <p>
+            {{ 'KVKK.APPLICATION_TEXT_1' | translate }}
+            <a href="mailto:info@styever.com">info&#64;styever.com</a>
+            {{ 'KVKK.APPLICATION_TEXT_2' | translate }}
+          </p>
         </section>
 
       </div>
 
     </div>
   </div>
-
 </div>

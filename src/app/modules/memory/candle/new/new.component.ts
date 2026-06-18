@@ -49,8 +49,6 @@ export class LightCandleComponent implements OnInit, AfterViewInit {
             memoryId: undefined,
             userId: undefined,
             nameSurname: undefined,
-            shelter: 'xxxxxxxxxx xxxxx xxxxxx',
-            donation: undefined,
             isDeleted: false,
         });
     }
@@ -110,8 +108,6 @@ export class LightCandleComponent implements OnInit, AfterViewInit {
                 memoryId: memoryId,
                 userId: userId,
                 nameSurname: undefined,
-                shelter: 'xxxxxxxxxx xxxxx xxxxxx',
-                donation: undefined,
                 isDeleted: false
             });
 
@@ -135,75 +131,65 @@ export class LightCandleComponent implements OnInit, AfterViewInit {
         if (this.form.valid) {
             let data = this.form.getRawValue();
 
-            if (data.donation! > 0) {
-                this.router.navigate(["/payment"], {
-                    queryParams: {
-                        typeId: 2,
-                        data: JSON.stringify(data),
+            if (data.id > 0) {
+                this.memoryManagementService.updateCandle(data).subscribe(result => {
+                    if (result.isSuccess) {
+                        scrollToTop();
+
+                        this.toastr.success(
+                            this.translate.instant('SUCCESS_MESSAGE'),
+                            this.translate.instant('SUCCESS'),
+                            {
+                                positionClass: 'toast-top-center',
+                                timeOut: 3000
+                            }
+                        );
+
+                        this.isSuccess.emit();
+                    }
+                    else {
+                        scrollToTop();
+
+                        this.toastr.error(
+                            result.message,
+                            this.translate.instant('ERROR'),
+                            {
+                                positionClass: 'toast-top-center',
+                                timeOut: 3000
+                            }
+                        );
                     }
                 });
             }
             else {
-                if (data.id > 0) {
-                    this.memoryManagementService.updateCandle(data).subscribe(result => {
-                        if (result.isSuccess) {
-                            scrollToTop();
+                this.memoryManagementService.lightCandle(data).subscribe(result => {
+                    if (result.isSuccess) {
+                        scrollToTop();
 
-                            this.toastr.success(
-                                this.translate.instant('SUCCESS_MESSAGE'),
-                                this.translate.instant('SUCCESS'),
-                                {
-                                    positionClass: 'toast-top-center',
-                                    timeOut: 3000
-                                }
-                            );
+                        this.toastr.success(
+                            this.translate.instant('SUCCESS_MESSAGE'),
+                            this.translate.instant('SUCCESS'),
+                            {
+                                positionClass: 'toast-top-center',
+                                timeOut: 3000
+                            }
+                        );
 
-                            this.isSuccess.emit();
-                        }
-                        else {
-                            scrollToTop();
+                        this.isSuccess.emit();
+                    }
+                    else {
+                        scrollToTop();
 
-                            this.toastr.error(
-                                result.message,
-                                this.translate.instant('ERROR'),
-                                {
-                                    positionClass: 'toast-top-center',
-                                    timeOut: 3000
-                                }
-                            );
-                        }
-                    });
-                }
-                else {
-                    this.memoryManagementService.lightCandle(data).subscribe(result => {
-                        if (result.isSuccess) {
-                            scrollToTop();
-
-                            this.toastr.success(
-                                this.translate.instant('SUCCESS_MESSAGE'),
-                                this.translate.instant('SUCCESS'),
-                                {
-                                    positionClass: 'toast-top-center',
-                                    timeOut: 3000
-                                }
-                            );
-
-                            this.isSuccess.emit();
-                        }
-                        else {
-                            scrollToTop();
-
-                            this.toastr.error(
-                                result.message,
-                                this.translate.instant('ERROR'),
-                                {
-                                    positionClass: 'toast-top-center',
-                                    timeOut: 3000
-                                }
-                            );
-                        }
-                    });
-                }
+                        this.toastr.error(
+                            result.message,
+                            this.translate.instant('ERROR'),
+                            {
+                                positionClass: 'toast-top-center',
+                                timeOut: 3000
+                            }
+                        );
+                    }
+                });
             }
         }
         else {

@@ -54,21 +54,12 @@
   <div *ngIf="useVoucher" class="row my-10 cursor-pointer">
     <form class="form-inline" (ngSubmit)="onVoucherSearch()">
       <div class="input-group mb-3">
-        <input
-          class="form-control"
-          type="search"
-          placeholder="{{ 'VOUCHER' | translate }}"
-          aria-label="Ara"
-          [(ngModel)]="voucher"
-          name="voucher"
-        />
+        <input class="form-control" type="search" placeholder="{{ 'VOUCHER' | translate }}" aria-label="Ara"
+          [(ngModel)]="voucher" name="voucher" />
 
         <div class="input-group-append">
-          <button
-            type="submit"
-            class="btn btn-custom btn-active-white btn-color-white btn-primary"
-            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
-          >
+          <button type="submit" class="btn btn-custom btn-active-white btn-color-white btn-primary"
+            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
             <span class="indicator-label">
               {{ 'SEARCH' | translate }}
             </span>
@@ -79,12 +70,8 @@
   </div>
 
   <div class="row my-10 cursor-pointer">
-    <app-plans
-      [useVoucher]="useVoucher"
-      [activePlan]="activePlan"
-      [isStandByPage]="false"
-      (isPlanSelect)="isPlanSelect($event)"
-    ></app-plans>
+    <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false"
+      (isPlanSelect)="isPlanSelect($event)"></app-plans>
   </div>
 </ng-container>
 
@@ -102,168 +89,105 @@
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'NAME' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        name="name"
-        formControlName="name"
-        placeholder="{{ 'NAME' | translate }}"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name"
+        placeholder="{{ 'NAME' | translate }}" autocomplete="off" [ngClass]="{
           'is-invalid': registrationForm.controls['name'].invalid,
           'is-valid': registrationForm.controls['name'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['name']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'SURNAME' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        name="surname"
-        formControlName="surname"
-        placeholder="{{ 'SURNAME' | translate }}"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" name="surname" formControlName="surname"
+        placeholder="{{ 'SURNAME' | translate }}" autocomplete="off" [ngClass]="{
           'is-invalid': registrationForm.controls['surname'].invalid,
           'is-valid': registrationForm.controls['surname'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('SURNAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['surname']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'EMAIL' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="email"
-        placeholder="{{ 'EMAIL' | translate }}"
-        name="email"
-        formControlName="email"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="email" placeholder="{{ 'EMAIL' | translate }}"
+        name="email" formControlName="email" autocomplete="off" [ngClass]="{
           'is-invalid': registrationForm.controls['email'].invalid,
           'is-valid': registrationForm.controls['email'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['email']
-        }"
-      ></ng-container>
+        }"></ng-container>
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'email',
           message: ('EMAIL' | translate) + ' ' + ('IS_INVALID' | translate),
           control: registrationForm.controls['email']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'PHONE' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        placeholder="{{ 'PHONE' | translate }}"
-        name="phone"
-        formControlName="phone"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" placeholder="{{ 'PHONE' | translate }}"
+        name="phone" formControlName="phone" autocomplete="off" [ngClass]="{
           'is-invalid': registrationForm.controls['phone'].invalid,
           'is-valid': registrationForm.controls['phone'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('PHONE' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['phone']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'PASSWORD' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="password"
-        placeholder="{{ 'PASSWORD' | translate }}"
-        name="password"
-        formControlName="password"
-        autocomplete="off"
+      <input class="form-control bg-transparent text-light-primary" type="password"
+        placeholder="{{ 'PASSWORD' | translate }}" name="password" formControlName="password" autocomplete="off"
         [ngClass]="{
           'is-invalid': registrationForm.controls['password'].invalid,
           'is-valid': registrationForm.controls['password'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['password']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'CONFIRM_PASSWORD' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="password"
-        placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
-        name="cPassword"
-        autocomplete="off"
-        formControlName="cPassword"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="password"
+        placeholder="{{ 'CONFIRM_PASSWORD' | translate }}" name="cPassword" autocomplete="off"
+        formControlName="cPassword" [ngClass]="{
           'is-invalid': registrationForm.controls['cPassword'].invalid,
           'is-valid': registrationForm.controls['cPassword'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('CONFIRM_PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: registrationForm.controls['cPassword']
-        }"
-      ></ng-container>
+        }"></ng-container>
 
-      <ng-container
-        *ngIf="
+      <ng-container *ngIf="
           registrationForm.controls['cPassword'].errors &&
           registrationForm.controls['cPassword'].errors.ConfirmPassword
-        "
-      >
+        ">
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
             {{ 'NOMATCH_PASSWORD' | translate }}
@@ -273,79 +197,60 @@
     </div>
 
     <div class="form-check mb-5">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="termsAndPrivacyAccepted"
-        formControlName="termsAndPrivacyAccepted"
-      />
+      <input class="form-check-input" type="checkbox" id="termsAndPrivacyAccepted"
+        formControlName="termsAndPrivacyAccepted" />
 
       <label class="form-check-label text-primary fw-semibold" for="termsAndPrivacyAccepted">
         <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
-          {{ 'TERMS.TITLE' | translate }}
+          {{ 'TERMS.PAGE_TITLE' | translate }}
         </a>
 
         {{ 'AND' | translate }}
 
         <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
-          {{ 'PRIVACY_POLICY.TITLE' | translate }}
+          {{ 'PRIVACY_POLICY.PAGE_TITLE' | translate }}
         </a>
 
         {{ 'LEGAL_CHECKBOXES.TERMS_PRIVACY_ACCEPT_SUFFIX' | translate }}
       </label>
     </div>
 
-    <ng-container
-      [ngTemplateOutlet]="formError"
-      [ngTemplateOutletContext]="{
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
         message: ('LEGAL_CHECKBOXES.TERMS_AND_PRIVACY_REQUIRED' | translate),
         control: registrationForm.controls['termsAndPrivacyAccepted']
-      }"
-    ></ng-container>
+      }"></ng-container>
 
     <div class="form-check mb-5">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="kvkkAccepted"
-        formControlName="kvkkAccepted"
-      />
+      <input class="form-check-input" type="checkbox" id="kvkkAccepted" formControlName="kvkkAccepted" />
 
       <label class="form-check-label text-primary fw-semibold" for="kvkkAccepted">
         {{ 'LEGAL_CHECKBOXES.KVKK_PREFIX' | translate }}
 
         <a href="javascript:void(0)" class="legal-link" (click)="openKvkkModal()">
-          {{ 'KVKK.TITLE' | translate }}
+          {{ 'KVKK.PAGE_TITLE' | translate }}
         </a>
 
         {{ 'LEGAL_CHECKBOXES.KVKK_SUFFIX' | translate }}
       </label>
     </div>
 
-    <ng-container
-      [ngTemplateOutlet]="formError"
-      [ngTemplateOutletContext]="{
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
         message: ('LEGAL_CHECKBOXES.KVKK_REQUIRED' | translate),
         control: registrationForm.controls['kvkkAccepted']
-      }"
-    ></ng-container>
+      }"></ng-container>
 
     <div class="form-check mb-5">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="commercialPermission"
-        formControlName="commercialPermission"
-      />
+      <input class="form-check-input" type="checkbox" id="commercialPermission"
+        formControlName="commercialPermission" />
 
       <label class="form-check-label text-primary fw-semibold" for="commercialPermission">
         {{ 'LEGAL_CHECKBOXES.COMMERCIAL_MESSAGE_PERMISSION' | translate }}
       </label>
     </div>
 
-    <div class="form-check mb-5">
+    <!-- <div class="form-check mb-5">
       <input
         class="form-check-input"
         type="checkbox"
@@ -356,7 +261,7 @@
       <label class="form-check-label text-primary fw-semibold" for="socialResponsibilityConsent">
         {{ 'LEGAL_CHECKBOXES.SOCIAL_RESPONSIBILITY_CONSENT' | translate }}
       </label>
-    </div>
+    </div> -->
   </form>
 
   <ng-template #formError let-control="control" let-message="message" let-validation="validation">
@@ -386,77 +291,47 @@
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'COUNTRY' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        name="country"
-        formControlName="country"
-        placeholder="{{ 'COUNTRY' | translate }}"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" name="country" formControlName="country"
+        placeholder="{{ 'COUNTRY' | translate }}" autocomplete="off" [ngClass]="{
           'is-invalid': addressForm.controls['country'].invalid,
           'is-valid': addressForm.controls['country'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('COUNTRY' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: addressForm.controls['country']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'CITY' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        name="city"
-        formControlName="city"
-        placeholder="{{ 'CITY' | translate }}"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" name="city" formControlName="city"
+        placeholder="{{ 'CITY' | translate }}" autocomplete="off" [ngClass]="{
           'is-invalid': addressForm.controls['city'].invalid,
           'is-valid': addressForm.controls['city'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('CITY' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: addressForm.controls['city']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
       <label class="form-label fw-bolder text-primary fs-6">{{ 'DISTRICT' | translate }}</label>
-      <input
-        class="form-control bg-transparent text-light-primary"
-        type="text"
-        name="district"
-        formControlName="district"
-        placeholder="{{ 'DISTRICT' | translate }}"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" type="text" name="district"
+        formControlName="district" placeholder="{{ 'DISTRICT' | translate }}" autocomplete="off" [ngClass]="{
           'is-invalid': addressForm.controls['district'].invalid,
           'is-valid': addressForm.controls['district'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('DISTRICT' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: addressForm.controls['district']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
@@ -464,25 +339,17 @@
         {{ 'ADDRESS' | translate }}
       </label>
 
-      <textarea
-        class="form-control bg-transparent text-light-primary"
-        name="address"
-        formControlName="address"
-        autocomplete="off"
-        [ngClass]="{
+      <textarea class="form-control bg-transparent text-light-primary" name="address" formControlName="address"
+        autocomplete="off" [ngClass]="{
           'is-invalid': addressForm.controls['address'].invalid,
           'is-valid': addressForm.controls['address'].valid
-        }"
-      ></textarea>
+        }"></textarea>
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('ADDRESS' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: addressForm.controls['address']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
 
     <div class="fv-row mb-8">
@@ -490,27 +357,17 @@
         {{ 'ADDRESS_HEADER' | translate }}
       </label>
 
-      <input
-        class="form-control bg-transparent text-light-primary"
-        placeholder="{{ 'ADDRESS_HEADER' | translate }}"
-        type="text"
-        name="addressHeader"
-        formControlName="addressHeader"
-        autocomplete="off"
-        [ngClass]="{
+      <input class="form-control bg-transparent text-light-primary" placeholder="{{ 'ADDRESS_HEADER' | translate }}"
+        type="text" name="addressHeader" formControlName="addressHeader" autocomplete="off" [ngClass]="{
           'is-invalid': addressForm.controls['addressHeader'].invalid,
           'is-valid': addressForm.controls['addressHeader'].valid
-        }"
-      />
+        }" />
 
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: ('ADDRESS_HEADER' | translate) + ' ' + ('IS_REQUIRED' | translate),
           control: addressForm.controls['addressHeader']
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
   </form>
 
@@ -530,39 +387,28 @@
 <ng-container>
   <div class="row">
     <div class="col-lg-6">
-      <a
-        *ngIf="activeState != 'paymentPlan'"
-        style="float: left"
+      <a *ngIf="activeState != 'paymentPlan'" style="float: left"
         (click)="changeState(activeState == 'membershipInfo' ? 'paymentPlan' : 'membershipInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary"
-      >
+        class="btn btn-custom btn-active-white btn-color-white btn-primary">
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr002.svg'" class="svg-icon svg-icon-2"></span>
         {{ 'PREV' | translate }}
       </a>
     </div>
 
     <div class="col-lg-6">
-      <a
-        [class.disabled-link]="
+      <a [class.disabled-link]="
           (activeState == 'paymentPlan' && activePlan < 2) ||
           (activeState == 'membershipInfo' && registrationForm.invalid)
-        "
-        *ngIf="activeState != 'addressInfo'"
-        style="float: right"
+        " *ngIf="activeState != 'addressInfo'" style="float: right"
         (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary"
-      >
+        class="btn btn-custom btn-active-white btn-color-white btn-primary">
         <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr001.svg'" class="svg-icon svg-icon-2"></span>
         {{ 'NEXT' | translate }}
       </a>
 
-      <a
-        (click)="submit()"
-        [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
-        *ngIf="activeState == 'addressInfo'"
-        style="float: right"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary"
-      >
+      <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
+        *ngIf="activeState == 'addressInfo'" style="float: right"
+        class="btn btn-custom btn-active-white btn-color-white btn-primary">
         {{ 'SUBMIT' | translate }}
       </a>
     </div>
@@ -571,129 +417,245 @@
 
 <app-modal #termsPrivacyModal [modalConfig]="termsPrivacyModalConfig">
   <div class="legal-modal-content">
+
     <h4 class="fw-bolder mb-4">
-      {{ 'TERMS.TITLE' | translate }}
+      {{ 'TERMS.PAGE_TITLE' | translate }}
     </h4>
 
-    <p><strong>{{ 'TERMS.SECTIONS.PLATFORM.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PLATFORM.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.ACCOUNT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.ACCOUNT.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.USER_CONTENT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.USER_CONTENT.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.PROHIBITED_CONTENT.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PROHIBITED_CONTENT.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.COMMENTS.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.COMMENTS.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.SOCIAL_RESPONSIBILITY.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.SOCIAL_RESPONSIBILITY.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.HOSTING_PROVIDER.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.HOSTING_PROVIDER.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.PAYMENTS.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.PAYMENTS.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.REFUND.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.REFUND.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.SECTIONS.APPLICABLE_LAW.TITLE' | translate }}:</strong> {{ 'TERMS.SECTIONS.APPLICABLE_LAW.TEXT' | translate }}</p>
-
     <p>
-      <strong>{{ 'TERMS.SELLER_INFO.TITLE' | translate }}:</strong><br />
-      {{ 'TERMS.SELLER_INFO.COMPANY_TITLE_LABEL' | translate }}:
-      {{ 'TERMS.SELLER_INFO.COMPANY_TITLE' | translate }}<br />
-      {{ 'TERMS.SELLER_INFO.ADDRESS_LABEL' | translate }}:
-      {{ 'TERMS.SELLER_INFO.ADDRESS' | translate }}<br />
-      {{ 'TERMS.SELLER_INFO.EMAIL_LABEL' | translate }}:
-      info&#64;styever.com<br />
-      {{ 'TERMS.SELLER_INFO.TAX_NO_LABEL' | translate }}:
-      {{ 'TERMS.SELLER_INFO.TAX_NO' | translate }}
+      <strong>{{ 'TERMS.SECTION_1_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_1_TEXT' | translate }}
     </p>
 
-    <p><strong>{{ 'TERMS.SERVICE_FEATURES.TITLE' | translate }}:</strong> {{ 'TERMS.SERVICE_FEATURES.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.TOTAL_PRICE.TITLE' | translate }}:</strong> {{ 'TERMS.TOTAL_PRICE.TEXT' | translate }}</p>
-    <p><strong>{{ 'TERMS.RIGHT_OF_WITHDRAWAL.TITLE' | translate }}:</strong> {{ 'TERMS.RIGHT_OF_WITHDRAWAL.TEXT' | translate }}</p>
+    <p>
+      <strong>{{ 'TERMS.SECTION_2_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_2_TEXT' | translate }}
+    </p>
 
     <p>
-      <strong>{{ 'TERMS.COMPLAINT.TITLE' | translate }}:</strong>
-      {{ 'TERMS.COMPLAINT.TEXT_BEFORE_EMAIL' | translate }}
-      info&#64;styever.com
-      {{ 'TERMS.COMPLAINT.TEXT_AFTER_EMAIL' | translate }}
+      <strong>{{ 'TERMS.SECTION_3_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_3_TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_4_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_4_TEXT_1' | translate }}
+      {{ 'TERMS.SECTION_4_TEXT_2' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_5_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_5_TEXT_1' | translate }}
+      {{ 'TERMS.SECTION_5_TEXT_2' | translate }}
+      {{ 'TERMS.SECTION_5_TEXT_3' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_6_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_6_TEXT_1' | translate }}
+      {{ 'TERMS.SECTION_6_TEXT_2' | translate }}
+      {{ 'TERMS.SECTION_6_TEXT_3' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_7_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_7_TEXT_1' | translate }}
+      {{ 'TERMS.SECTION_7_TEXT_2' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_8_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_8_TEXT_1' | translate }}
+      {{ 'TERMS.SECTION_8_TEXT_2' | translate }}
+      {{ 'TERMS.SECTION_8_TEXT_3' | translate }}
+      {{ 'TERMS.SECTION_8_TEXT_4' | translate }}
+      {{ 'TERMS.SECTION_8_TEXT_5' | translate }}
+      {{ 'TERMS.SECTION_8_TEXT_6' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_9_TITLE' | translate }}:</strong>
+      {{ 'TERMS.SECTION_9_TEXT' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'TERMS.SECTION_10_TITLE' | translate }}:</strong><br />
+      {{ 'TERMS.SECTION_10_ITEM_1' | translate }}<br />
+      {{ 'TERMS.SECTION_10_ITEM_2' | translate }}<br />
+      {{ 'TERMS.SECTION_10_ITEM_3' | translate }}<br />
+      {{ 'TERMS.SECTION_10_ITEM_4' | translate }}<br />
+      {{ 'TERMS.SECTION_10_ITEM_5' | translate }}
     </p>
 
     <div class="separator my-5"></div>
 
     <h4 class="fw-bolder mb-4">
-      {{ 'PRIVACY_POLICY.TITLE' | translate }}
+      {{ 'PRIVACY_POLICY.PAGE_TITLE' | translate }}
     </h4>
 
-    <p>{{ 'PRIVACY_POLICY.INTRO.P1' | translate }}</p>
-    <p>{{ 'PRIVACY_POLICY.INTRO.P2' | translate }}</p>
-    <p>{{ 'PRIVACY_POLICY.INTRO.P3' | translate }}</p>
-    <p>{{ 'PRIVACY_POLICY.INTRO.P4' | translate }}</p>
-    <p>{{ 'PRIVACY_POLICY.INTRO.P5' | translate }}</p>
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_1_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_1_TEXT' | translate }}
+    </p>
 
-    <p><strong>{{ 'PRIVACY_POLICY.COLLECTED_DATA.TITLE' | translate }}:</strong></p>
-    <ul>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.EMAIL' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.PHOTOS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.MEMORIAL_TEXTS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.COMMENTS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.IP_ADDRESS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.COLLECTED_DATA.DEVICE_INFO' | translate }}</li>
-    </ul>
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_2_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_2_TEXT' | translate }}
+    </p>
 
-    <p><strong>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.TITLE' | translate }}:</strong></p>
     <ul>
-      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.PROVIDE_SERVICE' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.SECURITY' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.ACCOUNTS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.USAGE_PURPOSES.PERFORMANCE' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_1' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_2' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_3' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.DATA_4' | translate }}</li>
     </ul>
 
     <p>
-      <strong>{{ 'PRIVACY_POLICY.DATA_SHARING.TITLE' | translate }}:</strong>
-      {{ 'PRIVACY_POLICY.DATA_SHARING.TEXT' | translate }}
+      <strong>{{ 'PRIVACY_POLICY.SECTION_3_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_3_TEXT' | translate }}
     </p>
+
     <ul>
-      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.PAYMENT_PROVIDERS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.HOSTING_PROVIDERS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.DATA_SHARING.AUTHORITIES' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.PURPOSE_1' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.PURPOSE_2' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.PURPOSE_3' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.PURPOSE_4' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.PURPOSE_5' | translate }}</li>
     </ul>
 
     <p>
-      <strong>{{ 'PRIVACY_POLICY.DATA_RETENTION.TITLE' | translate }}:</strong>
-      {{ 'PRIVACY_POLICY.DATA_RETENTION.TEXT' | translate }}
+      <strong>{{ 'PRIVACY_POLICY.SECTION_4_TITLE' | translate }}:</strong>
     </p>
 
-    <p><strong>{{ 'PRIVACY_POLICY.USER_RIGHTS.TITLE' | translate }}:</strong></p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_4_TEXT_1' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_4_TEXT_2' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_4_TEXT_3' | translate }}</p>
+
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_5_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_5_TEXT' | translate }}
+    </p>
+
     <ul>
-      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.ACCESS' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.CORRECTION' | translate }}</li>
-      <li>{{ 'PRIVACY_POLICY.USER_RIGHTS.DELETION' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.SHARING_1' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.SHARING_2' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.SHARING_3' | translate }}</li>
     </ul>
 
-    <p>{{ 'PRIVACY_POLICY.UPDATE_NOTICE' | translate }}</p>
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_6_TITLE' | translate }}:</strong>
+    </p>
+
+    <p>{{ 'PRIVACY_POLICY.SECTION_6_TEXT_1' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_6_TEXT_2' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_6_TEXT_3' | translate }}</p>
+    <p>{{ 'PRIVACY_POLICY.SECTION_6_TEXT_4' | translate }}</p>
+
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_7_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_7_TEXT' | translate }}
+    </p>
+
+    <ul>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_1' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_2' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_3' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_4' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_5' | translate }}</li>
+      <li>{{ 'PRIVACY_POLICY.RIGHT_6' | translate }}</li>
+    </ul>
+
+    <p>
+      {{ 'PRIVACY_POLICY.APPLICATION_TEXT_1' | translate }}
+      <strong>info&#64;styever.com</strong>
+      {{ 'PRIVACY_POLICY.APPLICATION_TEXT_2' | translate }}
+    </p>
+
+    <p>
+      <strong>{{ 'PRIVACY_POLICY.SECTION_8_TITLE' | translate }}:</strong>
+      {{ 'PRIVACY_POLICY.SECTION_8_TEXT' | translate }}
+    </p>
   </div>
 </app-modal>
 
 <app-modal #kvkkModal [modalConfig]="kvkkModalConfig">
   <div class="legal-modal-content">
+
     <h4 class="fw-bolder mb-4">
-      {{ 'KVKK.TITLE' | translate }}
+      {{ 'KVKK.PAGE_TITLE' | translate }}
     </h4>
 
     <p>
-      <strong>{{ 'KVKK.SECTIONS.DATA_CONTROLLER.TITLE' | translate }}:</strong>
-      {{ 'KVKK.SECTIONS.DATA_CONTROLLER.TEXT' | translate }}
+      <strong>{{ 'KVKK.SECTION_1_TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTION_1_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'KVKK.SECTIONS.PROCESSING_PURPOSES.TITLE' | translate }}:</strong>
-      {{ 'KVKK.SECTIONS.PROCESSING_PURPOSES.TEXT' | translate }}
+      <strong>{{ 'KVKK.SECTION_2_TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTION_2_TEXT' | translate }}
     </p>
 
-    <p>
-      <strong>{{ 'KVKK.SECTIONS.DATA_STORAGE.TITLE' | translate }}:</strong>
-      {{ 'KVKK.SECTIONS.DATA_STORAGE.TEXT' | translate }}
-    </p>
+    <ul>
+      <li>{{ 'KVKK.PURPOSE_1' | translate }}</li>
+      <li>{{ 'KVKK.PURPOSE_2' | translate }}</li>
+      <li>{{ 'KVKK.PURPOSE_3' | translate }}</li>
+      <li>{{ 'KVKK.PURPOSE_4' | translate }}</li>
+      <li>{{ 'KVKK.PURPOSE_5' | translate }}</li>
+      <li>{{ 'KVKK.PURPOSE_6' | translate }}</li>
+    </ul>
 
     <p>
-      <strong>{{ 'KVKK.SECTIONS.DATA_TRANSFER.TITLE' | translate }}:</strong>
-      {{ 'KVKK.SECTIONS.DATA_TRANSFER.TEXT' | translate }}
+      <strong>{{ 'KVKK.SECTION_3_TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTION_3_TEXT' | translate }}
     </p>
 
+    <ul>
+      <li>{{ 'KVKK.TRANSFER_1' | translate }}</li>
+      <li>{{ 'KVKK.TRANSFER_2' | translate }}</li>
+      <li>{{ 'KVKK.TRANSFER_3' | translate }}</li>
+    </ul>
+
+    <p>{{ 'KVKK.SECTION_3_NOTE' | translate }}</p>
+
     <p>
-      <strong>{{ 'KVKK.SECTIONS.RIGHTS.TITLE' | translate }}:</strong>
-      {{ 'KVKK.SECTIONS.RIGHTS.TEXT' | translate }}
+      <strong>{{ 'KVKK.SECTION_4_TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTION_4_TEXT' | translate }}
     </p>
+
+    <ul>
+      <li>{{ 'KVKK.LEGAL_BASIS_1' | translate }}</li>
+      <li>{{ 'KVKK.LEGAL_BASIS_2' | translate }}</li>
+      <li>{{ 'KVKK.LEGAL_BASIS_3' | translate }}</li>
+    </ul>
+
+    <p>
+      <strong>{{ 'KVKK.SECTION_5_TITLE' | translate }}:</strong>
+    </p>
+
+    <p>{{ 'KVKK.SECTION_5_TEXT_1' | translate }}</p>
+    <p>{{ 'KVKK.SECTION_5_TEXT_2' | translate }}</p>
+    <p>{{ 'KVKK.SECTION_5_TEXT_3' | translate }}</p>
+
+    <p>
+      <strong>{{ 'KVKK.SECTION_6_TITLE' | translate }}:</strong>
+      {{ 'KVKK.SECTION_6_TEXT' | translate }}
+    </p>
+
+    <ul>
+      <li>{{ 'KVKK.RIGHT_1' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_2' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_3' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_4' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_5' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_6' | translate }}</li>
+      <li>{{ 'KVKK.RIGHT_7' | translate }}</li>
+    </ul>
+
+    <p>
+      {{ 'KVKK.APPLICATION_TEXT_1' | translate }}
+      <strong>info&#64;styever.com</strong>
+      {{ 'KVKK.APPLICATION_TEXT_2' | translate }}
+    </p>
+
   </div>
 </app-modal>

@@ -1,73 +1,62 @@
 <div class="container-xxl py-10 py-lg-15">
-
   <div class="card">
     <div class="card-body p-8 p-lg-12">
 
-      <div class="alert alert-light-warning d-flex align-items-start p-5 mb-10">
-        <i class="ki-duotone ki-information-5 fs-2hx text-warning me-4">
-          <span class="path1"></span>
-          <span class="path2"></span>
-          <span class="path3"></span>
-        </i>
-
-        <div>
-          <h4 class="fw-bold text-gray-900 mb-1">
-            {{ 'LEGAL_WARNING.INFO_TITLE' | translate }}
-          </h4>
-
-          <span class="text-gray-700 fs-6">
-            {{ 'LEGAL_WARNING.INFO_TEXT' | translate }}
-          </span>
-        </div>
+      <div class="text-center mb-10">
+        <h1 class="fw-bold text-gray-900 fs-2hx">
+          {{ 'LEGAL_WARNING.PAGE_TITLE' | translate }}
+        </h1>
       </div>
 
       <div class="legal-content">
 
-        <section class="mb-8" *ngFor="let item of legalItems">
-          <p>{{ item | translate }}</p>
+        <section class="mb-8">
+          <h2>{{ 'LEGAL_WARNING.SECTION_1_TITLE' | translate }}</h2>
+          <p>{{ 'LEGAL_WARNING.SECTION_1_TEXT_1' | translate }}</p>
+          <p>{{ 'LEGAL_WARNING.SECTION_1_TEXT_2' | translate }}</p>
         </section>
 
-        <div class="separator separator-dashed my-10"></div>
+        <section class="mb-8">
+          <h2>{{ 'LEGAL_WARNING.SECTION_2_TITLE' | translate }}</h2>
+          <p>{{ 'LEGAL_WARNING.SECTION_2_TEXT_1' | translate }}</p>
+          <p>{{ 'LEGAL_WARNING.SECTION_2_TEXT_2' | translate }}</p>
+          <p>{{ 'LEGAL_WARNING.SECTION_2_TEXT_3' | translate }}</p>
+        </section>
 
-        <section class="mb-10">
-          <h2>{{ 'LEGAL_WARNING.NOT_RESPONSIBLE.TITLE' | translate }}</h2>
+        <section class="mb-8">
+          <h2>{{ 'LEGAL_WARNING.SECTION_3_TITLE' | translate }}</h2>
+          <p>
+            {{ 'LEGAL_WARNING.SECTION_3_TEXT_1' | translate }}
+            <a href="mailto:infostyever.com">info&#64;styever.com</a>
+            {{ 'LEGAL_WARNING.SECTION_3_TEXT_2' | translate }}
+          </p>
+        </section>
 
-          <div class="row g-4 mt-2">
-            <div class="col-12 col-md-6" *ngFor="let item of notResponsibleItems">
-              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
+        <section class="mb-8">
+          <h2>{{ 'LEGAL_WARNING.SECTION_4_TITLE' | translate }}</h2>
 
-                <i class="ki-duotone ki-cross-circle fs-2 text-danger me-3">
-                  <span class="path1"></span>
-                  <span class="path2"></span>
-                </i>
+          <p>{{ 'LEGAL_WARNING.SECTION_4_INTRO' | translate }}</p>
 
-                <span class="text-gray-700 fw-semibold">
-                  {{ item | translate }}
-                </span>
+          <ul>
+            <li>{{ 'LEGAL_WARNING.LIMIT_1' | translate }}</li>
+            <li>{{ 'LEGAL_WARNING.LIMIT_2' | translate }}</li>
+            <li>{{ 'LEGAL_WARNING.LIMIT_3' | translate }}</li>
+            <li>{{ 'LEGAL_WARNING.LIMIT_4' | translate }}</li>
+          </ul>
+        </section>
 
-              </div>
-            </div>
-          </div>
+        <section class="mb-8">
+          <h2>{{ 'LEGAL_WARNING.SECTION_5_TITLE' | translate }}</h2>
+          <p>{{ 'LEGAL_WARNING.SECTION_5_TEXT' | translate }}</p>
         </section>
 
         <section>
-          <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-
-            <i class="ki-duotone ki-information fs-2hx text-warning me-4">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
-            <div class="text-gray-800 fw-semibold fs-6">
-              {{ 'LEGAL_WARNING.UPDATE_NOTICE' | translate }}
-            </div>
-
-          </div>
+          <h2>{{ 'LEGAL_WARNING.SECTION_6_TITLE' | translate }}</h2>
+          <p>{{ 'LEGAL_WARNING.SECTION_6_TEXT' | translate }}</p>
         </section>
 
       </div>
 
     </div>
   </div>
-
 </div>

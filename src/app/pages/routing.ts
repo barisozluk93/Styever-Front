@@ -79,16 +79,21 @@ const Routing: Routes = [
     loadChildren: () =>
       import('../modules/kvkk/kvkk.module').then((m) => m.KvkkModule),
   },
+    {
+    path: 'cancellation-refund-policy',
+    loadChildren: () =>
+      import('../modules/cancellation-refund-policy/cancellation-refund-policy.module').then((m) => m.CancellationRefundPolicyModule),
+  },
   {
     path: 'legal-warning',
     loadChildren: () =>
       import('../modules/legal-warning/legal-warning.module').then((m) => m.LegalWarningModule),
   },
-  {
-    path: 'social-responsibility-policy',
-    loadChildren: () =>
-      import('../modules/social-responsibility-policy/social-responsibility-policy.module').then((m) => m.SocialResponsibilityPolicyModule),
-  },
+  // {
+  //   path: 'social-responsibility-policy',
+  //   loadChildren: () =>
+  //     import('../modules/social-responsibility-policy/social-responsibility-policy.module').then((m) => m.SocialResponsibilityPolicyModule),
+  // },
   {
     path: 'community-rules',
     loadChildren: () =>
@@ -99,11 +104,11 @@ const Routing: Routes = [
     loadChildren: () =>
       import('../modules/moderation-policy/moderation-policy.module').then((m) => m.ModerationPolicyModule),
   },
-  {
-    path: 'content-removal-policy',
-    loadChildren: () =>
-      import('../modules/content-removal-policy/content-removal-policy.module').then((m) => m.ContentRemovalPolicyModule),
-  },
+  // {
+  //   path: 'content-removal-policy',
+  //   loadChildren: () =>
+  //     import('../modules/content-removal-policy/content-removal-policy.module').then((m) => m.ContentRemovalPolicyModule),
+  // },
   {
     path: 'report-content',
     loadChildren: () =>

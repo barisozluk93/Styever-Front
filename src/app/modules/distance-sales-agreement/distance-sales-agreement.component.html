@@ -2,51 +2,116 @@
   <div class="card">
     <div class="card-body p-8 p-lg-12">
 
-      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
-        <i class="ki-duotone ki-information-5 fs-2hx text-primary me-4">
-          <span class="path1"></span>
-          <span class="path2"></span>
-          <span class="path3"></span>
-        </i>
-
-        <div>
-          <h4 class="fw-bold text-gray-900 mb-1">
-            {{ 'DISTANCE_SALES.INFO_TITLE' | translate }}
-          </h4>
-
-          <span class="text-gray-700 fs-6">
-            {{ 'DISTANCE_SALES.INFO_TEXT' | translate }}
-          </span>
-        </div>
+      <div class="text-center mb-10">
+        <h1 class="fw-bold text-gray-900 fs-2hx">
+          {{ 'DISTANCE_SALES.PAGE_TITLE' | translate }}
+        </h1>
       </div>
 
       <div class="legal-content">
 
-        <section class="mb-10">
-          <h2>{{ 'DISTANCE_SALES.PRE_INFO.TITLE' | translate }}</h2>
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.PRE_INFO_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_1_TITLE' | translate }}</p>
+          <ul>
+            <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_1' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_2' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_3' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_4' | translate }}</li>
+          </ul>
 
-          <div class="separator separator-dashed my-6"></div>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_2_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_2_TEXT' | translate }}</p>
 
-          <div class="mb-7" *ngFor="let item of preInfoItems">
-            <h3>{{ item.title | translate }}</h3>
-            <p>{{ item.text | translate }}</p>
-          </div>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_3_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_3_TEXT' | translate }}</p>
+
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_4_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_4_TEXT' | translate }}</p>
+
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_5_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_5_TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.CONTRACT_TITLE' | translate }}</h2>
+          <h2>{{ 'DISTANCE_SALES.PARTIES_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.PARTIES_TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_1_TITLE' | translate }}</h2>
+
+          <p>{{ 'DISTANCE_SALES.SECTION_1_1_TITLE' | translate }}</p>
+          <ul>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_1' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_2' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_3' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_4' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_5' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_6' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_7' | translate }}</li>
+          </ul>
+
+          <p>{{ 'DISTANCE_SALES.SECTION_1_2_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_1_2_TEXT' | translate }}</p>
+
+          <p>{{ 'DISTANCE_SALES.SECTION_1_3_TITLE' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_1_3_TEXT' | translate }}</p>
+          <ul>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_1' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_2' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_3' | translate }}</li>
+            <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_4' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_2_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_2_TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_3_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_1' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_2' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_3' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_4' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_4_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_1' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_2' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_3' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_4' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_5' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_5_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_1' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_2' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_3' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'DISTANCE_SALES.SECTION_6_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_1' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_2' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_3' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_4' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_5' | translate }}</p>
+          <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_6' | translate }}</p>
         </section>
 
         <section>
-          <h2>{{ 'DISTANCE_SALES.AGREEMENT.TITLE' | translate }}</h2>
-
-          <div class="separator separator-dashed my-6"></div>
-
-          <div class="mb-7" *ngFor="let item of agreementItems">
-            <h3>{{ item.title | translate }}</h3>
-            <p>{{ item.text | translate }}</p>
-          </div>
+          <h2>{{ 'DISTANCE_SALES.SECTION_7_TITLE' | translate }}</h2>
+          <p>{{ 'DISTANCE_SALES.SECTION_7_TEXT' | translate }}</p>
         </section>
 
       </div>
 
     </div>
   </div>
-
 </div>

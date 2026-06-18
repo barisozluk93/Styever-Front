@@ -13,10 +13,8 @@
       <div class="card card-xxl-stretch mb-5 mb-xl-8">
         <div class="row">
           <div class="col-lg-12 px-0 py-0">
-            <div
-              (click)="setActiveTabId('payment')"
-              [ngClass]="activeTabId == 'payment' ? 'selected-proccess-tab' : 'proccess-tab'"
-            >
+            <div (click)="setActiveTabId('payment')"
+              [ngClass]="activeTabId == 'payment' ? 'selected-proccess-tab' : 'proccess-tab'">
               <div class="row mb-5 mx-0 my-0 px-5 py-5 fw-bolder fs-3">
                 {{ 'PAYMENT_INFOS' | translate }}
               </div>
@@ -45,177 +43,111 @@
                 {{ 'SENDER_EMAIL' | translate }}
               </label>
 
-              <input
-                *ngIf="!currentUser && typeId == 3"
-                class="form-control bg-transparent mb-5"
-                type="text"
-                name="senderEmail"
-                formControlName="senderEmail"
-                placeholder="{{ 'SENDER_EMAIL' | translate }}"
-                autocomplete="off"
-                [ngClass]="{
+              <input *ngIf="!currentUser && typeId == 3" class="form-control bg-transparent mb-5" type="text"
+                name="senderEmail" formControlName="senderEmail" placeholder="{{ 'SENDER_EMAIL' | translate }}"
+                autocomplete="off" [ngClass]="{
                   'is-invalid': paymentForm.controls['senderEmail'].invalid,
                   'is-valid': paymentForm.controls['senderEmail'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                *ngIf="!currentUser && typeId == 3"
-                [ngTemplateOutlet]="formError"
+              <ng-container *ngIf="!currentUser && typeId == 3" [ngTemplateOutlet]="formError"
                 [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('SENDER_EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['senderEmail']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
-              <ng-container
-                *ngIf="!currentUser && typeId == 3"
-                [ngTemplateOutlet]="formError"
+              <ng-container *ngIf="!currentUser && typeId == 3" [ngTemplateOutlet]="formError"
                 [ngTemplateOutletContext]="{
                   validation: 'email',
                   message: ('SENDER_EMAIL' | translate) + ' geçerli değil',
                   control: paymentForm.controls['senderEmail']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
               <label *ngIf="!currentUser && typeId == 3" class="form-label fw-bolder text-gray-900 fs-6">
                 {{ 'FULL_NAME' | translate }}
               </label>
 
-              <input
-                *ngIf="!currentUser && typeId == 3"
-                class="form-control bg-transparent mb-5"
-                type="text"
-                name="senderFullName"
-                formControlName="senderFullName"
-                placeholder="{{ 'FULL_NAME' | translate }}"
-                autocomplete="off"
-                [ngClass]="{
+              <input *ngIf="!currentUser && typeId == 3" class="form-control bg-transparent mb-5" type="text"
+                name="senderFullName" formControlName="senderFullName" placeholder="{{ 'FULL_NAME' | translate }}"
+                autocomplete="off" [ngClass]="{
                   'is-invalid': paymentForm.controls['senderFullName'].invalid,
                   'is-valid': paymentForm.controls['senderFullName'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                *ngIf="!currentUser && typeId == 3"
-                [ngTemplateOutlet]="formError"
+              <ng-container *ngIf="!currentUser && typeId == 3" [ngTemplateOutlet]="formError"
                 [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('FULL_NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['senderFullName']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
               <label *ngIf="typeId == 3" class="form-label fw-bolder text-gray-900 fs-6">
                 {{ 'RECEIVER_EMAIL' | translate }}
               </label>
 
-              <input
-                *ngIf="typeId == 3"
-                class="form-control bg-transparent mb-5"
-                type="text"
-                name="receiverEmail"
-                formControlName="receiverEmail"
-                placeholder="{{ 'RECEIVER_EMAIL' | translate }}"
-                autocomplete="off"
+              <input *ngIf="typeId == 3" class="form-control bg-transparent mb-5" type="text" name="receiverEmail"
+                formControlName="receiverEmail" placeholder="{{ 'RECEIVER_EMAIL' | translate }}" autocomplete="off"
                 [ngClass]="{
                   'is-invalid': paymentForm.controls['receiverEmail'].invalid,
                   'is-valid': paymentForm.controls['receiverEmail'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                *ngIf="typeId == 3"
-                [ngTemplateOutlet]="formError"
-                [ngTemplateOutletContext]="{
+              <ng-container *ngIf="typeId == 3" [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('RECEIVER_EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['receiverEmail']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
               <label *ngIf="typeId == 3" class="form-label fw-bolder text-gray-900 fs-6">
                 {{ 'MESSAGE' | translate }}
               </label>
 
-              <input
-                *ngIf="typeId == 3"
-                class="form-control bg-transparent mb-5"
-                type="text"
-                name="message"
-                formControlName="message"
-                placeholder="{{ 'MESSAGE' | translate }}"
-                autocomplete="off"
-                [ngClass]="{
+              <input *ngIf="typeId == 3" class="form-control bg-transparent mb-5" type="text" name="message"
+                formControlName="message" placeholder="{{ 'MESSAGE' | translate }}" autocomplete="off" [ngClass]="{
                   'is-invalid': paymentForm.controls['message'].invalid,
                   'is-valid': paymentForm.controls['message'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                *ngIf="typeId == 3"
-                [ngTemplateOutlet]="formError"
-                [ngTemplateOutletContext]="{
+              <ng-container *ngIf="typeId == 3" [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('MESSAGE' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['message']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
               <label class="form-label fw-bolder text-gray-900 fs-6">
                 {{ 'CARD_HOLDER' | translate }}
               </label>
 
-              <input
-                class="form-control bg-transparent mb-5"
-                type="text"
-                name="fullname"
-                formControlName="fullname"
-                placeholder="{{ 'CARD_HOLDER' | translate }}"
-                (input)="formatCardHolder($event)"
-                autocomplete="off"
+              <input class="form-control bg-transparent mb-5" type="text" name="fullname" formControlName="fullname"
+                placeholder="{{ 'CARD_HOLDER' | translate }}" (input)="formatCardHolder($event)" autocomplete="off"
                 [ngClass]="{
                   'is-invalid': paymentForm.controls['fullname'].invalid,
                   'is-valid': paymentForm.controls['fullname'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                [ngTemplateOutlet]="formError"
-                [ngTemplateOutletContext]="{
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('CARD_HOLDER' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['fullname']
-                }"
-              ></ng-container>
+                }"></ng-container>
 
               <label class="form-label fw-bolder text-gray-900 fs-6">
                 {{ 'CARD_NUMBER' | translate }}
               </label>
 
-              <input
-                class="form-control bg-transparent"
-                type="text"
-                name="cardno"
-                formControlName="cardno"
-                placeholder="{{ 'CARD_NUMBER' | translate }}"
-                (input)="formatCardNumber($event)"
-                autocomplete="off"
+              <input class="form-control bg-transparent" type="text" name="cardno" formControlName="cardno"
+                placeholder="{{ 'CARD_NUMBER' | translate }}" (input)="formatCardNumber($event)" autocomplete="off"
                 [ngClass]="{
                   'is-invalid': paymentForm.controls['cardno'].invalid,
                   'is-valid': paymentForm.controls['cardno'].valid
-                }"
-              />
+                }" />
 
-              <ng-container
-                [ngTemplateOutlet]="formError"
-                [ngTemplateOutletContext]="{
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                   validation: 'required',
                   message: ('CARD_NUMBER' | translate) + ' ' + ('IS_REQUIRED' | translate),
                   control: paymentForm.controls['cardno']
-                }"
-              ></ng-container>
+                }"></ng-container>
             </div>
 
             <div class="row mb-5">
@@ -224,28 +156,18 @@
                   {{ 'VALIDITY_DATE' | translate }}
                 </label>
 
-                <input
-                  class="form-control bg-transparent"
-                  type="text"
-                  name="expiryDate"
-                  formControlName="expiryDate"
-                  placeholder="{{ 'VALIDITY_DATE_PH' | translate }}"
-                  (input)="formatExpiry($event)"
-                  autocomplete="off"
+                <input class="form-control bg-transparent" type="text" name="expiryDate" formControlName="expiryDate"
+                  placeholder="{{ 'VALIDITY_DATE_PH' | translate }}" (input)="formatExpiry($event)" autocomplete="off"
                   [ngClass]="{
                     'is-invalid': paymentForm.controls['expiryDate'].invalid,
                     'is-valid': paymentForm.controls['expiryDate'].valid
-                  }"
-                />
+                  }" />
 
-                <ng-container
-                  [ngTemplateOutlet]="formError"
-                  [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('VALIDITY_DATE' | translate) + ' ' + ('IS_REQUIRED' | translate),
                     control: paymentForm.controls['expiryDate']
-                  }"
-                ></ng-container>
+                  }"></ng-container>
               </div>
 
               <div class="col-lg-6">
@@ -253,44 +175,27 @@
                   {{ 'CVC' | translate }}
                 </label>
 
-                <input
-                  class="form-control bg-transparent"
-                  type="password"
-                  name="cvv"
-                  formControlName="cvv"
-                  maxlength="4"
-                  placeholder="{{ 'CVC' | translate }}"
-                  inputmode="numeric"
-                  (input)="formatCvc($event)"
-                  autocomplete="off"
-                  [ngClass]="{
+                <input class="form-control bg-transparent" type="password" name="cvv" formControlName="cvv"
+                  maxlength="4" placeholder="{{ 'CVC' | translate }}" inputmode="numeric" (input)="formatCvc($event)"
+                  autocomplete="off" [ngClass]="{
                     'is-invalid': paymentForm.controls['cvv'].invalid,
                     'is-valid': paymentForm.controls['cvv'].valid
-                  }"
-                />
+                  }" />
 
-                <ng-container
-                  [ngTemplateOutlet]="formError"
-                  [ngTemplateOutletContext]="{
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('CVC' | translate) + ' ' + ('IS_REQUIRED' | translate),
                     control: paymentForm.controls['cvv']
-                  }"
-                ></ng-container>
+                  }"></ng-container>
               </div>
             </div>
 
             <div class="form-check mb-5">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="termsAccepted"
-                formControlName="termsAccepted"
+              <input class="form-check-input" type="checkbox" id="termsAccepted" formControlName="termsAccepted"
                 [ngClass]="{
                   'is-invalid': paymentForm.controls['termsAccepted'].invalid && paymentForm.controls['termsAccepted'].touched,
                   'is-valid': paymentForm.controls['termsAccepted'].valid
-                }"
-              />
+                }" />
 
               <label class="form-check-label text-gray-800 fw-semibold" for="termsAccepted">
                 <button type="button" class="legal-link" (click)="openLegalModal()">
@@ -307,14 +212,11 @@
               </label>
             </div>
 
-            <ng-container
-              [ngTemplateOutlet]="formError"
-              [ngTemplateOutletContext]="{
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                 validation: 'required',
                 message: ('TERMS_ACCEPTANCE_REQUIRED' | translate),
                 control: paymentForm.controls['termsAccepted']
-              }"
-            ></ng-container>
+              }"></ng-container>
           </form>
         </div>
       </div>
@@ -388,13 +290,8 @@
           </tr>
         </table>
 
-        <button
-          [disabled]="paymentForm.invalid"
-          type="button"
-          (click)="confirm()"
-          class="btn btn-primary btn-lg"
-          style="width: 100%;"
-        >
+        <button [disabled]="paymentForm.invalid" type="button" (click)="confirm()" class="btn btn-primary btn-lg"
+          style="width: 100%;">
           <ng-container>
             <span class="indicator-label">{{ 'PAYMENT' | translate }}</span>
           </ng-container>
@@ -408,80 +305,122 @@
   <div class="legal-modal-content">
 
     <h4 class="fw-bolder mb-4">
-      {{ 'PRE_INFORMATION_FORM' | translate }}
+      {{ 'DISTANCE_SALES.PAGE_TITLE' | translate }}
     </h4>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.PRE_INFO.SELLER.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.PRE_INFO.SELLER.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.PRE_INFO_TITLE' | translate }}</strong>
+    </p>
+
+    <p>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_1_TITLE' | translate }}</p>
+
+    <ul>
+      <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_1' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_2' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_3' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.PRE_INFO_SELLER_4' | translate }}</li>
+    </ul>
+
+    <p>
+      <strong>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_2_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.PRE_INFO_SECTION_2_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.PRE_INFO.SERVICE.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.PRE_INFO.SERVICE.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_3_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.PRE_INFO_SECTION_3_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.PRE_INFO.SOCIAL_RESPONSIBILITY.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.PRE_INFO.SOCIAL_RESPONSIBILITY.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_4_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.PRE_INFO_SECTION_4_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.PRE_INFO.WITHDRAWAL.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.PRE_INFO.WITHDRAWAL.TEXT' | translate }}
-    </p>
-
-    <p>
-      <strong>{{ 'LEGAL_MODAL.PRE_INFO.COMPLAINT.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.PRE_INFO.COMPLAINT.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.PRE_INFO_SECTION_5_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.PRE_INFO_SECTION_5_TEXT' | translate }}
     </p>
 
     <div class="separator my-5"></div>
 
-    <h4 class="fw-bolder mb-4">
-      {{ 'DISTANCE_SALES_CONTRACT' | translate }}
-    </h4>
-
     <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.PARTIES.TITLE' | translate }}</strong>
-
-      {{
-        'LEGAL_MODAL.CONTRACT.PARTIES.TEXT' | translate
-      }}
-
-      {{
-        currentUser
-          ? currentUser?.name + " " + currentUser?.surname
-          : paymentForm.get('senderFullName')?.value
-      }}
+      <strong>{{ 'DISTANCE_SALES.CONTRACT_TITLE' | translate }}</strong>
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.SUBJECT.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.CONTRACT.SUBJECT.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.PARTIES_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.PARTIES_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.SERVICE.TITLE' | translate }}</strong>
+      <strong>{{ 'DISTANCE_SALES.SECTION_1_TITLE' | translate }}</strong>
+    </p>
 
-      {{ 'LEGAL_MODAL.CONTRACT.SERVICE.TEXT' | translate }}
+    <ul>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_1' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_2' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_3' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_4' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_5' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_6' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_1_ITEM_7' | translate }}</li>
+    </ul>
 
-      {{ package + " (" + totalPrice + " ₺)" }}
+    <p>{{ 'DISTANCE_SALES.SECTION_1_2_TEXT' | translate }}</p>
+
+    <ul>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_1' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_2' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_3' | translate }}</li>
+      <li>{{ 'DISTANCE_SALES.SECTION_1_3_ITEM_4' | translate }}</li>
+    </ul>
+
+    <p>
+      <strong>{{ 'DISTANCE_SALES.SECTION_2_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.SECTION_2_TEXT' | translate }}
     </p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.SOCIAL_SUPPORT.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.CONTRACT.SOCIAL_SUPPORT.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.SECTION_3_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.SECTION_3_TEXT_1' | translate }}
     </p>
 
-    <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.PAYMENT_SECURITY.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.CONTRACT.PAYMENT_SECURITY.TEXT' | translate }}
-    </p>
+    <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_2' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_3' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_3_TEXT_4' | translate }}</p>
 
     <p>
-      <strong>{{ 'LEGAL_MODAL.CONTRACT.WITHDRAWAL_EXCEPTION.TITLE' | translate }}</strong>
-      {{ 'LEGAL_MODAL.CONTRACT.WITHDRAWAL_EXCEPTION.TEXT' | translate }}
+      <strong>{{ 'DISTANCE_SALES.SECTION_4_TITLE' | translate }}</strong>
+    </p>
+
+    <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_1' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_2' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_3' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_4' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_4_TEXT_5' | translate }}</p>
+
+    <p>
+      <strong>{{ 'DISTANCE_SALES.SECTION_5_TITLE' | translate }}</strong>
+    </p>
+
+    <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_1' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_2' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_5_TEXT_3' | translate }}</p>
+
+    <p>
+      <strong>{{ 'DISTANCE_SALES.SECTION_6_TITLE' | translate }}</strong>
+    </p>
+
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_1' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_2' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_3' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_4' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_5' | translate }}</p>
+    <p>{{ 'DISTANCE_SALES.SECTION_6_TEXT_6' | translate }}</p>
+
+    <p>
+      <strong>{{ 'DISTANCE_SALES.SECTION_7_TITLE' | translate }}</strong><br>
+      {{ 'DISTANCE_SALES.SECTION_7_TEXT' | translate }}
     </p>
 
   </div>

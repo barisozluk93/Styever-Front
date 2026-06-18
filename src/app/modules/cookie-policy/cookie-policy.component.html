@@ -2,54 +2,61 @@
   <div class="card">
     <div class="card-body p-8 p-lg-12">
 
-      <div class="alert alert-light-primary d-flex align-items-start p-5 mb-10">
-        <i class="ki-duotone ki-information-5 fs-2hx text-primary me-4">
-          <span class="path1"></span>
-          <span class="path2"></span>
-          <span class="path3"></span>
-        </i>
-
-        <div>
-          <h4 class="fw-bold text-gray-900 mb-1">
-            {{ 'COOKIE_POLICY.INFO_TITLE' | translate }}
-          </h4>
-
-          <span class="text-gray-700 fs-6">
-            {{ 'COOKIE_POLICY.INFO_TEXT' | translate }}
-          </span>
-        </div>
+      <div class="text-center mb-10">
+        <h1 class="fw-bold text-gray-900 fs-2hx">
+          {{ 'COOKIE_POLICY.PAGE_TITLE' | translate }}
+        </h1>
       </div>
 
       <div class="legal-content">
 
-        <section class="mb-8" *ngFor="let item of introItems">
-          <p>{{ item | translate }}</p>
+        <section class="mb-8">
+          <h2>{{ 'COOKIE_POLICY.SECTION_1_TITLE' | translate }}</h2>
+          <p>{{ 'COOKIE_POLICY.SECTION_1_TEXT' | translate }}</p>
         </section>
 
-        <div class="separator separator-dashed my-10"></div>
+        <section class="mb-8">
+          <h2>{{ 'COOKIE_POLICY.SECTION_2_TITLE' | translate }}</h2>
+          <p>{{ 'COOKIE_POLICY.SECTION_2_TEXT' | translate }}</p>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'COOKIE_POLICY.SECTION_3_TITLE' | translate }}</h2>
+          <p>{{ 'COOKIE_POLICY.SECTION_3_TEXT' | translate }}</p>
+
+          <ul>
+            <li>{{ 'COOKIE_POLICY.PURPOSE_1' | translate }}</li>
+            <li>{{ 'COOKIE_POLICY.PURPOSE_2' | translate }}</li>
+            <li>{{ 'COOKIE_POLICY.PURPOSE_3' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'COOKIE_POLICY.SECTION_4_TITLE' | translate }}</h2>
+
+          <ul>
+            <li>{{ 'COOKIE_POLICY.COOKIE_TYPE_1' | translate }}</li>
+            <li>{{ 'COOKIE_POLICY.COOKIE_TYPE_2' | translate }}</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2>{{ 'COOKIE_POLICY.SECTION_5_TITLE' | translate }}</h2>
+          <p>{{ 'COOKIE_POLICY.SECTION_5_TEXT_1' | translate }}</p>
+          <p>{{ 'COOKIE_POLICY.SECTION_5_TEXT_2' | translate }}</p>
+        </section>
 
         <section>
-          <h2>{{ 'COOKIE_POLICY.PURPOSES.TITLE' | translate }}</h2>
-
-          <div class="row g-4 mt-2">
-            <div class="col-12 col-md-4" *ngFor="let item of purposeItems">
-              <div class="d-flex align-items-center bg-light rounded p-4 h-100">
-                <i class="ki-duotone ki-check-circle fs-2 text-primary me-3">
-                  <span class="path1"></span>
-                  <span class="path2"></span>
-                </i>
-
-                <span class="text-gray-700 fw-semibold">
-                  {{ item | translate }}
-                </span>
-              </div>
-            </div>
-          </div>
+          <h2>{{ 'COOKIE_POLICY.SECTION_6_TITLE' | translate }}</h2>
+          <p>
+            {{ 'COOKIE_POLICY.SECTION_6_TEXT_1' | translate }}
+            <a href="mailto:info@styever.com">info&#64;styever.com</a>
+            {{ 'COOKIE_POLICY.SECTION_6_TEXT_2' | translate }}
+          </p>
         </section>
 
       </div>
 
     </div>
   </div>
-
 </div>
