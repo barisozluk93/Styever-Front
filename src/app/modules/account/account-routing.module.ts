@@ -4,6 +4,7 @@ import { AccountComponent } from './account.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddressesComponent } from './addresses/addresses.component';
 import { MembershipComponent } from './membership/membership.component';
+import { AccountAgreementsComponent } from './agreements/agreements.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'membership',
         component: MembershipComponent,
+      },
+      {
+        path: 'agreements',
+        component: AccountAgreementsComponent,
       },
     ],
   },

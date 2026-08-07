@@ -22,6 +22,7 @@ import { ConfirmationModule } from '../confirmation/confirmation.module';
 import { AddressEditSaveComponent } from './addresses/forms/list/edit-save/edit-save.component';
 import { MembershipComponent } from './membership/membership.component';
 import { PlansModule } from '../common/plans/plans.module';
+import { AccountAgreementsComponent } from './agreements/agreements.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PlansModule } from '../common/plans/plans.module';
     EmailPreferencesComponent,
     NotificationsComponent,
     SignInMethodComponent,
-    MembershipComponent
+    MembershipComponent,
+    AccountAgreementsComponent
   ],
   imports: [
     PlansModule,

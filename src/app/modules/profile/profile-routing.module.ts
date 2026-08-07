@@ -6,6 +6,7 @@ import { DocumentsComponent } from './documents/documents.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProfileComponent } from './profile.component';
 import { ConnectionsComponent } from './connections/connections.component';
+import {AgreementsComponent} from './agreements/agreements.component';
 
 const routes: Routes = [
   {
@@ -28,10 +29,8 @@ const routes: Routes = [
         path: 'documents',
         component: DocumentsComponent,
       },
-      {
-        path: 'connections',
-        component: ConnectionsComponent,
-      },
+      {path:'connections',component:ConnectionsComponent},
+      {path:'agreements',component:AgreementsComponent},
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },
     ],

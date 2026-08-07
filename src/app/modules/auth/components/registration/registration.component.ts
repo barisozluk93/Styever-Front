@@ -195,6 +195,14 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     newUser.roles = [this.activePlan];
     newUser.username = newUser.email;
     newUser.userAddress = this.addressForm.getRawValue() as UserAddressModel;
+    const language=this.translate.currentLang||'tr';
+    (newUser as any).agreementAcceptances=[
+      {userId:0,agreementType:'MembershipTerms',title:this.translate.instant('TERMS.PAGE_TITLE'),version:'2026.08',language,context:'Registration',documentUrl:'/terms-of-use'},
+      {userId:0,agreementType:'PrivacyPolicy',title:this.translate.instant('PRIVACY_POLICY.PAGE_TITLE'),version:'2026.08',language,context:'Registration',documentUrl:'/privacy-policy'},
+      {userId:0,agreementType:'KvkkDisclosure',title:this.translate.instant('KVKK.PAGE_TITLE'),version:'2026.08',language,context:'Registration',documentUrl:'/kvkk'},
+      ...(this.registrationForm.get('commercialPermission')?.value?[{userId:0,agreementType:'CommercialCommunication',title:this.translate.instant('LEGAL_CHECKBOXES.COMMERCIAL_MESSAGE_PERMISSION'),version:'2026.08',language,context:'Registration'}]:[]),
+      ...(this.registrationForm.get('socialResponsibilityConsent')?.value?[{userId:0,agreementType:'SocialResponsibility',title:this.translate.instant('LEGAL_CHECKBOXES.SOCIAL_RESPONSIBILITY'),version:'2026.08',language,context:'Registration'}]:[])
+    ];
 
     if (this.useVoucher) {
       newUser.voucher = this.voucher;
@@ -205,7 +213,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       .pipe(first())
       .subscribe((user: UserModelAuth) => {
         if (user) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/auth/login']);
         } else {
           this.hasError = true;
         }

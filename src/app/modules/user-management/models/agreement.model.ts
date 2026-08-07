@@ -1,0 +1,2 @@
+export interface AgreementAcceptanceRequest { userId:number; agreementType:string; title:string; version:string; language:string; context:string; documentUrl?:string; contentSnapshot?:string; relatedReference?:string; }
+export interface UserAgreement { id:number; userId:number; agreementType:string; title:string; version:string; language:string; context:string; documentUrl?:string; contentSnapshot?:string; relatedReference?:string; ipAddress?:string; userAgent?:string; acceptedDate:string; }

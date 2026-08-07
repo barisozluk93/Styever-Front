@@ -430,6 +430,37 @@ export const locale = {
     PAYMENT_SUMMARY: "Payment Summary",
     PAYMENT_SUBHEADER: "Make your payment easily in seconds.",
 
+    SHOPIER: {
+      PAYMENT_STATUS_FAILED: 'The payment status could not be retrieved.',
+      PAYMENT_FAILED: 'The payment transaction failed.',
+      MEMBERSHIP_PAYMENT_SUCCESS: 'Your membership payment was completed successfully.',
+      PACKAGE_PAYMENT_SUCCESS: 'Your package purchase was completed successfully.',
+      GIFT_PAYMENT_SUCCESS: 'Your gift package payment was completed successfully.',
+      POPUP_BLOCKED: 'A new tab could not be opened. Please check your browser pop-up settings.',
+      PENDING_TITLE: "Pending Shopier Payment",
+      PENDING_DESCRIPTION: "You can check the payment if completed, or return to the Shopier payment page.",
+      REFERENCE: "Reference",
+      SECURITY_INFO: "Card details are not collected by Styever. Payment is completed securely on Shopier.",
+      REDIRECTING: "Redirecting...",
+      PAY_WITH_SHOPIER: "Pay with Shopier",
+      GO_TO_SHOPIER_AGAIN: "Go to Shopier Again",
+      CHECK_PAYMENT: "Check Payment",
+      CHECKING: "Checking...",
+      TERMS_REQUIRED: "You must accept the distance sales contract and pre-information form.",
+      INVALID_PAYMENT_TYPE: "Invalid payment type.",
+      PAYMENT_NOT_VERIFIED: "The payment has not been verified yet.",
+      PAYMENT_START_FAILED: "The payment could not be started.",
+      LINK_NOT_RECEIVED: "The Shopier payment link could not be retrieved.",
+      LOGIN_REQUIRED: 'You must sign in to make a payment.',
+      AGREEMENT_SAVE_FAILED: 'Agreement acceptances could not be saved. You were not redirected to the payment page.',
+      GENERIC_ERROR: "An error occurred during the operation.",
+      PACKAGES: {
+        MEMORY: "Memory Package",
+        TRIBUTE: "Tribute Package",
+        ETERNAL: "Eternal Package"
+      }
+    },
+
     PLANS: "Payment Plan",
     MEMBERSHIP_INFOS: "Membership Informations",
     USE_VOUCHER: "Use Voucher",
@@ -1128,7 +1159,10 @@ export const locale = {
           "TEXT": "There is no right of withdrawal for services instantly performed in electronic environments."
         }
       }
-    }
+    },
+    MY_AGREEMENTS: { 'TITLE': 'My Agreements', 'EMPTY': 'You do not have any agreements available to view yet.', 'DOCUMENT': 'Agreement', 'CONTEXT': 'Acceptance context', 'VERSION': 'Version', 'DATE': 'Acceptance date', 'VIEW': 'View', 'HIDE': 'Close', 'ACCEPTED_CONTENT': 'Accepted agreement text', 'CONTEXT_PURCHASE': 'Purchase', 'CONTEXT_REGISTRATION': 'Registration', 'TYPE_PRE_INFORMATION': 'Pre-information form', 'TYPE_DISTANCE_SALES': 'Distance sales agreement', 'TYPE_PRIVACY': 'Privacy policy', 'TYPE_KVKK': 'Personal data information notice', 'TYPE_COMMERCIAL': 'Commercial communication consent', 'TYPE_SOCIAL': 'Social responsibility consent', 'TYPE_MEMBERSHIP': 'Membership and terms of use' },
+
     // END (TR-EN-LANGUAGE-BRANCH
   }
+
 };

@@ -15,7 +15,7 @@ export class GiftManagementService {
 
     constructor(private http: HttpClient) { }
 
-    addGift(data: GiftModel): Observable<ResultModel<GiftModel>> {
+    addGift(data: GiftModel): Observable<ResultModel<any>> {
         return this.http.post<ResultModel<GiftModel>>(`${API_GIFT_URL}/BuyGiftPackage`, data);
     }
 }

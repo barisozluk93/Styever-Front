@@ -1,0 +1,66 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0">
+    <div class="card-title">
+      <h3 class="fw-bolder m-0">{{'MY_AGREEMENTS.TITLE'|translate}}</h3>
+    </div>
+  </div>
+  <div class="card-body pt-0">
+    <div *ngIf="loading" class="text-center py-10">
+      <span class="spinner-border text-primary"></span>
+    </div>
+
+    <div *ngIf="!loading&&!agreements.length" class="text-muted py-10 text-center">
+      {{'MY_AGREEMENTS.EMPTY'|translate}}
+    </div>
+
+    <div class="table-responsive" *ngIf="agreements.length">
+      <table class="table align-middle table-row-dashed gy-5">
+        <thead>
+          <tr class="text-muted fw-bold">
+            <th>{{'MY_AGREEMENTS.DOCUMENT'|translate}}</th>
+            <th>{{'MY_AGREEMENTS.CONTEXT'|translate}}</th>
+            <th>{{'MY_AGREEMENTS.VERSION'|translate}}</th>
+            <th>{{'MY_AGREEMENTS.DATE'|translate}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of agreements">
+            <tr>
+              <td>
+                <div class="fw-bolder">{{item.title}}</div>
+                <div class="text-muted fs-7">{{typeKey(item.agreementType)|translate}}</div>
+              </td>
+              <td>{{contextKey(item.context)|translate}}</td>
+              <td>{{item.version}}</td>
+              <td>{{item.acceptedDate|date:'dd.MM.yyyy HH:mm'}}</td>
+              <td class="text-end">
+                <button
+                  *ngIf="item.contentSnapshot"
+                  type="button"
+                  class="btn btn-sm btn-primary"
+                  (click)="toggleDetails(item.id)">
+                  {{(expandedId===item.id?'MY_AGREEMENTS.HIDE':'MY_AGREEMENTS.VIEW')|translate}}
+                </button>
+                <a
+                  *ngIf="!item.contentSnapshot&&item.documentUrl"
+                  [routerLink]="item.documentUrl"
+                  class="btn btn-sm btn-primary">
+                  {{'MY_AGREEMENTS.VIEW'|translate}}
+                </a>
+              </td>
+            </tr>
+            <tr *ngIf="expandedId===item.id&&item.contentSnapshot">
+              <td colspan="5">
+                <div class="bg-light rounded p-6">
+                  <div class="fw-bolder mb-3">{{'MY_AGREEMENTS.ACCEPTED_CONTENT'|translate}}</div>
+                  <div class="text-gray-800" style="white-space:pre-wrap;max-height:520px;overflow:auto;">{{item.contentSnapshot}}</div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

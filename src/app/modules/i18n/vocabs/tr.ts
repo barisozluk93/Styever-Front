@@ -434,6 +434,37 @@ export const locale = {
         PAYMENT_SUMMARY: "Ödeme Özeti",
         PAYMENT_SUBHEADER: "Ödemeni saniyeler içerisinde kolayca gerçekleştir.",
 
+        SHOPIER: {
+            PPAYMENT_STATUS_FAILED: 'Ödeme durumu alınamadı.',
+            PAYMENT_FAILED: 'Ödeme işlemi başarısız oldu.',
+            MEMBERSHIP_PAYMENT_SUCCESS: 'Üyelik ödemeniz başarıyla tamamlandı.',
+            PACKAGE_PAYMENT_SUCCESS: 'Paket satın alma işleminiz başarıyla tamamlandı.',
+            GIFT_PAYMENT_SUCCESS: 'Hediye paket ödemeniz başarıyla tamamlandı.',
+            POPUP_BLOCKED: 'Yeni sekme açılamadı. Tarayıcınızın açılır pencere iznini kontrol edin.',
+            PENDING_TITLE: "Bekleyen Shopier Ödemesi",
+            PENDING_DESCRIPTION: "Ödemeyi tamamladıysanız kontrol edebilir veya Shopier ödeme sayfasına tekrar gidebilirsiniz.",
+            REFERENCE: "Referans",
+            SECURITY_INFO: "Kart bilgileri Styever tarafından alınmaz. Ödeme güvenli Shopier sayfasında tamamlanır.",
+            REDIRECTING: "Yönlendiriliyor...",
+            PAY_WITH_SHOPIER: "Shopier ile Öde",
+            GO_TO_SHOPIER_AGAIN: "Shopier'a Tekrar Git",
+            CHECK_PAYMENT: "Ödemeyi Kontrol Et",
+            CHECKING: "Kontrol ediliyor...",
+            TERMS_REQUIRED: "Satış sözleşmesini ve ön bilgilendirme formunu onaylamalısınız.",
+            INVALID_PAYMENT_TYPE: "Geçersiz ödeme tipi.",
+            PAYMENT_NOT_VERIFIED: "Ödeme henüz doğrulanamadı.",
+            PAYMENT_START_FAILED: "Ödeme başlatılamadı.",
+            LINK_NOT_RECEIVED: "Shopier ödeme bağlantısı alınamadı.",
+            LOGIN_REQUIRED: 'Ödeme yapabilmek için giriş yapmalısınız.',
+            AGREEMENT_SAVE_FAILED: 'Sözleşme onayları kaydedilemedi. Ödeme sayfasına yönlendirme yapılmadı.',
+            GENERIC_ERROR: "İşlem sırasında bir hata oluştu.",
+            PACKAGES: {
+                MEMORY: "Anı Paketi",
+                TRIBUTE: "Hatıra Paketi",
+                ETERNAL: "Sonsuz Paket"
+            }
+        },
+
         PLANS: "Ödeme Planı",
         MEMBERSHIP_INFOS: "Üyelik Bilgileri",
         USE_VOUCHER: "Kupon Kodu Kullan",
@@ -1125,7 +1156,8 @@ export const locale = {
                     "TEXT": "Elektronik ortamda anında ifa edilen hizmetlerde cayma hakkı bulunmamaktadır."
                 }
             }
-        }
+        },
+        MY_AGREEMENTS: { 'TITLE': 'Sözleşmelerim', 'EMPTY': 'Henüz görüntülenebilir sözleşmeniz bulunmuyor.', 'DOCUMENT': 'Sözleşme', 'CONTEXT': 'Onay yeri', 'VERSION': 'Sürüm', 'DATE': 'Onay tarihi', 'VIEW': 'Görüntüle', 'HIDE': 'Kapat', 'ACCEPTED_CONTENT': 'Onaylanan sözleşme metni', 'CONTEXT_PURCHASE': 'Satın alma', 'CONTEXT_REGISTRATION': 'Kayıt', 'TYPE_PRE_INFORMATION': 'Ön bilgilendirme formu', 'TYPE_DISTANCE_SALES': 'Mesafeli satış sözleşmesi', 'TYPE_PRIVACY': 'Gizlilik politikası', 'TYPE_KVKK': 'KVKK aydınlatma metni', 'TYPE_COMMERCIAL': 'Ticari ileti izni', 'TYPE_SOCIAL': 'Sosyal sorumluluk onayı', 'TYPE_MEMBERSHIP': 'Üyelik ve kullanım koşulları' },
         // END (TR-EN-LANGUAGE-BRANCH)
     }
 };

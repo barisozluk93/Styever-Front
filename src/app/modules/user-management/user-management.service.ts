@@ -10,11 +10,13 @@ import { UserModel } from './models/user.model';
 import { FileModel } from 'src/app/models/file.model';
 import { UserAddressModel } from './models/user-address.model';
 import { GiftModel } from '../gift/models/gift.model';
+import {AgreementAcceptanceRequest,UserAgreement} from './models/agreement.model';
 
 const API_USER_PERMISSION_URL = `${environment.apiUrl}/Permission`;
 const API_USER_ROLE_URL = `${environment.apiUrl}/Role`;
 const API_USER_URL = `${environment.apiUrl}/User`;
 const API_FILE_URL = `${environment.apiUrl}/File`;
+const API_AGREEMENT_URL = `${environment.apiUrl}/Agreement`;
 
 @Injectable({
     providedIn: 'root',
@@ -153,15 +155,35 @@ export class UserManagementService {
         return this.http.get<ResultModel<UserAddressModel>>(`${API_USER_URL}/UserAddressById/${id}`);
     }
 
-    pay(id: number): Observable<ResultModel<boolean>> {
-        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/Pay/${id}`);
+    pay(id: number): Observable<ResultModel<any>> {
+        return this.http.get<ResultModel<any>>(`${API_USER_URL}/Pay/${id}`);
     }
 
-    buyPackage(id: number, planId: number, memoryId: number): Observable<ResultModel<boolean>> {
-        return this.http.get<ResultModel<boolean>>(`${API_USER_URL}/BuyPackage/${id}/${planId}/${memoryId}`);
+    buyPackage(id: number, planId: number, memoryId: number): Observable<ResultModel<any>> {
+        return this.http.get<ResultModel<any>>(`${API_USER_URL}/BuyPackage/${id}/${planId}/${memoryId}`);
+    }
+
+    confirmShopierPayment(reference: string): Observable<ResultModel<any>> {
+        return this.http.post<ResultModel<any>>(`${API_USER_URL}/ConfirmShopierPayment/${encodeURIComponent(reference)}`, {});
+    }
+
+    shopierPaymentStatus(reference: string): Observable<ResultModel<any>> {
+        return this.http.get<ResultModel<any>>(`${API_USER_URL}/ShopierPaymentStatus/${encodeURIComponent(reference)}`);
+    }
+
+    getPendingShopierPayment(userId:number,purchaseType:string,planId:number,memoryId:number):Observable<ResultModel<any>>{
+        return this.http.get<ResultModel<any>>(`${API_USER_URL}/PendingShopierPayment/${userId}/${encodeURIComponent(purchaseType)}/${planId}/${memoryId}`);
     }
 
     voucherControl(voucher: string): Observable<ResultModel<GiftModel>> {
         return this.http.get<ResultModel<GiftModel>>(`${API_USER_URL}/VoucherControl/${voucher}`);
     }
+    acceptAgreements(data:AgreementAcceptanceRequest[]):Observable<ResultModel<UserAgreement[]>>{
+        return this.http.post<ResultModel<UserAgreement[]>>(`${API_AGREEMENT_URL}/Accept`,data);
+    }
+
+    getUserAgreements(userId:number):Observable<ResultModel<UserAgreement[]>>{
+        return this.http.get<ResultModel<UserAgreement[]>>(`${API_AGREEMENT_URL}/User/${userId}`);
+    }
+
 }
