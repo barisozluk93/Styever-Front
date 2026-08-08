@@ -16,6 +16,11 @@ export const locale = {
             DASHBOARD: 'Panel',
         },
         AUTH: {
+            SIDE: {
+                TITLE: 'Birlikte geçirilen zaman, hatırladıkça yaşamaya devam eder.',
+                DESC: 'Sevginizi, anılarınızı ve birlikte yaşadığınız özel anları güvenle saklayın; onları sevdiklerinizle paylaşın.'
+            },
+
             GENERAL: {
                 OR: 'Ya da',
                 SUBMIT_BUTTON: 'Gönder',
@@ -32,6 +37,9 @@ export const locale = {
             LOGIN: {
                 TITLE: 'Hesaba Giriş',
                 BUTTON: 'Giriş Yap',
+                SUBTITLE: 'Anılarınızı yaşatmaya devam etmek için hesabınıza giriş yapın.',
+                NEW_HERE: 'Styever’da yeni misiniz?',
+                FOOTNOTE: 'Sevgiyle biriktirilen anılar, zaman geçse de yaşamaya devam eder.',
             },
             FORGOT: {
                 TITLE: 'Şifrenizi mi Unuttunuz?',
@@ -466,7 +474,7 @@ export const locale = {
             }
         },
 
-        PLANS: "Ödeme Planı",
+        PLANS: "Plan Seçimi",
         MEMBERSHIP_INFOS: "Üyelik Bilgileri",
         USE_VOUCHER: "Kupon Kodu Kullan",
         SEARCH: "Ara",

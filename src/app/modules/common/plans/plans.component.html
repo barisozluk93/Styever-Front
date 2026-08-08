@@ -1,49 +1,47 @@
-<div class="row gy-5 g-xl-8">
+<div class="plans-grid row g-3" [ngClass]="{'compact-mode': compactMode}">
   <ng-container *ngFor="let item of planList">
-    <div class="col-xxl-4" (click)="onPlanSelect(item.id)">
-      <div class="card card-xl-stretch mb-xl-8 d-flex flex-column position-relative"
-        [ngClass]="activePlan == item.id ? 'selected-plan' : ''">
+    <div class="plan-column col-12 col-md-4" (click)="onPlanSelect(item.id)">
+      <div class="card plan-card h-100 d-flex flex-column position-relative cursor-pointer"
+        [ngClass]="{'selected-plan': activePlan == item.id}">
         <div *ngIf="item.id === 3" class="most-preferred-badge">
           {{ 'MOST_PREFERRED' | translate }}
-          <i class="bi bi-star-fill ms-1"></i>
+          <i class="bi bi-star-fill"></i>
         </div>
 
-
-        <div class="card-header border-1 py-5 d-flex flex-column align-items-center">
-          <h3 class="card-title fw-bolder text-primary text-center">
-            {{ item.name.toUpperCase() }}
-          </h3>
-
-          <div class="fw-bold text-light-primary text-center">
-            {{ item.price }}
+        <div class="card-header plan-card-header border-0 d-flex flex-column align-items-start">
+          <div class="d-flex align-items-center justify-content-between w-100 gap-2">
+            <h3 class="card-title fw-bolder text-gray-900 mb-0">{{ item.name }}</h3>
+            <span class="plan-radio d-flex align-items-center justify-content-center"
+              [ngClass]="activePlan == item.id ? 'active' : ''">
+              <i *ngIf="activePlan == item.id" class="bi bi-check-lg"></i>
+            </span>
           </div>
+          <div class="plan-price fw-bolder text-primary mt-2">{{ item.price }}</div>
         </div>
-        <div class="card-body py-3 d-flex flex-column flex-grow-1">
-          <div class="row">
-            <div class="col-lg-6 d-flex align-items-center mb-2" *ngFor="let prop of item.properties">
-              <i class="bi bi-check text-primary me-2"></i>
-              <span class="text-light-primary">{{ prop }}</span>
+
+        <div class="card-body plan-card-body d-flex flex-column flex-grow-1">
+          <div class="plan-properties">
+            <div class="plan-property d-flex align-items-start" *ngFor="let prop of item.properties">
+              <i class="bi bi-check-circle-fill text-primary me-2"></i>
+              <span class="text-gray-600 fw-semibold">{{ prop }}</span>
             </div>
           </div>
 
-          <div *ngIf="isStandByPage && userIsActive" class="row mt-auto pt-4 mb-5">
-            <button (click)="onPay(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
+          <div *ngIf="isStandByPage && userIsActive" class="mt-auto pt-4">
+            <button (click)="$event.stopPropagation(); onPay(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
               {{'PURCHASE_VOUCHER' | translate }}
             </button>
           </div>
 
-          <div *ngIf="isProfilePage" class="row mt-auto pt-4 mb-5">
-            <button (click)="onBuy(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
+          <div *ngIf="isProfilePage" class="mt-auto pt-4">
+            <button (click)="$event.stopPropagation(); onBuy(item.id)" type="button" class="btn btn-primary w-100 fw-bold">
               {{'BUY' | translate }}
             </button>
           </div>
 
-          <div *ngIf="!isProfilePage && !isStandByPage" class="row">
-            <div class="col-lg-10 trialBadge text-center">
-              <span class="text-white">{{ 'trial' | translate }}</span>
-            </div>
+          <div *ngIf="!isProfilePage && !isStandByPage" class="trial-badge mt-auto">
+            <span>{{ 'trial' | translate }}</span>
           </div>
-
         </div>
       </div>
     </div>

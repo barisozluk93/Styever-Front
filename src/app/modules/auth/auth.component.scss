@@ -1,3 +1,76 @@
 :host {
-  height: 100%;
+  display: block;
+  min-height: 100%;
+}
+
+.auth-page {
+  background: #fbfaf7;
+}
+
+.auth-content {
+  width: 100%;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(10, 74, 50, 0.055), transparent 30%),
+    #fbfaf7;
+}
+
+.auth-form-wrapper {
+  max-width: 860px;
+}
+
+.auth-visual {
+  width: 52%;
+  min-height: 100vh;
+  background-color: #0a4a32;
+}
+
+.auth-visual-bg {
+  background-image: url('/assets/media/patterns/login.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.01);
+}
+
+.auth-visual-overlay {
+  background:
+    linear-gradient(180deg, rgba(7, 38, 27, 0.18) 0%, rgba(7, 38, 27, 0.28) 42%, rgba(4, 30, 21, 0.9) 100%),
+    linear-gradient(90deg, rgba(10, 74, 50, 0.2), transparent 55%);
+}
+
+.auth-brand-logo {
+  width: auto;
+  height: 92px;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.auth-visual-title {
+  max-width: 560px;
+  font-size: clamp(2.25rem, 3.2vw, 4.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.auth-footer {
+  min-height: 28px;
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 992px) {
+  .auth-content {
+    width: 48%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .auth-page,
+  .auth-content {
+    min-height: 100vh;
+  }
 }

@@ -16,6 +16,11 @@ export const locale = {
       DASHBOARD: 'Dashboard',
     },
     AUTH: {
+      SIDE: {
+        TITLE: 'The time you shared lives on each time you remember.',
+        DESC: 'Preserve the love, memories and meaningful moments you shared, and keep them close to the people who matter.'
+      },
+
       GENERAL: {
         OR: 'Or',
         SUBMIT_BUTTON: 'Submit',
@@ -32,6 +37,9 @@ export const locale = {
       LOGIN: {
         TITLE: 'Login Account',
         BUTTON: 'Sign In',
+        SUBTITLE: 'Sign in to continue preserving the memories that matter.',
+        NEW_HERE: 'New to Styever?',
+        FOOTNOTE: 'Memories created with love continue to live on through time.',
       },
       FORGOT: {
         TITLE: 'Forgotten Password?',
@@ -462,7 +470,7 @@ export const locale = {
       }
     },
 
-    PLANS: "Payment Plan",
+    PLANS: "Plan Selection",
     MEMBERSHIP_INFOS: "Membership Informations",
     USE_VOUCHER: "Use Voucher",
     SEARCH: "Search",

@@ -1,419 +1,286 @@
-<div class="text-center mb-5" routerLink="/home">
-  <img alt="Logo" src="./assets/media/logos/icon.png" class="h-150px w-150px" style="border-radius: 20px;" />
-</div>
+<div class="registration-page w-100">
+  <div class="registration-brand d-flex align-items-center justify-content-between gap-4 mb-4">
+    <a routerLink="/home" class="d-inline-flex align-items-center d-lg-none">
+      <img alt="Styever" src="./assets/media/logos/icon-transparent.png" class="registration-logo" />
+    </a>
 
-<div class="checkout-steps d-flex justify-content-center align-items-center">
-  <div class="step" [ngClass]="activeState == 'paymentPlan' ? 'active' : ''">
-    <i class="bi bi-wallet" [ngClass]="activeState == 'paymentPlan' ? 'text-white' : 'text-primary'"></i>
-    <span>{{ 'PLANS' | translate }}</span>
+    <div class="d-flex align-items-center gap-3">
+      <span class="registration-eyebrow-line"></span>
+      <span class="text-primary fs-8 fw-bold text-uppercase ls-1">Styever</span>
+    </div>
+
+    <div class="d-flex align-items-center gap-2 fs-8 fs-lg-7 text-gray-500 fw-semibold">
+      <span class="d-none d-sm-inline">{{ 'ALREADY_HAVE_AN_ACCOUNT' | translate }}</span>
+      <a routerLink="/auth/login" class="btn btn-sm btn-light-primary fw-bold px-4">
+        <i class="ki-outline ki-arrow-left fs-4 me-1"></i>
+        {{ 'AUTH.LOGIN.BUTTON' | translate }}
+      </a>
+    </div>
   </div>
 
-  <div class="line"></div>
-
-  <div class="step" [ngClass]="activeState == 'membershipInfo' ? 'active' : ''">
-    <i class="bi bi-person" [ngClass]="activeState == 'membershipInfo' ? 'text-white' : 'text-primary'"></i>
-    <span>{{ 'MEMBERSHIP_INFOS' | translate }}</span>
-  </div>
-
-  <div class="line"></div>
-
-  <div class="step" [ngClass]="activeState == 'addressInfo' ? 'active' : ''">
-    <i class="bi bi-card-text" [ngClass]="activeState == 'addressInfo' ? 'text-white' : 'text-primary'"></i>
-    <span>{{ 'ADDRESS_INFOS' | translate }}</span>
+  <div class="checkout-steps d-flex justify-content-center align-items-center">
+    <div class="step" [ngClass]="activeState == 'paymentPlan' ? 'active' : ''">
+      <i class="bi bi-wallet" [ngClass]="activeState == 'paymentPlan' ? 'text-white' : 'text-primary'"></i>
+      <span>{{ 'PLANS' | translate }}</span>
+    </div>
+    <div class="line"></div>
+    <div class="step" [ngClass]="activeState == 'membershipInfo' ? 'active' : ''">
+      <i class="bi bi-person" [ngClass]="activeState == 'membershipInfo' ? 'text-white' : 'text-primary'"></i>
+      <span>{{ 'MEMBERSHIP_INFOS' | translate }}</span>
+    </div>
+    <div class="line"></div>
+    <div class="step" [ngClass]="activeState == 'addressInfo' ? 'active' : ''">
+      <i class="bi bi-card-text" [ngClass]="activeState == 'addressInfo' ? 'text-white' : 'text-primary'"></i>
+      <span>{{ 'ADDRESS_INFOS' | translate }}</span>
+    </div>
   </div>
 
   <ng-container *ngIf="hasError">
-    <div class="mb-lg-15 alert alert-danger">
-      <div class="alert-text font-weight-bold">
-        {{ 'RESET_PASSWORD_ERROR' | translate }}
-      </div>
+    <div class="alert alert-dismissible bg-light-danger border border-danger border-dashed d-flex align-items-center p-4 mt-4 mb-0">
+      <i class="ki-outline ki-information-5 fs-2x text-danger me-4"></i>
+      <span class="text-danger fw-bold">{{ 'RESET_PASSWORD_ERROR' | translate }}</span>
     </div>
   </ng-container>
-</div>
 
-<ng-container *ngIf="activeState == 'paymentPlan'">
-  <div class="text-center mb-5 mt-5">
-    <h1 class="text-primary fw-bolder">
-      {{ 'PLANS' | translate }}
-    </h1>
-  </div>
-
-  <div class="separator mb-5">
-    <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
-  </div>
-
-  <div class="row my-10">
-    <div class="col-xxl-3">
-      <input class="form-check-input" type="checkbox" id="useVoucher" (change)="onCheckboxChange($event)" />
-      <label class="form-check-label text-primary fw-bolder" for="useVoucher">
-        &nbsp;{{ 'USE_VOUCHER' | translate }}
-      </label>
+  <ng-container *ngIf="activeState == 'paymentPlan'">
+    <div class="registration-heading mt-4 mb-3">
+      <h1 class="text-gray-900 fw-bolder fs-2 mb-1">{{ 'PLANS' | translate }}</h1>
     </div>
-  </div>
 
-  <div *ngIf="useVoucher" class="row my-10 cursor-pointer">
-    <form class="form-inline" (ngSubmit)="onVoucherSearch()">
-      <div class="input-group mb-3">
-        <input class="form-control" type="search" placeholder="{{ 'VOUCHER' | translate }}" aria-label="Ara"
-          [(ngModel)]="voucher" name="voucher" />
+    <div class="voucher-row mb-3">
+      <div class="form-check m-0">
+        <input class="form-check-input" type="checkbox" id="useVoucher" (change)="onCheckboxChange($event)" />
+        <label class="form-check-label text-gray-700 fw-semibold" for="useVoucher">
+          {{ 'USE_VOUCHER' | translate }}
+        </label>
+      </div>
+    </div>
 
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-custom btn-active-white btn-color-white btn-primary"
-            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
-            <span class="indicator-label">
-              {{ 'SEARCH' | translate }}
-            </span>
-          </button>
+    <div *ngIf="useVoucher" class="voucher-search mb-3 cursor-pointer">
+      <form class="form-inline" (ngSubmit)="onVoucherSearch()">
+        <div class="input-group">
+          <input class="form-control form-control-lg bg-white" type="search" placeholder="{{ 'VOUCHER' | translate }}"
+            aria-label="Ara" [(ngModel)]="voucher" name="voucher" />
+          <button type="submit" class="btn btn-primary fw-bold px-5">{{ 'SEARCH' | translate }}</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="plans-wrap cursor-pointer">
+      <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false" [compactMode]="true"
+        (isPlanSelect)="isPlanSelect($event)"></app-plans>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="activeState == 'membershipInfo'">
+    <form class="form w-100 registration-form membership-form" novalidate="novalidate" id="kt_login_signup_form"
+      [formGroup]="registrationForm">
+      <div class="registration-heading form-heading mt-4 mb-3">
+        <h1 class="text-gray-900 fw-bolder fs-2 mb-1">{{ 'MEMBERSHIP_INFOS' | translate }}</h1>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'NAME' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="name" formControlName="name"
+            autocomplete="given-name" [ngClass]="{
+              'is-invalid': registrationForm.controls['name'].invalid && (registrationForm.controls['name'].dirty || registrationForm.controls['name'].touched),
+              'is-valid': registrationForm.controls['name'].valid && (registrationForm.controls['name'].dirty || registrationForm.controls['name'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('NAME'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['name']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'SURNAME' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="surname" formControlName="surname"
+            autocomplete="family-name" [ngClass]="{
+              'is-invalid': registrationForm.controls['surname'].invalid && (registrationForm.controls['surname'].dirty || registrationForm.controls['surname'].touched),
+              'is-valid': registrationForm.controls['surname'].valid && (registrationForm.controls['surname'].dirty || registrationForm.controls['surname'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('SURNAME'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['surname']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'EMAIL' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-sms position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="email" name="email" formControlName="email"
+            autocomplete="email" [ngClass]="{
+              'is-invalid': registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched),
+              'is-valid': registrationForm.controls['email'].valid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('EMAIL'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['email']}"></ng-container>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'email', message:('EMAIL'|translate)+' '+('IS_INVALID'|translate), control:registrationForm.controls['email']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'PHONE' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-phone position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="phone" formControlName="phone"
+            autocomplete="tel" [ngClass]="{
+              'is-invalid': registrationForm.controls['phone'].invalid && (registrationForm.controls['phone'].dirty || registrationForm.controls['phone'].touched),
+              'is-valid': registrationForm.controls['phone'].valid && (registrationForm.controls['phone'].dirty || registrationForm.controls['phone'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('PHONE'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['phone']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'PASSWORD' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-lock-2 position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="password" name="password" formControlName="password"
+            autocomplete="new-password" [ngClass]="{
+              'is-invalid': registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched),
+              'is-valid': registrationForm.controls['password'].valid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('PASSWORD'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['password']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-lock-3 position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="password" name="cPassword" formControlName="cPassword"
+            autocomplete="new-password" [ngClass]="{
+              'is-invalid': registrationForm.controls['cPassword'].invalid && (registrationForm.controls['cPassword'].dirty || registrationForm.controls['cPassword'].touched),
+              'is-valid': registrationForm.controls['cPassword'].valid && (registrationForm.controls['cPassword'].dirty || registrationForm.controls['cPassword'].touched)
+            }" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('CONFIRM_PASSWORD'|translate)+' '+('IS_REQUIRED'|translate), control:registrationForm.controls['cPassword']}"></ng-container>
+        <ng-container *ngIf="registrationForm.controls['cPassword'].errors?.ConfirmPassword && (registrationForm.controls['cPassword'].dirty || registrationForm.controls['cPassword'].touched)">
+          <div class="fv-plugins-message-container mt-1"><span class="text-danger fs-8 fw-semibold">{{ 'NOMATCH_PASSWORD' | translate }}</span></div>
+        </ng-container>
+      </div>
+
+      <div class="legal-checks">
+        <div class="form-check legal-check">
+          <input class="form-check-input" type="checkbox" id="termsAndPrivacyAccepted" formControlName="termsAndPrivacyAccepted" />
+          <label class="form-check-label text-gray-700 fw-semibold fs-8 lh-base" for="termsAndPrivacyAccepted">
+            <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">{{ 'TERMS.PAGE_TITLE' | translate }}</a>
+            {{ 'AND' | translate }}
+            <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">{{ 'PRIVACY_POLICY.PAGE_TITLE' | translate }}</a>
+            {{ 'LEGAL_CHECKBOXES.TERMS_PRIVACY_ACCEPT_SUFFIX' | translate }}
+          </label>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('LEGAL_CHECKBOXES.TERMS_AND_PRIVACY_REQUIRED'|translate), control:registrationForm.controls['termsAndPrivacyAccepted']}"></ng-container>
+
+        <div class="form-check legal-check">
+          <input class="form-check-input" type="checkbox" id="kvkkAccepted" formControlName="kvkkAccepted" />
+          <label class="form-check-label text-gray-700 fw-semibold fs-8 lh-base" for="kvkkAccepted">
+            {{ 'LEGAL_CHECKBOXES.KVKK_PREFIX' | translate }}
+            <a href="javascript:void(0)" class="legal-link" (click)="openKvkkModal()">{{ 'KVKK.PAGE_TITLE' | translate }}</a>
+            {{ 'LEGAL_CHECKBOXES.KVKK_SUFFIX' | translate }}
+          </label>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('LEGAL_CHECKBOXES.KVKK_REQUIRED'|translate), control:registrationForm.controls['kvkkAccepted']}"></ng-container>
+
+        <div class="form-check legal-check">
+          <input class="form-check-input" type="checkbox" id="commercialPermission" formControlName="commercialPermission" />
+          <label class="form-check-label text-gray-700 fw-semibold fs-8 lh-base" for="commercialPermission">{{ 'LEGAL_CHECKBOXES.COMMERCIAL_MESSAGE_PERMISSION' | translate }}</label>
         </div>
       </div>
     </form>
-  </div>
 
-  <div class="row my-10 cursor-pointer">
-    <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false"
-      (isPlanSelect)="isPlanSelect($event)"></app-plans>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="activeState == 'membershipInfo'">
-  <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="registrationForm">
-    <div class="text-center mb-5 mt-5">
-      <h1 class="text-primary fw-bolder">
-        {{ 'MEMBERSHIP_INFOS' | translate }}
-      </h1>
-    </div>
-
-    <div class="separator mb-5">
-      <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'NAME' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="name" formControlName="name"
-        placeholder="{{ 'NAME' | translate }}" autocomplete="off" [ngClass]="{
-          'is-invalid': registrationForm.controls['name'].invalid,
-          'is-valid': registrationForm.controls['name'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['name']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'SURNAME' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="surname" formControlName="surname"
-        placeholder="{{ 'SURNAME' | translate }}" autocomplete="off" [ngClass]="{
-          'is-invalid': registrationForm.controls['surname'].invalid,
-          'is-valid': registrationForm.controls['surname'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('SURNAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['surname']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'EMAIL' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="email" placeholder="{{ 'EMAIL' | translate }}"
-        name="email" formControlName="email" autocomplete="off" [ngClass]="{
-          'is-invalid': registrationForm.controls['email'].invalid,
-          'is-valid': registrationForm.controls['email'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['email']
-        }"></ng-container>
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'email',
-          message: ('EMAIL' | translate) + ' ' + ('IS_INVALID' | translate),
-          control: registrationForm.controls['email']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'PHONE' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" placeholder="{{ 'PHONE' | translate }}"
-        name="phone" formControlName="phone" autocomplete="off" [ngClass]="{
-          'is-invalid': registrationForm.controls['phone'].invalid,
-          'is-valid': registrationForm.controls['phone'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('PHONE' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['phone']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'PASSWORD' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="password"
-        placeholder="{{ 'PASSWORD' | translate }}" name="password" formControlName="password" autocomplete="off"
-        [ngClass]="{
-          'is-invalid': registrationForm.controls['password'].invalid,
-          'is-valid': registrationForm.controls['password'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['password']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'CONFIRM_PASSWORD' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="password"
-        placeholder="{{ 'CONFIRM_PASSWORD' | translate }}" name="cPassword" autocomplete="off"
-        formControlName="cPassword" [ngClass]="{
-          'is-invalid': registrationForm.controls['cPassword'].invalid,
-          'is-valid': registrationForm.controls['cPassword'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('CONFIRM_PASSWORD' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: registrationForm.controls['cPassword']
-        }"></ng-container>
-
-      <ng-container *ngIf="
-          registrationForm.controls['cPassword'].errors &&
-          registrationForm.controls['cPassword'].errors.ConfirmPassword
-        ">
-        <div class="fv-plugins-message-container">
-          <div class="fv-help-block">
-            {{ 'NOMATCH_PASSWORD' | translate }}
-          </div>
-        </div>
+    <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+      <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+        <div class="fv-plugins-message-container mt-1"><span role="alert" class="text-danger fs-8 fw-semibold">{{ message }}</span></div>
       </ng-container>
-    </div>
+    </ng-template>
+  </ng-container>
 
-    <div class="form-check mb-5">
-      <input class="form-check-input" type="checkbox" id="termsAndPrivacyAccepted"
-        formControlName="termsAndPrivacyAccepted" />
-
-      <label class="form-check-label text-primary fw-semibold" for="termsAndPrivacyAccepted">
-        <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
-          {{ 'TERMS.PAGE_TITLE' | translate }}
-        </a>
-
-        {{ 'AND' | translate }}
-
-        <a href="javascript:void(0)" class="legal-link" (click)="openTermsPrivacyModal()">
-          {{ 'PRIVACY_POLICY.PAGE_TITLE' | translate }}
-        </a>
-
-        {{ 'LEGAL_CHECKBOXES.TERMS_PRIVACY_ACCEPT_SUFFIX' | translate }}
-      </label>
-    </div>
-
-    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('LEGAL_CHECKBOXES.TERMS_AND_PRIVACY_REQUIRED' | translate),
-        control: registrationForm.controls['termsAndPrivacyAccepted']
-      }"></ng-container>
-
-    <div class="form-check mb-5">
-      <input class="form-check-input" type="checkbox" id="kvkkAccepted" formControlName="kvkkAccepted" />
-
-      <label class="form-check-label text-primary fw-semibold" for="kvkkAccepted">
-        {{ 'LEGAL_CHECKBOXES.KVKK_PREFIX' | translate }}
-
-        <a href="javascript:void(0)" class="legal-link" (click)="openKvkkModal()">
-          {{ 'KVKK.PAGE_TITLE' | translate }}
-        </a>
-
-        {{ 'LEGAL_CHECKBOXES.KVKK_SUFFIX' | translate }}
-      </label>
-    </div>
-
-    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('LEGAL_CHECKBOXES.KVKK_REQUIRED' | translate),
-        control: registrationForm.controls['kvkkAccepted']
-      }"></ng-container>
-
-    <div class="form-check mb-5">
-      <input class="form-check-input" type="checkbox" id="commercialPermission"
-        formControlName="commercialPermission" />
-
-      <label class="form-check-label text-primary fw-semibold" for="commercialPermission">
-        {{ 'LEGAL_CHECKBOXES.COMMERCIAL_MESSAGE_PERMISSION' | translate }}
-      </label>
-    </div>
-
-    <!-- <div class="form-check mb-5">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="socialResponsibilityConsent"
-        formControlName="socialResponsibilityConsent"
-      />
-
-      <label class="form-check-label text-primary fw-semibold" for="socialResponsibilityConsent">
-        {{ 'LEGAL_CHECKBOXES.SOCIAL_RESPONSIBILITY_CONSENT' | translate }}
-      </label>
-    </div> -->
-  </form>
-
-  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
-    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-      <div class="fv-plugins-message-container">
-        <div class="fv-help-block">
-          <span role="alert">
-            {{ message }}
-          </span>
-        </div>
+  <ng-container *ngIf="activeState == 'addressInfo'">
+    <form class="form w-100 registration-form address-form" novalidate="novalidate" id="kt_login_address_form" [formGroup]="addressForm">
+      <div class="registration-heading form-heading mt-4 mb-3">
+        <h1 class="text-gray-900 fw-bolder fs-2 mb-1">{{ 'ADDRESS_INFOS' | translate }}</h1>
       </div>
-    </ng-container>
-  </ng-template>
-</ng-container>
 
-<ng-container *ngIf="activeState == 'addressInfo'">
-  <form class="form w-100" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="addressForm">
-    <div class="text-center mb-5 mt-5">
-      <h1 class="text-primary fw-bolder">
-        {{ 'ADDRESS_INFOS' | translate }}
-      </h1>
-    </div>
-
-    <div class="separator mb-5">
-      <span class="w-125px text-gray-500 fw-semibold fs-7"></span>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'COUNTRY' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="country" formControlName="country"
-        placeholder="{{ 'COUNTRY' | translate }}" autocomplete="off" [ngClass]="{
-          'is-invalid': addressForm.controls['country'].invalid,
-          'is-valid': addressForm.controls['country'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('COUNTRY' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: addressForm.controls['country']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'CITY' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="city" formControlName="city"
-        placeholder="{{ 'CITY' | translate }}" autocomplete="off" [ngClass]="{
-          'is-invalid': addressForm.controls['city'].invalid,
-          'is-valid': addressForm.controls['city'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('CITY' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: addressForm.controls['city']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fw-bolder text-primary fs-6">{{ 'DISTRICT' | translate }}</label>
-      <input class="form-control bg-transparent text-light-primary" type="text" name="district"
-        formControlName="district" placeholder="{{ 'DISTRICT' | translate }}" autocomplete="off" [ngClass]="{
-          'is-invalid': addressForm.controls['district'].invalid,
-          'is-valid': addressForm.controls['district'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('DISTRICT' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: addressForm.controls['district']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fs-6 fw-bolder text-primary">
-        {{ 'ADDRESS' | translate }}
-      </label>
-
-      <textarea class="form-control bg-transparent text-light-primary" name="address" formControlName="address"
-        autocomplete="off" [ngClass]="{
-          'is-invalid': addressForm.controls['address'].invalid,
-          'is-valid': addressForm.controls['address'].valid
-        }"></textarea>
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('ADDRESS' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: addressForm.controls['address']
-        }"></ng-container>
-    </div>
-
-    <div class="fv-row mb-8">
-      <label class="form-label fs-6 fw-bolder text-primary">
-        {{ 'ADDRESS_HEADER' | translate }}
-      </label>
-
-      <input class="form-control bg-transparent text-light-primary" placeholder="{{ 'ADDRESS_HEADER' | translate }}"
-        type="text" name="addressHeader" formControlName="addressHeader" autocomplete="off" [ngClass]="{
-          'is-invalid': addressForm.controls['addressHeader'].invalid,
-          'is-valid': addressForm.controls['addressHeader'].valid
-        }" />
-
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: ('ADDRESS_HEADER' | translate) + ' ' + ('IS_REQUIRED' | translate),
-          control: addressForm.controls['addressHeader']
-        }"></ng-container>
-    </div>
-  </form>
-
-  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
-    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-      <div class="fv-plugins-message-container">
-        <div class="fv-help-block">
-          <span role="alert">
-            {{ message }}
-          </span>
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'COUNTRY' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="country" formControlName="country" autocomplete="country-name"
+            [ngClass]="{'is-invalid':addressForm.controls['country'].invalid && (addressForm.controls['country'].dirty || addressForm.controls['country'].touched),'is-valid':addressForm.controls['country'].valid && (addressForm.controls['country'].dirty || addressForm.controls['country'].touched)}" />
         </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('COUNTRY'|translate)+' '+('IS_REQUIRED'|translate), control:addressForm.controls['country']}"></ng-container>
       </div>
-    </ng-container>
-  </ng-template>
-</ng-container>
 
-<ng-container>
-  <div class="row">
-    <div class="col-lg-6">
-      <a *ngIf="activeState != 'paymentPlan'" style="float: left"
-        (click)="changeState(activeState == 'membershipInfo' ? 'paymentPlan' : 'membershipInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary">
-        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr002.svg'" class="svg-icon svg-icon-2"></span>
-        {{ 'PREV' | translate }}
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'CITY' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-map position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="city" formControlName="city" autocomplete="address-level2"
+            [ngClass]="{'is-invalid':addressForm.controls['city'].invalid && (addressForm.controls['city'].dirty || addressForm.controls['city'].touched),'is-valid':addressForm.controls['city'].valid && (addressForm.controls['city'].dirty || addressForm.controls['city'].touched)}" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('CITY'|translate)+' '+('IS_REQUIRED'|translate), control:addressForm.controls['city']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'DISTRICT' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-route position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="district" formControlName="district" autocomplete="address-level3"
+            [ngClass]="{'is-invalid':addressForm.controls['district'].invalid && (addressForm.controls['district'].dirty || addressForm.controls['district'].touched),'is-valid':addressForm.controls['district'].valid && (addressForm.controls['district'].dirty || addressForm.controls['district'].touched)}" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('DISTRICT'|translate)+' '+('IS_REQUIRED'|translate), control:addressForm.controls['district']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'ADDRESS_HEADER' | translate }}</label>
+        <div class="position-relative">
+          <i class="ki-outline ki-home-2 position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+          <input class="form-control form-control-lg bg-white ps-12" type="text" name="addressHeader" formControlName="addressHeader" autocomplete="off"
+            [ngClass]="{'is-invalid':addressForm.controls['addressHeader'].invalid && (addressForm.controls['addressHeader'].dirty || addressForm.controls['addressHeader'].touched),'is-valid':addressForm.controls['addressHeader'].valid && (addressForm.controls['addressHeader'].dirty || addressForm.controls['addressHeader'].touched)}" />
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('ADDRESS_HEADER'|translate)+' '+('IS_REQUIRED'|translate), control:addressForm.controls['addressHeader']}"></ng-container>
+      </div>
+
+      <div class="fv-row field-full">
+        <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'ADDRESS' | translate }}</label>
+        <div class="position-relative textarea-wrap">
+          <i class="ki-outline ki-notepad-edit position-absolute start-0 top-0 mt-4 ms-4 fs-2 text-gray-500"></i>
+          <textarea class="form-control form-control-lg bg-white ps-12" name="address" formControlName="address" autocomplete="street-address"
+            [ngClass]="{'is-invalid':addressForm.controls['address'].invalid && (addressForm.controls['address'].dirty || addressForm.controls['address'].touched),'is-valid':addressForm.controls['address'].valid && (addressForm.controls['address'].dirty || addressForm.controls['address'].touched)}"></textarea>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required', message:('ADDRESS'|translate)+' '+('IS_REQUIRED'|translate), control:addressForm.controls['address']}"></ng-container>
+      </div>
+    </form>
+
+    <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+      <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+        <div class="fv-plugins-message-container mt-1"><span role="alert" class="text-danger fs-8 fw-semibold">{{ message }}</span></div>
+      </ng-container>
+    </ng-template>
+  </ng-container>
+
+  <div class="registration-actions d-flex align-items-center justify-content-between gap-3 mt-4">
+    <div>
+      <a *ngIf="activeState != 'paymentPlan'" (click)="changeState(activeState == 'membershipInfo' ? 'paymentPlan' : 'membershipInfo')"
+        class="btn btn-light-primary fw-bold">
+        <i class="ki-outline ki-arrow-left fs-3 me-1"></i>{{ 'PREV' | translate }}
       </a>
     </div>
-
-    <div class="col-lg-6">
-      <a [class.disabled-link]="
-          (activeState == 'paymentPlan' && activePlan < 2) ||
-          (activeState == 'membershipInfo' && registrationForm.invalid)
-        " *ngIf="activeState != 'addressInfo'" style="float: right"
-        (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary">
-        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr001.svg'" class="svg-icon svg-icon-2"></span>
-        {{ 'NEXT' | translate }}
+    <div class="ms-auto">
+      <a [class.disabled-link]="(activeState == 'paymentPlan' && activePlan < 2) || (activeState == 'membershipInfo' && registrationForm.invalid)"
+        *ngIf="activeState != 'addressInfo'" (click)="changeState(activeState == 'paymentPlan' ? 'membershipInfo' : 'addressInfo')"
+        class="btn btn-primary fw-bold">
+        {{ 'NEXT' | translate }}<i class="ki-outline ki-arrow-right fs-3 ms-1"></i>
       </a>
-
       <a (click)="submit()" [class.disabled-link]="activeState == 'addressInfo' && addressForm.invalid"
-        *ngIf="activeState == 'addressInfo'" style="float: right"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary">
-        {{ 'SUBMIT' | translate }}
+        *ngIf="activeState == 'addressInfo'" class="btn btn-primary fw-bold">
+        {{ 'SUBMIT' | translate }}<i class="ki-outline ki-check fs-3 ms-1"></i>
       </a>
     </div>
   </div>
-</ng-container>
+</div>
 
 <app-modal #termsPrivacyModal [modalConfig]="termsPrivacyModalConfig">
   <div class="legal-modal-content">
