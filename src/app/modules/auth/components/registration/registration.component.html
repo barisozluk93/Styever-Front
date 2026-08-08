@@ -1,6 +1,6 @@
 <div class="registration-page w-100">
   <div class="registration-brand d-flex align-items-center justify-content-between gap-4 mb-4">
-    <a routerLink="/home" class="d-inline-flex align-items-center d-lg-none">
+    <a routerLink="/home" class="auth-mobile-brand d-flex align-items-center justify-content-center d-lg-none">
       <img alt="Styever" src="./assets/media/logos/icon-transparent.png" class="registration-logo" />
     </a>
 
@@ -67,7 +67,7 @@
     </div>
 
     <div class="plans-wrap cursor-pointer">
-      <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false" [compactMode]="true"
+      <app-plans [useVoucher]="useVoucher" [activePlan]="activePlan" [isStandByPage]="false" [compactMode]="true" [showSelectionIndicator]="true"
         (isPlanSelect)="isPlanSelect($event)"></app-plans>
     </div>
   </ng-container>

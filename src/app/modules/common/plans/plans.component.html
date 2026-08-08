@@ -11,7 +11,7 @@
         <div class="card-header plan-card-header border-0 d-flex flex-column align-items-start">
           <div class="d-flex align-items-center justify-content-between w-100 gap-2">
             <h3 class="card-title fw-bolder text-gray-900 mb-0">{{ item.name }}</h3>
-            <span class="plan-radio d-flex align-items-center justify-content-center"
+            <span *ngIf="showSelectionIndicator" class="plan-radio d-flex align-items-center justify-content-center"
               [ngClass]="activePlan == item.id ? 'active' : ''">
               <i *ngIf="activePlan == item.id" class="bi bi-check-lg"></i>
             </span>

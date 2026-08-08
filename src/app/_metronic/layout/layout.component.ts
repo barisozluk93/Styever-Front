@@ -84,12 +84,9 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     let scrollObservable$ = fromEvent(window, 'scroll', { capture: true })
     let scrollSubscription$ = scrollObservable$.subscribe(evt => {
-      if (window.pageYOffset > 0) {
-        this.isWhitePage = true;
-        this.isScrolled = true;
-      }
-      else {
-        this.isScrolled = false;
+      this.isScrolled = window.pageYOffset > 0;
+
+      if (!this.isScrolled) {
         this.controlRoute();
       }
     })
@@ -253,7 +250,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("about-background");
 
       main?.classList.add("contactus-background");
-      this.isWhitePage = false;
+      this.isWhitePage = true;
     }
     else if (this.router.url.includes("/payment")) {
 
@@ -267,7 +264,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("about-background");
 
       main?.classList.add("payment-background");
-      this.isWhitePage = false;
+      this.isWhitePage = true;
     }
     else if (this.router.url.includes("/support")) {
 

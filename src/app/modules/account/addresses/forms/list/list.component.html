@@ -1,74 +1,39 @@
 <app-confirmation #confirmationComponent (dismissButtonClick)="delete($event)"></app-confirmation>
 <app-address-editsave #editSaveComponent (isSuccess)="isSuccess($event)"></app-address-editsave>
 
-<div class="card mb-5 mb-xl-10" *ngIf="user">
-  <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
-    data-bs-target="#kt_account_address_list" aria-expanded="true" aria-controls="kt_account_address_list">
-    <div class="card-title m-0">
-      <h3 class="fw-bolder m-0 text-primary">{{'MYADDRESSES' | translate}}</h3>
+<div class="card border-0 profile-section-card mb-6" *ngIf="user">
+  <div class="card-body p-7 p-lg-9">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-7">
+      <div>
+        <span class="profile-section-kicker">STYEVER</span>
+        <h2 class="fs-2 fw-bold text-gray-900 mb-1">{{'MYADDRESSES' | translate}}</h2>
+      </div>
+      <button *ngIf="isUserActive" type="button" (click)="openSaveModal()" class="btn btn-primary px-6">
+        <app-keenicon name="plus" class="fs-4 me-2"></app-keenicon>{{'MENU.NEW' | translate}}
+      </button>
     </div>
-    <div *ngIf="isUserActive" class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
-      <a (click)="openSaveModal()" title="Click to Add" class="btn btn-sm btn-primary">
-        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
-        {{'MENU.NEW' | translate}}
-      </a>
-    </div>
-  </div>
-  <div class="card-body border-top p-9">
-    <div class="row gy-5 g-xl-8">
-      <ng-container *ngFor="let item of addresses">
-        <div class="col-xxl-3">
-          <div class="card card-xl-stretch mb-xl-8">
-            <div class="card-header border-1 pt-0">
-              <div class="card-title m-0">
-                <h3 class="fw-bolder m-0"> {{item.addressHeader}}
-                </h3>
-              </div>
-              <div *ngIf="isUserActive" class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
-                <button (click)="openDeleteModal(item.id)" type="button" class="btn btn-sm btn-icon btn-color-danger btn-active-light-danger me-4"
-                  title="Delete">
-                  <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
-                    class="svg-icon svg-icon-2"></span>
-                </button>
-                <button (click)="openEditModal(item.id)" type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-                  title="Edit">
-                  <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
-                    class="svg-icon svg-icon-2"></span>
-                </button>
-              </div>
+
+    <div class="row g-5" *ngIf="addresses.length">
+      <div class="col-md-6 col-xl-4" *ngFor="let item of addresses">
+        <div class="profile-address-card h-100">
+          <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
+            <div>
+              <div class="fw-bold fs-5 text-gray-900 mb-1">{{item.addressHeader}}</div>
             </div>
-            <div class="card-body">
-              
-              <div class="row mb-1">
-                <span class="text-muted fw-bolder fs-7 ps-3">{{item.address}}</span>
-              </div>
-              <div class="row mb-1">
-                <span class="text-muted fw-bolder fs-7 ps-3">{{item.district}}/{{item.city}}</span>
-              </div>
-              <div class="row mb-1">
-                <span class="text-muted fw-bolder fs-7 ps-3">{{item.country}}</span>
-              </div>
-              
+            <div class="d-flex gap-2" *ngIf="isUserActive">
+              <button (click)="openEditModal(item.id)" type="button" class="btn btn-icon btn-sm btn-light-primary"><app-keenicon name="pencil" class="fs-5"></app-keenicon></button>
+              <button (click)="openDeleteModal(item.id)" type="button" class="btn btn-icon btn-sm btn-light-danger"><app-keenicon name="trash" class="fs-5"></app-keenicon></button>
             </div>
           </div>
+          <div class="text-gray-600 fs-7 lh-lg">{{item.address}}</div>
+          <div class="text-gray-500 fs-8 mt-3">{{item.district}} / {{item.city}} · {{item.country}}</div>
         </div>
-      </ng-container>
-      <ng-container *ngIf="addresses.length == 0">
-        <div class="col-xxl-12" style="height: 500px; text-align: center; align-items: center;">
-            <div class="card card-xl-stretch mb-xl-8">
-                <div class="card-body">
-                    <div class="d-flex justify-content-start flex-column" style="position: absolute;
-                left: 50%;
-                top: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);">
-                        <a class="text-gray-900 fw-bolder text-hover-primary fs-6">
-                            {{'NO_DATA_AVAILABLE' | translate}}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="!addresses.length" class="profile-empty text-center py-15">
+      <div class="symbol symbol-70px mb-4"><span class="symbol-label bg-light-primary"><app-keenicon name="geolocation" class="fs-1 text-primary"></app-keenicon></span></div>
+      <div class="fw-bold fs-5 text-gray-800">{{'NO_DATA_AVAILABLE' | translate}}</div>
     </div>
   </div>
+</div>

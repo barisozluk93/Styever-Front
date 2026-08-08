@@ -1,111 +1,95 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">{{ 'CONTACT_US' | translate }}</span>
-    </div>
-  </div>
-</div>
-
-<div class="d-flex flex-column flex-lg-row flex-column-fluid mx-10 my-10">
-  <div class="d-flex flex-column flex-lg-row-fluid w-lg-100 p-10 order-2 order-lg-1 bg-white"
-    style="border-radius: 10px;">
-    <div class="d-flex flex-center flex-column flex-lg-row-fluid">
-      <form class="form w-100" [formGroup]="contactForm">
-        <div class="text-center mb-5 mt-5">
-          <h1 class="text-gray-900 fw-bolder">
-            {{ 'CONTACT_US' | translate }}
-          </h1>
-        </div>
-        <div class="separator mb-5"></div>
-
-        <div class="company-info-card mb-8">
-          <h3 class="company-info-title">{{ 'COMPANY_INFORMATION' | translate }}</h3>
-          <div class="company-info-row"><span>{{ 'COMPANY_TITLE' | translate }}</span><strong>Styever</strong></div>
-          <div class="company-info-row"><span>{{ 'HEAD_OFFICE_ADDRESS' | translate }}</span><strong>Çankaya / Ankara</strong></div>
-          <div class="company-info-row"><span>{{ 'TAX_OFFICE' | translate }}</span><strong>{{ 'DOGANBEY_TAX_OFFICE' | translate }}</strong></div>
-          <div class="company-info-row"><span>{{ 'TAX_NUMBER' | translate }}</span><strong>0990426667</strong></div>
-          <div class="company-info-row"><span>{{ 'EMAIL' | translate }}</span><strong>info&#64;styever.com</strong></div>
-        </div>
-
-        <div class="row g-3 mb-8">
-          <div class="col-lg-6">
-            <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'FULL_NAME' | translate }}</label>
-            <input class="form-control bg-transparent" type="text" name="fullname" formControlName="fullname"
-              placeholder="{{ 'FULL_NAME' |  translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': contactForm.controls['fullname'].invalid,
-        'is-valid': contactForm.controls['fullname'].valid
-      }" />
-
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('FULL_NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: contactForm.controls['fullname']
-      }"></ng-container>
-
+<section class="contact-page py-10 py-lg-15">
+  <div class="container-xxl">
+    <div class="row g-8 g-xl-12 align-items-start">
+      <div class="col-lg-5">
+        <div class="contact-intro pe-lg-8">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <span class="contact-eyebrow-line"></span>
+            <span class="text-primary fs-8 fw-bold text-uppercase ls-1">Styever</span>
           </div>
-          <div class="col-lg-6">
-            <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'EMAIL' | translate }}</label>
-            <input class="form-control bg-transparent" type="email" name="email" formControlName="email"
-              placeholder="{{ 'EMAIL' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': contactForm.controls['email'].invalid,
-        'is-valid': contactForm.controls['email'].valid
-      }" />
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: contactForm.controls['email']
-      }"></ng-container>
-          </div>
-        </div>
-        <div class="row-fv g-3 mb-8">
-          <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'SUBJECT' | translate }}</label>
-          <input class="form-control bg-transparent" type="text" name="subject" formControlName="subject"
-            placeholder="{{ 'SUBJECT' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': contactForm.controls['subject'].invalid,
-        'is-valid': contactForm.controls['subject'].valid
-      }" />
-          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('SUBJECT' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: contactForm.controls['subject']
-      }"></ng-container>
-        </div>
-        <div class="row-fv g-3 mb-8">
-          <label class="form-label fs-6 fw-bolder text-gray-900">{{ 'MESSAGE' | translate }}</label>
-          <input class="form-control bg-transparent" type="text" name="message" formControlName="message"
-            placeholder="{{ 'MESSAGE' | translate }}" autocomplete="off" [ngClass]="{
-        'is-invalid': contactForm.controls['message'].invalid,
-        'is-valid': contactForm.controls['message'].valid
-      }" />
-          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'required',
-        message: ('MESSAGE' | translate) + ' ' + ('IS_REQUIRED' | translate),
-        control: contactForm.controls['message']
-      }"></ng-container>
+          <h1 class="text-gray-900 fw-bolder fs-2x fs-lg-3x mb-4">{{ 'CONTACT_US' | translate }}</h1>
+          <!-- <p class="text-gray-600 fs-6 lh-lg mb-8">{{ 'CONTACT_US_SUBHEADER' | translate }}</p> -->
 
-        </div>
-
-        <div class="row-fv g-3">
-          <div class="d-grid">
-            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="contactForm.invalid"
-              (click)="submit()">
-              {{ 'SUBMIT' | translate }}
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <ng-template #formError let-control="control" let-message="message" let-validation="validation">
-        <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-          <div class="fv-plugins-message-container">
-            <div class="fv-help-block">
-              <span role="alert">
-                {{ message }}
-              </span>
+          <div class="contact-info-card">
+            <div class="d-flex align-items-center mb-6">
+              <span class="symbol symbol-44px me-4"><span class="symbol-label bg-light-primary"><i class="ki-outline ki-building fs-2 text-primary"></i></span></span>
+              <div><div class="text-gray-900 fw-bold fs-5">{{ 'COMPANY_INFORMATION' | translate }}</div><div class="text-gray-500 fs-8">Styever</div></div>
+            </div>
+            <div class="contact-info-list">
+              <div class="contact-info-item"><i class="ki-outline ki-geolocation fs-2 text-primary"></i><div><span>{{ 'HEAD_OFFICE_ADDRESS' | translate }}</span><strong>Çankaya / Ankara</strong></div></div>
+              <div class="contact-info-item"><i class="ki-outline ki-bank fs-2 text-primary"></i><div><span>{{ 'TAX_OFFICE' | translate }}</span><strong>{{ 'DOGANBEY_TAX_OFFICE' | translate }}</strong></div></div>
+              <div class="contact-info-item"><i class="ki-outline ki-document fs-2 text-primary"></i><div><span>{{ 'TAX_NUMBER' | translate }}</span><strong>0990426667</strong></div></div>
+              <div class="contact-info-item"><i class="ki-outline ki-sms fs-2 text-primary"></i><div><span>{{ 'EMAIL' | translate }}</span><strong>info&#64;styever.co</strong></div></div>
             </div>
           </div>
-        </ng-container>
-      </ng-template>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="contact-form-card">
+          <div class="mb-7">
+            <div class="text-primary fs-8 fw-bold text-uppercase ls-1 mb-2">{{ 'CONTACT_US' | translate }}</div>
+            <h2 class="text-gray-900 fw-bolder fs-2 mb-2">{{ 'MESSAGE' | translate }}</h2>
+          </div>
+
+          <form class="form w-100 contact-form" [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+            <div class="row g-5">
+              <div class="col-md-6 fv-row">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'FULL_NAME' | translate }}</label>
+                <div class="position-relative">
+                  <i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                  <input class="form-control form-control-lg bg-white ps-12" type="text" formControlName="fullname" autocomplete="name"
+                    [ngClass]="{'is-invalid': f['fullname'].invalid && (f['fullname'].dirty || f['fullname'].touched), 'is-valid': f['fullname'].valid && (f['fullname'].dirty || f['fullname'].touched)}" />
+                </div>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('FULL_NAME' | translate) + ' ' + ('IS_REQUIRED' | translate),control:f['fullname']}"></ng-container>
+              </div>
+
+              <div class="col-md-6 fv-row">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'EMAIL' | translate }}</label>
+                <div class="position-relative">
+                  <i class="ki-outline ki-sms position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                  <input class="form-control form-control-lg bg-white ps-12" type="email" formControlName="email" autocomplete="email"
+                    [ngClass]="{'is-invalid': f['email'].invalid && (f['email'].dirty || f['email'].touched), 'is-valid': f['email'].valid && (f['email'].dirty || f['email'].touched)}" />
+                </div>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('EMAIL' | translate) + ' ' + ('IS_REQUIRED' | translate),control:f['email']}"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'email',message:('EMAIL' | translate) + ' ' + ('AUTH.VALIDATION.INVALID_FIELD' | translate),control:f['email']}"></ng-container>
+              </div>
+
+              <div class="col-12 fv-row">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'SUBJECT' | translate }}</label>
+                <div class="position-relative">
+                  <i class="ki-outline ki-message-text-2 position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                  <input class="form-control form-control-lg bg-white ps-12" type="text" formControlName="subject"
+                    [ngClass]="{'is-invalid': f['subject'].invalid && (f['subject'].dirty || f['subject'].touched), 'is-valid': f['subject'].valid && (f['subject'].dirty || f['subject'].touched)}" />
+                </div>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('SUBJECT' | translate) + ' ' + ('IS_REQUIRED' | translate),control:f['subject']}"></ng-container>
+              </div>
+
+              <div class="col-12 fv-row">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'MESSAGE' | translate }}</label>
+                <div class="position-relative">
+                  <i class="ki-outline ki-notepad-edit position-absolute contact-textarea-icon ms-4 fs-2 text-gray-500"></i>
+                  <textarea class="form-control form-control-lg bg-white ps-12" rows="6" formControlName="message"
+                    [ngClass]="{'is-invalid': f['message'].invalid && (f['message'].dirty || f['message'].touched), 'is-valid': f['message'].valid && (f['message'].dirty || f['message'].touched)}"></textarea>
+                </div>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('MESSAGE' | translate) + ' ' + ('IS_REQUIRED' | translate),control:f['message']}"></ng-container>
+              </div>
+            </div>
+
+            <div class="d-grid d-sm-flex justify-content-sm-end mt-7">
+              <button type="submit" class="btn btn-lg btn-primary contact-submit px-10" [disabled]="contactForm.invalid">
+                <span class="d-flex align-items-center justify-content-center gap-2">{{ 'SUBMIT' | translate }}<i class="ki-outline ki-arrow-right fs-3"></i></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container mt-1"><span role="alert" class="text-danger fs-8 fw-semibold">{{ message }}</span></div>
+  </ng-container>
+</ng-template>

@@ -39,7 +39,6 @@ export class MemoryModel {
     isPrivate: boolean;
     isOpenToComment: boolean;
     qrData?: string;
-    hasDonation?: boolean;
     belongingToOldPackage: boolean;
   }
   

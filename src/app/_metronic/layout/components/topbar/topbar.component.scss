@@ -93,3 +93,33 @@
   75% { transform: rotate(-3deg); }
   100% { transform: rotate(0deg); }
 }
+
+:host ::ng-deep app-notifications-inner.show {
+  display: flex !important;
+  position: absolute !important;
+  top: calc(100% + 12px) !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 1090 !important;
+  transform: none !important;
+}
+
+
+/* Header dropdowns are state-driven so route-specific Metronic init cannot break them. */
+:host ::ng-deep app-user-inner.styever-user-menu {
+  display: none !important;
+  position: absolute !important;
+  top: calc(100% + 12px) !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 1095 !important;
+  transform: none !important;
+}
+
+:host ::ng-deep app-user-inner.styever-user-menu.show {
+  display: flex !important;
+}
+
+.styever-user-menu-wrap {
+  overflow: visible !important;
+}

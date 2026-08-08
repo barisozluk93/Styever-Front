@@ -1,91 +1,32 @@
-<div class="card mb-5 mb-xl-10" *ngIf="user && userData">
-    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
-        data-bs-target="#kt_account_address_list" aria-expanded="true" aria-controls="kt_account_address_list">
-        <div class="card-title m-0">
-            <h3 class="fw-bolder m-0 text-primary">{{'MEMBERSHIP' | translate}}</h3>
-        </div>
-        <div class="card-toolbar">
-            <a *ngIf="!userData.isTrial && !isUserActive && !showPlans" title="Click to Add" class="btn btn-sm btn-primary w-100"
-                (click)="buyNewPackage()">
-                {{'BUY_NEW_PACKAGE' | translate}}
-            </a>
-            <a *ngIf="!userData.isTrial && !isUserActive && showPlans" title="Click to Add" class="btn btn-sm btn-primary w-100"
-                (click)="buyNewPackage()">
-                {{'CLOSE' | translate}}
-            </a>
-            <a *ngIf="userData.isTrial && !isUserActive" title="Click to Add" class="btn btn-sm btn-primary w-100"
-                (click)="pay()">
-                {{'PAYMENT' | translate}}
-            </a>
-        </div>
+<div class="card border-0 profile-section-card mb-6" *ngIf="user && userData">
+  <div class="card-body p-7 p-lg-9">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-7">
+      <div>
+        <span class="profile-section-kicker">STYEVER</span>
+        <h2 class="fs-2 fw-bold text-gray-900 mb-1">{{'MEMBERSHIP' | translate}}</h2>
+      </div>
+      <button *ngIf="!userData.isTrial && !isUserActive" type="button" class="btn btn-primary px-6" (click)="buyNewPackage()">{{(showPlans ? 'CLOSE' : 'BUY_NEW_PACKAGE') | translate}}</button>
+      <button *ngIf="userData.isTrial && !isUserActive" type="button" class="btn btn-primary px-6" (click)="pay()">{{'PAYMENT' | translate}}</button>
     </div>
 
-    <div class="card-body border-top p-9">
-        <div class="row gy-5 g-xl-8">
-            <div class="col-xxl-4" *ngIf="!showPlans">
-                <div class="card mb-xl-8 d-flex flex-column selected-plan">
-                    <div class="card-header border-1 py-5 d-flex flex-column align-items-center">
-                        <h3 class="card-title fw-bolder text-primary text-center">
-                            {{ userData.roles[0] == 2 ? ('standard' | translate) : userData.roles[0] == 3 ? ('premium' |
-                            translate) : ('ultra' | translate) }}
-                        </h3>
-                    </div>
-                    <div class="card-body py-3 d-flex flex-column flex-grow-1">
-                        <div class="row">
-                            <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <i class="bi bi-calendar text-primary me-2"></i>
-                                <span class="text-light-primary">{{ 'start_date' | translate }}</span>
-                            </div>
-                            <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <i class="bi bi-calendar text-primary me-2"></i>
-                                <span class="text-light-primary">{{ 'end_date' | translate }}</span>
-                            </div>
-                            <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ createdDate }}</span>
-                            </div>
-                            <div class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ expirationDate }}</span>
-                            </div>
-                            <div *ngIf="userData.isTrial" class="col-lg-2 mb-2"></div>
-                            <div *ngIf="userData.isTrial" class="col-lg-8 mb-2">
-                                <i class="bi bi-calendar text-primary me-2"></i>
-                                <span class="text-light-primary">{{ 'trial_end_date' | translate }}</span>
-                            </div>
-                            <div *ngIf="userData.isTrial" class="col-lg-2 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="userData.isTrial" class="col-lg-6 d-flex align-items-center mb-2">
-                                <span class="text-light-primary">{{ trialExpirationDate }}</span>
-                            </div>
-                            <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
-
-                            <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="userData.isTrial" class="col-lg-6 trialBadge text-center">
-                                <span class="text-white">{{ 'trial' | translate }}</span>
-                            </div>
-                            <div *ngIf="userData.isTrial" class="col-lg-3 d-flex align-items-center mb-2"></div>
-
-                            <div *ngIf="userData.isTrial && !isUserActive"
-                                class="col-lg-2 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="userData.isTrial && !isUserActive" class="col-lg-8 expireBadge text-center">
-                                <span class="text-white">{{ 'TRIAL_EXPIRED' | translate }}</span>
-                            </div>
-                            <div *ngIf="userData.isTrial && !isUserActive"
-                                class="col-lg-2 d-flex align-items-center mb-2"></div>
-
-                            <div *ngIf="!userData.isTrial && !isUserActive"
-                                class="col-lg-2 d-flex align-items-center mb-2"></div>
-                            <div *ngIf="!userData.isTrial && !isUserActive" class="col-lg-8 expireBadge text-center">
-                                <span class="text-white">{{ 'PACKAGE_EXPIRED' | translate }}</span>
-                            </div>
-                            <div *ngIf="!userData.isTrial && !isUserActive"
-                                class="col-lg-2 d-flex align-items-center mb-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-12" *ngIf="showPlans">
-                <app-plans [isStandByPage]="false" [isProfilePage]="true"></app-plans>
-            </div>
+    <div *ngIf="!showPlans" class="membership-current">
+      <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-5">
+        <div>
+          <div class="text-gray-500 fs-8 text-uppercase fw-bold ls-1 mb-2">{{'MEMBERSHIP' | translate}}</div>
+          <div class="fs-2x fw-bold text-primary">{{ userData.roles[0] == 2 ? ('standard' | translate) : userData.roles[0] == 3 ? ('premium' | translate) : ('ultra' | translate) }}</div>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span *ngIf="userData.isTrial" class="badge badge-light-warning px-3 py-2">{{'trial' | translate}}</span>
+            <span *ngIf="!isUserActive" class="badge badge-light-danger px-3 py-2">{{(userData.isTrial ? 'TRIAL_EXPIRED' : 'PACKAGE_EXPIRED') | translate}}</span>
+          </div>
         </div>
+        <div class="membership-dates">
+          <div class="membership-date"><span>{{'start_date' | translate}}</span><strong>{{createdDate}}</strong></div>
+          <div class="membership-date"><span>{{'end_date' | translate}}</span><strong>{{expirationDate}}</strong></div>
+          <div class="membership-date" *ngIf="userData.isTrial"><span>{{'trial_end_date' | translate}}</span><strong>{{trialExpirationDate}}</strong></div>
+        </div>
+      </div>
     </div>
+
+    <div *ngIf="showPlans" class="pt-2"><app-plans [isStandByPage]="false" [isProfilePage]="true"></app-plans></div>
+  </div>
 </div>

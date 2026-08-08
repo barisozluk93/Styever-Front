@@ -1,162 +1,133 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
-    <div class="col-lg-9">
-    </div>
-    <div class="col-lg-3">
-      <a (click)="goToMemories()"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
-        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-        <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2 me-1"></span>
+<main class="memory-edit-page">
+  <section class="memory-edit-hero">
+    <div class="memory-edit-hero__shade"></div>
+    <div class="container-xxl position-relative z-index-2">
+      <button type="button" class="btn btn-light btn-sm rounded-3 px-5 mb-6" (click)="goToMemories()">
+        <i class="ki-duotone ki-arrow-left fs-4 me-2"><span class="path1"></span><span class="path2"></span></i>
         {{ 'SEARCH_PETS' | translate }}
-      </a>
+      </button>
+      <div class="memory-edit-hero__eyebrow"><span></span>{{ 'MEMORIES' | translate }}</div>
+      <h1>{{ form.get('id')?.value > 0 ? ('EDIT' | translate) : ('ADD_MEMORY' | translate) }}</h1>
+      <p>{{ 'MEMORY_SUBHEADER' | translate }}</p>
     </div>
-  </div>
-</div>
-<div class="row mx-10 my-10">
-  <div class="card">
-    <div class="card-body pt-2">
-      <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-          <app-carousel [isEdit]="form.get('id')?.value > 0" [youtubeLinks]="youtubeLinks" [files]="mediaFiles"
-            [activeMediaIndex]="activeMediaIndex" [isImageUploadAllowed]="isImageUploadAllowed"
-            [isVideoUploadAllowed]="isVideoUploadAllowed" [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
-            (isFileChanged)="onFileChange($event)" (isFileDeleted)="isFileDeleted($event)"
-            (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"
-            (isCheckboxClicked)="isCheckboxClicked($event)"
-            (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)"></app-carousel>
-        </div>
-        <div class="col-lg-2"></div>
+  </section>
 
-        <div class="col-lg-12 mt-10">
-          <form class="form w-100" [formGroup]="form" novalidate="novalidate">
-            <div class="row mb-8">
-              <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isPrivate" formControlName="isPrivate"
-                  (change)="onIsPrivateChange($event)" />
-                <label class="form-check-label text-primary fw-bolder d-inline-flex align-items-center"
-                  htmlFor="isPrivate">
-                  &nbsp;{{ 'IS_PRIVATE' | translate }}
+  <section class="memory-edit-content">
+    <div class="container-xxl">
+      <div class="card border-0 memory-editor-card">
+        <div class="card-body p-6 p-lg-10">
+          <div class="memory-editor-media mb-10">
+            <app-carousel [isEdit]="form.get('id')?.value > 0" [youtubeLinks]="youtubeLinks" [files]="mediaFiles"
+              [activeMediaIndex]="activeMediaIndex" [isImageUploadAllowed]="isImageUploadAllowed"
+              [isVideoUploadAllowed]="isVideoUploadAllowed" [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
+              (isFileChanged)="onFileChange($event)" (isFileDeleted)="isFileDeleted($event)"
+              (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"
+              (isCheckboxClicked)="isCheckboxClicked($event)"
+              (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)"></app-carousel>
+          </div>
 
-                  <i class="bi bi-info-circle ms-2 text-primary cursor-pointer" style="font-size: 14px;"
-                    data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="top" data-bs-html="true"
-                    [attr.data-bs-content]="'PUBLIC_PROFILE_WARNING_TEXT' | translate"></i>
-                </label>
-              </div>
-              <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isLinkOnly" formControlName="isLinkOnly"
-                  (change)="onIsLinkOnlyChange($event)" />
-                <label class="form-check-label text-primary fw-bolder" htmlFor="isLinkOnly">&nbsp;{{'LINK_ONLY' |
-                  translate}}</label>
-              </div>
-              <div class="col-xxl-3">
-                <input class="form-check-input" type="checkbox" id="isOpenToComment"
-                  formControlName="isOpenToComment" />
-                <label class="form-check-label text-primary fw-bolder"
-                  htmlFor="isOpenToComment">&nbsp;{{'OPEN_TO_COMMENT' | translate}}</label>
-              </div>
-              <div class="col-xxl-3">
-                <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_TYPE' | translate}}</label>
+          <div class="separator mb-10"></div>
+
+          <form class="form w-100 memory-auth-form" [formGroup]="form" novalidate="novalidate">
+            <div class="form-heading">
+              <span class="memory-form-kicker">STYEVER</span>
+              <h2 class="text-gray-900 fw-bolder mb-2">{{ 'MEMORY_HEADER' | translate }}</h2>
+              <p class="text-gray-500 mb-0">{{ 'MEMORY_SUBHEADER' | translate }}</p>
+            </div>
+
+            <div class="privacy-options field-full">
+              <label class="privacy-option">
+                <input class="form-check-input" type="checkbox" id="isPrivate" formControlName="isPrivate" (change)="onIsPrivateChange($event)" />
+                <span>
+                  <strong>{{ 'IS_PRIVATE' | translate }}</strong>
+                  <small>{{ 'PUBLIC_PROFILE_WARNING_TEXT' | translate }}</small>
+                </span>
+              </label>
+              <label class="privacy-option">
+                <input class="form-check-input" type="checkbox" id="isLinkOnly" formControlName="isLinkOnly" (change)="onIsLinkOnlyChange($event)" />
+                <span><strong>{{ 'LINK_ONLY' | translate }}</strong></span>
+              </label>
+              <label class="privacy-option">
+                <input class="form-check-input" type="checkbox" id="isOpenToComment" formControlName="isOpenToComment" />
+                <span><strong>{{ 'OPEN_TO_COMMENT' | translate }}</strong></span>
+              </label>
+            </div>
+
+            <div class="fv-row">
+              <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'BF_TYPE' | translate }}</label>
+              <div class="position-relative">
+                <i class="ki-outline ki-category position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
                 <select name="category" formControlName="categoryId" autocomplete="off"
-                  class="form-select form-select-solid form-select-lg fw-bold text-light-primary" [ngClass]="{
-                            'is-invalid': form.controls['categoryId'].invalid,
-                            'is-valid': form.controls['categoryId'].valid
-                          }">
-                  <option class="text-light-primary" value="">{{ 'SELECT_PET' | translate}}</option>
+                  class="form-select form-select-lg bg-white ps-12"
+                  [ngClass]="{'is-invalid':form.controls['categoryId'].invalid && (form.controls['categoryId'].dirty || form.controls['categoryId'].touched),'is-valid':form.controls['categoryId'].valid && (form.controls['categoryId'].dirty || form.controls['categoryId'].touched)}">
+                  <option value="">{{ 'SELECT_PET' | translate }}</option>
                   <ng-container *ngFor="let category of categoryList">
-                    <option class="text-light-primary" value={{category.id}}>{{("LANG" | translate) === 'tr' ?
-                      category.name : category.nameEn}}</option>
+                    <option [value]="category.id">{{ ('LANG' | translate) === 'tr' ? category.name : category.nameEn }}</option>
                   </ng-container>
                 </select>
+              </div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('BF_TYPE'|translate)+' '+('IS_REQUIRED'|translate),control:form.controls['categoryId']}"></ng-container>
+            </div>
 
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                            validation: 'required',
-                            message: ('BF_TYPE'| translate) + ' ' + ('IS_REQUIRED'| translate),
-                            control: form.controls['categoryId']
-                          }"></ng-container>
+            <div class="fv-row">
+              <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'BF_NAME' | translate }}</label>
+              <div class="position-relative">
+                <i class="ki-outline ki-heart position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                <input class="form-control form-control-lg bg-white ps-12" type="text" name="name" formControlName="name" autocomplete="off"
+                  [ngClass]="{'is-invalid':form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched),'is-valid':form.controls['name'].valid && (form.controls['name'].dirty || form.controls['name'].touched)}" />
               </div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('BF_NAME'|translate)+' '+('IS_REQUIRED'|translate),control:form.controls['name']}"></ng-container>
             </div>
-            <div class="row mb-8">
-              <div class="col-xxl-12">
-                <label class="form-label fs-6 fw-bolder text-primary">{{ 'BF_NAME' | translate}}</label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="name"
-                  formControlName="name" autocomplete="off" [ngClass]="{
-                        'is-invalid': form.controls['name'].invalid,
-                        'is-valid': form.controls['name'].valid
-                      }" />
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                        validation: 'required',
-                        message: ('BF_NAME'| translate) + ' ' + ('IS_REQUIRED'| translate),
-                        control: form.controls['name']
-                      }"></ng-container>
-              </div>
-            </div>
-            <div class="row mb-8">
-              <div class="col-xxl-6">
-                <label class="form-label fs-6 fw-bolder text-primary">{{ 'BIRTH_DATE' | translate}}</label>
-                <input class="form-control bg-transparent text-light-primary" type="date" name="birthDate"
-                  formControlName="birthDate" autocomplete="off" [ngClass]="{
-                        'is-invalid': form.controls['birthDate'].invalid,
-                        'is-valid': form.controls['birthDate'].valid
-                      }" />
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                        validation: 'required',
-                        message: ('BIRTH_DATE'| translate) + ' ' + ('IS_REQUIRED'| translate),
-                        control: form.controls['birthDate']
-                      }"></ng-container>
-              </div>
-              <div class="col-xxl-6">
-                <label class="form-label fs-6 fw-bolder text-primary">{{ 'DEATH_DATE' | translate}}</label>
-                <input class="form-control bg-transparent text-light-primary" type="date" name="deathDate"
-                  formControlName="deathDate" autocomplete="off" [ngClass]="{
-                        'is-invalid': form.controls['deathDate'].invalid,
-                        'is-valid': form.controls['deathDate'].valid
-                      }" />
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                        validation: 'required',
-                        message: ('DEATH_DATE'| translate) + ' ' + ('IS_REQUIRED'| translate),
-                        control: form.controls['deathDate']
-                      }"></ng-container>
-              </div>
-            </div>
-            <div class="row mb-8">
-              <label class="form-label fs-6 fw-bolder text-primary">
-                {{ 'MEMORY_TEXT' | translate}}
-              </label>
-              <textarea class="form-control bg-transparent text-light-primary" type="text" name="text"
-                formControlName="text" autocomplete="off" rows="20" maxlength="{{ allowedCharacterCount}}" [ngClass]="{
-                    'is-invalid': form.controls['text'].invalid,
-                    'is-valid': form.controls['text'].valid
-                }"></textarea>
-              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                        validation: 'required',
-                        message: ('MEMORY_TEXT'| translate) + ' ' + ('IS_REQUIRED'| translate),
-                        control: form.controls['text']
-                      }"></ng-container>
 
+            <div class="fv-row">
+              <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'BIRTH_DATE' | translate }}</label>
+              <div class="position-relative">
+                <i class="ki-outline ki-calendar position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                <input class="form-control form-control-lg bg-white ps-12" type="date" name="birthDate" formControlName="birthDate" autocomplete="off"
+                  [ngClass]="{'is-invalid':form.controls['birthDate'].invalid && (form.controls['birthDate'].dirty || form.controls['birthDate'].touched),'is-valid':form.controls['birthDate'].valid && (form.controls['birthDate'].dirty || form.controls['birthDate'].touched)}" />
+              </div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('BIRTH_DATE'|translate)+' '+('IS_REQUIRED'|translate),control:form.controls['birthDate']}"></ng-container>
             </div>
-            <div class="row mb-8">
-              <button type="button" (click)="submit()" [disabled]="disableSubmitButton()"
-                class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
-                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                {{ 'SUBMIT' | translate}}
+
+            <div class="fv-row">
+              <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'DEATH_DATE' | translate }}</label>
+              <div class="position-relative">
+                <i class="ki-outline ki-calendar position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i>
+                <input class="form-control form-control-lg bg-white ps-12" type="date" name="deathDate" formControlName="deathDate" autocomplete="off"
+                  [ngClass]="{'is-invalid':form.controls['deathDate'].invalid && (form.controls['deathDate'].dirty || form.controls['deathDate'].touched),'is-valid':form.controls['deathDate'].valid && (form.controls['deathDate'].dirty || form.controls['deathDate'].touched)}" />
+              </div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('DEATH_DATE'|translate)+' '+('IS_REQUIRED'|translate),control:form.controls['deathDate']}"></ng-container>
+            </div>
+
+            <div class="fv-row field-full">
+              <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'MEMORY_TEXT' | translate }}</label>
+              <div class="position-relative textarea-wrap">
+                <i class="ki-outline ki-notepad-edit position-absolute start-0 top-0 mt-4 ms-4 fs-2 text-gray-500"></i>
+                <textarea class="form-control form-control-lg bg-white ps-12" name="text" formControlName="text" autocomplete="off"
+                  rows="8" [attr.maxlength]="allowedCharacterCount"
+                  [ngClass]="{'is-invalid':form.controls['text'].invalid && (form.controls['text'].dirty || form.controls['text'].touched),'is-valid':form.controls['text'].valid && (form.controls['text'].dirty || form.controls['text'].touched)}"></textarea>
+              </div>
+              <div class="text-end text-gray-500 fs-8 mt-2">{{ form.get('text')?.value?.length || 0 }} / {{ allowedCharacterCount }}</div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('MEMORY_TEXT'|translate)+' '+('IS_REQUIRED'|translate),control:form.controls['text']}"></ng-container>
+            </div>
+
+            <div class="field-full d-flex justify-content-end pt-4">
+              <button type="button" (click)="submit()" [disabled]="disableSubmitButton()" class="btn btn-primary btn-lg px-10">
+                {{ 'SUBMIT' | translate }}
+                <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i>
               </button>
             </div>
           </form>
 
           <ng-template #formError let-control="control" let-message="message" let-validation="validation">
             <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-              <div class="fv-plugins-message-container">
-                <span role="alert">
-                  {{ message }}
-                </span>
-              </div>
+              <div class="fv-plugins-message-container mt-1"><span role="alert" class="text-danger fs-8 fw-semibold">{{ message }}</span></div>
             </ng-container>
           </ng-template>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
 <app-memory-youtube #youtubeComponent (isSuccess)="isSuccess($event)"></app-memory-youtube>

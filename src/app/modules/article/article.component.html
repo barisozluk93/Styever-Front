@@ -1,85 +1,160 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">{{'SUPPORT_HEADER' | translate}}</span>
+<main class="styever-articles">
+  <section class="articles-hero">
+    <div class="articles-hero__shade"></div>
+    <div class="container-xxl articles-hero__container">
+      <div class="articles-hero__layout">
+        <div class="articles-hero__content">
+          <div class="articles-hero__eyebrow">
+            <span class="articles-hero__eyebrow-mark"></span>
+            {{ 'SUPPORT_HEADER' | translate }}
+          </div>
+          <h1>
+            {{ ('LANG' | translate) === 'tr'
+              ? 'Yanınızda olacak içerikleri keşfedin.'
+              : 'Discover guidance made to be there for you.' }}
+          </h1>
+          <p>
+            {{ ('LANG' | translate) === 'tr'
+              ? 'Anma, yas ve hatıraları yaşatma sürecinde ihtiyaç duyabileceğiniz rehberleri özenle bir araya getirdik.'
+              : 'We thoughtfully brought together guides for remembrance, grief and keeping meaningful memories alive.' }}
+          </p>
+        </div>
 
-      <span class="text-white" style="font-size: 15px;">{{'SUPPORT_SUBHEADER' | translate}}</span>
+        <div class="articles-hero__actions">
+          <form class="articles-search" (ngSubmit)="onSearch()">
+            <div class="input-group input-group-solid bg-white rounded-3 p-2 shadow-sm">
+              <span class="input-group-text border-0 bg-transparent ps-4 pe-2">
+                <i class="ki-duotone ki-magnifier fs-2 text-primary">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+              </span>
+              <input
+                type="search"
+                class="form-control form-control-lg border-0 bg-transparent shadow-none px-2"
+                [placeholder]="'SEARCH_BAR' | translate"
+                [attr.aria-label]="'SEARCH_BAR' | translate"
+                [(ngModel)]="searchTerm"
+                name="searchTerm" />
+              <button type="submit" class="btn btn-primary btn-lg px-7 rounded-3">
+                {{ 'SEARCH_BAR' | translate }}
+                <i class="ki-duotone ki-arrow-right fs-3 ms-2">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+              </button>
+            </div>
+          </form>
+
+          <div class="articles-hero__note">
+            <div class="articles-hero__note-icon flex-shrink-0">
+              <i class="ki-duotone ki-heart fs-2"><span class="path1"></span><span class="path2"></span></i>
+            </div>
+            <span>
+              {{ ('LANG' | translate) === 'tr'
+                ? 'Kaybın ardından ihtiyaç duyabileceğiniz bilgileri sakin, anlaşılır ve güvenli bir alanda keşfedin.'
+                : 'Explore thoughtful guidance in a calm, clear and safe space whenever you need it.' }}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-8">
-      <form class="form-inline" (ngSubmit)="onSearch()">
-        <div class="input-group mb-3">
-          <input class="form-control" type="search" placeholder="{{'SEARCH_BAR' | translate}}" aria-label="Ara"
-            [(ngModel)]="searchTerm" name="searchTerm">
-          <div class="input-group-append">
-
-            <button type="submit" class="btn btn-custom btn-active-white btn-color-white btn-primary"
-              style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
-              <ng-container>
-                <span class="indicator-label">
-                  {{'SEARCH_BAR' | translate}}
+  <section #articlesSection class="articles-section">
+    <div class="container-xxl">
+      <ng-container *ngIf="dataSource && dataSource.length; else emptyArticles">
+        <div class="row g-5 g-xl-7">
+          <div class="col-12 col-md-6 col-xl-4" *ngFor="let data of dataSource; trackBy: trackByArticleId">
+            <article class="card article-card border-0 h-100 cursor-pointer" (click)="articleEditView(data.id)">
+              <div class="article-card__media">
+                <img
+                  *ngIf="data.file; else fallbackImage"
+                  [src]="data.fileUrl"
+                  [alt]="('LANG' | translate) === 'tr' ? data.header : data.headerEn" />
+                <ng-template #fallbackImage>
+                  <img src="./assets/media/patterns/blank.jpg" [alt]="('LANG' | translate) === 'tr' ? data.header : data.headerEn" />
+                </ng-template>
+                <div class="article-card__shade"></div>
+                <span class="badge badge-light article-card__badge">
+                  <i class="ki-duotone ki-book-open fs-5 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                  {{ ('LANG' | translate) === 'tr' ? 'STYEVER REHBERİ' : 'STYEVER GUIDE' }}
                 </span>
-              </ng-container>
-            </button>
+              </div>
+
+              <div class="card-body d-flex flex-column p-7 p-xl-8">
+                <h3 class="article-card__title mb-3">
+                  {{ ('LANG' | translate) === 'tr' ? data.header : data.headerEn }}
+                </h3>
+                <p class="article-card__description flex-grow-1 mb-6">
+                  {{ ('LANG' | translate) === 'tr' ? data.subHeader : data.subHeaderEn }}
+                </p>
+                <div class="d-flex align-items-center justify-content-between pt-5 border-top border-gray-200">
+                  <span class="text-primary fw-bold fs-7">
+                    {{ ('LANG' | translate) === 'tr' ? 'Makaleyi oku' : 'Read article' }}
+                  </span>
+                  <span class="article-card__arrow">
+                    <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>
+                  </span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </form>
-    </div>
-    <div class="col-lg-2">
-    </div>
-  </div>
-</div>
+      </ng-container>
 
-<div class="row mx-10 my-10">
-  <ng-container *ngFor="let data of dataSource">
-    <div class="col-lg-4 mb-5">
-      <div class="card border-0" style="border-radius: 8px; cursor: pointer;">
-        <div class="card-body px-0 py-0">
-          <div class="row mb-5">
-            <div class="col-lg-12">
-              <img *ngIf="data.file" class="image" [src]="data.fileUrl" />
-              <img *ngIf="!data.file" class="image" src="./../../../assets/media/patterns/blank.jpg" />
+      <ng-template #emptyArticles>
+        <div class="card border-0 articles-empty text-center">
+          <div class="card-body py-15 px-8">
+            <div class="articles-empty__icon mx-auto mb-5">
+              <i class="ki-duotone ki-document fs-2x"><span class="path1"></span><span class="path2"></span></i>
             </div>
+            <h3 class="fs-2 fw-bold text-gray-900 mb-3">{{ 'NO_DATA_AVAILABLE' | translate }}</h3>
+            <p class="text-gray-600 fs-6 mb-0">
+              {{ ('LANG' | translate) === 'tr'
+                ? 'Aramanızla eşleşen bir içerik bulunamadı.'
+                : 'We could not find an article matching your search.' }}
+            </p>
           </div>
-          <div class="row">
-            <div class="col-lg-12 px-10 mb-5 pb-5">
-              <span (click)="articleEditView(data.id)" class="text-hover-primary fs-3 fw-bolder"
-                style="float: left;">{{("LANG" | translate) === 'tr' ? data.header : data.headerEn }}</span>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+
+  <section class="articles-cta">
+    <div class="container-xxl">
+      <div class="card border-0 articles-cta__card">
+        <div class="card-body p-8 p-lg-10">
+          <div class="row align-items-center g-6">
+            <div class="col-lg">
+              <div class="d-flex align-items-start gap-5">
+                <div class="articles-cta__icon flex-shrink-0">
+                  <i class="ki-duotone ki-message-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                </div>
+                <div>
+                  <span class="articles-kicker articles-kicker--light">
+                    {{ ('LANG' | translate) === 'tr' ? 'DAHA FAZLA DESTEK' : 'MORE SUPPORT' }}
+                  </span>
+                  <h2 class="text-white fw-bold mt-2 mb-2">
+                    {{ ('LANG' | translate) === 'tr' ? 'Aradığınız yanıtı bulamadınız mı?' : 'Could not find the answer you were looking for?' }}
+                  </h2>
+                  <p class="text-white text-opacity-70 mb-0">
+                    {{ ('LANG' | translate) === 'tr'
+                      ? 'Sık sorulan sorulara göz atabilir veya bizimle doğrudan iletişime geçebilirsiniz.'
+                      : 'Browse frequently asked questions or get in touch with us directly.' }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-12 mb-5">
-              <div class="separator"></div>
-            </div>
-            <div class="col-lg-12 px-10 mb-5">
-              <span class="text-muted fs-5 fw-bolder" style="float: left;">{{("LANG" | translate) === 'tr' ?
-                data.subHeader : data.subHeaderEn }}</span>
+            <div class="col-lg-auto">
+              <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+                <button type="button" class="btn btn-light btn-lg px-7" (click)="goToFaq()">{{ 'FAQ' | translate }}</button>
+                <button type="button" class="btn btn-outline btn-outline-dashed btn-outline-light btn-active-light btn-lg px-7" (click)="goToContact()">
+                  {{ ('LANG' | translate) === 'tr' ? 'Bize Ulaşın' : 'Contact Us' }}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </ng-container>
-</div>
-
-<ng-container *ngIf="!dataSource || dataSource.length == 0">
-  <div class="row mx-10 pt-5">
-    <div class="col-xxl-12" style="height: 500px; text-align: center; align-items: center;">
-      <div class="card card-xl-stretch mb-xl-8">
-        <div class="card-body">
-          <div class="d-flex justify-content-start flex-column" style="position: absolute;
-                left: 50%;
-                top: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);">
-            <a class="text-gray-900 fw-bolder text-hover-primary fs-6">
-              {{'NO_DATA_AVAILABLE' | translate}}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-container>
+  </section>
+</main>

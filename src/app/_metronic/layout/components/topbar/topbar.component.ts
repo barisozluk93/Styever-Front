@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
@@ -31,6 +31,8 @@ export class TopbarComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   private signalRInitialized = false;
   isNotificationAnimating: boolean = false;
+  notificationMenuOpen: boolean = false;
+  userMenuOpen: boolean = false;
 
   constructor(
     private notificationService: NotificationService,
@@ -137,6 +139,28 @@ export class TopbarComponent implements OnInit, OnDestroy {
 
         this.unreadedNotificationCount = count;
       });
+  }
+
+
+  toggleUserMenu(event: MouseEvent): void {
+    event.stopPropagation();
+    this.userMenuOpen = !this.userMenuOpen;
+    this.notificationMenuOpen = false;
+  }
+
+  toggleNotificationMenu(event: MouseEvent): void {
+    event.stopPropagation();
+    this.notificationMenuOpen = !this.notificationMenuOpen;
+    this.userMenuOpen = false;
+    if (this.notificationMenuOpen) {
+      this.loadNotifications();
+    }
+  }
+
+  @HostListener('document:click')
+  closeHeaderMenus(): void {
+    this.notificationMenuOpen = false;
+    this.userMenuOpen = false;
   }
 
   loadNotifications(): void {

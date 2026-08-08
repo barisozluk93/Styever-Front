@@ -8,24 +8,19 @@
   </button>
 </div>
 
-<div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-3" id="kt_header_user_menu_toggle">
-  <!--begin::Menu wrapper-->
-  <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-    data-kt-menu-placement="bottom-end" title="{{'USER_PROFILE' | translate}}">
+<div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-3 position-relative styever-user-menu-wrap" id="kt_header_user_menu_toggle" (click)="$event.stopPropagation()">
+  <div class="cursor-pointer symbol symbol-40px" (click)="toggleUserMenu($event)" title="{{'USER_PROFILE' | translate}}">
     <img *ngIf="user?.fileId == undefined" src="./assets/media/avatars/blank.png" />
     <img *ngIf="user?.fileId != undefined" [src]="avatarUrl" alt="image" />
   </div>
-  <!--end::Menu wrapper-->
-  <app-user-inner></app-user-inner>
+  <app-user-inner [class.show]="userMenuOpen" class="styever-user-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded"></app-user-inner>
 </div>
 
-<div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-3">
+<div *ngIf="isCurrentUserExist" class="d-flex align-items-center me-3 position-relative" (click)="$event.stopPropagation()">
   <div
     class="cursor-pointer symbol symbol-40px notification-symbol"
     [ngClass]="{ 'has-unread': unreadedNotificationCount > 0, 'is-animating': isNotificationAnimating }"
-    (mouseenter)="loadNotifications()"
-    data-kt-menu-trigger="{default: 'click'}"
-    data-kt-menu-placement="bottom-end"
+    (click)="toggleNotificationMenu($event)"
     title="Notifications"
   >
     <span class="symbol-label position-relative notification-symbol-label">
@@ -49,6 +44,7 @@
   </div>
 
   <app-notifications-inner
+    [class.show]="notificationMenuOpen"
     [notifications]="notifications"
     [totalNotificationCount]="totalNotificationCount"
     [unreadedNotificationCount]="unreadedNotificationCount"
@@ -56,12 +52,12 @@
   </app-notifications-inner>
 </div>
 
-<div *ngIf="!isCurrentUserExist" class="d-flex align-items-center me-3" id="kt_header_user_menu_toggle">
+<div *ngIf="!isCurrentUserExist" class="d-flex align-items-center me-3 styever-guest-language" id="kt_header_language_menu_toggle">
   <!--begin::Menu wrapper-->
-  <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+  <div class="cursor-pointer symbol symbol-40px" data-kt-menu-trigger="click"
     data-kt-menu-placement="bottom-end" title="{{'LANGUAGE' | translate}}">
     <img *ngIf="language" [src]="language.flag" />
   </div>
   <!--end::Menu wrapper-->
-    <app-language-inner></app-language-inner>
+    <app-language-inner class="styever-language-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded"></app-language-inner>
 </div>

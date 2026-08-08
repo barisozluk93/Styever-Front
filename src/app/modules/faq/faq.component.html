@@ -1,41 +1,93 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">{{ 'FAQ' | translate}}</span>
-    </div>
-  </div>
-</div>
-
-<div class="row mx-10 my-10">
-  <ng-container *ngFor="let faq of faqs">
-    <div class="col-lg-6">
-      <div class="card mb-5 mb-xl-10">
-        <div class="card-header border-0 cursor-pointer collapsed faq-header" role="button" data-bs-toggle="collapse"
-          [attr.data-bs-target]="'#kt_faq' + faq.id" aria-expanded="true" [attr.aria-controls]="'kt_faq' + faq.id">
-          <h3 class="fw-bolder m-0 text-primary faq-title">
-            {{ ("LANG" | translate) === 'tr' ? faq.header : faq.headerEn }}
-          </h3>
-
-          <div class="faq-icons">
-            <span class="icon-collapsed svg-icon svg-icon-2 text-primary"
-              [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'">
-            </span>
-
-            <span class="icon-expanded svg-icon svg-icon-2 text-primary"
-              [inlineSVG]="'./assets/media/icons/duotune/arrows/arr014.svg'">
-            </span>
-          </div>
+<main class="styever-faq">
+  <section class="faq-hero">
+    <div class="faq-hero__shade"></div>
+    <div class="container-xxl faq-hero__container">
+      <div class="faq-hero__content">
+        <div class="faq-hero__eyebrow">
+          <span class="faq-hero__eyebrow-mark"></span>
+          {{ 'FAQ' | translate }}
         </div>
-        <div [id]="'kt_faq' + faq.id" class="collapse">
-          <div class="card-body border-top p-9">
-
-            <div class="fw-bold text-light-primary fs-6"
-              [innerHTML]="('LANG' | translate) === 'tr' ? faq.content : faq.contentEn">
-            </div>
-
-          </div>
-        </div>
+        <h1>
+          {{ ('LANG' | translate) === 'tr'
+            ? 'Size yardımcı olmak için buradayız.'
+            : 'We are here to help.' }}
+        </h1>
+        <p>
+          {{ ('LANG' | translate) === 'tr'
+            ? 'En sık sorulan soruların yanıtlarını sade ve anlaşılır bir şekilde inceleyin.'
+            : 'Explore straightforward answers to the questions we receive most often.' }}
+        </p>
       </div>
     </div>
-  </ng-container>
-</div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container-xxl">
+      <div *ngIf="faqs.length; else emptyFaq" class="row g-5 g-xl-7">
+        <div class="col-12 col-lg-6" *ngFor="let faq of faqs; trackBy: trackByFaqId">
+          <article class="card faq-card border-0">
+            <div
+              class="card-header faq-card__header border-0 collapsed cursor-pointer"
+              role="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#kt_faq' + faq.id"
+              aria-expanded="false"
+              [attr.aria-controls]="'kt_faq' + faq.id">
+
+              <div class="d-flex align-items-center flex-grow-1 min-w-0">
+                <div class="faq-card__icon flex-shrink-0 me-4">
+                  <i class="ki-duotone ki-message-question fs-2x">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                  </i>
+                </div>
+                <h3 class="faq-card__title fw-bold m-0">
+                  {{ ('LANG' | translate) === 'tr' ? faq.header : faq.headerEn }}
+                </h3>
+              </div>
+
+              <div class="faq-card__toggle flex-shrink-0 ms-4">
+                <i class="ki-duotone ki-plus icon-collapsed fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+                <i class="ki-duotone ki-minus icon-expanded fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+              </div>
+            </div>
+
+            <div [id]="'kt_faq' + faq.id" class="collapse">
+              <div class="card-body faq-card__body pt-0">
+                <div class="faq-card__divider"></div>
+                <div
+                  class="faq-card__content"
+                  [innerHTML]="('LANG' | translate) === 'tr' ? faq.content : faq.contentEn">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <ng-template #emptyFaq>
+        <div class="card border-0 faq-empty text-center">
+          <div class="card-body py-15">
+            <div class="faq-empty__icon mx-auto mb-5">
+              <i class="ki-duotone ki-information-5 fs-2x">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+              </i>
+            </div>
+            <div class="fw-bold fs-4 text-gray-800">
+              {{ ('LANG' | translate) === 'tr' ? 'Henüz soru bulunmuyor.' : 'No questions are available yet.' }}
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+</main>

@@ -1,142 +1,70 @@
-<div class="card mb-5 mb-xl-10" *ngIf="user">
-  <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
-    data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
-    <div class="card-title m-0">
-      <h3 class="fw-bolder m-0 text-primary">{{'PROFILE_DETAILS' | translate}}</h3>
+<div class="profile-form-card card border-0 mb-5 mb-xl-10" *ngIf="user">
+  <div class="card-body p-8 p-lg-10">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-8">
+      <div>
+        <span class="profile-form-kicker">STYEVER</span>
+        <h3 class="fs-2 fw-bold text-gray-900 mb-1">{{'PROFILE_DETAILS' | translate}}</h3>
+        <div class="text-gray-500 fs-7">{{'PROFILE' | translate}}</div>
+      </div>
     </div>
-  </div>
-  <div id="kt_account_profile_details" class="collapse show">
-    <form [formGroup]="form" novalidate="" class="form">
-      <div class="card-body border-top p-9">
-        <div class="row mb-6">
-          <label class="col-lg-4 col-form-label fw-bold text-primary fs-6">Avatar</label>
-          <div class="col-lg-8">
-            <!-- <div class="image-input image-input-outline" data-kt-image-input="true"
-              [style.background-image]="'url(./assets/media/avatars/blank.png'">
-              <div *ngIf="user.fileId != undefined" class="
-                  symbol symbol-125px symbol-lg-125px symbol-fixed
-                  position-relative
-                ">
-                <img src="./assets/media/avatars/300-1.jpg" />
-              </div>
-            </div> -->
 
-            <div class="me-7 mb-4">
-              <div *ngIf="user.fileId == undefined" class="
-                  symbol symbol-125px symbol-lg-125px symbol-fixed
-                  position-relative
-                ">
-                <img src="./assets/media/avatars/blank.png" />
-              </div>
-
-              <div *ngIf="user.fileId != undefined" class="
-                  symbol symbol-125px symbol-lg-125px symbol-fixed
-                  position-relative
-                ">
-                <img [src]="avatarUrl" />
-              </div>
-            </div>
-
-            <div style="width: 125px;">
-              <input type="file" style="display:none" accept="image/*" (change)="onFileChange($event)" #fileUpload />
-              <a *ngIf="isUserActive" style="width: 125px;" title="Click to Add" class="btn btn-sm btn-primary text-white"
-                (click)="fileUpload.click()">
-                <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
-                {{user.fileId == undefined ? ('UPLOAD' | translate) : ('CHANGE' | translate)}}
-              </a>
-            </div>
+    <form [formGroup]="form" novalidate class="profile-auth-form">
+      <div class="field-full avatar-field">
+        <label class="form-label fw-bold text-gray-800 mb-3">Avatar</label>
+        <div class="d-flex align-items-center flex-wrap gap-5">
+          <div class="symbol symbol-80px symbol-fixed position-relative profile-avatar">
+            <img *ngIf="user.fileId == undefined" src="./assets/media/avatars/blank.png" alt="Avatar" />
+            <img *ngIf="user.fileId != undefined" [src]="avatarUrl" alt="Avatar" />
           </div>
-        </div>
-        <div class="row mb-6">
-          <label class="col-lg-4 col-form-label required fw-bold text-primary fs-6">{{'FULL_NAME' | translate}}</label>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-6 fv-row">
-                <input type="text" class="
-                    form-control form-control-lg form-control-solid text-light-primary
-                    mb-3 mb-lg-0
-                  " placeholder="{{ 'FIRST_NAME' | translate }}" name="name" formControlName="name" [ngClass]="{
-                    'is-invalid': form.controls['name'].invalid,
-                    'is-valid': form.controls['name'].valid
-                  }" />
-
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                    validation: 'required',
-                    message: 'Name is required',
-                    control: form.controls['name']
-                  }"></ng-container>
-              </div>
-              <div class="col-lg-6 fv-row">
-                <input type="text" class="form-control form-control-lg form-control-solid text-light-primary"
-                  placeholder="{{ 'LAST_NAME' | translate}}" name="surname" formControlName="surname" [ngClass]="{
-                    'is-invalid': form.controls['surname'].invalid,
-                    'is-valid': form.controls['surname'].valid
-                  }" />
-
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                    validation: 'required',
-                    message: 'Surname is required',
-                    control: form.controls['surname']
-                  }"></ng-container>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-6">
-          <label class="col-lg-4 col-form-label required fw-bold text-primary fs-6">{{'USERNAME' | translate}}</label>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-6 fv-row">
-                <input type="text" class="
-                    form-control form-control-lg form-control-solid text-light-primary
-                    mb-3 mb-lg-0
-                  " placeholder="{{'USERNAME' | translate}}" name="username" formControlName="username" [ngClass]="{
-                    'is-invalid': form.controls['username'].invalid,
-                    'is-valid': form.controls['username'].valid
-                  }" />
-
-                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                    validation: 'required',
-                    message: 'Username is required',
-                    control: form.controls['username']
-                  }"></ng-container>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-6">
-          <label class="col-lg-4 col-form-label fw-bold text-primary fs-6"><span class="required">{{'CONTRACT_PHONE' |
-              translate}}</span></label>
-          <div class="col-lg-8 fv-row">
-            <input type="tel" class="form-control form-control-lg form-control-solid text-light-primary"
-              placeholder="{{'CONTRACT_PHONE' | translate}}" name="phone" formControlName="phone" [ngClass]="{
-                'is-invalid': form.controls['phone'].invalid,
-                'is-valid': form.controls['phone'].valid
-              }" />
-
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                validation: 'required',
-                message: 'Phone is required',
-                control: form.controls['phone']
-              }"></ng-container>
+          <div>
+            <input type="file" class="d-none" accept="image/*" (change)="onFileChange($event)" #fileUpload />
+            <button *ngIf="isUserActive" type="button" class="btn btn-light-primary" (click)="fileUpload.click()">
+              <app-keenicon name="picture" class="fs-4 me-2"></app-keenicon>
+              {{user.fileId == undefined ? ('UPLOAD' | translate) : ('CHANGE' | translate)}}
+            </button>
+            <div class="text-gray-500 fs-8 mt-2">300 × 300 px</div>
           </div>
         </div>
       </div>
 
-      <div class="card-footer d-flex justify-content-end py-6 px-9">
-        <button *ngIf="isUserActive" type="button" class="btn btn-primary" (click)="saveSettings()">
-          <ng-container>{{'SAVE_CHANGES' | translate}}</ng-container>
+      <div class="fv-row">
+        <label class="form-label required fw-bold text-gray-800">{{'FIRST_NAME' | translate}}</label>
+        <div class="position-relative"><i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input type="text" class="form-control form-control-lg bg-white ps-12" placeholder="{{ 'FIRST_NAME' | translate }}" name="name"
+          formControlName="name" [ngClass]="{'is-invalid': form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched),'is-valid': form.controls['name'].valid && (form.controls['name'].dirty || form.controls['name'].touched)}" /></div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:'Name is required',control:form.controls['name']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label required fw-bold text-gray-800">{{'LAST_NAME' | translate}}</label>
+        <div class="position-relative"><i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input type="text" class="form-control form-control-lg bg-white ps-12" placeholder="{{ 'LAST_NAME' | translate }}" name="surname"
+          formControlName="surname" [ngClass]="{'is-invalid': form.controls['surname'].invalid && (form.controls['surname'].dirty || form.controls['surname'].touched),'is-valid': form.controls['surname'].valid && (form.controls['surname'].dirty || form.controls['surname'].touched)}" /></div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:'Surname is required',control:form.controls['surname']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label required fw-bold text-gray-800">{{'USERNAME' | translate}}</label>
+        <div class="position-relative"><i class="ki-outline ki-profile-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input type="text" class="form-control form-control-lg bg-white ps-12" placeholder="{{'USERNAME' | translate}}" name="username"
+          formControlName="username" [ngClass]="{'is-invalid': form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched),'is-valid': form.controls['username'].valid && (form.controls['username'].dirty || form.controls['username'].touched)}" /></div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:'Username is required',control:form.controls['username']}"></ng-container>
+      </div>
+
+      <div class="fv-row">
+        <label class="form-label required fw-bold text-gray-800">{{'CONTRACT_PHONE' | translate}}</label>
+        <div class="position-relative"><i class="ki-outline ki-phone position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input type="tel" class="form-control form-control-lg bg-white ps-12" placeholder="{{'CONTRACT_PHONE' | translate}}" name="phone"
+          formControlName="phone" [ngClass]="{'is-invalid': form.controls['phone'].invalid && (form.controls['phone'].dirty || form.controls['phone'].touched),'is-valid': form.controls['phone'].valid && (form.controls['phone'].dirty || form.controls['phone'].touched)}" /></div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:'Phone is required',control:form.controls['phone']}"></ng-container>
+      </div>
+
+      <div class="field-full profile-form-actions d-flex justify-content-end">
+        <button *ngIf="isUserActive" type="button" class="btn btn-primary px-7" (click)="saveSettings()">
+          <app-keenicon name="check" class="fs-4 me-2"></app-keenicon>{{'SAVE_CHANGES' | translate}}
         </button>
       </div>
     </form>
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
       <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-        <div class="fv-plugins-message-container">
-          <span role="alert">
-            {{ message }}
-          </span>
-        </div>
+        <div class="fv-plugins-message-container"><span role="alert">{{ message }}</span></div>
       </ng-container>
     </ng-template>
   </div>

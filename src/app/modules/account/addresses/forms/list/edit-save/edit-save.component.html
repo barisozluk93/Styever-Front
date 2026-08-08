@@ -1,6 +1,6 @@
 <app-modal #modal [modalConfig]="modalConfig">
-    <form class="form w-100" [formGroup]="form" novalidate="novalidate">
-        <div class="row mb-8">
+    <form class="form w-100 profile-modal-form" [formGroup]="form" novalidate="novalidate">
+        <div class="row g-4 mb-4">
             <div class="col-lg-6">
                 <input class="form-check-input" type="checkbox" id="googleswitch" formControlName="isPrimary" />
                 <label class="form-check-label fw-bolder text-primary" htmlFor="googleswitch">&nbsp;{{'IS_PRIMARY' |
@@ -8,16 +8,16 @@
             </div>
         </div>
 
-        <div class="row mb-8">
+        <div class="row g-4 mb-4">
             <div class="col-lg-6">
-                <label class="form-label fs-6 fw-bolder text-primary required">
+                <label class="form-label fw-bold text-gray-800 required">
                     {{'COUNTRY' | translate}}
                 </label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="country"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="country"
                     formControlName="country" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['country'].invalid,
                     'is-valid': form.controls['country'].valid
-                  }" />
+                  }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('COUNTRY' | translate) + ' ' + ('IS_REQUIRED' | translate),
@@ -26,16 +26,16 @@
             </div>
         </div>
 
-        <div class="row mb-8">
+        <div class="row g-4 mb-4">
             <div class="col-lg-6">
-                <label class="form-label fs-6 fw-bolder text-primary required">
+                <label class="form-label fw-bold text-gray-800 required">
                     {{'CITY' | translate}}
                 </label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="city"
+                <div class="position-relative"><i class="ki-outline ki-map position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="city"
                     formControlName="city" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['city'].invalid,
                     'is-valid': form.controls['city'].valid
-                }" />
+                }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('CITY' | translate) + ' ' + ('IS_REQUIRED' | translate),
@@ -43,14 +43,14 @@
                 }"></ng-container>
             </div>
             <div class="col-lg-6">
-                <label class="form-label fs-6 fw-bolder text-primary required">
+                <label class="form-label fw-bold text-gray-800 required">
                     {{'DISTRICT' | translate}}
                 </label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="district"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="district"
                     formControlName="district" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['district'].invalid,
                     'is-valid': form.controls['district'].valid
-                  }" />
+                  }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('DISTRICT' | translate) + ' ' + ('IS_REQUIRED' | translate),
@@ -59,16 +59,16 @@
             </div>
         </div>
 
-        <div class="row mb-8">
+        <div class="row g-4 mb-4">
             <div class="col-lg-12">
-                <label class="form-label fs-6 fw-bolder text-primary required">
+                <label class="form-label fw-bold text-gray-800 required">
                     {{'ADDRESS' | translate}}
                 </label>
-                <textarea class="form-control bg-transparent text-light-primary" type="text" name="address"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-0 mt-4 ms-4 fs-2 text-gray-500"></i><textarea class="form-control form-control-lg bg-white ps-12" type="text" name="address"
                     formControlName="address" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['address'].invalid,
                     'is-valid': form.controls['address'].valid
-                }"></textarea>
+                }"></textarea></div>
 
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                         validation: 'required',
@@ -78,16 +78,16 @@
             </div>
         </div>
 
-        <div class="row mb-8">
+        <div class="row g-4 mb-4">
             <div class="col-lg-12">
-                <label class="form-label fs-6 fw-bolder text-primary required">
+                <label class="form-label fw-bold text-gray-800 required">
                     {{'ADDRESS_HEADER' | translate}}
                 </label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="addressHeader"
+                <div class="position-relative"><i class="ki-outline ki-home position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="addressHeader"
                     formControlName="addressHeader" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['addressHeader'].invalid,
                     'is-valid': form.controls['addressHeader'].valid
-                }" />
+                }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
                     validation: 'required',
                     message: ('ADDRESS_HEADER' | translate) + ' ' + ('IS_REQUIRED' | translate),

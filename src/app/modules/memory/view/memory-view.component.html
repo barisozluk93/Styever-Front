@@ -1,174 +1,122 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
-    <div class="col-lg-9">
-    </div>
-    <div class="col-lg-3">
-      <a (click)="goToMemories()"
-        class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
-        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-        <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2 me-1"></span>
-        {{ 'SEARCH_PETS' | translate }}
-      </a>
-    </div>
-  </div>
-</div>
+<main class="memory-view-page" *ngIf="memory as item">
+  <section class="memory-view-hero" [style.backgroundImage]="item.fileUrl ? 'url(' + item.fileUrl + ')' : 'url(/assets/media/patterns/addmemory.jpg)'">
+    <div class="memory-view-hero__shade"></div>
 
-<div class="row mx-10 my-10">
-  <div class="card">
-    <div class="card-body pt-2">
-      <div class="row">
-        <div class="col-lg-3">
-          <div style="height: 250px;">
-            <qrcode style="float: left !important;" [qrdata]="shareLink" [width]="250" [errorCorrectionLevel]="'M'">
-            </qrcode>
-          </div>
+    <div class="container-xxl memory-view-hero__container">
+      <div class="memory-view-hero__content">
+        <button type="button" class="btn btn-light btn-sm rounded-3 px-5 mb-8" (click)="goToMemories()">
+          <i class="ki-duotone ki-arrow-left fs-4 me-2"><span class="path1"></span><span class="path2"></span></i>
+          {{ 'SEARCH_PETS' | translate }}
+        </button>
 
-          <div *ngIf="memory?.candlesCount! > 0" class="separator mt-5 mb-5"></div>
-
-          <div *ngIf="memory?.candlesCount! > 0" class="candle-text-wrapper">
-            <div class="candle-wrapper" [class.lit]="true">
-              <div class="flame"></div>
-              <div class="wick"></div>
-              <div class="wax"></div>
-            </div>
-
-            <a class="candle-text" (click)="openCandlesModal(memory?.id!, memory?.candlesCount!)">
-              <div class="fw-bolder text-primary fs-3">
-                {{ 'CANDLE_COUNT' | translate}}
-              </div>
-              <div class="fw-bolder text-light-primary fs-4">{{memory?.candlesCount}}</div>
-            </a>
-          </div>
+        <div class="memory-view-hero__eyebrow">
+          <span></span>{{ 'MEMORIES' | translate }}
         </div>
 
-        <div class="col-lg-7">
-          <app-carousel [isEdit]="false" [youtubeLinks]="memory?.youtubeLinks!" [files]="memory?.files!"></app-carousel>
-        </div>
+        <h1>{{ item.name }}</h1>
 
-        <div class="col-lg-2">
-          <a *ngIf="currentUser && currentUser?.id == memory?.userId && isUserActive && !memory?.belongingToOldPackage"
-            (click)="edit()" style="float: right !important"
-            class="btn btn-custom btn-active-white btn-color-white btn-primary w-100">
-            <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-2"></span>
-            {{'EDIT' | translate}}
-          </a>
-        </div>
-
-        <div class="col-lg-5 mt-10">
-          <label class="form-label fs-4 fw-bolder text-primary">{{'POST_DATE' | translate}}</label>
-        </div>
-
-        <div *ngIf="memory?.hasDonation" class="col-lg-2 mt-10 text-center" title="{{ 'BADGE' | translate}}">
-          <i class="fa-solid fa-ribbon text-primary fs-1"></i>
-        </div>
-
-        <div class="col-lg-5 mt-10">
-          <label class="form-label fs-4 fw-bolder text-primary" style="float: right;">{{'DEATH_DATE' |
-            translate}}</label>
-          <label class="form-label fs-4 fw-bolder text-primary me-10" style="float: right;">{{'BIRTH_DATE' |
-            translate}}</label>
-        </div>
-
-        <div class="col-lg-6">
-          <label class="form-label fs-4 text-light-primary">{{memory?.postDate}}</label>
-        </div>
-
-        <div class="col-lg-6">
-          <label class="form-label text-light-primary fs-4" style="float: right;">{{memory?.deathDate}}</label>
-          <label class="form-label text-light-primary fs-4 me-10" style="float: right;">{{memory?.birthDate}}</label>
-        </div>
-
-        <div class="col-lg-12 mt-10">
-          <label class="form-label fs-2 fw-bolder text-primary fs-4">{{memory?.name}}</label>
-        </div>
-
-        <div class="col-lg-12">
-          <label class="form-label fs-3 text-light-primary fs-4">{{memory?.text}}</label>
-        </div>
-
-        <div class="separator mt-5"></div>
-
-        <div class="py-5 action-bar">
-
-          <div *ngIf="memory?.isOpenToComment" class="d-inline-flex align-items-center">
-            <a (click)="showCloseCommentBox()" class="text-primary fs-4 fw-bolder cursor-pointer me-2">
-              {{ 'COMMENT' | translate }}
-            </a>
-
-            <i class="bi bi-info-circle text-primary cursor-pointer" data-bs-toggle="popover" data-bs-trigger="click"
-              data-bs-placement="top" data-bs-html="true" [attr.data-bs-content]="'COMMENT_TOOLTIP' | translate"
-              style="font-size: 16px;"></i>
-          </div>
-
+        <div class="memory-view-hero__meta">
           <div>
-            <a (click)="openLikesModal(memory?.id!, memory?.likesCount!)"
-              class="text-primary fs-3 fw-bolder cursor-pointer me-2" style="float: right;">
-              {{memory?.likesCount}}
-            </a>
-
-            <a title="{{ 'LIKE' | translate}}" (click)="like()" class="text-primary cursor-pointer"
-              style="float: right;">
-              <i [ngClass]="memory?.ownLike! ? 'bi bi-heart-fill' : 'bi bi-heart'" class="fs-2 text-primary me-2"></i>
-            </a>
-
-            <a (click)="openCommentsModal(memory?.id!, memory?.commentsCount!)"
-              class="text-primary fs-3 fw-bolder cursor-pointer me-2" style="float: right;">
-              {{memory?.commentsCount}}
-            </a>
-
-            <a title="{{ 'COMMENT' | translate}}" class="text-primary cursor-pointer" style="float: right;">
-              <i class="bi fs-2 bi-chat me-2 text-primary"></i>
-            </a>
-
-            <a title="{{ 'SHARE' | translate}}" (click)="openShareModal()" class="text-primary cursor-pointer"
-              style="float: right;">
-              <i class="bi bi-share fs-2 me-2 text-primary"></i>
-            </a>
-
-            <a *ngIf="!currentUser || (currentUser && isUserActive)" title="{{ 'LIGHT_CANDLE' | translate}}"
-              (click)="openLightCandleModal()" class="text-primary cursor-pointer" style="float: right;">
-              <i class="fa-solid fa-hanukiah fs-2 me-2 text-primary"></i>
-            </a>
-
-            <a title="{{ 'REPORT' | translate }}" (click)="reportMemory()" class="text-primary cursor-pointer"
-              style="float: right;">
-              <i class="bi bi-flag fs-2 me-2 text-primary"></i>
-            </a>
+            <span>{{ 'BIRTH_DATE' | translate }}</span>
+            <strong>{{ item.birthDate }}</strong>
+          </div>
+          <div>
+            <span>{{ 'DEATH_DATE' | translate }}</span>
+            <strong>{{ item.deathDate }}</strong>
+          </div>
+          <div>
+            <span>{{ 'POST_DATE' | translate }}</span>
+            <strong>{{ item.postDate }}</strong>
           </div>
         </div>
 
-        <div class="separator mb-5"></div>
-
-        <div class="row mb-5" *ngIf="isCommentBoxVisible && memory?.isOpenToComment">
-          <div *ngIf="!currentUser" class="col-lg-4"></div>
-
-          <div *ngIf="!currentUser" class="col-lg-8 mb-2" style="float: right;">
-            <input class="form-control bg-transparent text-light-primary" type="text" name="nameSurname"
-              [(ngModel)]="nameSurname" autocomplete="off" placeholder="{{'FULL_NAME' | translate}}" />
+        <div class="memory-view-hero__utility">
+          <div class="memory-view-hero__stats" aria-label="Memory activity">
+            <button type="button" class="memory-view-hero__stat" (click)="openLikesModal(item.id, item.likesCount || 0)"><i class="bi bi-heart"></i><strong>{{ item.likesCount || 0 }}</strong><span>{{ 'LIKE' | translate }}</span></button>
+            <button type="button" class="memory-view-hero__stat" (click)="openCommentsModal(item.id, item.commentsCount || 0)"><i class="bi bi-chat-dots"></i><strong>{{ item.commentsCount || 0 }}</strong><span>{{ 'COMMENT' | translate }}</span></button>
+            <button type="button" class="memory-view-hero__stat" (click)="openCandlesModal(item.id, item.candlesCount || 0)"><i class="fa-solid fa-fire-flame-curved"></i><strong>{{ item.candlesCount || 0 }}</strong><span>{{ 'CANDLE_COUNT' | translate }}</span></button>
           </div>
-
-          <div class="col-lg-4"></div>
-
-          <div class="col-lg-8" style="float: right;">
-            <textarea class="form-control bg-transparent text-light-primary" type="text" name="comment"
-              [(ngModel)]="comment"></textarea>
-          </div>
+          <button *ngIf="currentUser && isUserActive" type="button" class="memory-view-hero__like-action" (click)="like()"><i [ngClass]="item.ownLike ? 'bi bi-heart-fill' : 'bi bi-heart'"></i><span>{{ 'LIKE' | translate }}</span></button>
         </div>
-
-        <div class="row"
-          *ngIf="isCommentBoxVisible && memory?.isOpenToComment && ((currentUser && isUserActive) || !currentUser)">
-          <div class="col-lg-6"></div>
-          <div class="col-lg-6" style="float: right;">
-            <a (click)="addComment()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-50"
-              style="float: right;">
-              {{'SUBMIT' | translate}}
-            </a>
-          </div>
+        <div class="d-flex flex-wrap gap-3 mt-7">
+          <button *ngIf="currentUser && currentUser?.id == item.userId && isUserActive && !item.belongingToOldPackage"
+            type="button" class="btn btn-light btn-lg px-7" (click)="edit()">
+            <i class="ki-duotone ki-pencil fs-3 me-2"><span class="path1"></span><span class="path2"></span></i>
+            {{ 'EDIT' | translate }}
+          </button>
+          <button type="button" class="btn btn-outline btn-outline-light btn-active-light btn-lg px-7" (click)="openShareModal()">
+            <i class="bi bi-share me-2"></i>{{ 'SHARE' | translate }}
+          </button>
         </div>
       </div>
+      <aside class="memory-view-hero__qr-panel"><div class="memory-view-hero__qr-frame"><qrcode [qrdata]="shareLink" [width]="190" [errorCorrectionLevel]="'M'"></qrcode></div><div class="memory-view-hero__qr-copy"><strong>{{ 'SHARE' | translate }}</strong><span>QR</span></div></aside>
     </div>
-  </div>
-</div>
+
+    <button type="button" class="memory-view-hero__scroll" (click)="goToContent()">
+      <span>{{ 'EXPLORE' | translate }}</span>
+      <i class="ki-duotone ki-down fs-2"><span class="path1"></span><span class="path2"></span></i>
+    </button>
+  </section>
+
+  <section id="memory-view-content" class="memory-view-content">
+    <div class="container-xxl">
+      <div class="memory-editorial-gallery">
+        <app-carousel [isEdit]="false" [youtubeLinks]="item.youtubeLinks!" [files]="item.files!"></app-carousel>
+      </div>
+
+      <div class="memory-editorial-layout">
+        <article class="memory-editorial-story">
+          <span class="memory-view-kicker">{{ 'MEMORIES' | translate }}</span>
+          <h2>{{ item.name }}</h2>
+          <p class="memory-story-text">{{ item.text }}</p>
+
+          <div class="memory-actions">
+            <button *ngIf="!currentUser || (currentUser && isUserActive)" type="button" class="btn btn-primary" (click)="openLightCandleModal()">
+              <i class="fa-solid fa-hanukiah me-2"></i>{{ 'LIGHT_CANDLE' | translate }}
+            </button>
+            <button *ngIf="item.isOpenToComment" type="button" class="btn btn-light-primary" (click)="showCloseCommentBox()">
+              <i class="bi bi-chat me-2"></i>{{ 'COMMENT' | translate }}
+            </button>
+            <button type="button" class="btn btn-light" (click)="like()"><i [ngClass]="item.ownLike ? 'bi bi-heart-fill' : 'bi bi-heart'" class="me-2"></i>{{ item.likesCount }}</button>
+            <button type="button" class="btn btn-light" (click)="openCommentsModal(item.id, item.commentsCount)"><i class="bi bi-chat-dots me-2"></i>{{ item.commentsCount }}</button>
+            <button type="button" class="btn btn-light" (click)="reportMemory()"><i class="bi bi-flag me-2"></i>{{ 'REPORT' | translate }}</button>
+          </div>
+
+          <div *ngIf="isCommentBoxVisible && item.isOpenToComment" class="memory-comment-box">
+            <div *ngIf="!currentUser" class="fv-row mb-5">
+              <label class="form-label fs-6 fw-bold text-gray-800">{{ 'FULL_NAME' | translate }}</label>
+              <input class="form-control form-control-lg bg-white" type="text" name="nameSurname" [(ngModel)]="nameSurname" autocomplete="off" [placeholder]="'FULL_NAME' | translate" />
+            </div>
+            <div class="fv-row">
+              <label class="form-label fs-6 fw-bold text-gray-800">{{ 'COMMENT' | translate }}</label>
+              <textarea class="form-control form-control-lg bg-white" rows="4" name="comment" [(ngModel)]="comment"></textarea>
+            </div>
+            <div class="d-flex justify-content-end mt-5" *ngIf="((currentUser && isUserActive) || !currentUser)">
+              <button type="button" class="btn btn-primary px-8" (click)="addComment()">{{ 'SUBMIT' | translate }}</button>
+            </div>
+          </div>
+        </article>
+
+        <aside class="memory-editorial-aside">
+          <div class="memory-owner-row">
+            <img *ngIf="item.userAvatar" [src]="item.userAvatarFileUrl" class="memory-owner-avatar">
+            <img *ngIf="!item.userAvatar" src="./assets/media/avatars/blank.png" class="memory-owner-avatar">
+            <div><strong>{{ item.userName }}</strong><span>{{ item.userCityCountry }}</span></div>
+          </div>
+          <div class="memory-date-list">
+            <div><span>{{ 'BIRTH_DATE' | translate }}</span><strong>{{ item.birthDate }}</strong></div>
+            <div><span>{{ 'DEATH_DATE' | translate }}</span><strong>{{ item.deathDate }}</strong></div>
+          </div>
+          <div class="memory-qr-box"><qrcode [qrdata]="shareLink" [width]="150" [errorCorrectionLevel]="'M'"></qrcode><p>{{ 'SHARE' | translate }}</p></div>
+          <button *ngIf="item.candlesCount! > 0" type="button" class="memory-candle-stat" (click)="openCandlesModal(item.id, item.candlesCount)">
+            <span class="memory-candle-stat__icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+            <span><small>{{ 'CANDLE_COUNT' | translate }}</small><strong>{{ item.candlesCount }}</strong></span>
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
 
 <app-memory-comment #commentsComponent (isSuccess)="isSuccess($event)"></app-memory-comment>
 <app-memory-like #likesComponent></app-memory-like>
@@ -178,61 +126,20 @@
 <div class="modal fade" tabindex="-1" [ngClass]="{ 'show d-block': isShareModalOpen }"
   [style.background]="'rgba(0,0,0,0.5)'" *ngIf="isShareModalOpen">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="fw-bolder text-primary mb-0">
-          {{ 'SHARE' | translate }}
-        </h2>
-
-        <button type="button" class="btn btn-icon btn-sm btn-active-light-primary ms-2" (click)="closeShareModal()">
+    <div class="modal-content border-0 rounded-4">
+      <div class="modal-header border-0">
+        <h2 class="fw-bolder text-gray-900 mb-0">{{ 'SHARE' | translate }}</h2>
+        <button type="button" class="btn btn-icon btn-sm btn-active-light-primary" (click)="closeShareModal()">
           <i class="bi bi-x-lg fs-3"></i>
         </button>
       </div>
-
-      <div class="modal-body">
-        <div class="d-flex flex-column gap-3">
-          <button type="button" class="btn d-flex align-items-center text-start"
-            style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
-            onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
-            onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
-            (click)="shareLinkedIn()">
-            <i class="fa-brands fa-linkedin fs-2 me-3" style="color: var(--bs-primary);"></i>
-            LinkedIn
-          </button>
-
-          <button type="button" class="btn d-flex align-items-center text-start"
-            style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
-            onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
-            onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
-            (click)="shareX()">
-            <i class="fa-brands fa-x-twitter fs-2 me-3" style="color: var(--bs-primary);"></i>
-            X
-          </button>
-
-          <button type="button" class="btn d-flex align-items-center text-start"
-            style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
-            onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
-            onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
-            (click)="shareFacebook()">
-            <i class="fa-brands fa-facebook fs-2 me-3" style="color: var(--bs-primary);"></i>
-            Facebook
-          </button>
-
-          <button type="button" class="btn d-flex align-items-center text-start"
-            style="background-color: white; border: 1px solid #e4e6ef; color: #181c32;"
-            onmouseover="this.style.backgroundColor='var(--bs-primary)'; this.style.color='white'; this.querySelector('i').style.color='white';"
-            onmouseout="this.style.backgroundColor='white'; this.style.color='#181c32'; this.querySelector('i').style.color='var(--bs-primary)';"
-            (click)="copyShareLink()">
-            <i class="bi bi-clipboard fs-2 me-3" style="color: var(--bs-primary);"></i>
-            {{ 'COPY_LINK' | translate }}
-          </button>
+      <div class="modal-body pt-0">
+        <div class="d-grid gap-3">
+          <button type="button" class="btn btn-light-primary text-start" (click)="shareLinkedIn()"><i class="fa-brands fa-linkedin fs-2 me-3"></i>LinkedIn</button>
+          <button type="button" class="btn btn-light-primary text-start" (click)="shareX()"><i class="fa-brands fa-x-twitter fs-2 me-3"></i>X</button>
+          <button type="button" class="btn btn-light-primary text-start" (click)="shareFacebook()"><i class="fa-brands fa-facebook fs-2 me-3"></i>Facebook</button>
+          <button type="button" class="btn btn-light-primary text-start" (click)="shareWhatsApp()"><i class="fa-brands fa-whatsapp fs-2 me-3"></i>WhatsApp</button>
         </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="closeShareModal()">
-          {{ 'CLOSE' | translate }}
-        </button>
       </div>
     </div>
   </div>

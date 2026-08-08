@@ -9,10 +9,11 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-user-inner',
   templateUrl: './user-inner.component.html',
+  styleUrls: ['./user-inner.component.scss'],
 })
 export class UserInnerComponent implements OnInit, OnDestroy {
   @HostBinding('class')
-  class = `menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px`;
+  class = `menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-700 menu-state-bg menu-state-primary fw-semibold py-0 fs-6 w-300px styever-user-menu`;
   @HostBinding('attr.data-kt-menu') dataKtMenu = 'true';
 
   language: LanguageFlag;
@@ -20,6 +21,7 @@ export class UserInnerComponent implements OnInit, OnDestroy {
   langs = languages;
   private unsubscribe: Subscription[] = [];
   avatarUrl: string = '';
+  languageMenuOpen = false;
 
   constructor( 
     private auth: AuthService,
@@ -47,10 +49,16 @@ export class UserInnerComponent implements OnInit, OnDestroy {
     this.auth.logout();
   }
 
+  toggleLanguageMenu(event?: Event) {
+    event?.preventDefault();
+    event?.stopPropagation();
+    this.languageMenuOpen = !this.languageMenuOpen;
+  }
+
   selectLanguage(lang: string) {
     this.translationService.setLanguage(lang);
     this.setLanguage(lang);
-    // document.location.reload();
+    this.languageMenuOpen = false;
   }
 
   setLanguage(lang: string) {

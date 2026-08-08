@@ -364,7 +364,6 @@ export const locale = {
         CANDLE_COUNT: "Bu anı için yakılan mum sayısı",
         SHELTER: "Barınak",
         DONATION: "Sosyal Sorumluluk Payı Miktarı (₺)",
-        BADGE: "Sosyal Sorumluluk Payı Rozeti",
         BIRTH_DATE: "Doğum Tarihi",
         DEATH_DATE: "Ölüm Tarihi",
         POST_DATE: "Post Tarihi",
@@ -385,6 +384,7 @@ export const locale = {
         VOUCHERS: "Kupon Kodları",
 
         GIFT: "Kırık bir kalbe anlamlı bir hediye.",
+        GIFT_VOUCHER_TITLE: "Yanında Ol",
         GIFT_FIRST_HEADER: "Çiçekten öte: kalıcı bir anı sayfası.",
         GIFT_FIRST_CONTENT: "Arkadaşının ya da sevdiğinin, ayrılık acısı yaşayan biri olduğunu biliyorsan ciçekler solar, sözler bazen yetmez. Bu yüzden Styever, abonelik hediye çeki sunuyor. Acı zamanlarda gerçekten destek olabilecek, kucaklayıcı, samimi bir hediye.\n\n" +
             "Kaybedilen bir dostun ardından gerçekten fark yaratacak şey nedir? Bu hediye çekiyle, dostlarının en özel anlarını, sevgilerini ve hatıralarını hatırda tutmaları için onlara sessiz ama kalıcı bir alan vadediyorsun. Bu sadece bir hizmet değil, yanında hissettiren bir dost eline dönüşüyor.",
@@ -490,6 +490,23 @@ export const locale = {
         TRIAL_EXPIRED: "Deneme süreniz doldu!",
         BUY: "Satın Al",
 
+        HOME_HERO_EYEBROW: "Birlikte geçen hayat, sonsuza kalan sevgi",
+        HOME_HERO_TITLE: "Sevgi her anıda yaşamaya devam eder.",
+        HOME_HERO_NOTE: "Dostunuzun hikâyesine ait sakin, güvenli ve reklamsız bir alan.",
+        HOME_OFFERS_DESC: "Birlikte yaşadığınız anları korumak, paylaşmak ve sevgiyle hatırlamak için sade bir dijital yuva.",
+        HOME_ABOUT_EXCERPT: "Styever, kaybettiğiniz dostunuzla aranızdaki eşsiz bağı gürültüden uzak, sakin ve kalıcı bir alanda yaşatmanız için var. Fotoğraflar, videolar ve hikâyeler yalnızca bir arşiv değil; birlikte geçirilen hayatın izleridir.",
+        HOME_ABOUT_VALUE_1_TITLE: "Onlara özel bir alan",
+        HOME_ABOUT_VALUE_1_DESC: "Sosyal medyanın akışından ve dikkat dağıtıcı unsurlardan uzak.",
+        HOME_ABOUT_VALUE_2_TITLE: "Sevgiyle yaşayan bir hikâye",
+        HOME_ABOUT_VALUE_2_DESC: "Ailenizin ve dostlarınızın da ziyaret edip anılara ortak olabileceği kalıcı bir yer.",
+        HOME_LEARN_MORE: "Styever’ı Tanıyın",
+        HOME_COMMUNITY_KICKER: "Birlikte hatırlamak",
+        HOME_COMMUNITY_TITLE: "Bir anı oluşturun. Bir hikâyeye dokunun.",
+        HOME_COMMUNITY_DESC: "Kendi dostunuzun hikâyesini yaşatın veya aynı kaybı yaşamış birine birkaç içten kelimeyle eşlik edin.",
+        HOME_GIFT_KICKER: "Anlamlı bir destek",
+        HOME_GIFT_CTA: "Hediye Kartını İncele",
+        HOME_FINAL_TITLE: "Onların hikâyesi burada yaşamaya devam etsin.",
+        HOME_FINAL_DESC: "Dostunuz için sevgiyle hazırlanmış kalıcı bir anı alanı oluşturun.",
         HOME_HEADER: "Styever, kaybettiğiniz evcil dostunuzun bıraktığı sevgi dolu izleri yaşatmanız için hazırlanmış sessiz, huzurlu ve kalıcı bir anı alanıdır."
             + " Fotoğraflarını, videolarını ve birlikte yaşadığınız anıları paylaşarak "
             + "onun hikâyesini sonsuza taşıyabilirsiniz.",

@@ -6,12 +6,14 @@
       data-kt-drawer-toggle="#kt_aside_toggle"></app-aside>
 
     <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-      <app-header id="kt_header" class="header" [ngClass]="headerCSSClasses"
-        [isMobile]="isMobile" [ngStyle]="{
-  'background-image': (isWhitePage || isScrolled)
-    ? 'linear-gradient(#00000080, #00000080), url(./assets/media/patterns/contactus.jpeg)'
-    : 'none'
-}"
+      <app-header id="kt_header" class="header"
+        [ngClass]="[
+          headerCSSClasses,
+          !isWhitePage && !isScrolled ? 'styever-header-transparent' : '',
+          !isWhitePage && isScrolled ? 'styever-header-scrolled' : '',
+          isWhitePage ? 'styever-header-solid' : ''
+        ]"
+        [isMobile]="isMobile"
         #ktHeader data-kt-sticky="true" data-kt-sticky-name="header">
       </app-header>
 
@@ -21,7 +23,7 @@
         <app-content id="kt_content_container" [ngClass]="contentContainerClasses">
         </app-content>
       </div>  
-      <app-footer class="footer py-4 d-flex flex-lg-column" [ngClass]="footerCSSClasses" id="kt_footer"></app-footer>
+      <app-footer class="d-flex flex-lg-column" [ngClass]="footerCSSClasses" id="kt_footer"></app-footer>
     </div>
   </div>
 </div>

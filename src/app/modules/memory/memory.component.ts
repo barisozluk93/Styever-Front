@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, LOCALE_ID, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LayoutService } from 'src/app/_metronic/layout';
 import { LayoutInitService } from 'src/app/_metronic/layout/core/layout-init.service';
@@ -46,6 +46,8 @@ export class MemoryComponent implements OnInit, AfterViewInit {
 
   isNewMemoryVisible: boolean;
   isMyListVisible: boolean;
+  isLoadingMore: boolean = false;
+  hasMore: boolean = true;
 
   @ViewChild('commentsComponent') private commentsComponent: CommentComponent;
   @ViewChild('likesComponent') private likesComponent: LikeComponent;
@@ -71,7 +73,10 @@ export class MemoryComponent implements OnInit, AfterViewInit {
     }
   }
 
-  loadData() {
+  loadData(scrollToList: boolean = false, append: boolean = false) {
+    if (this.isLoadingMore) return;
+    this.isLoadingMore = true;
+
     this.memoryManagementService.paging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.searchTerm, this.selectedCategoryId, this.myList ? this.auth.currentUserValue?.id : undefined)
       .subscribe(result => {
         if (result.isSuccess) {
@@ -81,45 +86,50 @@ export class MemoryComponent implements OnInit, AfterViewInit {
             }
 
             item.userAvatarFileUrl = environment.avatarUploadFolderUrl + "/" + item.userAvatar?.path.split("\\")[item.userAvatar?.path.split("\\").length - 1];
-
             item.files?.forEach(file => {
               if (file.isPrimary && file.file) {
                 item.fileUrl = environment.memoryUploadFolderUrl + "/" + file.file?.path.split("\\")[file.file?.path.split("\\").length - 1];
               }
-            })
-
+            });
             item.likes?.forEach(like => {
-              if (like.userId === this.auth.currentUserValue?.id) {
-                item.ownLike = true;
-              }
-            })
-
+              if (like.userId === this.auth.currentUserValue?.id) item.ownLike = true;
+            });
             item.postDate = formatDate(item.postDate!, "dd/MM/yyyy HH:mm", this.locale);
             item.birthDate = formatDate(item.birthDate!, "dd/MM/yyyy", this.locale);
             item.deathDate = formatDate(item.deathDate!, "dd/MM/yyyy", this.locale);
-
             if (!item.isPrivate || item.userId == this.auth.currentUserValue?.id) {
               item.qrData = `${environment.appUrl}/#/memories/${item.id}`;
             }
-          })
-          this.dataSource = result.data.items;
+          });
+
+          this.dataSource = append ? [...(this.dataSource || []), ...result.data.items] : result.data.items;
           this.totalCount = result.data.totalCount;
+          this.hasMore = this.dataSource.length < this.totalCount && result.data.items.length > 0;
+        } else {
+          if (!append) this.dataSource = [];
+          this.totalCount = append ? this.totalCount : 0;
+          this.hasMore = false;
         }
-        else {
-          this.dataSource = [];
-          this.totalCount = 0;
-        }
-      })
+
+        this.isLoadingMore = false;
+        if (scrollToList) setTimeout(() => this.goToMemoryList(), 0);
+      }, () => {
+        this.isLoadingMore = false;
+      });
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (!this.hasMore || this.isLoadingMore) return;
+    const scrollBottom = window.innerHeight + window.scrollY;
+    const triggerPoint = document.documentElement.scrollHeight - 700;
+    if (scrollBottom >= triggerPoint) {
+      this.paginationModel.pageNumber += 1;
+      this.loadData(false, true);
+    }
   }
 
   ngOnInit(): void {
-    this.windowResizeService.resize$
-      .subscribe(size => {
-        this.bannerHeight = (size.height / 2) - document.getElementById("kt_header")?.clientHeight!;
-        this.bannerPaddingTopHeight = this.bannerHeight / 4;
-        this.bannerToolPaddingTopHeight = this.bannerHeight / 6;
-      });
-
     this.paginationModel = { pageNumber: 1, pageSize: 10 } as PaginationModel;
     this.loadData();
   }
@@ -178,22 +188,28 @@ export class MemoryComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onPageChanges() {
-    this.loadData();
+  goToMemoryList() {
+    document.getElementById('memory-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
 
   onSearch() {
     if (this.searchTerm === this.lastSearchTerm) {
+      this.goToMemoryList();
       return;
     }
 
     this.lastSearchTerm = this.searchTerm;
-    this.loadData();
+    this.paginationModel.pageNumber = 1;
+    this.hasMore = true;
+    this.loadData(true);
   }
 
   onPetTypeChange(event?: any) {
     this.selectedCategoryId = event.target.value;
-    this.loadData();
+    this.paginationModel.pageNumber = 1;
+    this.hasMore = true;
+    this.loadData(true);
   }
 
   memoryEditView(memoryId: number) {
@@ -220,10 +236,14 @@ export class MemoryComponent implements OnInit, AfterViewInit {
       this.myList = false;
     }
 
-    this.loadData();
+    this.paginationModel.pageNumber = 1;
+    this.hasMore = true;
+    this.loadData(true);
   }
 
   isSuccess(event: boolean) {
+    this.paginationModel.pageNumber = 1;
+    this.hasMore = true;
     this.loadData();
   }
 

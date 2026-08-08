@@ -1,32 +1,122 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">{{("LANG" | translate) === 'tr' ? article?.header : article?.headerEn }}</span>
+<main class="article-view" *ngIf="article; else articleLoading">
+  <section class="article-view__hero">
+    <div class="article-view__hero-backdrop">
+      <img *ngIf="article.fileUrl; else heroBackdropFallback" [src]="article.fileUrl" alt="" aria-hidden="true" />
+      <ng-template #heroBackdropFallback><img src="./assets/media/patterns/support.jpg" alt="" aria-hidden="true" /></ng-template>
+    </div>
+    <div class="article-view__hero-shade"></div>
 
-      <span class="text-white" style="font-size: 15px;">{{("LANG" | translate) === 'tr' ? article?.subHeader : article?.subHeaderEn }}</span>
-    </div>
-  </div>
+    <div class="container-xxl article-view__hero-container">
+      <div class="row align-items-center g-8 g-xl-12 article-view__hero-row">
+        <div class="col-lg-7 col-xl-7">
+          <div class="article-view__hero-content">
+            <div class="article-view__hero-meta">
+              <button type="button" class="btn btn-sm btn-light btn-active-light-primary rounded-3 article-view__back" (click)="goToArticles()">
+                <i class="ki-duotone ki-arrow-left fs-4 me-2"><span class="path1"></span><span class="path2"></span></i>
+                {{ ('LANG' | translate) === 'tr' ? 'Destek Köşesine Dön' : 'Back to Support' }}
+              </button>
+              <div class="article-view__eyebrow"><span></span>STYEVER</div>
+            </div>
+            <h1>{{ ('LANG' | translate) === 'tr' ? article.header : article.headerEn }}</h1>
+            <p>{{ ('LANG' | translate) === 'tr' ? article.subHeader : article.subHeaderEn }}</p>
 
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerToolPaddingTopHeight}">
-    <div clas="col-lg-2"></div>
-    <div class="col-lg-8">
-    </div>
-    <div class="col-lg-2">
-      <a class="btn btn-custom btn-active-white btn-color-white btn-primary w-100" data-bs-toggle="modal"
-        data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button" (click)="goToArticles()">
-        {{ 'SUPPORT_HEADER' | translate}}
-      </a>
-    </div>
-  </div>
-</div>
-<div class="row mx-10 my-10">
-  <div class="col-lg-3"></div>
-  <div class="col-lg-6 mb-10">
-    <div class="card">
-      <div class="card-body text-gray-900 fs-6">
-        <div [innerHTML]="('LANG' | translate) === 'tr' ? article?.content : article?.contentEn"></div>
+            <div class="d-flex flex-wrap align-items-center gap-3 mt-7">
+              <span class="badge badge-light article-view__badge">
+                <i class="ki-duotone ki-book-open fs-5 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                {{ ('LANG' | translate) === 'tr' ? 'STYEVER REHBERİ' : 'STYEVER GUIDE' }}
+              </span>
+              <span class="text-white text-opacity-60 fs-8">
+                {{ ('LANG' | translate) === 'tr' ? 'Sakin, anlaşılır ve özenle hazırlanmış içerik' : 'Calm, clear and thoughtfully prepared guidance' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-xl-5">
+          <div class="article-view__cover">
+            <img *ngIf="article.fileUrl; else coverFallback" [src]="article.fileUrl" [alt]="('LANG' | translate) === 'tr' ? article.header : article.headerEn" />
+            <ng-template #coverFallback>
+              <img src="./assets/media/patterns/support.jpg" [alt]="('LANG' | translate) === 'tr' ? article.header : article.headerEn" />
+            </ng-template>
+            <div class="article-view__cover-overlay"></div>
+            <div class="article-view__cover-label">
+              <i class="ki-duotone ki-heart fs-4"><span class="path1"></span><span class="path2"></span></i>
+              <span>{{ ('LANG' | translate) === 'tr' ? 'Bu içeriğe ait görsel' : 'Article image' }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-3"></div>
-</div>
+
+    <button type="button" class="article-view__scroll" (click)="scrollToContent()">
+      <span>{{ ('LANG' | translate) === 'tr' ? 'AŞAĞI İN' : 'EXPLORE' }}</span>
+      <i class="ki-duotone ki-down fs-2"><span class="path1"></span><span class="path2"></span></i>
+    </button>
+  </section>
+
+  <section #articleContent id="article-content" class="article-view__section">
+    <div class="container-xxl">
+      <div class="row justify-content-center g-7 g-xl-10">
+        <div class="col-xl-8 col-lg-9">
+          <article class="card border-0 article-view__paper">
+            <div class="card-body p-7 p-md-10 p-xl-12">
+              <div class="d-flex align-items-center gap-4 pb-7 mb-8 border-bottom border-gray-200">
+                <div class="article-view__mark flex-shrink-0">
+                  <i class="ki-duotone ki-heart fs-2"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <div>
+                  <div class="fw-bold text-gray-900 fs-6 mb-1">{{ ('LANG' | translate) === 'tr' ? 'Styever Destek Köşesi' : 'Styever Support Corner' }}</div>
+                  <div class="text-gray-500 fs-8">{{ ('LANG' | translate) === 'tr' ? 'Her anıya saygıyla, her kayba özenle.' : 'With respect for every memory and care for every loss.' }}</div>
+                </div>
+              </div>
+              <div class="article-view__content" [innerHTML]="('LANG' | translate) === 'tr' ? article.content : article.contentEn"></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-xl-3 col-lg-9">
+          <div class="article-view__aside">
+            <div class="card border-0 article-view__side-card mb-6">
+              <div class="card-body p-7">
+                <div class="article-view__side-icon mb-5"><i class="ki-duotone ki-message-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></div>
+                <h3 class="fw-bold text-gray-900 fs-4 mb-3">{{ ('LANG' | translate) === 'tr' ? 'Daha fazla desteğe mi ihtiyacınız var?' : 'Need more support?' }}</h3>
+                <p class="text-gray-600 fs-7 lh-lg mb-6">{{ ('LANG' | translate) === 'tr' ? 'Diğer rehberleri keşfedin veya sık sorulan sorulara göz atın.' : 'Explore more guides or browse frequently asked questions.' }}</p>
+                <button type="button" class="btn btn-primary w-100 mb-3" (click)="goToArticles()">{{ ('LANG' | translate) === 'tr' ? 'Tüm İçerikler' : 'All Articles' }}</button>
+                <button type="button" class="btn btn-light-primary w-100" (click)="goToFaq()">{{ 'FAQ' | translate }}</button>
+              </div>
+            </div>
+
+            <div class="card border-0 article-view__quote-card">
+              <div class="card-body p-7">
+                <img src="./assets/media/logos/logo-2.png" alt="Styever" class="article-view__logo mb-5" />
+                <p class="mb-0 text-white text-opacity-75 fs-7 lh-lg">{{ ('LANG' | translate) === 'tr' ? 'Sevgiyle kurulan bağlar, hatıralarda yaşamaya devam eder.' : 'Bonds built with love continue to live through memories.' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="article-view__footer-cta">
+    <div class="container-xxl">
+      <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-6 article-view__footer-inner">
+        <div>
+          <span class="article-view__footer-kicker">STYEVER</span>
+          <h2 class="mb-2">{{ ('LANG' | translate) === 'tr' ? 'Yanınızda olmaya devam ediyoruz.' : 'We are here to keep supporting you.' }}</h2>
+          <p class="mb-0">{{ ('LANG' | translate) === 'tr' ? 'İhtiyacınız olduğunda diğer rehberlerimize dönebilirsiniz.' : 'Return to our other guides whenever you need them.' }}</p>
+        </div>
+        <button type="button" class="btn btn-light btn-lg px-8 flex-shrink-0" (click)="goToArticles()">
+          {{ 'SUPPORT_HEADER' | translate }}
+          <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<ng-template #articleLoading>
+  <section class="article-view__loading d-flex align-items-center justify-content-center">
+    <div class="text-center"><span class="spinner-border text-primary mb-5" role="status"></span><div class="text-gray-600 fw-semibold">{{ ('LANG' | translate) === 'tr' ? 'İçerik hazırlanıyor...' : 'Preparing article...' }}</div></div>
+  </section>
+</ng-template>

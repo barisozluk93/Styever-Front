@@ -2,3 +2,4 @@
   height: inherit;
   width: inherit;
 }
+:host{display:flex;align-items:stretch}.menu .menu-link{position:relative;transition:opacity .2s ease}.menu .menu-link:hover{background:transparent!important;opacity:.72}.menu .menu-link.active::after{content:'';position:absolute;left:1rem;right:1rem;bottom:4px;height:2px;border-radius:2px;background:rgba(255,255,255,.82)}

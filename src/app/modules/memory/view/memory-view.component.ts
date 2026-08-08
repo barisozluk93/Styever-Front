@@ -173,6 +173,14 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
             }
           });
 
+          if (result.data.userAvatar) {
+            const avatarPath = result.data.userAvatar.path || '';
+            const avatarFileName = avatarPath.split('\\').pop()?.split('/').pop();
+            if (avatarFileName) {
+              result.data.userAvatarFileUrl = environment.avatarUploadFolderUrl + '/' + avatarFileName;
+            }
+          }
+
           result.data.likes?.forEach(like => {
             if (like.userId == this.currentUser?.id) {
               result.data.ownLike = true;
@@ -205,6 +213,10 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
           this.memory = undefined;
         }
       });
+  }
+
+  goToContent(): void {
+    document.getElementById('memory-view-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   goToMemories(): void {
@@ -380,6 +392,19 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
       `https://x.com/intent/tweet?url=${url}&text=${text}`,
       '_blank',
       'width=600,height=400'
+    );
+  }
+
+  shareWhatsApp(): void {
+    this.prepareShareLink();
+
+    const url = encodeURIComponent(this.shareLink);
+    const text = encodeURIComponent('Anısı bizimle yaşıyor 🐾');
+
+    window.open(
+      `https://wa.me/?text=${text}%20${url}`,
+      '_blank',
+      'noopener,noreferrer'
     );
   }
 

@@ -1,92 +1,83 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size:30px;">{{ 'PAYMENT' | translate }}</span>
-      <span class="text-white" style="font-size:15px;">{{ 'PAYMENT_SUBHEADER' | translate }}</span>
-    </div>
-  </div>
-</div>
-
-<div class="row mx-10 my-10">
-  <div class="col-lg-9">
-    <div class="card mb-5">
-      <div class="card-header border-0 pt-5">
-        <h3 class="card-title fw-bolder">{{ packageKey | translate }}</h3>
+<section class="payment-page py-10 py-lg-15">
+  <div class="container-xxl">
+    <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-4 mb-8">
+      <div>
+        <div class="d-flex align-items-center gap-3 mb-3"><span class="payment-eyebrow-line"></span><span class="text-primary fs-8 fw-bold text-uppercase ls-1">Styever</span></div>
+        <h1 class="text-gray-900 fw-bolder fs-2x fs-lg-3x mb-2">{{ 'PAYMENT' | translate }}</h1>
+        <div class="text-gray-500 fw-semibold fs-6">{{ 'PAYMENT_SUBHEADER' | translate }}</div>
       </div>
-      <div class="card-body py-5">
-        <div *ngIf="pendingReference" class="alert alert-primary mb-6">
-          <div class="fw-bolder mb-2">{{ 'SHOPIER.PENDING_TITLE' | translate }}</div>
-          <div>{{ 'SHOPIER.PENDING_DESCRIPTION' | translate }}</div>
-          <div class="small mt-2">{{ 'SHOPIER.REFERENCE' | translate }}: {{ pendingReference }}</div>
+      <div class="payment-secure-badge"><i class="ki-outline ki-shield-tick fs-2 text-primary"></i><span>{{ 'SHOPIER.SECURITY_INFO' | translate }}</span></div>
+    </div>
+
+    <div class="row g-7 g-xl-10 align-items-start">
+      <div class="col-xl-8">
+        <div class="payment-card">
+          <div class="d-flex align-items-start justify-content-between gap-4 mb-8">
+            <div><div class="text-primary fs-8 fw-bold text-uppercase ls-1 mb-2">{{ 'PAYMENT' | translate }}</div><h2 class="text-gray-900 fw-bolder fs-2 mb-0">{{ packageKey | translate }}</h2></div>
+            <span class="symbol symbol-48px"><span class="symbol-label bg-light-primary"><i class="ki-outline ki-credit-cart fs-2x text-primary"></i></span></span>
+          </div>
+
+          <div *ngIf="pendingReference" class="alert bg-light-primary border border-primary border-dashed d-flex align-items-start p-5 mb-7">
+            <i class="ki-outline ki-time fs-2x text-primary me-4"></i>
+            <div><div class="fw-bold text-gray-900 mb-1">{{ 'SHOPIER.PENDING_TITLE' | translate }}</div><div class="text-gray-600">{{ 'SHOPIER.PENDING_DESCRIPTION' | translate }}</div><div class="text-gray-500 fs-8 mt-2">{{ 'SHOPIER.REFERENCE' | translate }}: {{ pendingReference }}</div></div>
+          </div>
+
+          <form class="form payment-form" [formGroup]="paymentForm">
+            <ng-container *ngIf="typeId === 3">
+              <div class="row g-5">
+                <div *ngIf="!currentUser" class="col-md-6 fv-row">
+                  <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'SENDER_EMAIL' | translate }}</label>
+                  <div class="position-relative"><i class="ki-outline ki-sms position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="email" formControlName="senderEmail" /></div>
+                </div>
+                <div *ngIf="!currentUser" class="col-md-6 fv-row">
+                  <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'FULL_NAME' | translate }}</label>
+                  <div class="position-relative"><i class="ki-outline ki-user position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" formControlName="senderFullName" /></div>
+                </div>
+                <div class="col-md-6 fv-row">
+                  <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'RECEIVER_EMAIL' | translate }}</label>
+                  <div class="position-relative"><i class="ki-outline ki-sms position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="email" formControlName="receiverEmail" /></div>
+                </div>
+                <div class="col-md-6 fv-row">
+                  <label class="form-label fs-6 fw-bold text-gray-800 mb-2">{{ 'MESSAGE' | translate }}</label>
+                  <div class="position-relative"><i class="ki-outline ki-message-text-2 position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" formControlName="message" /></div>
+                </div>
+              </div>
+              <div class="separator my-8"></div>
+            </ng-container>
+
+            <div class="payment-consent">
+              <div class="form-check form-check-custom form-check-solid align-items-start">
+                <input class="form-check-input mt-1" type="checkbox" id="termsAccepted" formControlName="termsAccepted" />
+                <label class="form-check-label text-gray-700 fw-semibold lh-lg" for="termsAccepted">
+                  <button type="button" class="legal-link" (click)="openLegalModal()">{{ 'PRE_INFORMATION_FORM' | translate }}</button> {{ 'AND' | translate }} <button type="button" class="legal-link" (click)="openLegalModal()">{{ 'DISTANCE_SALES_CONTRACT' | translate }}</button> {{ 'I_HAVE_READ_AND_ACCEPTED' | translate }}
+                </label>
+              </div>
+              <div *ngIf="paymentForm.controls['termsAccepted'].invalid && paymentForm.controls['termsAccepted'].touched" class="text-danger fs-8 fw-semibold mt-2">{{ 'TERMS_ACCEPTANCE_REQUIRED' | translate }}</div>
+            </div>
+          </form>
         </div>
-
-        <form class="form w-100" [formGroup]="paymentForm">
-          <ng-container *ngIf="typeId === 3">
-            <div *ngIf="!currentUser" class="fv-row mb-5">
-              <label class="form-label fw-bolder">{{ 'SENDER_EMAIL' | translate }}</label>
-              <input class="form-control" type="email" formControlName="senderEmail" />
-            </div>
-            <div *ngIf="!currentUser" class="fv-row mb-5">
-              <label class="form-label fw-bolder">{{ 'FULL_NAME' | translate }}</label>
-              <input class="form-control" type="text" formControlName="senderFullName" />
-            </div>
-            <div class="fv-row mb-5">
-              <label class="form-label fw-bolder">{{ 'RECEIVER_EMAIL' | translate }}</label>
-              <input class="form-control" type="email" formControlName="receiverEmail" />
-            </div>
-            <div class="fv-row mb-5">
-              <label class="form-label fw-bolder">{{ 'MESSAGE' | translate }}</label>
-              <input class="form-control" type="text" formControlName="message" />
-            </div>
-          </ng-container>
-
-          <div class="alert alert-light-primary border-primary mb-5">
-            {{ 'SHOPIER.SECURITY_INFO' | translate }}
-          </div>
-
-          <div class="form-check mb-5">
-            <input class="form-check-input" type="checkbox" id="termsAccepted" formControlName="termsAccepted" />
-            <label class="form-check-label text-gray-800 fw-semibold" for="termsAccepted">
-              <button type="button" class="legal-link" (click)="openLegalModal()">{{ 'PRE_INFORMATION_FORM' | translate }}</button>
-              {{ 'AND' | translate }}
-              <button type="button" class="legal-link" (click)="openLegalModal()">{{ 'DISTANCE_SALES_CONTRACT' | translate }}</button>
-              {{ 'I_HAVE_READ_AND_ACCEPTED' | translate }}
-            </label>
-          </div>
-          <div *ngIf="paymentForm.controls['termsAccepted'].invalid && paymentForm.controls['termsAccepted'].touched" class="text-danger mb-3">
-            {{ 'TERMS_ACCEPTANCE_REQUIRED' | translate }}
-          </div>
-        </form>
       </div>
-    </div>
-  </div>
 
-  <div class="col-lg-3">
-    <div class="card card-xxl-stretch mb-5 mb-xl-8">
-      <div class="card-header border-0 pt-5">
-        <h3 class="card-title"><span class="card-label fw-bolder fs-3">{{ 'PAYMENT_SUMMARY' | translate }}</span></h3>
-      </div>
-      <div class="card-body py-3">
-        <table class="table">
-          <tr><td>{{ 'PRICE' | translate }}</td><td class="fw-bolder">{{ totalPrice }} ₺</td></tr>
-          <tr><td>{{ 'TOTAL' | translate }}</td><td class="fw-bolder">{{ totalPrice }} ₺</td></tr>
-        </table>
+      <div class="col-xl-4">
+        <div class="payment-summary-card">
+          <div class="d-flex align-items-center justify-content-between mb-7"><div><div class="text-primary fs-8 fw-bold text-uppercase ls-1 mb-1">Styever</div><h3 class="text-gray-900 fw-bolder fs-2 mb-0">{{ 'PAYMENT_SUMMARY' | translate }}</h3></div><i class="ki-outline ki-wallet fs-2x text-primary"></i></div>
+          <div class="summary-line"><span>{{ 'PRICE' | translate }}</span><strong>{{ totalPrice }} ₺</strong></div>
+          <div class="separator my-5"></div>
+          <div class="summary-total"><span>{{ 'TOTAL' | translate }}</span><strong>{{ totalPrice }} ₺</strong></div>
 
-        <button *ngIf="!pendingReference" [disabled]="paymentForm.invalid || processing" type="button" (click)="confirm()" class="btn btn-primary btn-lg w-100">
-          {{ (processing ? 'SHOPIER.REDIRECTING' : 'SHOPIER.PAY_WITH_SHOPIER') | translate }}
-        </button>
-
-        <div *ngIf="pendingReference" class="d-grid gap-3">
-          <button [disabled]="paymentForm.get('termsAccepted')?.invalid" type="button" (click)="reopenShopier()" class="btn btn-primary btn-lg w-100">
-            <i class="ki-outline ki-arrow-right fs-2"></i>
-            {{ 'SHOPIER.GO_TO_SHOPIER_AGAIN' | translate }}
+          <button *ngIf="!pendingReference" [disabled]="paymentForm.invalid || processing" type="button" (click)="confirm()" class="btn btn-lg btn-primary w-100 payment-submit mt-7">
+            <span class="d-flex align-items-center justify-content-center gap-2">{{ (processing ? 'SHOPIER.REDIRECTING' : 'SHOPIER.PAY_WITH_SHOPIER') | translate }}<i class="ki-outline ki-arrow-right fs-3"></i></span>
+          </button>
+          <button *ngIf="pendingReference" [disabled]="paymentForm.get('termsAccepted')?.invalid" type="button" (click)="reopenShopier()" class="btn btn-lg btn-primary w-100 payment-submit mt-7">
+            <span class="d-flex align-items-center justify-content-center gap-2">{{ 'SHOPIER.GO_TO_SHOPIER_AGAIN' | translate }}<i class="ki-outline ki-arrow-right fs-3"></i></span>
           </button>
 
+          <div class="d-flex align-items-center gap-3 mt-6 text-gray-500 fs-8 fw-semibold"><i class="ki-outline ki-shield-tick fs-2 text-success"></i><span>{{ 'SHOPIER.SECURITY_INFO' | translate }}</span></div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <app-modal #legalModal [modalConfig]="legalModalConfig">
   <div class="legal-modal-content">

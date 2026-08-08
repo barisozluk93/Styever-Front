@@ -1,13 +1,1 @@
-.footer {
-  img {
-    object-fit: contain;
-  }
-
-  .letter-spacing {
-    letter-spacing: 0.18em;
-  }
-
-  a {
-    transition: color 0.2s ease, opacity 0.2s ease;
-  }
-}
+:host{display:block;margin:0;padding:0;background:#063c2a}.styever-footer{margin:0;background:radial-gradient(circle at 38% 20%,rgba(28,113,78,.30),transparent 35%),linear-gradient(135deg,#032b20 0%,#075139 55%,#032b20 100%);color:#fff;border-top:1px solid rgba(255,255,255,.08)}.styever-footer__main{padding-top:42px;padding-bottom:26px}.styever-footer__logo{width:140px;height:92px;object-fit:contain;object-position:left center}.styever-footer__title{margin-bottom:16px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.styever-footer__links{display:flex;flex-direction:column;gap:10px}.styever-footer__links a,.styever-footer__bottom-link{color:rgba(255,255,255,.66);font-size:13px;font-weight:600;transition:color .2s ease,transform .2s ease}.styever-footer__links a:hover,.styever-footer__bottom-link:hover{color:#fff;transform:translateX(2px)}.styever-footer__company{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.60);font-size:12px}.styever-footer__company strong{color:rgba(255,255,255,.90)}.styever-footer__bottom{border-top:1px solid rgba(255,255,255,.10)}.styever-footer__social{width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.08);color:#fff;font-size:15px;transition:.2s ease}.styever-footer__social:hover{background:#fff;color:var(--bs-primary);transform:translateY(-2px)}@media(max-width:767.98px){.styever-footer__main{padding-top:32px}.styever-footer__logo{width:116px;height:72px}.styever-footer__company{align-items:flex-start;flex-direction:column}.styever-footer__bottom-link{font-size:12px}}

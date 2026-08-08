@@ -5,10 +5,11 @@ import { TranslationService } from '../../../../../../modules/i18n';
 @Component({
   selector: 'app-language-inner',
   templateUrl: './language-inner.component.html',
+  styleUrls: ['./language-inner.component.scss'],
 })
 export class LanguageInnerComponent implements OnInit, OnDestroy {
   @HostBinding('class')
-  class = `menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px`;
+  class = `menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-175px`;
   @HostBinding('attr.data-kt-menu') dataKtMenu = 'true';
 
   language: LanguageFlag;

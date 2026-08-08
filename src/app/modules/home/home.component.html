@@ -1,263 +1,78 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper banner-overlay">
-      <div class="col-lg-5">
-        <div class="fw-bolder text-white py-5" style="text-shadow: 0 1px 3px #000000a1;
-    font-size: 20px;border-bottom: 2px solid rgba(255, 255, 255, 0.1)">
-          {{ 'HOME_HEADER' | translate }}
+<main class="styever-home">
+  <section class="hero">
+    <div class="hero__shade"></div>
+    <div class="container-xxl hero__container">
+      <div class="hero__content">
+        <div class="hero__eyebrow"><span class="hero__eyebrow-mark"></span>{{ 'HOME_HERO_EYEBROW' | translate }}</div>
+        <h1 class="hero__title">{{ 'HOME_HERO_TITLE' | translate }}</h1>
+        <p class="hero__description">{{ 'HOME_HEADER' | translate }}</p>
+        <div class="d-flex flex-wrap gap-3 mt-8">
+          <button type="button" class="btn btn-primary btn-lg px-8" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }} <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i></button>
+          <button type="button" class="btn btn-light btn-lg px-8 hero__secondary" (click)="goToMemories()">{{ 'MEMORIES' | translate }}</button>
         </div>
-        <div class="py-5">
-          <div class="row">
-            <div class="w-50">
-              <a (click)="goToOffers()"
-                class="btn btn-custom btn-active-dark btn-color-primary btn-secondary w-100 fs-4 fw-bolder"
-                data-kt-menu-flip="top-end">
-                <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr004.svg'"
-                  class="svg-icon svg-icon-2 me-1"></span>
-                {{ 'EXPLORE' | translate }}
-              </a>
-            </div>
-            <div class="w-50">
-              <a (click)="goToMemories()"
-                class="btn btn-custom btn-active-white btn-color-white btn-primary w-100 fs-4 fw-bolder"
-                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'"
-                  class="svg-icon svg-icon-2 me-1"></span>
-                {{ 'MEMORIES' | translate }}
-              </a>
-            </div>
-          </div>
-        </div>
+        <div class="hero__note"><div class="hero__note-icon"><i class="ki-duotone ki-heart fs-2"><span class="path1"></span><span class="path2"></span></i></div><span>{{ 'HOME_HERO_NOTE' | translate }}</span></div>
       </div>
     </div>
-  </div>
-</div>
-<section id="offers" class="mx-10">
-  <div class="row px-10 pt-10">
-    <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-       <a class="fw-bolder text-white">
-            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
-            &nbsp;{{ 'OFFERS' | translate}}
-        </a>
-      </span>
-    </div>
-    <div class="col-lg-6">
-      <h1 class="heading-3 text-primary">{{ 'OFFERS_HEADER' | translate }}</h1>
-    </div>
-  </div>
+    <button type="button" class="hero__scroll" (click)="goToOffers()"><span>{{ 'EXPLORE' | translate }}</span><i class="ki-duotone ki-down fs-2"><span class="path1"></span><span class="path2"></span></i></button>
+  </section>
 
-  <div class="row px-10 py-10">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-header border-0">
-          <h3 class="card-title align-items-start flex-column">
-            <span (click)="goToSignUp()" class="cursor-pointer card-label fw-bolder text-hover-light-primary text-primary">{{ 'OFFERS_FIRST_CONTENT_HEADER' | translate }}</span>
-            <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FIRST_CONTENT_SUBHEADER' | translate }}</span>
-          </h3>
-        </div>
-        <div class="card-body">
-          <img style="width: 100%; height: auto;border-radius: 10px;" src="./assets/media/patterns/section1-1.jpg" />
+  <section id="offers" class="section section--warm">
+    <div class="container-xxl">
+      <div class="section-heading">
+        <div><span class="section-kicker">{{ 'OFFERS' | translate }}</span><h2>{{ 'OFFERS_HEADER' | translate }}</h2></div>
+        <p>{{ 'HOME_OFFERS_DESC' | translate }}</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-story cursor-pointer" (click)="goToSignUp()">
+          <img src="./assets/media/patterns/section1-1.jpg" [alt]="'OFFERS_FIRST_CONTENT_HEADER' | translate">
+          <div class="feature-story__overlay"></div>
+          <div class="feature-story__content"><h3>{{ 'OFFERS_FIRST_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FIRST_CONTENT_SUBHEADER' | translate }}</p><span class="feature-link">{{ 'CREATE_MEMORY' | translate }} <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i></span></div>
+        </article>
+        <div class="feature-list">
+          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-picture fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_SECOND_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_SECOND_CONTENT_SUBHEADER' | translate }}</p></div></article>
+          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-shield-tick fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_FOURTH_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FOURTH_CONTENT_SUBHEADER' | translate }}</p></div></article>
+          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-people fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_FIFTH_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FIFTH_CONTENT_SUBHEADER' | translate }}</p></div></article>
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="row mb-5">
-        <div class="col-lg-6">
-          <div class="card" style="height: 300px;">
-            <div class="card-header">
-              <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-primary">{{ 'OFFERS_SECOND_CONTENT_HEADER' | translate }}</span>
-              </h3>
-            </div>
-            <div class="card-body">
-              <div style="text-align: center;">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'"
-                  class="svg-icon svg-icon-1 text-light-primary"></span>
-              </div>
-              <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_SECOND_CONTENT_SUBHEADER' | translate }}</span>
-              </h3>
-            </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container-xxl">
+      <div class="about-panel">
+        <div class="about-panel__image"><img src="./assets/media/patterns/Hakkimizda.jpg" [alt]="'ABOUT_HEADER' | translate"><div class="about-panel__quote"><img src="./assets/media/logos/logo-2.png" alt="Styever"><span>{{ 'ABOUT_HEADER_CONTENT' | translate }}</span></div></div>
+        <div class="about-panel__content">
+          <span class="section-kicker">{{ 'ABOUT' | translate }}</span><h2>{{ 'ABOUT_HEADER' | translate }}</h2><p>{{ 'HOME_ABOUT_EXCERPT' | translate }}</p>
+          <div class="about-values">
+            <div class="about-value"><span class="about-value__dot"></span><div><strong>{{ 'HOME_ABOUT_VALUE_1_TITLE' | translate }}</strong><span>{{ 'HOME_ABOUT_VALUE_1_DESC' | translate }}</span></div></div>
+            <div class="about-value"><span class="about-value__dot"></span><div><strong>{{ 'HOME_ABOUT_VALUE_2_TITLE' | translate }}</strong><span>{{ 'HOME_ABOUT_VALUE_2_DESC' | translate }}</span></div></div>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="card" style="height: 300px;">
-            <div class="card-header">
-              <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-primary">{{ 'OFFERS_FOURTH_CONTENT_HEADER' | translate }}</span>
-              </h3>
-            </div>
-            <div class="card-body">
-              <div style="text-align: center;">
-                <i class="fa fa-ban text-light-primary fs-1"></i>
-              </div>
-              <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FOURTH_CONTENT_SUBHEADER' | translate }}</span>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="col-lg-6">
-          <div class="card" style="height: 300px;">
-            <div class="card-header">
-              <h3 class="card-title text-center flex-column">
-                <span class="card-label fw-bolder text-primary">{{ 'OFFERS_THIRD_CONTENT_HEADER' | translate }}</span>
-              </h3>
-            </div>
-            <div class="card-body">
-              <div style="text-align: center;">
-                <i class="fa fa-ribbon text-light-primary fs-1"></i>
-              </div>
-              <h3 class="card-title text-center flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_THIRD_CONTENT_SUBHEADER' | translate }}</span>
-              </h3>
-            </div>
-          </div>
-        </div> -->
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card" style="height: 300px;">
-            <div class="card-header">
-              <h3 class="card-title align-items-start flex-column">
-                <span class="fw-bolder text-primary">{{ 'OFFERS_FIFTH_CONTENT_HEADER' | translate }}</span>
-              </h3>
-            </div>
-            <div class="card-body">
-              <div style="text-align: center;">
-                <i class="fa-solid fa-heart text-light-primary fs-1"></i>
-              </div>
-              <h3 class="card-title align-items-start flex-column mx-2 my-10">
-                <span class="text-light-primary mt-3 fw-bold fs-sm">{{ 'OFFERS_FIFTH_CONTENT_SUBHEADER' | translate }}</span>
-              </h3>
-            </div>
-          </div>
+          <button type="button" class="btn btn-light-primary px-7 mt-8" (click)="goToAbout()">{{ 'HOME_LEARN_MORE' | translate }} <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i></button>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section id="about" class="mx-10">
-  <div class="row px-10 pt-10">
-    <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-        <a class="fw-bolder text-white">
-            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
-            &nbsp;{{ 'ABOUT' | translate}}
-          </a>
-      </span>
-    </div>
-  </div>
-  <div class="row px-10 py-10">
-    <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card bg-primary border-0"
-        style="height: 600px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
-        <div class="card-header">
-          <h3 class="card-title align-items-start flex-column">
-            <span (click)="goToAbout()" class="cursor-pointer  fw-bolder text-white">{{ 'ABOUT_HEADER' | translate }}</span>
-          </h3>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title flex-column mx-2 my-2">
-            <span class="text-white mt-3 fw-bold fs-sm" style="white-space: pre-line">
-              {{ 'ABOUT_CONTENT' | translate }}
-            </span>
-          </h3>
-        </div>
+  </section>
+
+  <section id="options" class="section section--deep">
+    <div class="container-xxl">
+      <div class="experience-heading"><span class="section-kicker section-kicker--light">{{ 'HOME_COMMUNITY_KICKER' | translate }}</span><h2>{{ 'HOME_COMMUNITY_TITLE' | translate }}</h2><p>{{ 'HOME_COMMUNITY_DESC' | translate }}</p></div>
+      <div class="experience-grid">
+        <article class="experience-card"><div class="experience-card__icon"><i class="ki-duotone ki-heart fs-1"><span class="path1"></span><span class="path2"></span></i></div><h3>{{ 'SHORTCUT_FIRST_HEADER' | translate }}</h3><p>{{ 'SHORTCUT_FIRST_CONTENT' | translate }}</p><button type="button" class="btn btn-light w-100 mt-auto experience-card__button" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button></article>
+        <article class="experience-card"><div class="experience-card__icon"><i class="ki-duotone ki-message-text-2 fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></div><h3>{{ 'SHORTCUT_SECOND_HEADER' | translate }}</h3><p>{{ 'SHORTCUT_SECOND_CONTENT' | translate }}</p><button type="button" class="btn btn-light w-100 mt-auto experience-card__button" (click)="goToMemories()">{{ 'MEMORIES' | translate }}</button></article>
       </div>
     </div>
-    <div class="col-lg-6" style="padding-left: 0px;">
-      <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-        <img style="width: 100%; height: 600px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
-          src="./assets/media/patterns/Hakkimizda.jpg" />
+  </section>
+
+  <section id="gift" class="section">
+    <div class="container-xxl">
+      <div class="gift-panel">
+        <div class="gift-panel__content"><span class="section-kicker">{{ 'HOME_GIFT_KICKER' | translate }}</span><h2>{{ 'STANDBY_HEADER' | translate }}</h2><p>{{ 'STANDBY_CONTENT' | translate }}</p><button type="button" class="btn btn-primary px-8 mt-5 align-self-start" (click)="goToStandBy()">{{ 'HOME_GIFT_CTA' | translate }} <i class="ki-duotone ki-gift fs-3 ms-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i></button></div>
+        <div class="gift-panel__image"><img src="./assets/media/patterns/giftvoucher.jpg" [alt]="'STANDBY_HEADER' | translate"></div>
       </div>
     </div>
-  </div>
-</section>
-<section id="options" class="mx-10">
-  <div class="row px-10 pt-10">
-    <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card" style="height: 247px;">
-        <div class="card-header">
-          <h3 class="card-title align-items-start flex-column py-3">
-            <span class="fw-bolder text-primary">{{ 'SHORTCUT_FIRST_HEADER' | translate }}</span>
-          </h3>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title flex-column py-5">
-            <span class="text-light-primary mt-3 fw-bold fs-sm">
-              {{ 'SHORTCUT_FIRST_CONTENT' | translate }}
-            </span>
-          </h3>
-          <div class="text-center">
-            <a (click)="goToSignUp()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
-              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-              <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr013.svg'" class="svg-icon svg-icon-2"></span>
-              {{ 'CREATE_MEMORY' | translate }}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card" style="height: 247px;">
-        <div class="card-header">
-          <h3 class="card-title align-items-start flex-column py-3">
-            <span class="fw-bolder text-primary">{{ 'SHORTCUT_SECOND_HEADER' | translate }}</span>
-          </h3>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title flex-column py-5">
-            <span class="text-light-primary mt-3 fw-bold fs-sm">
-              {{ 'SHORTCUT_SECOND_CONTENT' | translate }}
-            </span>
-          </h3>
-          <div class="text-center">
-            <a (click)="goToMemories()" class="btn btn-custom btn-active-white btn-color-white btn-primary w-100"
-              data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-              <span [inlineSVG]="'./assets/media/icons/duotune/general/gen006.svg'" class="svg-icon svg-icon-2"></span>
-              {{ 'MEMORIES' | translate }}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="gift" class="mx-10">
-  <!-- <div class="row px-10 pt-10">
-    <div class="col-lg-6">
-      <span class="badge fs-5 fw-bolder me-auto px-4 py-3 badge-primary text-white">
-        <a class="fw-bolder text-white">
-            <img alt="Logo" src="./assets/media/logos/logo-2.png" class="bg-primary h-25px" style="padding: 5px !important;"/>
-            &nbsp;{{ 'VOUCHERS' | translate}}
-          </a>
-      </span>
-    </div>
-  </div> -->
-  <div class="row px-10 py-10">
-    <div class="col-lg-6" style="padding-right: 0px;">
-      <div class="card bg-primary" style="height: 400px !important; border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
-        <div class="card-header">
-          <h3 class="card-title align-items-start flex-column">
-            <span (click)="goToStandBy()" class="cursor-pointer fw-bolder text-white">{{ 'STANDBY_HEADER' | translate }}</span>
-          </h3>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title flex-column mx-2 mt-5 mb-20" style="height: 85px;">
-            <span class="text-white mt-3 fw-bold fs-sm mb-20">
-              {{ 'STANDBY_CONTENT' | translate }}
-            </span>
-          </h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6" style="padding-left: 0px;">
-      <div class="card" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
-        <img style="width: 100%; height: 400px;border-top-right-radius: 8px;border-bottom-right-radius: 8px;"
-          src="./assets/media/patterns/giftvoucher.jpg" />
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <section class="final-cta">
+    <div class="container-xxl"><div class="final-cta__inner"><img src="./assets/media/logos/logo-2.png" alt="Styever" class="final-cta__logo"><div><h2>{{ 'HOME_FINAL_TITLE' | translate }}</h2><p>{{ 'HOME_FINAL_DESC' | translate }}</p></div><button type="button" class="btn btn-light btn-lg px-8" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button></div></div>
+  </section>
+</main>

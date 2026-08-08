@@ -20,6 +20,7 @@ export class PlansComponent implements OnInit {
   @Input() isStandByPage: boolean;
   @Input() isProfilePage: boolean;
   @Input() compactMode: boolean = false;
+  @Input() showSelectionIndicator: boolean = false;
 
   @Output() isPlanSelect: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('selectMemoryModal') private selectMemoryComponent: SelectMemoryComponent;
