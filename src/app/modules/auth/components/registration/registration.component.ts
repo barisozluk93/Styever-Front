@@ -31,7 +31,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   activeState: string = 'paymentPlan';
   activeVoucherPlan: number = -1;
   activePlan: number = 2;
-  totalPrice: number = 359.00;
+  totalPrice: number = 499.00;
   useVoucher: boolean;
   voucher: string = '';
 
@@ -71,11 +71,11 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.activePlan = plan;
 
     if (this.activePlan == 2) {
-      this.totalPrice = 359.00;
+      this.totalPrice = 499.00;
     } else if (this.activePlan == 3) {
-      this.totalPrice = 559.00;
+      this.totalPrice = 699.00;
     } else if (this.activePlan == 4) {
-      this.totalPrice = 959.00;
+      this.totalPrice = 1299.00;
     }
   }
 

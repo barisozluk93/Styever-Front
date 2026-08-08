@@ -395,13 +395,14 @@ export const locale = {
     GIFT_SIXTH_HEADER: "Make them feel like they're not alone.",
     GIFT_SIXTH_CONTENT: "Coping with loneliness and grief is difficult. This gift is an elegant, lasting, and loving way to tell your friend, \"I'm here for you, you're not alone.\" Buy a Styever gift certificate today and create a loving keepsake for your lost friend.",
 
-    standard: "Memory",
+    standard: "Origin",
     standardProperty1: "1 Memory Page",
     standardProperty2: "1 Picture",
     standardProperty3: "1 Memoir Section (1000 char.)",
     standardProperty4: "Social Responsibility Badge",
     standardProperty5: "Reminder Notifications",
-    premium: "Tribute",
+    premium: "Heart",
+    MOST_PREFERRED: "MOST PREFERRED",
     premiumProperty1: "1 Memory Page",
     premiumProperty2: "4 Pictures",
     premiumProperty3: "2 Videos",
@@ -409,7 +410,7 @@ export const locale = {
     premiumProperty5: "1 Memoir Section (5000 char.)",
     premiumProperty6: "Social Responsibility Badge",
     premiumProperty7: "Reminder Notifications",
-    ultra: "Eternal",
+    ultra: "Family",
     ultraProperty1: "4 Memory Pages",
     ultraProperty2: "4 Pictures/memory page",
     ultraProperty3: "2 Videos/memory page",
@@ -455,9 +456,9 @@ export const locale = {
       AGREEMENT_SAVE_FAILED: 'Agreement acceptances could not be saved. You were not redirected to the payment page.',
       GENERIC_ERROR: "An error occurred during the operation.",
       PACKAGES: {
-        MEMORY: "Memory Package",
-        TRIBUTE: "Tribute Package",
-        ETERNAL: "Eternal Package"
+        MEMORY: "Origin Package",
+        TRIBUTE: "Heart Package",
+        ETERNAL: "Family Package"
       }
     },
 
@@ -570,358 +571,282 @@ export const locale = {
     },
     TERMS: {
       PAGE_TITLE: "Terms of Use and Membership Agreement",
-
-      SECTION_1_TITLE: "1. Parties and Approval",
-      SECTION_1_TEXT: "This Website Terms of Use and Membership Agreement (hereinafter referred to as the \"Agreement\") has entered into force on the date it is electronically approved between users who become members of, provide content to, or visit the website www.styever.com (hereinafter referred to as the \"Platform\" or \"Website\") (hereinafter referred to as the \"User\" or \"Buyer\") and ESMA ESRA KILIÇ, the legal owner of the platform (hereinafter referred to as \"Styever\" or the \"Seller\"). Accessing the platform, creating a membership, or purchasing digital services through the platform means that the terms of this agreement are fully accepted.",
-
+      SECTION_1_TITLE: "1. Parties and Acceptance",
+      SECTION_1_TEXT: "This Website Terms of Use and Membership Agreement (hereinafter referred to as the \"Agreement\") enters into force on the date it is electronically approved between users who become members of, provide content to, or visit www.styever.com (hereinafter referred to as the \"Platform\" or \"Website\") (hereinafter referred to as the \"User\" or \"Buyer\") and ESMA ESRA KILIÇ (Styever), the legal owner of the platform (hereinafter referred to as \"Styever\" or the \"Seller\"). Accessing the Platform, creating a membership, or purchasing digital services through the Platform means that these Agreement terms are accepted in full.",
       SECTION_2_TITLE: "2. Definition of the Platform and Nature of the Service",
-      SECTION_2_TEXT: "Styever is a web-based software and hosting platform that enables users to create private memorial pages entirely in digital environment for their deceased pets and beloved companions, upload photos/videos to these pages, write memory texts, and receive digital condolence messages and commemoration rituals such as digital candle lighting from third parties. All services offered are intangible, digital, and instantly performed.",
-
+      SECTION_2_TEXT: "Styever is a web-based software and hosting platform that enables users to create private digital memorial pages for their deceased pets and beloved companions, upload photos/videos to these pages, write memorial texts, and receive digital condolence messages and commemoration rituals such as lighting a digital candle from third parties. All services offered are intangible, digital, and performed instantly.",
       SECTION_3_TITLE: "3. Account Creation and Security",
-      SECTION_3_TEXT: "Creating a membership account is mandatory in order to benefit from the digital memorial page creation and customization features offered by the platform. Users are obliged to provide the information requested in the registration form accurately, completely, up to date, and truthfully. The security and confidentiality of the account password and ensuring that it is not shared with third parties are entirely the responsibility of the User. Any legal and criminal liability arising from unauthorized account use belongs solely to the User.",
-
+      SECTION_3_TEXT: "Creating a membership account is mandatory in order to use the digital memorial page creation and customization features offered by the Platform. Users are obliged to provide the information requested in the registration form accurately, completely, up to date, and truthfully. The security and confidentiality of the account password and ensuring that it is not shared with third parties are entirely the User's responsibility. Any legal and criminal liability arising from unauthorized account use belongs solely to the User.",
       SECTION_4_TITLE: "4. User Content and Legal Responsibility",
-      SECTION_4_TEXT_1: "4.1. Users are personally and fully responsible for all photographs, videos, texts, comments, names, and visual content they upload, share, or leave as condolence messages on the memorial pages they create on the platform (hereinafter referred to as \"User Content\").",
-      SECTION_4_TEXT_2: "4.2. The User accepts, declares, and undertakes in advance that the content they upload complies with the applicable legislation, especially the Law on Intellectual and Artistic Works, and does not violate the copyrights, property rights, trade secrets, or personal rights of third parties. All legal, criminal, and financial sanctions arising from such content shall be directly recourse to the relevant User.",
-
+      SECTION_4_TEXT_1: "4.1. Users are personally and fully responsible for all photographs, videos, texts, comments, names, and visual content they upload, share, or leave as condolence messages on the memorial pages they create on the Platform (hereinafter referred to as \"User Content\").",
+      SECTION_4_TEXT_2: "4.2. The User accepts, declares, and undertakes in advance that the content they upload complies with applicable legislation, particularly Law No. 5846 on Intellectual and Artistic Works, and does not infringe the copyrights, property rights, trade secrets, personal data, or personality rights of third parties. Any legal, criminal, and financial sanctions arising from such content shall be directly attributable to the relevant User.",
+      SECTION_4_TEXT_3: "4.3. The User irrevocably consents to the Operator hosting, processing, and technically presenting the content uploaded to the Platform solely for the purpose of displaying the memorial page and providing the service.",
       SECTION_5_TITLE: "5. Prohibited Content and Notice-and-Takedown Principle",
-      SECTION_5_TEXT_1: "5.1. It is strictly prohibited to share content on the platform that is contrary to public morality, public order, and law, including insults, profanity, threats, hate speech, racism, content praising illegal activities, spam, advertisements, and posts contrary to personal data protection laws.",
-      SECTION_5_TEXT_2: "5.2. Styever has the status of a \"Hosting Provider\" pursuant to Law No. 5651 on the Regulation of Publications on the Internet and Combating Crimes Committed through Such Publications. Styever has no obligation to pre-check, investigate unlawfulness, or editorially review content uploaded by users.",
-      SECTION_5_TEXT_3: "5.3. Styever adopts the \"Notice-and-Takedown\" principle pursuant to the legislation. If notifications regarding rights violations, copyrights, or unlawful content are submitted to info@styever.com, Styever reserves the right to immediately remove, delete, or suspend the relevant content or account without any prior notice.",
-
+      SECTION_5_TEXT_1: "5.1. It is strictly prohibited to share content on the Platform that is contrary to public morality, public order, or law, including insults, profanity, threats, hate speech, racism, content praising illegal activities, spam, advertisements, and posts contrary to Law No. 6698 on the Protection of Personal Data.",
+      SECTION_5_TEXT_2: "5.2. Styever has the status of a \"Hosting Provider\" pursuant to Law No. 5651 on the Regulation of Publications on the Internet and Combating Crimes Committed through Such Publications. Styever has no obligation to pre-screen content uploaded by users, investigate unlawfulness, or conduct editorial review.",
+      SECTION_5_TEXT_3: "5.3. Styever adopts the \"Notice-and-Takedown\" principle in accordance with applicable legislation. If notifications regarding rights violations, copyright infringement, or unlawful content are submitted to info@styever.com, Styever reserves the right to immediately remove or delete the relevant content or suspend the account without prior notice.",
       SECTION_6_TITLE: "6. Payments and Active Subscription System",
-      SECTION_6_TEXT_1: "6.1. Premium memorial page setup and digital commemoration features on the platform are subject to fees, and the prices of service packages are clearly listed on the order screens.",
-      SECTION_6_TEXT_2: "6.2. All collection and payment transactions are carried out through the infrastructure of Tami Ödeme Hizmetleri A.Ş. (Param Virtual POS), a legally licensed payment institution, using 256-bit SSL encryption and the 3D Secure authentication protocol.",
-      SECTION_6_TEXT_3: "6.3. The User may manage, cancel, or freeze the purchased subscription packages and automatic renewal cycles at any time through the \"My Account\" tab on the platform. When the subscription is cancelled, the service remains active until the end of the current active period, and no payment is charged to the card for the next period.",
-
+      SECTION_6_TEXT_1: "6.1. Premium memorial page setup and digital commemoration features on the Platform are subject to fees, and service package prices are clearly listed on the order and payment screens.",
+      SECTION_6_TEXT_2: "6.2. All collection and payment transactions are carried out through Shopier (Shopier Yazılım A.Ş.), a licensed payment infrastructure provider, using 256-bit SSL encryption and the 3D Secure authentication protocol. Styever does not store or process the User's credit card/debit card information on its own servers in any way.",
+      SECTION_6_TEXT_3: "6.3. The User may manage or cancel purchased subscription packages and renewal processes at any time through the \"My Account\" tab on the Platform. When a subscription is cancelled, the service remains active until the end of the current active period, and no charge is made to the card for the next period.",
       SECTION_7_TITLE: "7. Right of Withdrawal and Refund Policy",
-      SECTION_7_TEXT_1: "7.1. Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation, there is legally no right of withdrawal or refund from the moment digital memorial page activation and service purchase are completed, as they fall within the scope of \"services performed instantly in electronic environment or intangible goods delivered instantly to the consumer.\"",
-      SECTION_7_TEXT_2: "7.2. However, in accordance with Styever’s corporate customer satisfaction policy, a 7 (seven) day unconditional cancellation and refund period is granted from the date of the first purchase. For cancellation requests submitted through info@styever.com within the first 7 days, the fee is refunded without deduction and the relevant memorial page is permanently deleted from the servers. No refund shall be made under any circumstances for cancellations made after the 7-day trial period has expired.",
-
-      SECTION_8_TITLE: "8. Service Continuity, Platform Closure, or Litigation Waiver Statement",
-      SECTION_8_TEXT_1: "8.1. Styever makes the necessary technical infrastructure investments to ensure that the platform operates uninterruptedly and with high performance. However, no absolute legal commitment or guarantee is given that the services offered will remain online forever, without interruption, or for a lifetime.",
-      SECTION_8_TEXT_2: "8.2. Styever reserves the right, entirely at its own commercial discretion, to completely cease platform activities, close the website, and permanently terminate all digital memorial page services offered due to economic reasons, technical impossibilities, company liquidation, or strategic decisions.",
-      SECTION_8_TEXT_3: "8.3. If a decision is made to completely close the platform, Styever shall notify all users with active subscriptions or who have previously received service at least 30 (thirty) days in advance in writing via the e-mail addresses registered in the system.",
-      SECTION_8_TEXT_4: "8.4. During the closure notification period of 30 days, Users are fully responsible for backing up and downloading all photographs, videos, and texts belonging to them on the memorial pages they created on the platform to their own local storage devices. Upon expiry of the notification period, all servers shall be permanently shut down, databases shall be destroyed, and content shall be irreversibly deleted.",
-      SECTION_8_TEXT_5: "8.5. In the event that the platform is completely closed, the service is terminated, or data is deleted from the servers in compliance with the legal notification period of 30 days specified in this article, Styever shall have no legal, criminal, financial, or administrative liability toward users whose active subscription has ended and whose page is published in free status, or active subscribers whose remaining period fee has been refunded.",
-      SECTION_8_TEXT_6: "8.6. The User irrevocably accepts, declares, and undertakes that they shall not file any material or moral compensation lawsuit against Styever due to the complete closure of the platform or termination of the service, and shall not apply to any judicial, administrative, or consumer authority with claims that \"memories were lost, deleted, or moral damage was suffered.\"",
-
+      SECTION_7_TEXT_1: "7.1. Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation, digital memorial page activation and service purchase fall within the scope of \"services performed instantly in electronic environment or intangible goods delivered instantly to the consumer\"; therefore, once activation and service delivery are completed, there is legally no right of withdrawal or refund.",
+      SECTION_7_TEXT_2: "7.2. However, under Styever's corporate customer satisfaction policy, an unconditional cancellation and refund period of 7 (seven) days is granted from the date of the first purchase. For cancellation requests submitted via info@styever.com within the first 7 days, the fee is refunded in full and the relevant memorial page is permanently deleted from the servers. No refund will be made for cancellations submitted after the 7-day trial period has expired.",
+      SECTION_8_TITLE: "8. Service Continuity, Platform Closure, and Force Majeure",
+      SECTION_8_TEXT_1: "8.1. Styever makes the necessary technical infrastructure investments to ensure that the Platform operates uninterruptedly and with high performance. However, no absolute legal commitment or guarantee is given that the services offered will remain online forever, without interruption, or for a lifetime.",
+      SECTION_8_TEXT_2: "8.2. Styever reserves the right, entirely at its own commercial discretion, to cease Platform operations completely, close the Website, and permanently terminate all digital memorial page services due to economic reasons, technical impossibilities, company liquidation, or strategic decisions.",
+      SECTION_8_TEXT_3: "8.3. If a decision is made to completely close the Platform, Styever shall provide written notice at least 30 (thirty) days in advance via the e-mail addresses registered in the system to all users with active subscriptions or who have previously received services.",
+      SECTION_8_TEXT_4: "8.4. During the 30-day closure notice period, Users are solely responsible for backing up and downloading to their own local storage devices all photographs, videos, and texts belonging to them on the memorial pages they created on the Platform. At the end of the notice period, all servers will be permanently shut down, databases will be destroyed, and content will be irreversibly deleted.",
+      SECTION_8_TEXT_5: "8.5. If the Platform is completely closed, the service is terminated, or data is deleted from the servers in compliance with the 30-day legal notice period specified in this article, Styever shall have no legal, criminal, financial, or administrative liability toward users whose active subscriptions have expired and whose pages are published under free status, or toward active subscribers whose fees for the remaining period have been refunded.",
+      SECTION_8_TEXT_6: "8.6. The User irrevocably accepts, declares, and undertakes that they will not file a claim for material or non-pecuniary damages against Styever due to the complete closure of the Platform or termination of the service, and will not apply to any judicial, administrative, or consumer authority on the grounds that \"memories were lost or deleted, or emotional harm was suffered.\"",
+      SECTION_8_TEXT_7: "8.7. Temporary access interruptions caused by internet service providers, cyberattacks, server failures, or third-party infrastructure providers shall be considered force majeure, and Styever shall not be held liable for such interruptions.",
       SECTION_9_TITLE: "9. Applicable Law and Authorized Court",
-      SECTION_9_TEXT: "This Agreement and all disputes arising from the use of the platform are subject to the laws of the Republic of Türkiye. In disputes arising from the Agreement, Consumer Arbitration Committees and Consumer Courts at the User’s place of residence or at the Seller’s commercial headquarters shall be authorized within the monetary limits announced annually by the Ministry of Trade.",
-
+      SECTION_9_TEXT: "This Agreement and any disputes arising from use of the Platform are subject to the laws of the Republic of Türkiye. For disputes arising from the Agreement, within the monetary limits announced annually by the Ministry of Trade, the Consumer Arbitration Committees and Consumer Courts at the User's place of residence or at the Seller's commercial headquarters shall have jurisdiction.",
       SECTION_10_TITLE: "10. Seller and Contact Information",
-      SECTION_10_ITEM_1: "Official Title / Name Surname: ESMA ESRA KILIÇ (Styever)",
+      SECTION_10_ITEM_1: "Official Title / Name and Surname: ESMA ESRA KILIÇ (Styever)",
       SECTION_10_ITEM_2: "Business Address: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
       SECTION_10_ITEM_3: "Tax Office and Number: DOĞANBEY TAX OFFICE / 0990426667",
       SECTION_10_ITEM_4: "E-mail Address: info@styever.com",
-      SECTION_10_ITEM_5: "Customer Complaints: You may send all your complaints, suggestions, and objections to info@styever.com. Our technical team will conduct a detailed review and provide you with a written response within no later than 30 business days."
+      SECTION_10_ITEM_5: "Customer Complaints: You may send all complaints, suggestions, and objections to info@styever.com. Your requests will be reviewed and a written response will be provided within no later than 30 business days."
     },
     DISTANCE_SALES: {
-      PAGE_TITLE: "Distance Sales Agreement",
-
-      PRE_INFO_TITLE: "Preliminary Information Form",
-
+      PAGE_TITLE: "DISTANCE SALES AGREEMENT",
+      PRE_INFO_TITLE: "SECTION I: PRELIMINARY INFORMATION FORM",
       PRE_INFO_SECTION_1_TITLE: "1. Seller Information",
-      PRE_INFO_SELLER_1: "Name Surname / Official Title: ESMA ESRA KILIÇ (Styever)",
+      PRE_INFO_SELLER_1: "Name / Legal Title: ESMA ESRA KILIÇ (Styever)",
       PRE_INFO_SELLER_2: "Business Address: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
-      PRE_INFO_SELLER_3: "Tax Office and Number: DOĞANBEY TAX OFFICE / 0990426667",
+      PRE_INFO_SELLER_3: "Tax Office and No.: DOĞANBEY TAX OFFICE / 0990426667",
       PRE_INFO_SELLER_4: "E-mail Address: info@styever.com",
-
-      PRE_INFO_SECTION_2_TITLE: "2. Features and Price of the Service Subject to the Agreement",
-      PRE_INFO_SECTION_2_TEXT: "The service purchased through the platform is an intangible and digital service that includes the right to create a digital memorial page for deceased pets, use software functions, hosting services, and digital commemoration tools such as lighting a digital candle and leaving condolences. The total sales price of the service, including all taxes, is the amount displayed to the Buyer on the approval screen at the time of purchase and stated on the invoice issued in the Buyer's name. Since the service is performed entirely in a digital environment, there are no shipping or logistics costs.",
-
+      PRE_INFO_SECTION_2_TITLE: "2. Characteristics and Price of the Service Subject to the Agreement",
+      PRE_INFO_SECTION_2_TEXT: "The service purchased through the Platform is an intangible and digital service that includes the right to create a digital memorial page for deceased pets, use software functions, receive hosting services, and use digital remembrance tools such as lighting a digital candle and leaving condolences. The total sales price including all taxes is the amount displayed to the Buyer on the payment screen at the time of purchase and stated on the invoice issued in the Buyer's name. Since the service is performed entirely in a digital environment, there are no shipping or logistics costs.",
       PRE_INFO_SECTION_3_TITLE: "3. Payment and Delivery Information",
-      PRE_INFO_SECTION_3_TEXT: "Payment transactions are carried out by credit card, debit card, or prepaid cards through the infrastructure of Tami Ödeme Hizmetleri A.Ş., a legally licensed payment institution. The digital service subject to the agreement is performed instantly in electronic environment and made available to the Buyer without requiring any physical delivery, following the Buyer's completion and approval of the payment steps.",
-
+      PRE_INFO_SECTION_3_TEXT: "Payments are processed through Shopier (Shopier Yazılım A.Ş.), a licensed payment infrastructure provider, using credit cards, debit cards or prepaid cards with 256-bit SSL encryption and 3D Secure protection. After the Buyer completes and approves the payment steps, the digital service subject to the Agreement is performed instantly in electronic form without requiring physical delivery and is made available to the Buyer.",
       PRE_INFO_SECTION_4_TITLE: "4. Right of Withdrawal and Exceptions",
-      PRE_INFO_SECTION_4_TEXT: "Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation published in the Official Gazette dated 27 November 2014, contracts regarding \"services performed instantly in electronic environment or intangible goods delivered instantly to the consumer\" are legally within the scope of exceptions to the right of withdrawal. The Buyer accepts in advance that the digital service purchased is digital content delivered instantly and therefore there is legally no right of withdrawal or refund. Only the first 7-day unconditional cancellation right granted by the Seller as part of its customer satisfaction policy is reserved.",
-
-      PRE_INFO_SECTION_5_TITLE: "5. Complaint and Resolution Mechanism",
-      PRE_INFO_SECTION_5_TEXT: "The Buyer may submit any requests and complaints regarding the service to info@styever.com. In disputes arising from this Preliminary Information Form, Consumer Arbitration Committees and Consumer Courts at the Buyer's place of residence or at the Seller's commercial headquarters shall be authorized within the legal monetary limits announced annually by the Ministry of Trade.",
-
-      CONTRACT_TITLE: "Distance Sales Agreement",
+      PRE_INFO_SECTION_4_TEXT: "Pursuant to Article 15/1(ğ) of the Distance Contracts Regulation published in the Official Gazette on 27 November 2014, contracts concerning services performed instantly in electronic form or intangible goods delivered instantly to the consumer are legally exempt from the right of withdrawal. The Buyer acknowledges in advance that the purchased digital service is digital content delivered instantly and therefore there is no statutory right of withdrawal or refund. The unconditional 7-day cancellation right granted solely under the Seller's customer satisfaction policy is reserved.",
+      PRE_INFO_SECTION_5_TITLE: "5. Complaints and Dispute Resolution",
+      PRE_INFO_SECTION_5_TEXT: "The Buyer may submit any request or complaint concerning the service to info@styever.com. For disputes arising from this Preliminary Information Form, Consumer Arbitration Committees and Consumer Courts at the Buyer's place of residence or the Seller's commercial center shall have jurisdiction within the statutory monetary limits announced annually by the Ministry of Trade.",
+      CONTRACT_TITLE: "SECTION II: DISTANCE SALES AGREEMENT",
       PARTIES_TITLE: "Parties",
-      PARTIES_TEXT: "This Agreement has entered into force on the date when the Buyer, who purchases services electronically through the website www.styever.com (hereinafter referred to as the \"Website\" or \"Platform\"), completes the order confirmation steps and approves the agreement electronically with the Seller providing the service, under the terms and conditions stated below.",
-
+      PARTIES_TEXT: "This Agreement enters into force on the date the Buyer completes the order confirmation steps and electronically approves the Agreement for a service purchased through www.styever.com (hereinafter the “Website” or “Platform”), between the Buyer and the Seller providing the service, subject to the terms and conditions set out below.",
       SECTION_1_TITLE: "1. Party Information and Definitions",
-
       SECTION_1_1_TITLE: "1.1. Seller Information",
-      SECTION_1_1_ITEM_1: "Name Surname / Official Title: ESMA ESRA KILIÇ",
+      SECTION_1_1_ITEM_1: "Name / Legal Title: ESMA ESRA KILIÇ",
       SECTION_1_1_ITEM_2: "Brand Name: Styever",
       SECTION_1_1_ITEM_3: "Business Address: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
-      SECTION_1_1_ITEM_4: "Turkish Identity Number: 50335068022",
-      SECTION_1_1_ITEM_5: "Tax Office: DOĞANBEY TAX OFFICE",
-      SECTION_1_1_ITEM_6: "Tax Identification Number: 0990426667",
-      SECTION_1_1_ITEM_7: "E-mail: info@styever.com",
-
+      SECTION_1_1_ITEM_4: "Turkish ID Number: 50335068022",
+      SECTION_1_1_ITEM_5: "Tax Office and No.: DOĞANBEY TAX OFFICE / 0990426667",
+      SECTION_1_1_ITEM_6: "E-mail: info@styever.com",
       SECTION_1_2_TITLE: "1.2. Buyer Information",
-      SECTION_1_2_TEXT: "The Buyer is the real or legal person who places an order, starts a membership, or purchases a digital service electronically through the website www.styever.com owned by the Seller, and whose name, surname, Turkish Identity Number if applicable, and contact information are included in invoice, order, and membership forms. Hereinafter, this person shall be referred to as the \"Buyer\" or \"Consumer\".",
-
+      SECTION_1_2_TEXT: "The natural or legal person who places an electronic order, starts a membership or purchases a digital service through the Seller's www.styever.com website and whose name, surname, Turkish ID Number (if applicable) and contact information appear on the invoice, order and membership forms (hereinafter the “Buyer” or “Consumer”).",
       SECTION_1_3_TITLE: "1.3. Definitions",
-      SECTION_1_3_TEXT: "In the application and interpretation of this agreement, the following terms shall have the meanings written opposite them:",
+      SECTION_1_3_TEXT: "For the implementation and interpretation of this Agreement, the following terms shall have the meanings stated below:",
       SECTION_1_3_ITEM_1: "Seller: ESMA ESRA KILIÇ (Styever)",
-      SECTION_1_3_ITEM_2: "Buyer: The real or legal person who purchases digital services, software, and memorial page space by using the website.",
-      SECTION_1_3_ITEM_3: "Service: Intangible services purchased by the Buyer through the platform, including instantly performed digital content, software functions, and hosting services.",
-      SECTION_1_3_ITEM_4: "Agreement: This Distance Sales Agreement established between the Seller and the Buyer.",
-
+      SECTION_1_3_ITEM_2: "Buyer: A natural or legal person who purchases digital services, software and memorial page space through the Website.",
+      SECTION_1_3_ITEM_3: "Service: Intangible services purchased by the Buyer through the Platform, including instantly performed digital content, software functions and hosting services.",
+      SECTION_1_3_ITEM_4: "Agreement: This Distance Sales Agreement concluded between the Seller and the Buyer.",
       SECTION_2_TITLE: "2. Subject and Scope of the Agreement",
-      SECTION_2_TEXT: "The subject of this Agreement is to determine the mutual rights and obligations of the parties in accordance with the provisions of Law No. 6502 on the Protection of Consumers and the Distance Contracts Regulation regarding the sale, delivery, and performance of digital products and services ordered electronically by the Buyer through the Styever platform owned by the Seller, whose features, scope, and sales price are specified on the relevant pages of the platform, including Digital Memorial Page Creation, Digital Memory and Condolence Sharing, and Digital Candle Lighting Features.",
-
-      SECTION_3_TITLE: "3. Service Subject to the Agreement, Price, and Payment Information",
-      SECTION_3_TEXT_1: "3.1. The basic features of the service, package contents, and scope of the provided digital space are published on the website www.styever.com.",
-      SECTION_3_TEXT_2: "3.2. The prices listed and announced on the website are sales prices. Announced prices and promises remain valid until they are updated or changed. Prices announced for a limited period are valid until the end of the specified period.",
-      SECTION_3_TEXT_3: "3.3. Payment Method: Credit Card / Debit Card or Prepaid Cards through the infrastructure of Tami Ödeme Hizmetleri A.Ş.",
-      SECTION_3_TEXT_4: "3.4. Service Fee: The total amount including all taxes such as VAT, displayed on the screen when the Buyer confirms the order, shown in the order summary, and included in the invoice sent electronically to the Buyer. Since this service is delivered entirely in a digital environment, there are no shipping or logistics costs.",
-
+      SECTION_2_TEXT: "The subject of this Agreement is to determine the mutual rights and obligations of the parties under Law No. 6502 on Consumer Protection and the Distance Contracts Regulation regarding the sale, delivery and performance of digital products and services ordered electronically by the Buyer through the Seller's Styever platform, whose characteristics, scope and sales price are specified on the relevant pages of the Platform, including Digital Memorial Page Creation, Digital Memorial and Condolence Messages, Digital Candle Lighting features and similar services.",
+      SECTION_3_TITLE: "3. Service, Price and Payment Information",
+      SECTION_3_TEXT_1: "3.1. The basic characteristics of the service, package contents and scope of the digital space provided are published on www.styever.com.",
+      SECTION_3_TEXT_2: "3.2. Prices listed and announced on the Website are sales prices. Announced prices and commitments remain valid until updated or changed. Prices announced for a limited period remain valid until the end of the specified period.",
+      SECTION_3_TEXT_3: "3.3. Payment Method: Credit Card / Debit Card or Prepaid Cards (through Shopier - Shopier Yazılım A.Ş. infrastructure).",
+      SECTION_3_TEXT_4: "3.4. Service Fee: The total amount including all taxes (VAT, etc.) displayed when the Buyer confirms the order, shown in the order summary and stated on the invoice electronically delivered to the Buyer. Since the service is delivered entirely in digital form, there are no shipping or logistics costs.",
       SECTION_4_TITLE: "4. General Provisions",
-      SECTION_4_TEXT_1: "4.1. The Buyer accepts, declares, and undertakes that they have read and been informed of the preliminary information regarding the basic features, sales price, payment method, and delivery of the digital service subject to the Agreement on the Styever platform, and that they have provided the necessary confirmation electronically.",
-      SECTION_4_TEXT_2: "4.2. The service subject to the Agreement is delivered instantly in electronic environment through user panel activation and e-mail notification, and made available to the Buyer without requiring any physical delivery, following the Buyer's completion of the electronic payment and order confirmation steps.",
-      SECTION_4_TEXT_3: "4.3. The Seller is responsible for providing the service subject to the Agreement to the Buyer in a defect-free manner, in accordance with the technical specifications stated on the platform, uninterruptedly and within the committed limits. The Seller cannot be held responsible for interruptions during short-term maintenance and repair works that may occur in the technical infrastructure of the website.",
-      SECTION_4_TEXT_4: "4.4. Payment Transaction Security: The Buyer makes payments through the infrastructure of Tami Ödeme Hizmetleri A.Ş., a legally licensed payment institution. Card security, data encryption (SSL), and 3D Secure verification processes are entirely under the responsibility of Tami and the relevant banks. The Seller does not store, record, or retain critical card information such as the Buyer's credit card number, expiry date, or CVC code in its own systems under any circumstances.",
-      SECTION_4_TEXT_5: "4.5. The Buyer accepts that they are legally responsible for all information and content shared while registering in the system or uploading content, including photographs and memory texts, and that all legal responsibility arising from copyright or personal rights violations belongs directly to them.",
-
+      SECTION_4_TEXT_1: "4.1. The Buyer accepts, declares and undertakes that they have read and understood the preliminary information concerning the basic characteristics, sales price, payment method and delivery of the digital service subject to the Agreement on the Styever Platform and have provided the necessary electronic confirmation.",
+      SECTION_4_TEXT_2: "4.2. After the Buyer completes the electronic payment and order confirmation steps, the service subject to the Agreement is delivered instantly in electronic form through user panel activation and e-mail notification, without requiring physical delivery, and is made available to the Buyer.",
+      SECTION_4_TEXT_3: "4.3. The Seller is responsible for providing the service free from defects, in accordance with the technical characteristics stated on the Platform, continuously and within the committed limits. The Seller shall not be held responsible for interruptions occurring during short-term maintenance and repair work on the Website's technical infrastructure.",
+      SECTION_4_TEXT_4: "4.4. Payment Transaction Security: The Buyer makes payments through the infrastructure of the licensed payment provider Shopier (Shopier Yazılım A.Ş.). Card security, data encryption (256-bit SSL) and 3D Secure verification processes are entirely under the responsibility of Shopier and the relevant banks. The Seller does not retain, record or store critical card information such as the Buyer's credit card number, expiration date or CVC code in its own systems.",
+      SECTION_4_TEXT_5: "4.5. The Buyer accepts that they bear legal responsibility for all information and content shared while registering or uploading content, including photographs and memorial texts, and that all legal responsibility arising from copyright or personality-right violations belongs directly to the Buyer.",
       SECTION_5_TITLE: "5. Right of Withdrawal and Exceptions",
-      SECTION_5_TEXT_1: "5.1. Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation published in the Official Gazette dated 27 November 2014, contracts regarding \"services performed instantly in electronic environment or intangible goods delivered instantly to the consumer\" are legally entirely within the scope of exceptions to the right of withdrawal.",
-      SECTION_5_TEXT_2: "5.2. The Buyer accepts, declares, and undertakes in advance that the Digital Memorial Page setup, activation, and digital commemoration features purchased through Styever constitute \"instantly performed digital content and software service\", that the service is fully delivered upon order approval, and that due to this legal nature, there is no right of withdrawal or refund under the legislation.",
-      SECTION_5_TEXT_3: "5.3. The \"7-Day Unconditional Cancellation Right\" offered by the platform as part of its customer satisfaction policy is a corporate gesture provided entirely at the Seller's own initiative, and after this 7-day period has expired, no right or refund may be requested under the legislation.",
-
-      SECTION_6_TITLE: "6. Service Continuity, Platform Closure, and Limitation of Liability",
-      SECTION_6_TEXT_1: "6.1. The Seller exercises due care to keep the www.styever.com platform and all digital memorial pages provided through this platform online with the highest accessibility and technical performance standards. However, the Seller does not provide an absolute legal commitment or guarantee that the platform will remain uninterrupted, technically flawless, or online for a lifetime.",
-      SECTION_6_TEXT_2: "6.2. The Seller reserves the right, entirely at its own commercial discretion, to completely cease platform activities, close the website, and permanently terminate all digital memorial page services offered due to economic or financial reasons, technical infrastructure impossibilities, company liquidation, changes in partnership structure, or strategic decisions.",
-      SECTION_6_TEXT_3: "6.3. If a decision is made to completely close the platform and permanently terminate the services for commercial or technical reasons, the Seller is obliged to notify all users with active subscriptions or who have previously received service at least 30 (thirty) days in advance in writing via the e-mail addresses registered in the system.",
-      SECTION_6_TEXT_4: "6.4. During the closure notification period of 30 days, Buyers are fully responsible for backing up, downloading, and storing on their own local storage devices all photographs, videos, texts, and digital data belonging to them on the memorial pages they created on the platform. Upon expiry of the notification period, all servers shall be permanently shut down, databases shall be destroyed, and content shall be irreversibly deleted. The Seller cannot be held responsible for data losses resulting from the Buyer's failure to back up in due time.",
-      SECTION_6_TEXT_5: "6.5. In the event that the platform is completely closed, the service is terminated, or data is deleted from the servers in compliance with the legal notification period of 30 days specified in this article, the Seller shall have no legal, criminal, financial, or administrative liability toward users whose active subscription has ended and whose page is published in free status, persons whose subscription was terminated in the past, or active subscribers whose remaining period fee has been refunded as of the notification date.",
-      SECTION_6_TEXT_6: "6.6. The Buyer irrevocably accepts, declares, and undertakes that they shall not file any material or moral compensation lawsuit against the Seller due to the complete closure of the platform, termination of the service, or deletion of content, shall not claim retroactive service or subscription fees paid, and shall not apply to any judicial, administrative, or consumer authority with claims that \"memories were lost, deleted, or moral damage was suffered.\"",
-
-      SECTION_7_TITLE: "7. Authorized Court",
-      SECTION_7_TEXT: "In disputes arising from this Agreement, Consumer Arbitration Committees and Consumer Courts at the Buyer's place of residence or at the Seller's commercial headquarters shall be authorized within the monetary limits announced annually by the Ministry of Trade and legally binding. In case of dispute, the Seller's system records, server logs, and electronic correspondence shall constitute conclusive evidence pursuant to the Code of Civil Procedure."
+      SECTION_5_TEXT_1: "5.1. Pursuant to Article 15/1(ğ) of the Distance Contracts Regulation published in the Official Gazette on 27 November 2014, contracts concerning services performed instantly in electronic form or intangible goods delivered instantly to the consumer are completely exempt from the statutory right of withdrawal.",
+      SECTION_5_TEXT_2: "5.2. The Buyer accepts, declares and undertakes in advance that the installation and activation of the Digital Memorial Page and digital remembrance features purchased through Styever constitute an instantly performed digital content and software service, that the service is fully delivered upon order confirmation, and that due to this legal nature there is no statutory right of withdrawal or refund.",
+      SECTION_5_TEXT_3: "5.3. The “7-Day Unconditional Cancellation Right” offered under the Platform's customer satisfaction policy is a corporate goodwill gesture provided entirely at the Seller's discretion; after this 7-day period expires, no right or refund may be claimed under the applicable legislation.",
+      SECTION_6_TITLE: "6. Service Continuity, Platform Closure and Limitation of Liability",
+      SECTION_6_TEXT_1: "6.1. The Seller exercises due care to keep www.styever.com and all digital memorial pages provided through the Platform available at high accessibility and technical performance standards. However, the Seller does not provide an absolute legal commitment or guarantee that the Platform will remain uninterrupted, technically flawless or available for life.",
+      SECTION_6_TEXT_2: "6.2. The Seller reserves the right, at its sole commercial discretion, to cease Platform operations entirely, close the Website and permanently terminate all digital memorial page services due to economic or financial reasons, technical infrastructure impossibilities, company liquidation, changes in partnership structure or strategic decisions.",
+      SECTION_6_TEXT_3: "6.3. If a decision is made to permanently close the Platform and terminate the services for commercial or technical reasons, the Seller shall provide written notice at least 30 (thirty) days in advance to all users with active subscriptions or who have previously received services, using their registered e-mail addresses.",
+      SECTION_6_TEXT_4: "6.4. During the 30-day closure notice period, Buyers are solely responsible for backing up and downloading to their local storage devices all photographs, videos, texts and digital data contained in their memorial pages. At the end of the notice period, all servers will be permanently shut down, databases destroyed and content irreversibly deleted. The Seller shall not be responsible for data loss resulting from the Buyer's failure to make timely backups.",
+      SECTION_6_TEXT_5: "6.5. If the Platform is completely closed, services are terminated or data is deleted from the servers in compliance with the 30-day notice period specified herein, the Seller shall have no legal, criminal, financial or administrative liability toward users whose active subscriptions have expired and whose pages remain published under free status, persons whose subscriptions were previously terminated, or active subscribers whose remaining subscription fees as of the notification date have been refunded.",
+      SECTION_6_TEXT_6: "6.6. The Buyer irrevocably accepts, declares and undertakes that they will not file material or moral damages claims against the Seller, seek repayment of previously paid service/subscription fees, or apply to any judicial, administrative or consumer authority on the grounds that memories were lost, deleted or caused emotional harm due to the complete closure of the Platform, termination of the service or deletion of content.",
+      SECTION_7_TITLE: "7. Evidence Agreement and Competent Court",
+      SECTION_7_TEXT_1: "7.1. In disputes arising from this Agreement, the Seller's system records, server logs, Shopier transaction records and electronic e-mail correspondence shall constitute conclusive and binding evidence pursuant to Article 193 of Law No. 6100 on Civil Procedure.",
+      SECTION_7_TEXT_2: "7.2. For disputes arising from this Agreement, Consumer Arbitration Committees and Consumer Courts at the Buyer's place of residence or the Seller's commercial center shall have jurisdiction within the legally binding monetary limits announced annually by the Ministry of Trade."
     },
     CANCELLATION_REFUND_POLICY: {
       PAGE_TITLE: "Cancellation and Refund Policy",
 
       SECTION_1_TITLE: "1. Introduction or Nature of the Service",
-      SECTION_1_TEXT_1: "1.1. The services provided by Styever (hereinafter referred to as the \"Seller\") include digital content, software services, and web-based hosting areas that are performed instantly in electronic environment and delivered immediately to the Buyer through the website (www.styever.com), including Digital Memorial Page Setup, Digital Memory Sharing Service, Page Customization, and Digital Commemoration Features.",
-      SECTION_1_TEXT_2: "1.2. By completing a purchase through the platform, the Buyer accepts, declares, and undertakes in advance that the service is entirely digital, intangible, and instantly performed, in addition to accepting the terms of this agreement.",
+      SECTION_1_TEXT_1: "1.1. The services provided by Styever (ESMA ESRA KILIÇ) (hereinafter referred to as the \"Seller\") include digital content, software services, and web-based hosting spaces that are performed instantly in an electronic environment and delivered immediately to the Buyer through the website (www.styever.com), including Digital Memorial Page Setup, Digital Memorial Sharing Service, Page Customization, and Digital Commemoration Features.",
+      SECTION_1_TEXT_2: "1.2. By completing a purchase through the Platform, the Buyer accepts, declares, and undertakes in advance, in addition to these agreement terms, that the service is entirely digital, intangible, and instantly performed.",
 
       SECTION_2_TITLE: "2. 7-Day Trial Period and Right of Cancellation",
-      SECTION_2_TEXT_1: "2.1. Within the scope of its customer satisfaction-oriented service policy, the Seller grants the Buyer a 7 (seven) day trial and unconditional cancellation period starting from the date of the first purchase, namely the date on which the service is initiated.",
-      SECTION_2_TEXT_2: "2.2. If the Buyer is not satisfied with the digital service purchased or does not wish to continue using it, the Buyer has the right to submit a cancellation request within 7 (seven) days from the date of the first purchase, without paying any penalty and without providing any reason, through the user panel on the platform or via the official e-mail address info@styever.com.",
-      SECTION_2_TEXT_3: "2.3. If the cancellation and withdrawal right is duly exercised within this 7 (seven) day period, the service fee collected from the Buyer shall be refunded to the same card used by the Buyer, in accordance with the refund procedures of the payment institution and the relevant bank.",
-      SECTION_2_TEXT_4: "2.4. Once the cancellation is approved by the system, the relevant Digital Memorial Page created for the Buyer shall be completely removed from publication together with all data contained therein, server data flow shall be stopped, and the Buyer shall be returned to the status of having never initiated a subscription on the platform.",
+      SECTION_2_TEXT_1: "2.1. As part of its customer satisfaction-oriented service policy, the Seller grants the Buyer a 7 (seven) day trial and unconditional cancellation period starting from the date of the first purchase, namely the date the service is initiated.",
+      SECTION_2_TEXT_2: "2.2. If the Buyer is not satisfied with the purchased digital service or does not wish to continue, the Buyer has the right to request cancellation within 7 (seven) days from the first purchase date, without paying any penalty and without providing any reason, through the user panel on the Platform or via the official e-mail address info@styever.com.",
+      SECTION_2_TEXT_3: "2.3. If the cancellation and withdrawal right is duly exercised within this 7 (seven) day period, the service fee collected from the Buyer shall be refunded in full and without deduction to the card used for the transaction, in accordance with the refund procedures of the payment infrastructure provider Shopier (Shopier Yazılım A.Ş.) and the relevant banks.",
+      SECTION_2_TEXT_4: "2.4. Once the cancellation is approved by the system, the relevant Digital Memorial Page created for the Buyer shall be completely removed from publication together with all data contained therein, server data flow shall be stopped, and the Buyer shall be returned to the status of having never initiated a subscription on the Platform.",
 
       SECTION_3_TITLE: "3. Subscription Termination and Digital Memorial Page Status",
-      SECTION_3_TEXT_1: "3.1. For cancellation, unilateral termination, and subscription termination requests made after the 7 (seven) day trial period from the first purchase date has expired, no refund shall be made for the active period (month/year) under any circumstances. The Buyer has the right to stop automatic renewal for the next period at any time.",
-      SECTION_3_TEXT_2: "3.2. The Digital Memorial Page previously created on the platform by Buyers who terminate their subscription or turn off renewal shall continue to remain published on the platform in a \"publicly accessible\" status, unless the Buyer requests complete deletion and provided that the Seller continues its platform activities.",
-      SECTION_3_TEXT_3: "3.3. For Buyers whose subscription has been terminated, whose active payment period has expired, and whose page has been transferred to free/static status, the permissions to edit, upload new images/videos, change memory text, delete, or update the relevant digital memorial page shall be automatically frozen by the system. Even if the page remains published on the internet, the Buyer cannot make any new editorial changes to it.",
-      SECTION_3_TEXT_4: "3.4. Once the Buyer restarts the subscription through the platform and activates the relevant payment cycle, all technical editing, visual/media uploading, and text modification permissions on the memorial page shall be restored.",
+      SECTION_3_TEXT_1: "3.1. For cancellations, unilateral terminations, and subscription termination requests made after the 7 (seven) day trial period from the first purchase date has expired, no refund shall be made for the current active period (month/year). The Buyer has the right to stop automatic renewal for the next period at any time.",
+      SECTION_3_TEXT_2: "3.2. The Digital Memorial Page previously created on the Platform by Buyers who terminate their subscription or turn off renewal shall remain published on the Platform in a \"publicly accessible\" status unless the Buyer requests complete deletion and provided that the Seller continues its Platform activities.",
+      SECTION_3_TEXT_3: "3.3. For Buyers whose subscription has been terminated, whose active payment period has expired, and whose page has moved to free/static status, permissions to edit, upload new images/videos, change memorial text, delete, or update the relevant Digital Memorial Page are automatically frozen by the system. Even if the page remains online, the Buyer may not make any new editorial changes.",
+      SECTION_3_TEXT_4: "3.4. Once the Buyer restarts the subscription through the Platform and activates the relevant payment cycle, all technical editing, visual/media uploading, and text modification permissions on the memorial page are restored.",
 
       SECTION_4_TITLE: "4. Statement on Exceptions to the Right of Withdrawal",
-      SECTION_4_TEXT_1: "4.1. Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation published in the Official Gazette dated 27 November 2014, contracts regarding \"services performed instantly in electronic environment or intangible goods delivered instantly to the consumer\" are legally within the scope of exceptions to the right of withdrawal, and consumers do not have a statutory right of withdrawal or refund for such services.",
-      SECTION_4_TEXT_2: "4.2. The 7-day unconditional cancellation/trial period offered by Styever to the Buyer and the continued static publication of the page after subscription termination are not obligations arising from legislation, but are entirely additional customer satisfaction commitments provided by the Seller to the Buyer. After the 7-day period has expired, there is no legal obligation to provide a refund under applicable legislation.",
+      SECTION_4_TEXT_1: "4.1. Pursuant to subparagraph (ğ) of paragraph 1 of Article 15 titled \"Exceptions to the Right of Withdrawal\" of the Distance Contracts Regulation published in the Official Gazette dated 27 November 2014, contracts regarding \"services performed instantly in an electronic environment or intangible goods delivered instantly to the consumer\" are legally exempt from the right of withdrawal, and consumers do not have a statutory right of withdrawal or refund for such services.",
+      SECTION_4_TEXT_2: "4.2. The 7-day unconditional cancellation/trial period offered by Styever to the Buyer and the continued static publication of the page after subscription termination are not statutory obligations but additional customer satisfaction commitments offered entirely by the Seller. After the 7-day period expires, there is no statutory obligation to provide a refund.",
 
-      SECTION_5_TITLE: "5. Refund Procedure and Reflection Period",
-      SECTION_5_TEXT_1: "5.1. Refunds duly requested within the 7-day legal period and approved by the Seller shall be reflected by the Seller to the credit/debit card used by the Buyer for payment, through the virtual POS payment services infrastructure used, in a single transaction and without deduction.",
-      SECTION_5_TEXT_2: "5.2. The period for the refunded amount to appear in the Buyer's bank or credit card account or statement may vary depending on the internal procedures of the Buyer's bank, statement dates, and the rules of international card organizations, generally between 1 and 3 business days. The refund instruction is immediately submitted by the Seller to the payment institution; after this stage, the Seller cannot be held directly or indirectly liable for bank-related delays, blocking periods, or technical failures.",
+      SECTION_5_TITLE: "5. Refund Procedure and Processing Time",
+      SECTION_5_TEXT_1: "5.1. Refunds duly requested within the 7-day period and approved by the Seller are sent by the Seller in a single transaction and without deduction to the credit/debit card used by the Buyer for payment through the licensed payment infrastructure provider Shopier (Shopier Yazılım A.Ş.).",
+      SECTION_5_TEXT_2: "5.2. The time required for the refunded amount to appear in the Buyer's bank or credit card account or statement may vary depending on the internal procedures of the Buyer's bank, the card type (credit card or debit card), statement dates, and the rules of international card organizations, generally between 1 and 7 business days. The Seller immediately submits the refund instruction to the Shopier system; after this stage, the Seller cannot be held directly or indirectly liable for bank-related delays, blocking periods, or technical failures.",
 
       SECTION_6_TITLE: "6. Service Continuity, Platform Closure, and Limitation of Liability",
-      SECTION_6_TEXT_1: "6.1. The Seller aims to provide the digital memorial page services offered through www.styever.com at the highest quality, taking into account commercial possibilities, technical infrastructure sustainability, and server capacities. However, the Seller does not provide an absolute or legally binding guarantee that the platform will remain online forever, without interruption, or for a lifetime.",
-      SECTION_6_TEXT_2: "6.2. The Seller reserves the right, entirely at its own commercial discretion, to completely cease platform activities, close the website, and permanently terminate all digital memorial page services offered due to economic reasons, technical impossibilities, company liquidation, or strategic decisions.",
-      SECTION_6_TEXT_3: "6.3. If a decision is made to completely close the platform or permanently terminate the services, the Seller is obliged to notify all users with active subscriptions or users who have previously initiated a subscription in writing at least 30 (thirty) days in advance via the e-mail addresses registered in the system.",
-      SECTION_6_TEXT_4: "6.4. During the closure notification period of 30 days, Buyers are fully responsible for backing up, downloading, and storing on their own computers or external storage devices the photographs, videos, texts, and data belonging to them on the memorial pages they created on the platform. Upon expiry of the notification period, all servers shall be shut down and the data shall be irreversibly deleted. The Seller cannot be held liable for data losses resulting from the Buyer's failure to back up or delayed backup.",
-      SECTION_6_TEXT_5: "6.5. In the event that the platform is completely closed, the service is terminated, or data is deleted due to commercial or technical necessities;",
-      SECTION_6_LIST_1: "Users who used the service in the past, terminated their subscription, and whose pages are published in free/static status,",
+      SECTION_6_TEXT_1: "6.1. The Seller aims to provide the digital memorial page services offered through www.styever.com at the highest quality, taking into account commercial capabilities, technical infrastructure sustainability, and server capacities. However, the Seller does not provide an absolute or legally binding guarantee that the Platform will remain online forever, without interruption, or for a lifetime.",
+      SECTION_6_TEXT_2: "6.2. The Seller reserves the right, entirely at its own commercial discretion, to completely cease Platform activities, close the Website, and permanently terminate all digital memorial page services offered due to economic reasons, technical impossibilities, company liquidation, or strategic decisions.",
+      SECTION_6_TEXT_3: "6.3. If a decision is made to completely close the Platform or permanently terminate the services, the Seller is obliged to notify all users with active subscriptions or users who have previously initiated a subscription in writing at least 30 (thirty) days in advance via the e-mail addresses registered in the system.",
+      SECTION_6_TEXT_4: "6.4. During the 30-day closure notice period, Buyers are fully responsible for backing up and downloading to their own computers or external storage devices the photographs, videos, texts, and data belonging to them on the memorial pages they created on the Platform. Upon expiry of the notice period, all servers shall be shut down and the data shall be irreversibly deleted. The Seller cannot be held liable for data losses resulting from the Buyer's failure to back up or delayed backup.",
+      SECTION_6_TEXT_5: "6.5. If the Platform is completely closed, the service is terminated, or data is deleted due to commercial or technical necessities;",
+      SECTION_6_LIST_1: "Users who previously used the service, terminated their subscription, and whose pages remain published in free/static status,",
       SECTION_6_LIST_2: "Users whose active payment period has expired,",
-      SECTION_6_LIST_3: "Users who have an active subscription as of the notification date and whose remaining period fee has been refunded shall have no legal, criminal, or financial claim against the Seller, and the Seller shall have no liability toward them.",
-      SECTION_6_TEXT_6: "6.6. The Buyer irrevocably accepts, declares, and undertakes that they shall not file any material or moral compensation lawsuit against the Seller due to the complete closure of the platform or termination of the service in compliance with the legal notification period, shall not claim previously paid subscription fees retroactively, and shall not apply to any judicial or administrative authority with claims that \"memories were lost, deleted, or moral damage was suffered.\""
+      SECTION_6_LIST_3: "Users who have an active subscription as of the notification date and whose remaining period fee has been refunded; the Seller shall have no legal, criminal, or financial liability toward such users.",
+      SECTION_6_TEXT_6: "6.6. The Buyer irrevocably accepts, declares, and undertakes that they shall not file any material or moral compensation lawsuit against the Seller due to the complete closure of the Platform or termination of the service in compliance with the legal notification period, shall not claim previously paid subscription fees retroactively, and shall not apply to any judicial or administrative authority on the grounds that \"memories were lost, deleted, or moral damage was suffered.\""
     },
     PRIVACY_POLICY: {
       PAGE_TITLE: "Privacy and Security Policy",
-
       SECTION_1_TITLE: "1. Data Controller",
-      SECTION_1_TEXT: "Pursuant to the Personal Data Protection Law No. 6698 (KVKK), ESMA ESRA KILIÇ, the legal owner of the Styever brand, acts as the Data Controller. Styever places the highest importance on user privacy and data security and transparently informs users about the processing of personal data and their legal rights.",
-
-      SECTION_2_TITLE: "2. Collected Personal Data",
-      SECTION_2_TEXT: "While using our platform, creating an account, using digital memorial features, or leaving condolence messages as a visitor, the following personal data may be processed:",
-
-      DATA_1: "Identity and Contact Information (full name, email address, phone number)",
-      DATA_2: "Billing and Financial Information (billing address, tax office/tax number, payment receipt or transaction reference number)",
-      DATA_3: "User Uploaded Content (photos, videos, memorial texts, condolence messages, and comments)",
-      DATA_4: "Technical and Security Information (IP address, device information, browser type, activity logs, and cookie data)",
-
-      SECTION_3_TITLE: "3. Purposes of Processing Personal Data",
-      SECTION_3_TEXT: "Collected personal data is processed in accordance with the fundamental principles of KVKK for the following purposes:",
-
-      PURPOSE_1: "Providing digital memorial page and software services in accordance with the distance sales agreement.",
-      PURPOSE_2: "Ensuring platform security, preventing unauthorized access, and verifying user accounts.",
-      PURPOSE_3: "Managing invoicing, accounting, and legal reporting obligations under applicable tax legislation.",
-      PURPOSE_4: "Handling user requests, technical support services, and inquiries sent via info@styever.com.",
-      PURPOSE_5: "Improving platform infrastructure, enhancing user experience, and identifying technical issues.",
-
+      SECTION_1_TEXT: "Pursuant to Turkish Personal Data Protection Law No. 6698 (KVKK), ESMA ESRA KILIÇ, the legal owner of the www.styever.com website and the Styever brand (hereinafter referred to as \"Styever\" or the \"Data Controller\"), acts as the Data Controller. Styever attaches the highest importance to the privacy and security of users' personal data.",
+      SECTION_2_TITLE: "2. Personal Data Collected",
+      SECTION_2_TEXT: "The following personal data may be processed while you use the Platform services:",
+      DATA_1: "Identity and Contact Information: Name, surname, e-mail address, telephone number.",
+      DATA_2: "Customer Transaction and Financial Information: Invoice details, order history, transaction amounts.",
+      DATA_3: "User Content Data: Uploaded photographs, videos, memorial texts, comments and digital condolence messages.",
+      DATA_4: "Transaction Security and Technical Data: IP address, device and browser information, system access logs and cookie data.",
+      SECTION_3_TITLE: "3. Purposes and Legal Grounds for Processing Personal Data",
+      SECTION_3_TEXT: "Your collected personal data is processed for the following purposes and legal grounds within the personal data processing conditions specified in Articles 5 and 6 of the KVKK:",
+      PURPOSE_1: "Establishment and Performance of the Agreement: Providing digital memorial page services, carrying out membership processes and providing access to the user panel.",
+      PURPOSE_2: "Fulfillment of Legal Obligations: Issuing invoices, carrying out accounting processes and retaining traffic logs pursuant to Law No. 5651.",
+      PURPOSE_3: "Legitimate Interest: Ensuring Platform security, carrying out technical support processes, preventing fraudulent transactions and improving the user experience.",
       SECTION_4_TITLE: "4. Payment Security and Credit Card Security Protocol",
-
-      SECTION_4_TEXT_1: "Credit card, debit card, and prepaid card information entered during purchases is NEVER stored, recorded, or retained on Styever servers, databases, or infrastructure.",
-
-      SECTION_4_TEXT_2: "All payment transactions are processed through our licensed payment provider, Tami Payment Services Inc., using 256-bit SSL encryption and PCI-DSS compliant security standards.",
-
-      SECTION_4_TEXT_3: "All payment transactions require mandatory 3D Secure authentication to prevent unauthorized card use and ensure maximum transaction security.",
-
-      SECTION_5_TITLE: "5. Sharing Personal Data with Third Parties",
-
-      SECTION_5_TEXT: "Your personal data is never sold or transferred to third parties for commercial, advertising, or marketing purposes. Data may only be shared with the following parties when necessary for service delivery or legal compliance:",
-
-      SHARING_1: "Tami Payment Services Inc. for payment processing and billing operations.",
-      SHARING_2: "Domestic hosting, server, and infrastructure providers responsible for secure data storage and website availability.",
-      SHARING_3: "Authorized public institutions and government authorities as required by applicable laws and regulations.",
-
-      SECTION_6_TITLE: "6. Data Retention Period, Server Infrastructure, and Platform Closure",
-
-      SECTION_6_TEXT_1: "Personal data is retained throughout the service period and for the retention periods required by Turkish commercial, tax, and e-commerce legislation.",
-
-      SECTION_6_TEXT_2: "All personal data and memorial content are stored on secure servers located within the Republic of Türkiye.",
-
-      SECTION_6_TEXT_3: "In the event of a permanent platform shutdown, users will be notified via email at least 30 days in advance.",
-
-      SECTION_6_TEXT_4: "Following the notification period, all personal data, photos, memorial content, and backups will be permanently deleted, destroyed, or anonymized in accordance with KVKK requirements and applicable regulations.",
-
-      SECTION_7_TITLE: "7. User Rights Under KVKK",
-
-      SECTION_7_TEXT: "Pursuant to Article 11 of the KVKK, users and content providers have the following rights:",
-
-      RIGHT_1: "To learn whether personal data is being processed and request information regarding such processing.",
-      RIGHT_2: "To learn the purpose of processing and whether data is used in accordance with that purpose.",
-      RIGHT_3: "To know the third parties to whom personal data has been transferred within Türkiye.",
-      RIGHT_4: "To request correction of incomplete or inaccurate personal data.",
-      RIGHT_5: "To request deletion, destruction, or anonymization of personal data under applicable legal conditions.",
-      RIGHT_6: "To object to adverse outcomes resulting from automated processing and analysis of personal data.",
-
-      APPLICATION_TEXT_1: "You may submit your requests regarding your personal data by sending a written request from your registered email address to",
-      APPLICATION_TEXT_2: ". Requests will be evaluated and answered free of charge within a maximum period of 30 days.",
-
+      SECTION_4_TEXT_1: "4.1. Credit card, debit card and payment information is never retained, recorded or stored on Styever servers.",
+      SECTION_4_TEXT_2: "4.2. All payment transactions are carried out through the licensed payment infrastructure provider Shopier (Shopier Yazılım A.Ş.) using 256-bit SSL encryption and infrastructure compliant with the international PCI DSS data security standard.",
+      SECTION_4_TEXT_3: "4.3. The 3D Secure authentication protocol is mandatory in payment processes to ensure card security.",
+      SECTION_5_TITLE: "5. Sharing Data with Third Parties",
+      SECTION_5_TEXT: "Your collected personal data is not sold or transferred to third parties for commercial, advertising or marketing purposes. Your data may only be shared with the following parties and limited to the stated purposes:",
+      SHARING_1: "Shopier (Shopier Yazılım A.Ş.): For the secure completion of payment transactions and collection of payments.",
+      SHARING_2: "Service Providers: Authorized technical suppliers providing hosting, server, e-mail delivery and database infrastructure.",
+      SHARING_3: "Authorized Public Institutions and Authorities: Where duly requested by authorized courts, enforcement offices, law enforcement authorities and administrative authorities pursuant to legal obligations.",
+      SECTION_6_TITLE: "6. Data Retention Period, Server Infrastructure and Platform Closure",
+      SECTION_6_TEXT_1: "6.1. Your data is retained on secure servers for the retention periods prescribed by applicable legislation or for as long as required by the purpose of processing.",
+      SECTION_6_TEXT_2: "6.2. All data is hosted on secure server infrastructures protected by technical security measures.",
+      SECTION_6_TEXT_3: "6.3. If a decision is made to permanently terminate Platform activities, users will be notified at least 30 (thirty) days in advance via their registered e-mail addresses. At the end of the notification period, all personal data and user content will be permanently deleted, destroyed or anonymized in accordance with the KVKK.",
+      SECTION_7_TITLE: "7. User Rights under the KVKK and Application Procedure",
+      SECTION_7_TEXT: "Pursuant to Article 11 of the KVKK, as a data subject you have the following rights:",
+      RIGHT_1: "To learn whether your personal data is being processed,",
+      RIGHT_2: "To request information if your personal data has been processed,",
+      RIGHT_3: "To learn the purpose of processing your personal data and whether it is used in accordance with that purpose,",
+      RIGHT_4: "To know the third parties to whom your personal data is transferred domestically or abroad,",
+      RIGHT_5: "To request correction if your personal data has been processed incompletely or incorrectly,",
+      RIGHT_6: "To request deletion or destruction of your personal data within the framework of Article 7 of the KVKK,",
+      RIGHT_7: "To request notification of the above correction and deletion operations to third parties to whom your data has been transferred,",
+      RIGHT_8: "To object to a result arising against you through the analysis of processed data exclusively by automated systems,",
+      RIGHT_9: "To request compensation for damages if you suffer damage due to unlawful processing of personal data.",
+      APPLICATION_TEXT: "You may submit requests concerning your rights to info@styever.com by e-mail in accordance with the Communiqué on the Procedures and Principles of Application to the Data Controller. Your requests will be concluded free of charge within 30 (thirty) days at the latest.",
       SECTION_8_TITLE: "8. Cookies and Policy Updates",
-
-      SECTION_8_TEXT: "Styever uses mandatory and analytical cookies to ensure proper website functionality, secure user authentication, and performance optimization. Styever reserves the right to update this Privacy and Security Policy at any time due to legal requirements, payment provider regulations, or changes in platform operations. The updated policy becomes effective upon publication on the website."
+      SECTION_8_TEXT: "The Platform uses necessary and analytical cookies to ensure website functionality and improve the user experience. This Privacy and Security Policy may be updated in line with changes in applicable legislation or technical requirements. The updated policy becomes effective as of its publication date."
     },
     COOKIE_POLICY: {
-      PAGE_TITLE: 'Cookie Policy',
-
-      SECTION_1_TITLE: '1. Introduction and Purpose of the Cookie Policy',
-      SECTION_1_TEXT: 'This Cookie Policy has been prepared by ESMA ESRA KILIÇ, the legal owner of [www.styever.com](http://www.styever.com) (hereinafter referred to as "Styever" or the "Platform"), in order to protect the privacy of individuals who visit the platform, become members, or use digital memorial page services (hereinafter referred to as "User" or "Visitor"), and to ensure the most efficient operation of the website’s technical infrastructure. This policy transparently explains which cookies are used on our website, for what purposes they are used, and how you can manage them.',
-
-      SECTION_2_TITLE: '2. What Is a Cookie?',
-      SECTION_2_TEXT: 'Cookies are very small, secure, and harmless text files placed on your computer, smartphone, tablet, or other mobile devices through your web browser (such as Chrome, Safari, Edge, etc.) when you visit a website. Cookies help websites remember your visit, keep your session active, and provide you with a safer, faster, and more personalized digital experience.',
-
-      SECTION_3_TITLE: '3. Purposes of Cookie Usage',
-      SECTION_3_TEXT: 'At Styever, cookies are never used for advertising or commercial marketing purposes. The legal and technical purposes for using cookies on our website are as follows:',
-
-      PURPOSE_1: 'Session Management and Functionality: To keep users logged into their member accounts, eliminate the need to re-enter passwords when navigating between pages, and remember language and display preferences on the platform.',
-
-      PURPOSE_2: 'System and Transaction Security: To maximize the cybersecurity of the platform, prevent fraudulent registrations or unauthorized account access, and ensure that virtual POS payment forms processed through the infrastructure of Tami Payment Services Inc. operate securely and free from fraudulent activity.',
-
-      PURPOSE_3: 'Performance and Technical Analysis: To optimize website loading speeds, identify which pages operate most efficiently, and collect anonymous statistical data in order to manage server resources according to user traffic and improve overall performance.',
-
-      SECTION_4_TITLE: '4. Types of Cookies Used on Our Platform',
-
-      COOKIE_TYPE_1: 'Essential and Technical Cookies: These cookies are required for the proper functioning of the website, page navigation, member authentication, and the secure completion of payment processes. If these cookies are disabled, core platform functions and the virtual POS infrastructure may not operate correctly.',
-
-      COOKIE_TYPE_2: 'Performance and Analytics Cookies: These cookies anonymously collect information such as visitor numbers, time spent on pages, and areas where technical errors occur. The data obtained from these cookies is used solely to improve website speed, stability, and performance.',
-
-      SECTION_5_TITLE: '5. Managing and Disabling Cookies',
-
-      SECTION_5_TEXT_1: 'Users and visitors have the right to block, restrict, or receive notifications regarding cookies by adjusting the settings of the web browser they use to access our platform. You may also delete previously stored cookie data at any time through your browser settings.',
-
-      SECTION_5_TEXT_2: 'However, please note that if essential and technical cookies are completely disabled or removed through browser settings, you may be unable to access your member account, edit your memorial pages, or complete payment transactions through Tami payment screens without technical issues.',
-
-      SECTION_6_TITLE: '6. Updates and Effective Date',
-
-      SECTION_6_TEXT_1: 'Styever reserves the right to update this Cookie Policy whenever necessary in response to changes in applicable legislation, decisions of the Information and Communication Technologies Authority (BTK), or technical security requirements imposed by payment service providers. The updated policy becomes effective immediately upon publication on the website. For any questions, opinions, or requests regarding the use of cookies and your privacy, you may contact us at',
-
-      SECTION_6_TEXT_2: 'via our official email address at any time.'
+      PAGE_TITLE: "COOKIE POLICY",
+      SECTION_1_TITLE: "1. Introduction and Purpose of the Policy",
+      SECTION_1_TEXT: "This Cookie Policy has been prepared by ESMA ESRA KILIÇ (Data Controller), the legal owner of the www.styever.com website (hereinafter referred to as \"Styever\" or the \"Platform\"), in order to protect the privacy of persons who visit the Platform, become members or use digital memorial page services (hereinafter referred to as \"Users\" or \"Visitors\") and to ensure the most efficient use of the Website's technical infrastructure. This policy transparently explains which cookies are used on our Website, for what purposes they are used and how they can be managed within the framework of Personal Data Protection Law No. 6698 (KVKK).",
+      SECTION_2_TITLE: "2. What is a Cookie?",
+      SECTION_2_TEXT: "Cookies are small text files placed on your device (computer, smartphone, tablet) through your browser (Chrome, Safari, Edge, Firefox, etc.) when you visit a website. Cookies help websites remember that you have visited the site again, keep your session securely open and provide you with a more stable, faster and personalized digital experience.",
+      SECTION_3_TITLE: "3. Purposes and Legal Grounds for the Use of Cookies",
+      SECTION_3_TEXT: "Cookies on the Styever Platform are never used for advertising, targeting or third-party commercial marketing purposes. Cookies are processed solely for the following legal and technical reasons:",
+      PURPOSE_1: "Session Management and Functionality (Performance of the Contract - KVKK Art. 5/2-c): To keep users' sessions open after they log in to the member panel, eliminate the need to re-enter passwords on every page transition and remember language/display preferences on the Platform.",
+      PURPOSE_2: "System and Payment Security (Legitimate Interest of the Data Controller and Provided by Law - KVKK Art. 5/2-e, f): To protect the Platform's cybersecurity and prevent fake memberships or unauthorized account access. In particular, to ensure that virtual POS payment forms operated through the Shopier (Shopier Yazılım A.Ş.) infrastructure function securely, with SSL encryption and free from fraudulent transactions.",
+      PURPOSE_3: "Performance and Technical Analysis (Legitimate Interest of the Data Controller - KVKK Art. 5/2-f): To collect fully anonymous statistical data in order to optimize the Website's loading speed, identify which pages operate more stably and manage server resources appropriately according to user traffic.",
+      SECTION_4_TITLE: "4. Types of Cookies Used on Our Platform",
+      COOKIE_TYPE_1: "Necessary and Technical Cookies: Cookies required for the Website to function properly, enable navigation between pages, verify membership logins and securely complete Shopier payment steps. If these cookies are disabled, the Platform's core functions and payment infrastructure may become unavailable.",
+      COOKIE_TYPE_2: "Performance and Analytics Cookies: Cookies that identify visitor numbers, time spent on pages and areas where technical errors occur in a fully anonymous manner that cannot be matched with user identity. This data is used solely to improve Website speed and user experience.",
+      SECTION_5_TITLE: "5. Managing and Disabling Cookies",
+      SECTION_5_TEXT_1: "Users and visitors have the right to completely block or restrict cookies, or receive notifications when cookies are stored on their devices, by changing the settings of the internet browser they use to access our Platform. You may delete previously stored cookie data at any time through your browser settings.",
+      SECTION_5_TEXT_2: "You can follow the steps below to manage cookies in commonly used browsers:",
+      BROWSER_1: "Google Chrome: Settings > Privacy and Security > Cookies and Other Site Data",
+      BROWSER_2: "Safari: Preferences > Privacy > Block Cookies and Website Data",
+      BROWSER_3: "Mozilla Firefox: Options > Privacy and Security > Cookies and Site Data",
+      BROWSER_4: "Microsoft Edge: Settings > Privacy, Search and Services > Cookies",
+      IMPORTANT_NOTE: "Important Note: If necessary and technical cookies are completely disabled or deleted through browser settings, you may be unable to log in to your membership panel on the Styever Platform, edit your memorial pages or may experience technical problems on Shopier payment screens.",
+      SECTION_6_TITLE: "6. Updates and Entry into Force",
+      SECTION_6_TEXT_1: "Styever reserves the right to update this Cookie Policy when deemed necessary in line with changes in applicable legislation, decisions of the Personal Data Protection Board or technical security criteria of payment institutions. The updated policy enters into force as soon as it is published on the Website.",
+      SECTION_6_TEXT_2: "You may always submit any questions, opinions or requests regarding cookie usage and your privacy in writing to our official e-mail address info@styever.com."
     }
     ,
     KVKK: {
-      PAGE_TITLE: "Personal Data Protection Law (KVKK) Disclosure Statement",
-
+      PAGE_TITLE: "Personal Data Protection Law (KVKK) Information Notice",
       SECTION_1_TITLE: "1. Data Controller",
-      SECTION_1_TEXT: "Pursuant to the Personal Data Protection Law No. 6698 (KVKK), your personal data is processed by ESMA ESRA KILIÇ, the legal owner of the Styever brand, in accordance with the law, principles of good faith, accuracy, and legitimate purposes.",
+      SECTION_1_TEXT: "Pursuant to Personal Data Protection Law No. 6698 (KVKK), your personal data is processed by ESMA ESRA KILIÇ, the legal owner of the Styever brand, acting as Data Controller (hereinafter referred to as \"Styever\" or the \"Data Controller\"), in accordance with the law and principles of good faith, accurately and when necessary up to date, for specific, explicit and legitimate purposes.",
 
-      SECTION_2_TITLE: "2. Purposes of Processing Personal Data",
-      SECTION_2_TEXT: "Your personal data collected while using our platform, creating an account, or visiting the system may be processed for the following purposes:",
-
-      PURPOSE_1: "Providing digital memorial page, software, and web hosting services.",
-      PURPOSE_2: "Creating, hosting, and managing digital memorial pages securely, ad-free, and in compliance with contractual obligations.",
-      PURPOSE_3: "Processing orders, subscriptions, and payments securely through Tami Payment Services Inc. (Param Virtual POS) and managing invoicing processes.",
-      PURPOSE_4: "Fulfilling obligations arising from the Distance Sales Agreement and Membership Agreement.",
-      PURPOSE_5: "Complying with legal obligations arising from commercial, tax, and e-commerce legislation.",
-      PURPOSE_6: "Ensuring platform security and preventing unauthorized or fraudulent activities.",
+      SECTION_2_TITLE: "2. Categories of Personal Data Processed and Purposes of Processing",
+      SECTION_2_TEXT: "Your personal data collected while receiving services, creating a membership or visiting our system through our Platform (www.styever.com) is processed within the following categories and purposes:",
+      PURPOSE_1: "Identity and Contact Data (Name, surname, e-mail address, telephone number): Establishment of the digital memorial page, creation of the membership account, user verification and communication processes.",
+      PURPOSE_2: "Customer Transaction and Financial Data (Invoice information, order history, payment amount): Carrying out order and subscription transactions through the infrastructure of the licensed payment provider Shopier (Shopier Yazılım A.Ş.), and following invoicing and accounting processes.",
+      PURPOSE_3: "Visual, Audio and Content Data (Uploaded photographs, videos, memorial texts, condolence messages): Creating, hosting and publishing digital memorial pages on the Platform in accordance with the agreement.",
+      PURPOSE_4: "Transaction Security Data (IP address, device information, log records, cookies): Retaining traffic records pursuant to Law No. 5651, ensuring Platform security and preventing unauthorized transactions.",
 
       SECTION_3_TITLE: "3. Transfer of Personal Data",
-      SECTION_3_TEXT: "Your personal data is never sold to third parties for commercial, advertising, or marketing purposes. It may only be shared for the following purposes:",
+      SECTION_3_TEXT: "Your collected personal data is never sold or transferred to third parties for commercial, advertising or marketing purposes. Your data may only be transferred to the following parties for the stated purposes:",
+      TRANSFER_1: "Shopier (Shopier Yazılım A.Ş.): For the secure execution of payment transactions and completion of collection processes.",
+      TRANSFER_2: "Service Providers: Authorized technical infrastructure suppliers providing website publication, hosting, database and server services.",
+      TRANSFER_3: "Authorized Public Institutions and Authorities: Courts, prosecutors' offices, Consumer Arbitration Committees and relevant administrative authorities for the fulfillment of legal obligations.",
+      SECTION_3_NOTE: "Your personal data and the memorial content you upload are stored on secure servers within the borders of the Republic of Türkiye and are not transferred abroad without your explicit consent.",
 
-      TRANSFER_1: "With Tami Payment Services Inc. and related financial institutions for payment processing.",
-      TRANSFER_2: "With domestic hosting, infrastructure, and cybersecurity service providers.",
-      TRANSFER_3: "With authorized public authorities, courts, prosecutors, and legal advisors where required by law.",
-
-      SECTION_3_NOTE: "Your personal data and memorial content are stored on secure servers located within the Republic of Türkiye and are not transferred abroad without your explicit consent.",
-
-      SECTION_4_TITLE: "4. Method and Legal Basis of Data Collection",
-      SECTION_4_TEXT: "Your personal data is collected electronically through membership forms, order and payment screens, memorial page upload panels, contact forms, cookies, and system activity logs.",
-
-      LEGAL_BASIS_1: "Processing is necessary for the establishment or performance of a contract.",
-      LEGAL_BASIS_2: "Processing is necessary to comply with legal obligations under tax and e-commerce regulations.",
-      LEGAL_BASIS_3: "Processing is necessary for the legitimate interests of the data controller, including platform security and service improvement.",
+      SECTION_4_TITLE: "4. Method and Legal Basis of Personal Data Collection",
+      SECTION_4_TEXT: "Your personal data is collected entirely electronically through membership forms, order and payment screens, memorial page upload panels, contact forms, cookies and system access logs. This data is processed based on the following legal grounds specified in Article 5 of the KVKK:",
+      LEGAL_BASIS_1: "Establishment or Performance of a Contract: Processing is necessary to provide services under the Terms of Use, Membership Agreement and Distance Sales Agreement and to deliver orders.",
+      LEGAL_BASIS_2: "Legal Obligation: Fulfillment of legal responsibilities under the Turkish Commercial Code, Tax Procedure Law, Law No. 5651 and consumer legislation.",
+      LEGAL_BASIS_3: "Legitimate Interest: The Data Controller has legitimate interests in ensuring Platform security, improving system performance and detecting fraudulent transactions.",
 
       SECTION_5_TITLE: "5. Platform Closure and Data Deletion Procedure",
+      SECTION_5_TEXT_1: "5.1. The Styever Platform reserves the right to completely cease its activities and close the Website for commercial, legal or technical reasons.",
+      SECTION_5_TEXT_2: "5.2. If the Platform is permanently closed, users will be notified at least 30 (thirty) days in advance via the e-mail addresses registered in the system.",
+      SECTION_5_TEXT_3: "5.3. After the notification period expires, all personal data, uploaded photographs, videos, memorial texts and system backups will be irreversibly deleted, destroyed or anonymized in accordance with the Regulation on the Deletion, Destruction or Anonymization of Personal Data.",
 
-      SECTION_5_TEXT_1: "Styever reserves the right to permanently discontinue its services and close the platform for commercial, legal, or technical reasons.",
-
-      SECTION_5_TEXT_2: "In the event of a permanent shutdown, users will be notified via their registered email addresses at least 30 days in advance.",
-
-      SECTION_5_TEXT_3: "After the notification period ends, all personal data, uploaded photos, videos, memorial texts, and digital backups will be irreversibly deleted, destroyed, or anonymized in accordance with KVKK regulations.",
-
-      SECTION_6_TITLE: "6. Rights of the Data Subject",
-
-      SECTION_6_TEXT: "Under Article 11 of the KVKK, you have the following rights:",
-
-      RIGHT_1: "To learn whether your personal data is being processed and request information about it.",
-      RIGHT_2: "To learn the purpose of processing and whether it is used accordingly.",
-      RIGHT_3: "To know the third parties to whom your personal data is transferred within Türkiye.",
-      RIGHT_4: "To request correction of incomplete or inaccurate personal data.",
-      RIGHT_5: "To request deletion or destruction of personal data when the reasons requiring processing no longer exist.",
-      RIGHT_6: "To object to adverse results arising from automated data analysis.",
-      RIGHT_7: "To claim compensation for damages caused by unlawful processing of personal data.",
-
-      APPLICATION_TEXT_1: "You may submit your requests in writing through your registered email address to",
-      APPLICATION_TEXT_2: ". Requests will be evaluated and responded to free of charge within 30 days."
+      SECTION_6_TITLE: "6. Rights of the Data Subject and Application Procedure",
+      SECTION_6_TEXT: "Pursuant to Article 11 of the KVKK, as a Data Subject you have the following rights:",
+      RIGHT_1: "To learn whether your personal data is being processed,",
+      RIGHT_2: "To request information if your personal data has been processed,",
+      RIGHT_3: "To learn the purpose of processing your personal data and whether it is used in accordance with that purpose,",
+      RIGHT_4: "To know the third parties to whom your personal data is transferred domestically or abroad,",
+      RIGHT_5: "To request correction if your personal data has been processed incompletely or incorrectly,",
+      RIGHT_6: "To request deletion or destruction of your personal data within the framework of Article 7 of the KVKK,",
+      RIGHT_7: "To request notification of the above correction and deletion operations to third parties to whom your data has been transferred,",
+      RIGHT_8: "To object to a result arising against you through the analysis of processed data exclusively by automated systems,",
+      RIGHT_9: "To request compensation for damages if you suffer damage due to unlawful processing of personal data.",
+      APPLICATION_TEXT: "You may submit requests concerning your rights to info@styever.com from the e-mail address registered in our system, in accordance with the Communiqué on the Procedures and Principles of Application to the Data Controller. Your application will be answered free of charge within 30 (thirty) days at the latest."
     },
     LEGAL_WARNING: {
-      PAGE_TITLE: 'Legal Notice and Disclaimer',
-
-      SECTION_1_TITLE: '1. Nature of Service and Acceptance',
-      SECTION_1_TEXT_1: 'All users who visit www.styever.com (hereinafter referred to as the "Platform" or "Styever"), create an account, create a digital memorial page, or interact with content on the platform shall be deemed to have read, understood, and unconditionally accepted all terms set forth in this Legal Notice and Disclaimer.',
-      SECTION_1_TEXT_2: 'Styever is a commercial platform that provides digital hosting, software, and memorial page customization services for preserving the memories of deceased pets. No association, foundation activity, fundraising campaign, or charitable donation collection is conducted through the platform.',
-
-      SECTION_2_TITLE: '2. User Content and Hosting Provider Status',
-      SECTION_2_TEXT_1: '2.1. All photographs, videos, written content, memorial texts, and condolence messages published on digital memorial pages created through Styever (hereinafter referred to as "User Content") are uploaded solely at the discretion and initiative of the relevant users and visitors.',
-      SECTION_2_TEXT_2: '2.2. Styever operates as a "Hosting Provider" under Turkish Law No. 5651. Accordingly, Styever has no obligation to review, investigate, verify, or monitor the accuracy, reliability, legality, or copyright compliance of content uploaded by users prior to publication.',
-      SECTION_2_TEXT_3: '2.3. All legal, criminal, and financial responsibility arising from content shared or comments posted on the platform belongs exclusively to the individual who uploaded or posted such content. Styever cannot be held directly, indirectly, or jointly liable for statements, claims, or content published by users or third parties.',
-
-      SECTION_3_TITLE: '3. Notice-and-Takedown Mechanism and Right of Intervention',
-      SECTION_3_TEXT_1: 'Styever aims to maintain the platform as a respectful, peaceful, and legally compliant memorial space. Therefore, if any content or comment is found to violate public morality, public order, personal rights, copyright laws, or contains defamatory material, or if a valid complaint (notice-and-takedown request) is submitted by rights holders through',
-      SECTION_3_TEXT_2: ', Styever reserves the right, without prior notice, to remove such content, disable access to it, delete it permanently, or suspend or terminate the related user account.',
-
-      SECTION_4_TITLE: '4. Limitation of Liability (Material and Moral Damages)',
-      SECTION_4_INTRO: 'Styever shall not be held liable, directly or indirectly, for any financial losses, moral damages, compensation claims, or other liabilities arising from the following situations:',
-
-      LIMIT_1: 'Copyrighted images, videos, defamatory texts, or violations of personal rights unlawfully shared by users or visitors.',
-      LIMIT_2: 'Temporary or permanent technical failures, data loss, service interruptions, or accessibility issues arising from hosting providers, internet service providers, or cyberattacks (hacking).',
-      LIMIT_3: 'Technical delays, POS errors, card transaction failures, or other operational issues occurring within the systems of our payment integration partner Tami Payment Services Inc. or banking institutions.',
-      LIMIT_4: 'Access problems resulting from users’ own devices, browsers, software, or internet connections.',
-
-      SECTION_5_TITLE: '5. Right to Terminate the Platform and Delete Data',
-      SECTION_5_TEXT: 'The legal owner of Styever reserves the right, at its sole discretion and based on commercial decisions, economic requirements, or technical limitations, to permanently discontinue platform operations and shut down the website. In the event of such closure, Styever shall not be responsible for any loss of data suffered by users who fail to back up their photos, content, or information within the thirty (30) day notice period specified in the applicable agreements. Since all systems may be permanently decommissioned and data deleted in accordance with applicable data protection laws, no material or moral compensation claims may be brought against Styever based on allegations such as the loss of sentimental memories or emotional damages.',
-
-      SECTION_6_TITLE: '6. Updates and Jurisdiction',
-      SECTION_6_TEXT: 'Styever reserves the right to amend this Legal Notice at any time in accordance with changes in applicable laws, e-commerce regulations, or technical requirements. Updated versions become binding upon publication on the platform. Any disputes arising from the interpretation or implementation of this document shall be governed by the laws of the Republic of Türkiye, and within applicable monetary limits, Consumer Arbitration Committees and the Courts and Enforcement Offices of Ankara shall have jurisdiction.'
+      PAGE_TITLE: "LEGAL NOTICE AND DISCLAIMER",
+      SECTION_1_TITLE: "1. Nature and Acceptance of the Service",
+      SECTION_1_TEXT_1: "All users who visit the www.styever.com website (hereinafter referred to as the \"Platform\" or \"Styever\"), become members, create a digital memorial page or interact with content on the Platform are deemed to have read, understood and unconditionally accepted all terms contained in this Legal Notice and Disclaimer in advance.",
+      SECTION_1_TEXT_2: "Styever is a commercial platform that provides fully digital hosting, software and page customization services for preserving the memories of deceased pets. The Platform does not conduct any association, foundation, fundraising or donation activities.",
+      SECTION_2_TITLE: "2. User Content and Hosting Provider Status",
+      SECTION_2_TEXT_1: "2.1. All photographs, videos, writings, memorial texts and condolence comments left by visitors and published on digital memorial pages created on the Styever Platform (hereinafter referred to as \"User Content\") are uploaded to the system entirely at the discretion of the relevant users and visitors.",
+      SECTION_2_TEXT_2: "2.2. Styever acts as a \"Hosting Provider\" pursuant to Law No. 5651 on the Regulation of Publications on the Internet and Combating Crimes Committed by Means of Such Publications. Under applicable legislation, Styever has no obligation to pre-screen, editorially review or investigate the accuracy, reliability, legality or copyright compliance of content uploaded by users.",
+      SECTION_2_TEXT_3: "2.3. All legal, criminal, financial and administrative responsibility for content shared and comments posted on the Platform belongs directly to the person who uploaded the content or posted the comment. Styever cannot be held directly, indirectly or jointly liable for statements, claims or posts made on the Platform by users or third parties.",
+      SECTION_3_TITLE: "3. Notice-and-Takedown Mechanism and Right to Intervene",
+      SECTION_3_TEXT: "Styever aims to keep the Platform a peaceful, respectful and lawful memorial space. Accordingly, when any content contrary to public morals or public order, violating personality rights, containing insults or infringing copyright is detected, or when a justified complaint (notice-and-takedown notification) is submitted by rights holders via info@styever.com, Styever reserves the right to remove or delete the relevant content, block access to it, or suspend/terminate the relevant user account without prior notice.",
+      SECTION_4_TITLE: "4. Limitation of Liability",
+      SECTION_4_INTRO: "Styever cannot be held liable for any direct or indirect, material or non-material loss, damage or compensation claims arising from the following circumstances:",
+      LIMIT_1: "Copyrighted images or videos, insulting texts or violations of personality rights unlawfully shared by users or visitors,",
+      LIMIT_2: "Temporary or permanent technical failures, data loss or access interruptions arising from hosting companies forming the Platform infrastructure, internet service providers or cyberattacks (hacking, DDoS, etc.),",
+      LIMIT_3: "Technical delays, POS errors, interruptions or card transaction failures that may occur in the systems of the payment infrastructure provider Shopier (Shopier Yazılım A.Ş.) or banks,",
+      LIMIT_4: "Access problems arising from users' own devices, browsers, insufficient data storage or internet connections.",
+      SECTION_5_TITLE: "5. Platform Closure and Right to Delete Data",
+      SECTION_5_TEXT: "The legal owner of Styever (ESMA ESRA KILIÇ) has the right to completely terminate Platform activities and permanently close the Website based entirely on her own commercial decision, economic necessities or technical impossibilities. In the event of Platform closure, Styever cannot be held responsible for data losses suffered by users who fail to back up their own data and photographs within the 30 (thirty) day advance notice period specified in the legal agreements. No material or non-material compensation claim may be brought against Styever on the grounds that \"sentimental memories were lost\", \"memories were deleted\" or \"damage was suffered\" as a result of the complete shutdown of the systems and permanent deletion of data in accordance with KVKK legislation.",
+      SECTION_6_TITLE: "6. Intellectual Property and Copyright",
+      SECTION_6_TEXT: "All copyright and proprietary rights in the design, software code, logo, \"Styever\" trademark, domain name and all visual/graphic materials offered within the Styever Platform belong to ESMA ESRA KILIÇ. Pursuant to Law No. 5846 on Intellectual and Artistic Works and Industrial Property Law No. 6769, copying, reproducing or commercially using Platform components without Styever's written permission is prohibited.",
+      SECTION_7_TITLE: "7. Updates, Applicable Law and Competent Courts",
+      SECTION_7_TEXT_1: "7.1. Styever reserves the right to unilaterally update the provisions of this Legal Notice at any time in line with changing national laws, e-commerce legislation or technical requirements. The updated text becomes binding on all users as soon as it is published on the Website.",
+      SECTION_7_TEXT_2: "7.2. The laws of the Republic of Türkiye shall apply to all disputes arising from the implementation and interpretation of this text. Within the statutory monetary limits announced annually by the Ministry of Trade, Consumer Arbitration Committees and the Courts and Enforcement Offices of Ankara (Çankaya) shall have jurisdiction over the resolution of disputes."
     },
     "SOCIAL_RESPONSIBILITY_POLICY": {
       "INFO_TITLE": "Social Responsibility Policy",
@@ -947,58 +872,60 @@ export const locale = {
       }
     },
     COMMUNITY_RULES: {
-      PAGE_TITLE: 'Community Rules',
-
-      INTRO: 'Styever was created to preserve the memories of our beloved companions in a respectful, peaceful, and secure environment. Everyone who visits and uses our platform agrees to follow the fundamental rules below in order to help maintain the harmony of this shared space.',
-
-      SECTION_1_TITLE: '1. Respect and Memorial Policy',
-      SECTION_1_TEXT: 'Our first rule is to always approach the grief of loss and the memories left behind with respect. Condolence messages and comments left on memorial pages should never be hurtful, and users should remember that this is intended to be a quiet and peaceful place of remembrance. Comments containing insults, threats, harassment, or hate speech are strictly prohibited.',
-
-      SECTION_2_TITLE: '2. Content Limits and Review',
-      SECTION_2_TEXT: 'Styever memorial pages may only be used for preserving and honoring the memories of beloved pets. The sharing of political symbols, commercial advertisements, promotions, illegal content, or material that violates public morality is strictly prohibited. Content that violates these rules may be permanently removed from the platform without prior notice.',
-
-      SECTION_3_TITLE: '3. Prohibited Conduct on the Platform',
-
-      PROHIBITED_1: 'Posting insulting, offensive, or aggressive content',
-      PROHIBITED_2: 'Hate speech, discrimination, or comments that may divide people',
-      PROHIBITED_3: 'Threats, harassment, or behavior that disturbs others',
-      PROHIBITED_4: 'Spam, advertisements, links, or commercial promotions',
-      PROHIBITED_5: 'Images or texts containing illegal content or copyright violations',
-
-      SECTION_4_TITLE: '4. Reporting and Handling Inappropriate Content',
-
-      SECTION_4_TEXT_1: 'If you encounter content or comments that violate these rules, disturb you, or that you believe are not appropriate for honoring the memory of our beloved companions, you may report them using the "Report Content" button available on the platform or by emailing us directly at',
-      SECTION_4_EMAIL: 'info@styever.com',
-      SECTION_4_TEXT_2: '.',
-
-      SECTION_4_TEXT_3: 'All reports are reviewed promptly by our team. Comments and content found to violate these rules may be edited, removed entirely, or the responsible users may have their access to the platform restricted.',
-
-      SECTION_4_TEXT_4: 'Please remember that all legal and criminal responsibility for comments posted on memorial pages belongs solely to the individual who submitted them. Styever reserves the right to take all necessary technical measures to maintain a respectful and clean environment.'
+      PAGE_TITLE: "COMMUNITY GUIDELINES",
+      INTRO: "Styever was established to preserve the memories of our beloved companions we have lost in a respectful, peaceful and safe environment. Everyone who visits our Platform, creates a memorial page or interacts with it agrees in advance to comply with the following basic rules in order to preserve the peace and legality of this shared space.",
+      SECTION_1_TITLE: "1. Respect and Memorial Policy",
+      SECTION_1_TEXT: "Our primary rule is to always act respectfully toward the grief experienced after the loss of our companions and the memories left behind. Condolence messages and comments posted on memorial pages must be constructive, kind and respectful, and users should remember that this is a quiet and peaceful memorial space. Content containing insults, threats, harassment, personal attacks or hate speech is not permitted on the Platform.",
+      SECTION_2_TITLE: "2. Content Boundaries and Moderation",
+      SECTION_2_TEXT: "Styever memorial pages may only be used to preserve the memories of our pets. The following are strictly prohibited on pages, profile areas or in comments:",
+      CONTENT_LIMIT_1: "Political propaganda, ideological symbols or debates,",
+      CONTENT_LIMIT_2: "Commercial advertising, product sales, listings or unauthorized redirect links,",
+      CONTENT_LIMIT_3: "Personal data belonging to third parties shared in violation of Law No. 6698 (KVKK), such as telephone numbers, full addresses or images violating privacy,",
+      CONTENT_LIMIT_4: "Visual or written content contrary to public morals, public order or applicable legislation.",
+      SECTION_3_TITLE: "3. Prohibited Conduct on the Platform",
+      SECTION_3_TEXT: "The following actions constitute direct violations of the Community Guidelines and are subject to sanctions:",
+      PROHIBITED_1: "Aggressive Language and Insults: Comments or posts containing profanity, insults, humiliation, threats or harassment,",
+      PROHIBITED_2: "Discrimination and Hate Speech: Statements involving discrimination based on race, religion, language, gender or social status, or statements that encourage social polarization,",
+      PROHIBITED_3: "Spam and Advertising: Commercial messages, repeated links and promotions of fake products/services,",
+      PROHIBITED_4: "Copyright and Intellectual Property Infringement: Sharing copyrighted photographs, videos or written materials that the user does not own, that were taken from the internet without permission or that belong to third parties,",
+      PROHIBITED_5: "Personal Data Violations: Publishing photographs, names or contact information of persons without their consent.",
+      SECTION_4_TITLE: "4. Reporting Inappropriate Content and Intervention Mechanism",
+      SECTION_4_TEXT_1: "If you encounter content or a comment on the Platform that violates the above rules, disturbs you or that you believe is inappropriate for the memory of our beloved companions, you may report it through the \"Report Content\" button on the relevant page or directly via our e-mail address info@styever.com.",
+      SECTION_4_TEXT_2: "Incoming reports are immediately reviewed by our technical team. Content found to violate the rules may be subject to the following actions:",
+      ACTION_1: "It may be edited or completely removed from the Platform without prior notice,",
+      ACTION_2: "Memorial pages of users who repeatedly violate the rules or commit serious violations may be frozen, and their membership accounts may be suspended or permanently terminated.",
+      SECTION_5_TITLE: "5. Legal Responsibility",
+      SECTION_5_TEXT: "As a \"Hosting Provider\" under Law No. 5651, Styever has no obligation to editorially review user-uploaded content in advance. All legal, criminal, administrative and financial responsibility for images uploaded to memorial pages, written texts and condolence comments belongs directly to the person who created the content. Styever reserves the right to take all necessary technical and administrative measures to ensure that the Platform complies with the law and maintains community peace."
     }
     ,
     MODERATION_POLICY: {
-      PAGE_TITLE: 'Moderation Policy and Content Review',
-      PAGE_SUBTITLE: 'The content review principles we apply to protect the memories of beloved companions and maintain a respectful community.',
-
-      SECTION_1_TITLE: '1. A Safe and Respectful Memorial Space',
-      SECTION_1_TEXT: 'At Styever, our highest priority is ensuring that the memories of our beloved companions receive the respect, peace, and security they deserve. For this reason, all content shared across the platform and all condolence messages are subject to specific moderation rules.',
-
-      SECTION_2_TITLE: '2. Hosting Provider Status and Content Responsibility',
-      SECTION_2_TEXT_1: 'Under Turkish Law No. 5651, Styever operates as a "Hosting Provider." The legal and criminal responsibility for memorial pages created on our platform, as well as any photos, videos, and written content uploaded to those pages, belongs entirely to the user who uploads the content. Unless legally required, Styever is not obligated to review user-generated content in advance or verify its accuracy.',
-      SECTION_2_TEXT_2: 'However, if content is found to disrupt the peaceful nature of the platform or violate applicable laws or our community guidelines, Styever reserves the right to remove, edit, or restrict access to such content without prior notice.',
-
-      SECTION_3_TITLE: '3. Scope and Criteria of Moderation',
-      SECTION_3_TEXT: 'Memorial pages, photographs, user comments, and profile information that do not comply with the following criteria may be flagged by our moderation systems and subject to intervention:',
-      CRITERIA_1: 'Insults, profanity, abusive language, or aggressive expressions directed at other users or memorials,',
-      CRITERIA_2: 'Hate speech, threats, or harassment that may offend or divide society,',
-      CRITERIA_3: 'Commercial advertisements, promotions, link sharing, and spam content,',
-      CRITERIA_4: 'Illegal, offensive, disturbing, or immoral content unrelated to the purpose of pet memorialization.',
-
-      SECTION_4_TITLE: '4. Moderation Decisions and Enforcement',
-      SECTION_4_TEXT: 'In the event of a violation of these rules, our platform administration may, depending on the severity of the violation, remove comments or content entirely, edit inappropriate language, or fully restrict (block) a user’s access to the platform. Moderation decisions are implemented promptly to preserve the peaceful nature of the platform, and account holders may be notified by email when deemed necessary.',
-
-      SECTION_5_TITLE: '5. Content Reporting Mechanism',
-      SECTION_5_TEXT: 'If you encounter content or comments that violate our rules or are not appropriate for honoring the memory of our beloved companions, you may report them directly using the "Report Content" feature available on the platform. All reports are carefully reviewed by our team, and appropriate action will be taken as quickly as possible.'
+      PAGE_TITLE: "MODERATION POLICY AND CONTENT REVIEW",
+      PAGE_SUBTITLE: "Our content moderation principles, implemented to protect the memories of our beloved companions, provide a safe memorial space and preserve peace on the Platform, are set out below.",
+      SECTION_1_TITLE: "1. A Safe and Respectful Memorial Space",
+      SECTION_1_TEXT: "At Styever, our highest priority is to ensure that the memories of our beloved companions receive the respect, peace and security they deserve on our Platform. For this purpose, memorial pages created across the Platform, uploaded media files and condolence comments are subject to specific moderation rules and legal standards.",
+      SECTION_2_TITLE: "2. Hosting Provider Status and Content Responsibility",
+      SECTION_2_TEXT_1: "2.1. Styever acts as a \"Hosting Provider\" under Law No. 5651 on the Regulation of Publications on the Internet and Combating Crimes Committed by Means of Such Publications.",
+      SECTION_2_TEXT_2: "2.2. All legal, criminal, financial and administrative responsibility for memorial pages created on our Platform, images and videos uploaded to those pages, and all written content belongs entirely to the user who uploads the content or posts the comment. Unless required by law or upon a justified complaint, Styever is not obliged to editorially review user content in advance or verify its accuracy.",
+      SECTION_2_TEXT_3: "2.3. Nevertheless, where Styever identifies content that disrupts the peace of the Platform or violates public morals, public order, copyrights or our Community Guidelines, Styever reserves the right to remove, withdraw, edit or block access to such content without prior notice.",
+      SECTION_3_TITLE: "3. Scope of Review and Intervention Criteria",
+      SECTION_3_TEXT: "Memorial pages, photographs, videos, user comments and profile information that fail to comply with the criteria below are subject to our moderation system and may be immediately acted upon:",
+      CRITERIA_1: "Insults, profanity, humiliation or aggressive statements directed at other users, the memory of deceased animals or third parties,",
+      CRITERIA_2: "Hate speech that polarizes or harms society, as well as threats, harassment or blackmail,",
+      CRITERIA_3: "Commercial advertisements, product/service promotions, listings, spam content and unauthorized redirect links,",
+      CRITERIA_4: "Copyrighted images, videos or written materials shared without ownership or authorization in violation of Law No. 5846 on Intellectual and Artistic Works,",
+      CRITERIA_5: "Sharing third-party personal data such as full addresses, telephone numbers or unauthorized images in violation of Law No. 6698 (KVKK),",
+      CRITERIA_6: "Illegal, immoral, violence-promoting or disturbing content unrelated to the purpose of pet memorialization.",
+      SECTION_4_TITLE: "4. Moderation Decisions and Levels of Sanctions",
+      SECTION_4_TEXT: "In the event of a violation, Platform management is authorized to immediately apply the following measures depending on the nature and severity of the violation:",
+      ACTION_1: "Warning and Content Removal: Immediate removal from the Platform of comments, text or media that violate the law or the rules.",
+      ACTION_2: "Access Restriction: Temporarily or permanently closing the relevant memorial page to comments and/or visits.",
+      ACTION_3: "Account Suspension / Termination: Freezing or permanently terminating the membership accounts of users who repeatedly violate the rules or commit serious violations.",
+      SECTION_4_FOOTER: "Moderation decisions are applied immediately in order to protect the peace and legal security of the Platform. Where deemed necessary, details of the action may be communicated to the account holder by e-mail.",
+      SECTION_5_TITLE: "5. Content Reporting Mechanism and Notice-and-Takedown Process",
+      SECTION_5_TEXT: "If you encounter content or a comment on our Platform that violates the rules, infringes copyright or is inappropriate for the memory of our beloved companions:",
+      REPORT_1: "You may use the \"Report Content\" button on the relevant page, or",
+      REPORT_2: "You may submit a reasoned report directly via info@styever.com.",
+      SECTION_5_FOOTER: "Reports received are carefully reviewed by our team as soon as possible pursuant to Law No. 5651 and the \"Notice-and-Takedown\" principle; content found to be in violation is immediately removed from publication. In the case of official judicial or administrative requests concerning rights violations, logs and data required by applicable legislation may be shared with the competent authorities."
     }
     ,
     "CONTENT_REMOVAL_POLICY": {
@@ -1161,8 +1088,8 @@ export const locale = {
       }
     },
     MY_AGREEMENTS: { 'TITLE': 'My Agreements', 'EMPTY': 'You do not have any agreements available to view yet.', 'DOCUMENT': 'Agreement', 'CONTEXT': 'Acceptance context', 'VERSION': 'Version', 'DATE': 'Acceptance date', 'VIEW': 'View', 'HIDE': 'Close', 'ACCEPTED_CONTENT': 'Accepted agreement text', 'CONTEXT_PURCHASE': 'Purchase', 'CONTEXT_REGISTRATION': 'Registration', 'TYPE_PRE_INFORMATION': 'Pre-information form', 'TYPE_DISTANCE_SALES': 'Distance sales agreement', 'TYPE_PRIVACY': 'Privacy policy', 'TYPE_KVKK': 'Personal data information notice', 'TYPE_COMMERCIAL': 'Commercial communication consent', 'TYPE_SOCIAL': 'Social responsibility consent', 'TYPE_MEMBERSHIP': 'Membership and terms of use' },
-
+    TAX_NUMBER: "Tax Number",
+    DOGANBEY_TAX_OFFICE: "Doğanbey Tax Office"
     // END (TR-EN-LANGUAGE-BRANCH
-  }
-
+  },
 };

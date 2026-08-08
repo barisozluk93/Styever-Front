@@ -14,3 +14,70 @@
     border: 1px solid var(--bs-primary);
     z-index: 10;
 }
+
+.most-preferred-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #064e3b;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .15px;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
+
+.most-preferred-badge i {
+    color: #f6c344;
+    font-size: 11px;
+}
+
+@media (max-width: 575.98px) {
+    .most-preferred-badge {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 9px;
+    }
+}
+
+.card {
+  position: relative;
+}
+
+.most-preferred-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  background: #064e3b;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+
+  i {
+    color: #fbbf24;
+    font-size: 11px;
+  }
+}

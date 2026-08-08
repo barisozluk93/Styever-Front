@@ -398,13 +398,14 @@ export const locale = {
         GIFT_SIXTH_HEADER: "Onlara yalnız olmadıklarını hissettir.",
         GIFT_SIXTH_CONTENT: "Yalnızlık ve yasla baş etmek zordur. Bu hediye; dostuna “yanındayım, yalnız değilsin” demenin zarif, kalıcı ve sevgi dolu bir yoludur. Bugün bir Styever hediye çeki al kaybedilen can dostu için, sevgi dolu bir hatıra yarat.",
 
-        standard: "Anı",
+        standard: "Origin",
         standardProperty1: "1 Anı Sayfası",
         standardProperty2: "1 Fotoğraf",
         standardProperty3: "1 Anı Yazısı Alanı (1000 Karakter)",
         standardProperty4: "Sosyal Sorumluluk Rozeti",
         standardProperty5: "Hatırlatma Bildirimleri",
-        premium: "Hatıra",
+        premium: "Heart",
+        MOST_PREFERRED: "EN ÇOK TERCİH EDİLEN",
         premiumProperty1: "1 Anı Sayfası",
         premiumProperty2: "4 Fotoğraf",
         premiumProperty3: "2 Video",
@@ -412,7 +413,7 @@ export const locale = {
         premiumProperty5: "1 Anı Yazısı Alanı (5000 Karakter)",
         premiumProperty6: "Sosyal Sorumluluk Rozeti",
         premiumProperty7: "Hatırlatma Bildirimleri",
-        ultra: "Sonsuz",
+        ultra: "Family",
         ultraProperty1: "4 Anı Sayfası",
         ultraProperty2: "4 Fotoğraf/anı sayfası",
         ultraProperty3: "2 Video/anı sayfası",
@@ -459,9 +460,9 @@ export const locale = {
             AGREEMENT_SAVE_FAILED: 'Sözleşme onayları kaydedilemedi. Ödeme sayfasına yönlendirme yapılmadı.',
             GENERIC_ERROR: "İşlem sırasında bir hata oluştu.",
             PACKAGES: {
-                MEMORY: "Anı Paketi",
-                TRIBUTE: "Hatıra Paketi",
-                ETERNAL: "Sonsuz Paket"
+                MEMORY: "Origin Paketi",
+                TRIBUTE: "Heart Paketi",
+                ETERNAL: "Family Paketi"
             }
         },
 
@@ -583,141 +584,117 @@ export const locale = {
         TERMS: {
             PAGE_TITLE: "Kullanım Şartları ve Üyelik Sözleşmesi",
             SECTION_1_TITLE: "1. Taraflar ve Onay",
-            SECTION_1_TEXT: "İşbu Web Sitesi Kullanım Şartları ve Üyelik Sözleşmesi (Bundan böyle \"Sözleşme\" olarak anılacaktır), www.styever.com internet sitesine (Bundan böyle \"Platform\" veya \"İnternet Sitesi\" olarak anılacaktır) üye olan, içerik sağlayan veya siteyi ziyaret eden kullanıcılar (Bundan böyle \"Kullanıcı\" veya \"Alıcı\" olarak anılacaktır) ile platformun yasal sahibi olan ESMA ESRA KILIÇ (Bundan böyle \"Styever\" veya \"Satıcı\" olarak anılacaktır) arasında elektronik ortamda onaylandığı tarihte yürürlüğe girmiştir. Platforma giriş yapılması, üyelik oluşturulması veya platform üzerinden dijital hizmet satın alınması, işbu sözleşme şartlarının eksiksiz olarak kabul edildiği anlamına gelir.",
-
+            SECTION_1_TEXT: "İşbu Web Sitesi Kullanım Şartları ve Üyelik Sözleşmesi (Bundan böyle \"Sözleşme\" olarak anılacaktır), www.styever.com internet sitesine (Bundan böyle \"Platform\" veya \"İnternet Sitesi\" olarak anılacaktır) üye olan, içerik sağlayan veya siteyi ziyaret eden kullanıcılar (Bundan böyle \"Kullanıcı\" veya \"Alıcı\" olarak anılacaktır) ile platformun yasal sahibi olan ESMA ESRA KILIÇ (Styever) (Bundan böyle \"Styever\" veya \"Satıcı\" olarak anılacaktır) arasında elektronik ortamda onaylandığı tarihte yürürlüğe girmiştir. Platforma giriş yapılması, üyelik oluşturulması veya platform üzerinden dijital hizmet satın alınması, işbu sözleşme şartlarının eksiksiz olarak kabul edildiği anlamına gelir.",
             SECTION_2_TITLE: "2. Platformun Tanımı ve Hizmetin Niteliği",
             SECTION_2_TEXT: "Styever, kullanıcıların hayatını kaybeden evcil hayvanları ve sevgili dostları için tamamen dijital ortamda özel anı sayfaları oluşturmasına, bu sayfalara fotoğraf/video yüklemesine, anı metinleri yazmasına ve üçüncü şahıslardan dijital taziye mesajları ile anma ritüelleri (dijital mum yakma vb.) almasına olanak sağlayan, web tabanlı bir yazılım ve barındırma platformudur. Sunulan tüm hizmetler soyut, dijital ve anında ifa edilen niteliktedir.",
-
             SECTION_3_TITLE: "3. Hesap Oluşturma ve Güvenlik",
             SECTION_3_TEXT: "Platformun sunduğu dijital anı sayfası oluşturma ve özelleştirme özelliklerinden yararlanmak için üyelik hesabı açılması zorunludur. Kullanıcılar, kayıt formunda talep edilen bilgileri doğru, eksiksiz, güncel ve gerçeğe uygun şekilde beyan etmekle yükümlüdür. Hesap şifresinin güvenliği, gizli tutulması ve üçüncü kişilerle paylaşılmaması sorumluluğu tamamen Kullanıcı’ya aittir. Yetkisiz hesap kullanımından doğabilecek her türlü hukuki ve cezai sorumluluk Kullanıcı'nın kendisine aittir.",
-
             SECTION_4_TITLE: "4. Kullanıcı İçeriği ve Hukuki Sorumluluk",
             SECTION_4_TEXT_1: "4.1. Kullanıcılar; platform üzerinde oluşturdukları anı sayfalarına yükledikleri, paylaştıkları veya taziye mesajı olarak bıraktıkları her türlü fotoğraf, video, yazı, yorum, isim ve görsel içerikten (Bundan böyle \"Kullanıcı İçeriği\" olarak anılacaktır) şahsen ve tamamen sorumludur.",
-            SECTION_4_TEXT_2: "4.2. Kullanıcı, yüklediği içeriklerin Fikir ve Sanat Eserleri Kanunu başta olmak üzere yürürlükteki mevzuata uygun olduğunu, üçüncü kişilerin telif haklarını, mülkiyet haklarını, ticari sırlarını veya kişilik haklarını ihlal etmediğini peşinen kabul, beyan ve taahhüt eder. İçeriklerden doğacak her türlü hukuki, cezai ve mali yaptırım doğrudan ilgili Kullanıcı’ya rücu edilir.",
-
+            SECTION_4_TEXT_2: "4.2. Kullanıcı, yüklediği içeriklerin 5846 sayılı Fikir ve Sanat Eserleri Kanunu başta olmak üzere yürürlükteki mevzuata uygun olduğunu, üçüncü kişilerin telif haklarını, mülkiyet haklarını, ticari sırlarını, kişisel verilerini veya kişilik haklarını ihlal etmediğini peşinen kabul, beyan ve taahhüt eder. İçeriklerden doğacak her türlü hukuki, cezai ve mali yaptırım doğrudan ilgili Kullanıcı’ya rücu edilir.",
+            SECTION_4_TEXT_3: "4.3. Kullanıcı, platforma yüklediği içeriklerin yalnızca anı sayfasının görüntülenmesi ve hizmetin yürütülmesi amacıyla İşletici tarafından barındırılmasına, işlenmesine ve teknik olarak sunulmasına gayrikabili rücu muvafakat eder.",
             SECTION_5_TITLE: "5. Yasaklı İçerikler ve Uyar-Kaldır Prensibi",
-            SECTION_5_TEXT_1: "5.1. Platform üzerinde genel ahlaka, kamu düzenine ve hukuka aykırı; hakaret, küfür, tehdit, nefret söylemi, ırkçılık, yasa dışı faaliyetleri övücü içerikler, spam, reklam, kişisel verilerin korunması kanununa aykırı paylaşımlar yapılması kesinlikle yasaktır.",
+            SECTION_5_TEXT_1: "5.1. Platform üzerinde genel ahlaka, kamu düzenine ve hukuka aykırı; hakaret, küfür, tehdit, nefret söylemi, ırkçılık, yasa dışı faaliyetleri övücü içerikler, spam, reklam, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na aykırı paylaşımlar yapılması kesinlikle yasaktır.",
             SECTION_5_TEXT_2: "5.2. Styever, 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun uyarınca \"Yer Sağlayıcı\" statüsündedir. Styever’ın, kullanıcılar tarafından yüklenen içerikleri önceden kontrol etme, hukuka aykırılık araştırması yapma veya editoryal olarak inceleme yükümlülüğü bulunmamaktadır.",
             SECTION_5_TEXT_3: "5.3. Styever, mevzuat uyarınca \"Uyar-Kaldır\" prensibini benimsemiştir. Hak ihlali, telif hakkı veya yasa dışı içerik bildirimleri info@styever.com adresine yapıldığı takdirde, Styever ilgili içeriği derhal ve hiçbir ön bildirimde bulunmaksızın yayından kaldırma, silme veya hesabı askıya alma hakkını saklı tutar.",
-
             SECTION_6_TITLE: "6. Ödemeler ve Aktif Abonelik Sistemi",
-            SECTION_6_TEXT_1: "6.1. Platform üzerindeki premium anı sayfası kurulumu ve dijital anma özellikleri ücrete tabi olup, hizmet paketlerinin fiyatları sipariş ekranlarında açıkça listelenmektedir.",
-            SECTION_6_TEXT_2: "6.2. Tüm tahsilat ve ödeme işlemleri, yasal lisanslı ödeme kuruluşu olan Tami Ödeme Hizmetleri A.Ş. (Param Sanal POS) altyapısı üzerinden 256-bit SSL şifreli ve 3D Secure (güvenli doğrulama) protokolü ile gerçekleştirilir.",
-            SECTION_6_TEXT_3: "6.3. Kullanıcı, satın aldığı abonelik paketlerini ve otomatik yenileme döngülerini platform üzerindeki \"Hesabım\" sekmesi üzerinden dilediği zaman yönetebilir, iptal edebilir veya dondurabilir. Abonelik iptal edildiğinde, içinde bulunulan aktif dönemin sonuna kadar hizmet açık kalır, bir sonraki dönem karttan çekim yapılmaz.",
-
+            SECTION_6_TEXT_1: "6.1. Platform üzerindeki premium anı sayfası kurulumu ve dijital anma özellikleri ücrete tabi olup, hizmet paketlerinin fiyatları sipariş ve ödeme ekranlarında açıkça listelenmektedir.",
+            SECTION_6_TEXT_2: "6.2. Tüm tahsilat ve ödeme işlemleri, lisanslı ödeme altyapısı sağlayıcısı olan Shopier (Shopier Yazılım A.Ş.) üzerinden 256-bit SSL şifreli ve 3D Secure (güvenli doğrulama) protokolü ile gerçekleştirilir. Styever, Kullanıcı'nın kredi kartı/banka kartı bilgilerini hiçbir şekilde kendi sunucularında saklamaz ve işlemez.",
+            SECTION_6_TEXT_3: "6.3. Kullanıcı, satın aldığı abonelik paketlerini ve yenileme süreçlerini platform üzerindeki \"Hesabım\" sekmesi üzerinden dilediği zaman yönetebilir veya iptal edebilir. Abonelik iptal edildiğinde, içinde bulunulan aktif dönemin sonuna kadar hizmet açık kalır, bir sonraki dönem karttan çekim yapılmaz.",
             SECTION_7_TITLE: "7. Cayma Hakkı ve İade Politikası",
             SECTION_7_TEXT_1: "7.1. Mesafeli Sözleşmeler Yönetmeliği’nin \"Cayma Hakkının İstisnaları\" başlıklı 15. maddesinin 1. fıkrasının (ğ) bendi uyarınca; \"Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler\" kapsamında, dijital anı sayfası aktivasyonu ve hizmet alımı tamamlandığı andan itibaren kanunen cayma ve ücret iade hakkı bulunmamaktadır.",
             SECTION_7_TEXT_2: "7.2. Ancak Styever’ın kurumsal müşteri memnuniyeti politikası gereği, ilk satın alma tarihinden itibaren 7 (yedi) günlük bir koşulsuz iptal ve iade süresi tanınmıştır. İlk 7 gün içerisinde info@styever.com üzerinden yapılan iptal başvurularında ücret kesintisiz iade edilir ve ilgili anı sayfası sunuculardan kalıcı olarak silinir. 7 günlük deneme süresi aşıldıktan sonra yapılan iptallerde kesinlikle ücret iadesi yapılmaz.",
-
-            SECTION_8_TITLE: "8. Hizmetin Sürekliliği, Platformun Kapatılması veya Dava Engelleme Beyanı",
+            SECTION_8_TITLE: "8. Hizmetin Sürekliliği, Platformun Kapatılması ve Mücbir Sebepler",
             SECTION_8_TEXT_1: "8.1. Styever, platformun kesintisiz ve yüksek performansla çalışması için gerekli teknik altyapı yatırımlarını yapar. Ancak, sunulan hizmetlerin sonsuza kadar, hiçbir kesinti olmaksızın veya ömür boyu yayında kalacağına dair mutlak bir yasal taahhüt veya garanti verilmemektedir.",
             SECTION_8_TEXT_2: "8.2. Styever; tamamen kendi ticari tasarrufuyla, ekonomik gerekçelerle, teknik imkansızlıklarla, şirket tasfiyesiyle veya stratejik kararlarla platform faaliyetlerini tamamen durdurma, internet sitesini kapatma ve sunulan tüm dijital anı sayfası hizmetlerini kalıcı olarak sonlandırma hakkını saklı tutar.",
             SECTION_8_TEXT_3: "8.3. Platformun tamamen kapatılması kararı alınması halinde Styever, aktif aboneliği bulunan veya geçmişte hizmet almış olan tüm kullanıcılara, sistemde kayıtlı e-posta adresleri üzerinden en az 30 (otuz) gün önceden yazılı bildirim yapacaktır.",
             SECTION_8_TEXT_4: "8.4. Yapılan kapatma bildirim süresi (30 gün) içerisinde, Kullanıcılar platform üzerinde oluşturdukları anı sayfalarında yer alan kendilerine ait tüm fotoğrafları, videoları ve metinleri yedeklemekle, kendi yerel depolama cihazlarına indirmekle tamamen kendileri yükümlüdür. Bildirim süresinin sona ermesiyle birlikte tüm sunucular kalıcı olarak kapatılacak, veritabanları imha edilecek ve içerikler geri döndürülemeyecek şekilde silinecektir.",
             SECTION_8_TEXT_5: "8.5. Platformun işbu maddede belirtilen yasal bildirim süresine (30 gün) uyularak tamamen kapatılması, hizmetin sonlandırılması veya verilerin sunuculardan silinmesi durumunda; aktif aboneliği bitmiş ve ücretsiz statüde sayfası yayınlanan kullanıcılara veya kalan döneme ait ücreti iade edilen aktif abonelere karşı Styever’ın hiçbir hukuki, cezai, mali veya idari sorumluluğu bulunmamaktadır.",
             SECTION_8_TEXT_6: "8.6. Kullanıcı; platformun tamamen kapanması veya hizmetin sona ermesi gerekçesiyle Styever'a karşı maddi veya manevi tazminat davası açmayacağını, \"anıların kaybolduğu, silindiği veya manevi zarara uğranıldığı\" iddiasıyla herhangi bir adli, idari veya tüketici merciine başvuruda bulunmayacağını gayrikabili rücu kabul, beyan ve taahhüt eder.",
-
+            SECTION_8_TEXT_7: "8.7. İnternet servis sağlayıcılarından, siber saldırılardan, sunucu arızalarından veya üçüncü taraf altyapı tedarikçilerinden kaynaklanan geçici erişim engelleri mücbir sebep sayılır ve Styever bu kesintilerden ötürü sorumlu tutulamaz.",
             SECTION_9_TITLE: "9. Uygulanacak Hukuk ve Yetkili Mahkeme",
             SECTION_9_TEXT: "İşbu Sözleşme ve platform kullanımından doğacak her türlü uyuşmazlık Türkiye Cumhuriyeti kanunlarına tabidir. Sözleşme’den doğan uyuşmazlıklarda, Ticaret Bakanlığı tarafından her yıl ilan edilen parasal sınırlar dahilinde, Kullanıcı’nın yerleşim yerindeki veya Satıcı'nın ticari merkezinin bulunduğu yerdeki Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir.",
-
             SECTION_10_TITLE: "10. Satıcı ve İletişim Bilgileri",
             SECTION_10_ITEM_1: "Resmi Ünvan / Ad Soyadı: ESMA ESRA KILIÇ (Styever)",
             SECTION_10_ITEM_2: "İş Yeri Adresi: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
             SECTION_10_ITEM_3: "Vergi Dairesi ve No: DOĞANBEY VERGİ DAİRESİ / 0990426667",
             SECTION_10_ITEM_4: "E-posta Adresi: info@styever.com",
-            SECTION_10_ITEM_5: "Müşteri Şikayetleri: Tüm şikayet, öneri ve itirazlarınızı info@styever.com adresine iletebilirsiniz. Teknik ekibimiz en geç 30 iş günü içerisinde detaylı inceleme yaparak tarafınıza yazılı geri dönüş sağlayacaktır."
+            SECTION_10_ITEM_5: "Müşteri Şikayetleri: Tüm şikayet, öneri ve itirazlarınızı info@styever.com adresine iletebilirsiniz. Talepleriniz en geç 30 iş günü içerisinde incelenerek tarafınıza yazılı geri dönüş sağlanacaktır."
         },
         DISTANCE_SALES: {
-            PAGE_TITLE: "Mesafeli Satış Sözleşmesi",
-
-            PRE_INFO_TITLE: "Ön Bilgilendirme Formu",
-
+            PAGE_TITLE: "MESAFELİ SATIŞ SÖZLEŞMESİ",
+            PRE_INFO_TITLE: "BÖLÜM I: ÖN BİLGİLENDİRME FORMU",
             PRE_INFO_SECTION_1_TITLE: "1. Satıcı Bilgileri",
             PRE_INFO_SELLER_1: "Adı Soyadı / Resmi Ünvanı: ESMA ESRA KILIÇ (Styever)",
             PRE_INFO_SELLER_2: "İş Yeri Adresi: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
             PRE_INFO_SELLER_3: "Vergi Dairesi ve No: DOĞANBEY VERGİ DAİRESİ / 0990426667",
             PRE_INFO_SELLER_4: "E-posta Adresi: info@styever.com",
-
             PRE_INFO_SECTION_2_TITLE: "2. Sözleşme Konusu Hizmetin Özellikleri ve Fiyatı",
-            PRE_INFO_SECTION_2_TEXT: "Platform üzerinden satın alınan hizmet; vefat eden evcil hayvanlar için dijital anı sayfası oluşturma, yazılım fonksiyonlarını kullanma, barındırma (hosting) ve dijital anma araçlarından (dijital mum yakma, taziye bırakma vb.) yararlanma hakkını içeren soyut ve dijital bir hizmettir. Hizmetin tüm vergiler dahil toplam satış bedeli, Alıcı’nın satın alma anında onay ekranında gördüğü ve adına düzenlenen faturada yer alan tutardır. Tamamen dijital ortamda ifa edildiğinden kargo veya lojistik masrafı bulunmamaktadır.",
-
+            PRE_INFO_SECTION_2_TEXT: "Platform üzerinden satın alınan hizmet; vefat eden evcil hayvanlar için dijital anı sayfası oluşturma, yazılım fonksiyonlarını kullanma, barındırma (hosting) ve dijital anma araçlarından (dijital mum yakma, taziye bırakma vb.) yararlanma hakkını içeren soyut ve dijital bir hizmettir. Hizmetin tüm vergiler dahil toplam satış bedeli, Alıcı’nın satın alma anında ödeme ekranında gördüğü ve adına düzenlenen faturada yer alan tutardır. Tamamen dijital ortamda ifa edildiğinden kargo veya lojistik masrafı bulunmamaktadır.",
             PRE_INFO_SECTION_3_TITLE: "3. Ödeme ve Teslimat Bilgileri",
-            PRE_INFO_SECTION_3_TEXT: "Ödeme işlemleri, yasal lisanslı ödeme kuruluşu olan Tami Ödeme Hizmetleri A.Ş. altyapısı üzerinden kredi kartı, banka kartı veya ön ödemeli kartlar ile gerçekleştirilir. Sözleşme konusu dijital hizmet, Alıcı'nın ödeme adımlarını tamamlayıp onay vermesini takiben herhangi bir fiziksel teslimat gerektirmeksizin elektronik ortamda anında ifa edilir ve Alıcı'nın kullanımına açılır.",
-
+            PRE_INFO_SECTION_3_TEXT: "Ödeme işlemleri, lisanslı ödeme altyapısı sağlayıcısı olan Shopier (Shopier Yazılım A.Ş.) altyapısı üzerinden kredi kartı, banka kartı veya ön ödemeli kartlar ile 256-bit SSL ve 3D Secure güvencesiyle gerçekleştirilir. Sözleşme konusu dijital hizmet, Alıcı'nın ödeme adımlarını tamamlayıp onay vermesini takiben herhangi bir fiziksel teslimat gerektirmeksizin elektronik ortamda anında ifa edilir ve Alıcı'nın kullanımına açılır.",
             PRE_INFO_SECTION_4_TITLE: "4. Cayma Hakkı ve İstisnaları",
-            PRE_INFO_SECTION_4_TEXT: "27 Kasım 2014 tarihli Resmi Gazete'de yayımlanan Mesafeli Sözleşmeler Yönetmeliği’nin \"Cayma Hakkının İstisnaları\" başlıklı 15. maddesinin 1. fıkrasının (ğ) bendi uyarınca; \"Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler\" yasal olarak cayma hakkının istisnası kapsamındadır. Alıcı, satın aldığı dijital hizmetin anında teslim edilen bir dijital içerik olduğunu ve bu nedenle yasal olarak cayma ve ücret iade hakkının bulunmadığını peşinen kabul eder. (Sadece Satıcı'nın müşteri memnuniyeti politikası gereği tanıdığı ilk 7 günlük koşulsuz iptal hakkı saklıdır).",
-
+            PRE_INFO_SECTION_4_TEXT: "27 Kasım 2014 tarihli Resmi Gazete'de yayımlanan Mesafeli Sözleşmeler Yönetmeliği’nin “Cayma Hakkının İstisnaları” başlıklı 15. maddesinin 1. fıkrasının (ğ) bendi uyarınca; “Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler” yasal olarak cayma hakkının istisnası kapsamındadır. Alıcı, satın aldığı dijital hizmetin anında teslim edilen bir dijital içerik olduğunu ve bu nedenle yasal olarak cayma ve ücret iade hakkının bulunmadığını peşinen kabul eder. (Sadece Satıcı'nın müşteri memnuniyeti politikası gereği tanıdığı ilk 7 günlük koşulsuz iptal hakkı saklıdır).",
             PRE_INFO_SECTION_5_TITLE: "5. Şikayet ve Çözüm Mekanizması",
             PRE_INFO_SECTION_5_TEXT: "Alıcı, hizmete ilişkin her türlü talep ve şikayetini info@styever.com adresine iletebilir. İşbu Ön Bilgilendirme Formu'ndan doğan uyuşmazlıklarda, Ticaret Bakanlığı tarafından her yıl ilan edilen yasal parasal sınırlar dahilinde Alıcı’nın yerleşim yerindeki veya Satıcı'nın ticari merkezinin bulunduğu yerdeki Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir.",
-
-            CONTRACT_TITLE: "Mesafeli Satış Sözleşmesi",
+            CONTRACT_TITLE: "BÖLÜM II: MESAFELİ SATIŞ SÖZLEŞMESİ",
             PARTIES_TITLE: "Taraflar",
-            PARTIES_TEXT: "İşbu Sözleşme, aşağıda belirtilen şartlar ve hükümler dahilinde, www.styever.com internet sitesi (Bundan böyle \"İnternet Sitesi\" veya \"Platform\" olarak anılacaktır) üzerinden elektronik ortamda hizmet satın alan Alıcı ile hizmeti sağlayan Satıcı arasında, Alıcı'nın sipariş onay adımlarını tamamlayarak sözleşmeyi elektronik ortamda onayladığı tarihte yürürlüğe girmiştir.",
-
+            PARTIES_TEXT: "İşbu Sözleşme, aşağıda belirtilen şartlar ve hükümler dahilinde, www.styever.com internet sitesi (Bundan böyle “İnternet Sitesi” veya “Platform” olarak anılacaktır) üzerinden elektronik ortamda hizmet satın alan Alıcı ile hizmeti sağlayan Satıcı arasında, Alıcı'nın sipariş onay adımlarını tamamlayarak sözleşmeyi elektronik ortamda onayladığı tarihte yürürlüğe girmiştir.",
             SECTION_1_TITLE: "1. Taraf Bilgileri ve Tanımlar",
-
             SECTION_1_1_TITLE: "1.1. Satıcı Bilgileri",
             SECTION_1_1_ITEM_1: "Adı Soyadı / Resmi Ünvanı: ESMA ESRA KILIÇ",
             SECTION_1_1_ITEM_2: "Marka İsmi: Styever",
             SECTION_1_1_ITEM_3: "İş Yeri Adresi: ALACAATLI MAH. 3381/2 SK. A-4 ÇANKAYA / ANKARA",
             SECTION_1_1_ITEM_4: "T.C. Kimlik Numarası: 50335068022",
-            SECTION_1_1_ITEM_5: "Vergi Dairesi: DOĞANBEY VERGİ DAİRESİ",
-            SECTION_1_1_ITEM_6: "Vergi Kimlik Numarası: 0990426667",
-            SECTION_1_1_ITEM_7: "E-posta: info@styever.com",
-
+            SECTION_1_1_ITEM_5: "Vergi Dairesi ve No: DOĞANBEY VERGİ DAİRESİ / 0990426667",
+            SECTION_1_1_ITEM_6: "E-posta: info@styever.com",
             SECTION_1_2_TITLE: "1.2. Alıcı Bilgileri",
-            SECTION_1_2_TEXT: "Satıcı'ya ait www.styever.com internet sitesi üzerinden elektronik ortamda sipariş veren, üyelik başlatan, dijital hizmet satın alan; fatura, sipariş ve üyelik formlarında adı-soyadı, T.C. Kimlik Numarası (varsa) ve iletişim bilgileri yer alan gerçek veya tüzel kişidir (Bundan böyle \"Alıcı\" veya \"Tüketici\" olarak anılacaktır).",
-
+            SECTION_1_2_TEXT: "Satıcı'ya ait www.styever.com internet sitesi üzerinden elektronik ortamda sipariş veren, üyelik başlatan, dijital hizmet satın alan; fatura, sipariş ve üyelik formlarında adı-soyadı, T.C. Kimlik Numarası (varsa) ve iletişim bilgileri yer alan gerçek veya tüzel kişidir (Bundan böyle “Alıcı” veya “Tüketici” olarak anılacaktır).",
             SECTION_1_3_TITLE: "1.3. Tanımlar",
             SECTION_1_3_TEXT: "İşbu sözleşmenin uygulanmasında ve yorumlanmasında, aşağıda yazılı terimler karşılarındaki yazılı açıklamaları ifade edeceklerdir:",
             SECTION_1_3_ITEM_1: "Satıcı: ESMA ESRA KILIÇ (Styever)",
             SECTION_1_3_ITEM_2: "Alıcı: İnternet sitesini kullanarak dijital hizmet, yazılım ve anı sayfası alanı satın alan gerçek veya tüzel kişi.",
             SECTION_1_3_ITEM_3: "Hizmet: Alıcı’nın platform üzerinden satın aldığı, anında ifa edilen dijital içerikleri, yazılım fonksiyonlarını ve barındırma hizmetlerini kapsayan soyut servisler.",
             SECTION_1_3_ITEM_4: "Sözleşme: Satıcı ve Alıcı arasında kurulan işbu Mesafeli Satış Sözleşmesi.",
-
             SECTION_2_TITLE: "2. Sözleşmenin Konusu ve Kapsamı",
             SECTION_2_TEXT: "İşbu Sözleşme’nin konusu, Alıcı’nın Satıcı’ya ait Styever platformu üzerinden elektronik ortamda siparişini verdiği, nitelikleri, kapsamı ve satış fiyatı platformun ilgili sayfalarında belirtilen dijital ürün ve hizmetlerin (Dijital Anı Sayfası Oluşturma, Dijital Anı ve Taziye Bırakma, Dijital Mum Yakma Özellikleri vb.) satışı, teslimi ve ifası ile ilgili olarak, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca tarafların karşılıklı hak ve yükümlülüklerinin belirlenmesidir.",
-
             SECTION_3_TITLE: "3. Sözleşme Konusu Hizmet, Fiyat ve Ödeme Bilgileri",
             SECTION_3_TEXT_1: "3.1. Hizmetin temel nitelikleri, paket içerikleri ve sağlanan dijital alanın kapsamı www.styever.com internet sitesinde yayınlanmaktadır.",
             SECTION_3_TEXT_2: "3.2. Listelenen ve sitede ilan edilen fiyatlar satış fiyatıdır. İlan edilen fiyatlar ve vaatler güncelleme yapılana ve değiştirilene kadar geçerlidir. Süreli olarak ilan edilen fiyatlar ise belirtilen süre sonuna kadar geçerlidir.",
-            SECTION_3_TEXT_3: "3.3. Ödeme Metodu: Kredi Kartı / Banka Kartı veya Ön Ödemeli Kartlar (Tami Ödeme Hizmetleri A.Ş. Altyapısı ile).",
+            SECTION_3_TEXT_3: "3.3. Ödeme Metodu: Kredi Kartı / Banka Kartı veya Ön Ödemeli Kartlar (Shopier - Shopier Yazılım A.Ş. Altyapısı ile).",
             SECTION_3_TEXT_4: "3.4. Hizmet Bedeli: Alıcı'nın siparişi onayladığı anda ekranda belirtilen, sipariş özetinde gösterilen ve elektronik ortamda Alıcı'ya iletilen faturada yer alan tüm vergiler (KDV vb.) dahil toplam tutardır. İşbu hizmet tamamen dijital ortamda teslim edildiğinden kargo veya lojistik masrafı bulunmamaktadır.",
-
             SECTION_4_TITLE: "4. Genel Hükümler",
             SECTION_4_TEXT_1: "4.1. Alıcı, Styever platformunda Sözleşme konusu dijital hizmetin temel nitelikleri, satış fiyatı, ödeme şekli ve teslimata ilişkin ön bilgileri (Ön Bilgilendirme Formu) okuyup bilgi sahibi olduğunu ve elektronik ortamda gerekli teyidi verdiğini kabul, beyan ve taahhüt eder.",
             SECTION_4_TEXT_2: "4.2. Sözleşme konusu hizmet, Alıcı’nın elektronik ortamda ödeme ve sipariş onay adımlarını tamamlamasını takiben, herhangi bir fiziksel teslimat gerektirmeksizin, elektronik ortamda (kullanıcı paneli aktivasyonu ve e-posta bildirimi ile) anında teslim edilir ve Alıcı'nın kullanımına açılır.",
             SECTION_4_TEXT_3: "4.3. Satıcı, Sözleşme konusu hizmetin ayıpsız, platformda belirtilen teknik niteliklere uygun, kesintisiz ve taahhüt edilen sınırlar dahilinde Alıcı'ya sunulmasından sorumludur. Sitenin teknik altyapısında meydana gelebilecek kısa süreli bakım ve onarım çalışmaları esnasındaki kesintilerden Satıcı sorumlu tutulamaz.",
-            SECTION_4_TEXT_4: "4.4. Ödeme İşlemleri Güvenliği: Alıcı, ödemelerini yasal lisanslı ödeme kuruluşu Tami Ödeme Hizmetleri A.Ş. altyapısı üzerinden gerçekleştirir. Kart güvenliği, veri şifreleme (SSL), 3D Secure doğrulama süreçleri tamamen Tami ve ilgili bankaların sorumluluğundadır. Satıcı, Alıcı’nın kredi kartı numarası, son kullanma tarihi ve CVC kodu gibi kritik kart bilgilerini kendi sistemlerinde kesinlikle tutmaz, kaydetmez ve saklamaz.",
+            SECTION_4_TEXT_4: "4.4. Ödeme İşlemleri Güvenliği: Alıcı, ödemelerini lisanslı ödeme kuruluşu Shopier (Shopier Yazılım A.Ş.) altyapısı üzerinden gerçekleştirir. Kart güvenliği, veri şifreleme (256-bit SSL), 3D Secure doğrulama süreçleri tamamen Shopier ve ilgili bankaların sorumluluğundadır. Satıcı, Alıcı’nın kredi kartı numarası, son kullanma tarihi ve CVC kodu gibi kritik kart bilgilerini kendi sistemlerinde kesinlikle tutmaz, kaydetmez ve saklamaz.",
             SECTION_4_TEXT_5: "4.5. Alıcı, sisteme kayıt olurken veya içerik yüklerken paylaştığı tüm bilgilerin (fotoğraflar, anı yazıları vb.) yasal sorumluluğunun kendisine ait olduğunu, telif hakları veya kişilik hakları ihlallerinden doğacak tüm hukuki sorumluluğun doğrudan kendisinde olduğunu kabul eder.",
-
             SECTION_5_TITLE: "5. Cayma Hakkı ve İstisnaları",
-            SECTION_5_TEXT_1: "5.1. 27 Kasım 2014 tarihli Resmi Gazete'de yayımlanan Mesafeli Sözleşmeler Yönetmeliği’nin \"Cayma Hakkının İstisnaları\" başlıklı 15. maddesinin 1. fıkrasının (ğ) bendi uyarınca; \"Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler\" yasal olarak cayma hakkının tamamen istisnası kapsamındadır.",
-            SECTION_5_TEXT_2: "5.2. Alıcı, Styever üzerinden satın aldığı Dijital Anı Sayfası kurulumunun, aktivasyonunun ve dijital anma özelliklerinin \"anında ifa edilen bir dijital içerik ve yazılım hizmeti\" olduğunu, sipariş onayıyla birlikte hizmetin kendisine tamamen teslim edildiğini ve bu yasal nitelik gereği mevzuata göre cayma ve ücret iade hakkının bulunmadığını peşinen kabul, beyan ve taahhüt eder.",
-            SECTION_5_TEXT_3: "5.3. Platformun müşteri memnuniyeti politikası gereği sunduğu \"7 Günlük Koşulsuz İptal Hakkı\", Satıcı'nın tamamen kendi inisiyatifiyle sağladığı kurumsal bir jest olup, bu 7 günlük sürenin aşılmasının ardından mevzuat gereği herhangi bir hak veya bedel iadesi talep edilemez.",
-
+            SECTION_5_TEXT_1: "5.1. 27 Kasım 2014 tarihli Resmi Gazete'de yayımlanan Mesafeli Sözleşmeler Yönetmeliği’nin “Cayma Hakkının İstisnaları” başlıklı 15. maddesinin 1. fıkrasının (ğ) bendi uyarınca; “Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler” yasal olarak cayma hakkının tamamen istisnası kapsamındadır.",
+            SECTION_5_TEXT_2: "5.2. Alıcı, Styever üzerinden satın aldığı Dijital Anı Sayfası kurulumunun, aktivasyonunun ve dijital anma özelliklerinin “anında ifa edilen bir dijital içerik ve yazılım hizmeti” olduğunu, sipariş onayıyla birlikte hizmetin kendisine tamamen teslim edildiğini ve bu yasal nitelik gereği mevzuata göre cayma ve ücret iade hakkının bulunmadığını peşinen kabul, beyan ve taahhüt eder.",
+            SECTION_5_TEXT_3: "5.3. Platformun müşteri memnuniyeti politikası gereği sunduğu “7 Günlük Koşulsuz İptal Hakkı”, Satıcı'nın tamamen kendi inisiyatifiyle sağladığı kurumsal bir jest olup, bu 7 günlük sürenin aşılmasının ardından mevzuat gereği herhangi bir hak veya bedel iadesi talep edilemez.",
             SECTION_6_TITLE: "6. Hizmetin Sürekliliği, Platformun Kapatılması ve Sorumluluk Sınırı",
             SECTION_6_TEXT_1: "6.1. Satıcı, www.styever.com platformunun ve bu platform üzerinden sağlanan tüm dijital anı sayfalarının en yüksek erişilebilirlik ve teknik performans standartlarında yayında kalması için gerekli özeni gösterir. Ancak Satıcı, platformun sonsuza kadar kesintisiz, teknik olarak kusursuz veya ömür boyu yayında kalacağına dair mutlak bir yasal taahhüt veya garanti vermez.",
             SECTION_6_TEXT_2: "6.2. Satıcı; tamamen kendi ticari tasarrufuyla, ekonomik/finansal gerekçelerle, teknik altyapı imkansızlıklarıyla, şirket tasfiyesiyle, ortaklık yapısı değişiklikleriyle veya stratejik kararlarla platform faaliyetlerini tamamen durdurma, internet sitesini kapatma ve sunulan tüm dijital anı sayfası hizmetlerini kalıcı olarak sonlandırma hakkını saklı tutar.",
             SECTION_6_TEXT_3: "6.3. Platformun ticari veya teknik sebeplerle tamamen kapatılması ve hizmetlerin kalıcı olarak sonlandırılması kararı alınması halinde Satıcı, aktif aboneliği bulunan veya geçmişte hizmet almış olan tüm kullanıcılara, sistemde kayıtlı e-posta adresleri üzerinden en az 30 (otuz) gün önceden yazılı bildirim yapmakla yükümlüdür.",
             SECTION_6_TEXT_4: "6.4. Yapılan kapatma bildirim süresi (30 gün) içerisinde, Alıcılar platform üzerinde oluşturdukları anı sayfalarında yer alan kendilerine ait fotoğrafları, videoları, metinleri ve tüm dijital verileri yedeklemekle, kendi yerel depolama cihazlarına indirmekle tamamen kendileri yükümlüdür. Bildirim süresinin sona ermesiyle birlikte tüm sunucular kalıcı olarak kapatılacak, veritabanları imha edilecek ve içerikler geri döndürülemeyecek şekilde silinecektir. Yedekleme işleminin Alıcı tarafından zamanında yapılmamasından kaynaklanan veri kayıplarından Satıcı sorumlu tutulamaz.",
             SECTION_6_TEXT_5: "6.5. Platformun işbu maddede belirtilen yasal bildirim süresine (30 gün) uyularak tamamen kapatılması, hizmetin sonlandırılması veya verilerin sunuculardan silinmesi durumunda; aktif aboneliği bitmiş ve ücretsiz statüde sayfası yayınlanan kullanıcılara, aboneliği geçmişte sonlandırılmış kişilere veya bildirim tarihi itibarıyla kalan döneme ait ücreti iade edilen aktif abonelere karşı Satıcı’nın hiçbir hukuki, cezai, mali veya idari sorumluluğu bulunmamaktadır.",
-            SECTION_6_TEXT_6: "6.6. Alıcı; platformun tamamen kapanması, hizmetin sona ermesi veya içeriklerin silinmesi gerekçesiyle Satıcı'ya karşı maddi veya manevi tazminat davası açmayacağını, geriye dönük ödediği hizmet/abonelik bedellerini talep etmeyeceğini, \"anıların kaybolduğu, silindiği veya manevi zarara uğranıldığı\" iddiasıyla herhangi bir adli, idari veya tüketici merciine başvuruda bulunmayacağını gayrikabili rücu kabul, beyan ve taahhüt eder.",
-
-            SECTION_7_TITLE: "7. Yetkili Mahkeme",
-            SECTION_7_TEXT: "İşbu Sözleşme’den doğan uyuşmazlıklarda, Ticaret Bakanlığı tarafından her yıl ilan edilen ve yasal olarak bağlayıcı olan parasal sınırlar dahilinde, Alıcı’nın yerleşim yerindeki veya Satıcı'nın ticari merkezinin bulunduğu yerdeki Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir. Uyuşmazlık durumunda Satıcı'nın sistem kayıtları, sunucu logları ve elektronik yazışmaları Hukuk Muhakemeleri Kanunu uyarınca kesin delil niteliğindedir."
+            SECTION_6_TEXT_6: "6.6. Alıcı; platformun tamamen kapanması, hizmetin sona ermesi veya içeriklerin silinmesi gerekçesiyle Satıcı'ya karşı maddi veya manevi tazminat davası açmayacağını, geriye dönük ödediği hizmet/abonelik bedellerini talep etmeyeceğini, “anıların kaybolduğu, silindiği veya manevi zarara uğranıldığı” iddiasıyla herhangi bir adli, idari veya tüketici merciine başvuruda bulunmayacağını gayrikabili rücu kabul, beyan ve taahhüt eder.",
+            SECTION_7_TITLE: "7. Delil Sözleşmesi ve Yetkili Mahkeme",
+            SECTION_7_TEXT_1: "7.1. İşbu Sözleşme’den doğabilecek uyuşmazlıklarda Satıcı’nın sistem kayıtları, sunucu logları, Shopier işlem dökümleri ve elektronik e-posta yazışmaları 6100 sayılı Hukuk Muhakemeleri Kanunu’nun 193. maddesi uyarınca kesin ve bağlayıcı delil niteliğindedir.",
+            SECTION_7_TEXT_2: "7.2. İşbu Sözleşme’den doğan uyuşmazlıklarda, Ticaret Bakanlığı tarafından her yıl ilan edilen ve yasal olarak bağlayıcı olan parasal sınırlar dahilinde, Alıcı’nın yerleşim yerindeki veya Satıcı'nın ticari merkezinin bulunduğu yerdeki Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir."
         },
         CANCELLATION_REFUND_POLICY: {
             PAGE_TITLE: "İptal ve İade Koşulları",
 
             SECTION_1_TITLE: "1. Giriş veya Hizmetin Niteliği",
-            SECTION_1_TEXT_1: "1.1. Styever (Bundan böyle \"Satıcı\" olarak anılacaktır) tarafından sunulan hizmetler; internet sitesi (www.styever.com) üzerinden elektronik ortamda anında ifa edilen ve Alıcı’ya anında teslim edilen dijital içerikleri, yazılım hizmetlerini ve web tabanlı barındırma alanlarını (Dijital Anı Sayfası Kurulumu, Dijital Anı Bırakma Hizmeti, Sayfa Özelleştirme ve Dijital Anma Özellikleri vb.) kapsamaktadır.",
+            SECTION_1_TEXT_1: "1.1. Styever (ESMA ESRA KILIÇ) (Bundan böyle \"Satıcı\" olarak anılacaktır) tarafından sunulan hizmetler; internet sitesi (www.styever.com) üzerinden elektronik ortamda anında ifa edilen ve Alıcı’ya anında teslim edilen dijital içerikleri, yazılım hizmetlerini ve web tabanlı barındırma alanlarını (Dijital Anı Sayfası Kurulumu, Dijital Anı Bırakma Hizmeti, Sayfa Özelleştirme ve Dijital Anma Özellikleri vb.) kapsamaktadır.",
             SECTION_1_TEXT_2: "1.2. Alıcı, platform üzerinden satın alma işlemini gerçekleştirerek bu sözleşme koşullarının yanı sıra, hizmetin tamamen dijital, soyut ve anında ifa edilen bir niteliğe sahip olduğunu peşinen kabul, beyan ve taahhüt eder.",
 
             SECTION_2_TITLE: "2. 7 Günlük Deneme Süresi ve İptal Hakkı",
             SECTION_2_TEXT_1: "2.1. Satıcı, kullanıcı memnuniyeti odaklı hizmet politikası kapsamında, Alıcı'ya ilk satın alma (hizmetin başlatılma) tarihinden itibaren başlamak üzere 7 (yedi) günlük bir deneme ve koşulsuz iptal süresi tanımaktadır.",
             SECTION_2_TEXT_2: "2.2. Alıcı, satın aldığı dijital hizmetten memnun kalmaması veya devam etmek istememesi durumunda, ilk satın alma tarihinden itibaren 7 (yedi) gün içinde hiçbir cezai şart ödemeksizin ve herhangi bir gerekçe göstermeksizin platform üzerindeki kullanıcı paneli aracılığıyla veya info@styever.com resmi e-posta adresi üzerinden iptal talebinde bulunma hakkına sahiptir.",
-            SECTION_2_TEXT_3: "2.3. İptal ve cayma hakkının bu 7 (yedi) günlük süre içinde usulüne uygun olarak kullanılması durumunda, Alıcı'dan tahsil edilen hizmet bedeli, ödeme kuruluşu ve bankanın iade prosedürlerine uygun olarak Alıcı'nın işlem yaptığı karta aynen iade edilir.",
+            SECTION_2_TEXT_3: "2.3. İptal ve cayma hakkının bu 7 (yedi) günlük süre içinde usulüne uygun olarak kullanılması durumunda, Alıcı'dan tahsil edilen hizmet bedeli, ödeme kuruluşu altyapı sağlayıcısı Shopier (Shopier Yazılım A.Ş.) ve ilgili bankaların iade prosedürlerine uygun olarak Alıcı'nın işlem yaptığı karta aynen ve kesintisiz iade edilir.",
             SECTION_2_TEXT_4: "2.4. İptal işlemi sistem tarafından onaylandığı an, Alıcı için oluşturulan ilgili Dijital Anı Sayfası, içerisindeki tüm verilerle birlikte tamamen yayından kaldırılır, sunucu veri akışı durdurulur ve Alıcı platformda hiç abonelik başlatmamış statüsüne geri döndürülür.",
 
             SECTION_3_TITLE: "3. Abonelik Sonlandırılması ve Dijital Anı Sayfası Statüsü",
@@ -731,8 +708,8 @@ export const locale = {
             SECTION_4_TEXT_2: "4.2. Styever tarafından Alıcı'ya sunulan 7 günlük koşulsuz iptal/deneme süresi ve abonelik sonrasında sayfanın statik olarak yayında tutulmaya devam edilmesi, mevzuattan doğan bir zorunluluk olmayıp, tamamen Satıcı'nın Alıcı'ya sunduğu ek bir müşteri memnuniyeti taahhüdüdür. 7 günlük sürenin aşılmasının ardından mevzuat uyarınca yasal iade yapılma yükümlülüğü bulunmamaktadır.",
 
             SECTION_5_TITLE: "5. İade Prosedürü ve Yansıma Süresi",
-            SECTION_5_TEXT_1: "5.1. 7 günlük yasal süre içinde usulüne uygun yapılan ve Satıcı tarafından onaylanan ücret iadeleri, Satıcı tarafından Alıcı'nın ödeme yaptığı kredi/banka kartına, kullanılan sanal POS ödeme hizmetleri altyapısı üzerinden tek seferde ve kesintisiz olarak yansıtılır.",
-            SECTION_5_TEXT_2: "5.2. İade edilen tutarın Alıcı'nın banka veya kredi kartı hesabına, ekstrelerine yansıma süresi; Alıcı'nın hizmet aldığı bankanın iç prosedürlerine, hesap kesim tarihlerine ve uluslararası kart kuruluşlarının kurallarına göre değişiklik gösterebilir (genellikle 1 ila 3 iş günü). Satıcı tarafından iade talimatı ödeme kuruluşuna anında verilir; bu aşamadan sonra meydana gelebilecek banka kaynaklı gecikmelerden, bloke sürelerinden veya teknik aksaklıklardan Satıcı doğrudan veya dolaylı olarak sorumlu tutulamaz.",
+            SECTION_5_TEXT_1: "5.1. 7 günlük yasal süre içinde usulüne uygun yapılan ve Satıcı tarafından onaylanan ücret iadeleri, Satıcı tarafından Alıcı'nın ödeme yaptığı kredi/banka kartına, lisanslı ödeme altyapısı sağlayıcısı Shopier (Shopier Yazılım A.Ş.) üzerinden tek seferde ve kesintisiz olarak iletilir.",
+            SECTION_5_TEXT_2: "5.2. İade edilen tutarın Alıcı'nın banka veya kredi kartı hesabına, ekstrelerine yansıma süresi; Alıcı'nın hizmet aldığı bankanın iç prosedürlerine, kart türüne (kredi kartı veya banka/debit kart), hesap kesim tarihlerine ve uluslararası kart kuruluşlarının kurallarına göre değişiklik gösterebilir (genellikle 1 ila 7 iş günü). Satıcı tarafından iade talimatı Shopier sistemine anında verilir; bu aşamadan sonra meydana gelebilecek banka kaynaklı gecikmelerden, bloke sürelerinden veya teknik aksaklıklardan Satıcı doğrudan veya dolaylı olarak sorumlu tutulamaz.",
 
             SECTION_6_TITLE: "6. Hizmetin Sürekliliği, Platformun Kapatılması ve Sorumluluk Sınırı",
             SECTION_6_TEXT_1: "6.1. Satıcı, www.styever.com üzerinden sunulan dijital anı sayfası hizmetlerini, ticari imkanları, teknik altyapı sürdürülebilirliğini ve sunucu kapasitelerini göz önünde bulundurarak en yüksek kalitede sunmayı amaçlar. Ancak Satıcı, platformun sonsuza kadar, hiçbir kesinti olmaksızın veya ömür boyu yayında kalacağına dair mutlak ve taahhüt niteliğinde bir yasal garanti vermemektedir.",
@@ -747,178 +724,140 @@ export const locale = {
         },
         PRIVACY_POLICY: {
             PAGE_TITLE: "Gizlilik ve Güvenlik Politikası",
-
             SECTION_1_TITLE: "1. Veri Sorumlusu",
-            SECTION_1_TEXT: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca Styever markasının yasal sahibi olan ESMA ESRA KILIÇ veri sorumlusu sıfatıyla hareket etmektedir. Platform, kullanıcı verilerinin güvenliğine en üst düzeyde önem vermektedir.",
-
+            SECTION_1_TEXT: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca www.styever.com internet sitesinin ve Styever markasının yasal sahibi olan ESMA ESRA KILIÇ (Bundan böyle \"Styever\" veya \"Veri Sorumlusu\" olarak anılacaktır), Veri Sorumlusu sıfatıyla hareket etmektedir. Styever, kullanıcıların kişisel verilerinin gizliliğine ve güvenliğine en üst düzeyde önem vermektedir.",
             SECTION_2_TITLE: "2. Toplanan Kişisel Veriler",
-            SECTION_2_TEXT: "Platform hizmetlerinden yararlanırken aşağıdaki kişisel veriler işlenebilir:",
-
-            DATA_1: "Kimlik ve iletişim bilgileri (ad soyad, e-posta adresi, telefon numarası)",
-            DATA_2: "Fatura ve finansal bilgiler",
-            DATA_3: "Fotoğraf, video, anı metni, yorum ve taziye mesajları",
-            DATA_4: "IP adresi, cihaz bilgileri, log kayıtları ve çerez verileri",
-
-            SECTION_3_TITLE: "3. Kişisel Verilerin Kullanım Amaçları",
-            SECTION_3_TEXT: "Toplanan kişisel veriler aşağıdaki amaçlarla işlenir:",
-
-            PURPOSE_1: "Dijital anı sayfası hizmetlerinin sunulması",
-            PURPOSE_2: "Sözleşmesel yükümlülüklerin yerine getirilmesi",
-            PURPOSE_3: "Platform güvenliğinin sağlanması",
-            PURPOSE_4: "Muhasebe ve yasal süreçlerin yürütülmesi",
-            PURPOSE_5: "Teknik destek ve kullanıcı deneyiminin geliştirilmesi",
-
+            SECTION_2_TEXT: "Platform hizmetlerinden yararlanırken aşağıdaki kişisel verileriniz işlenebilir:",
+            DATA_1: "Kimlik ve İletişim Bilgileri: Ad, soyad, e-posta adresi, telefon numarası.",
+            DATA_2: "Müşteri İşlem ve Finansal Bilgiler: Fatura detayları, sipariş geçmişi, işlem tutarları.",
+            DATA_3: "Kullanıcı İçerik Verileri: Yüklenen fotoğraf, video, anı metinleri, yorumlar ve dijital taziye mesajları.",
+            DATA_4: "İşlem Güvenliği ve Teknik Veriler: IP adresi, cihaz ve tarayıcı bilgileri, sistem erişim log kayıtları ve çerez (cookie) verileri.",
+            SECTION_3_TITLE: "3. Kişisel Verilerin İşlenme Amaçları ve Hukuki Sebepleri",
+            SECTION_3_TEXT: "Toplanan kişisel verileriniz, KVKK’nın 5. ve 6. maddelerinde belirtilen kişisel veri işleme şartları dahilinde aşağıdaki amaçlar ve hukuki sebeplerle işlenmektedir:",
+            PURPOSE_1: "Sözleşmenin Kurulması ve İfası: Dijital anı sayfası hizmetlerinin sunulması, üyelik süreçlerinin yürütülmesi ve kullanıcı paneli erişiminin sağlanması.",
+            PURPOSE_2: "Hukuki Yükümlülüklerin Yerine Getirilmesi: Fatura düzenlenmesi, muhasebe süreçlerinin takibi ve 5651 sayılı Kanun uyarınca trafik (log) kayıtlarının tutulması.",
+            PURPOSE_3: "Meşru Menfaat: Platform güvenliğinin sağlanması, teknik destek süreçlerinin yürütülmesi, hileli işlemlerin önlenmesi ve kullanıcı deneyiminin geliştirilmesi.",
             SECTION_4_TITLE: "4. Ödeme Güvenliği ve Kredi Kartı Güvenlik Protokolü",
-
-            SECTION_4_TEXT_1: "Kredi kartı bilgileri Styever sunucularında kesinlikle tutulmaz.",
-            SECTION_4_TEXT_2: "Ödemeler Tami Ödeme Hizmetleri A.Ş. altyapısı üzerinden SSL ve PCI-DSS standartlarına uygun olarak gerçekleştirilir.",
-            SECTION_4_TEXT_3: "Tüm işlemlerde 3D Secure doğrulaması zorunlu tutulmaktadır.",
-
+            SECTION_4_TEXT_1: "4.1. Kredi kartı, banka kartı ve ödeme bilgileri Styever sunucularında kesinlikle tutulmaz, kaydedilmez ve saklanmaz.",
+            SECTION_4_TEXT_2: "4.2. Tüm ödeme işlemleri, lisanslı ödeme altyapısı sağlayıcısı Shopier (Shopier Yazılım A.Ş.) üzerinden 256-bit SSL şifreleme ve Uluslararası Veri Güvenliği Standardı olan PCI DSS uyumlu altyapı ile gerçekleştirilir.",
+            SECTION_4_TEXT_3: "4.3. Ödeme süreçlerinde kart güvenliğinin sağlanması amacıyla 3D Secure (güvenli doğrulama) protokolü zorunlu tutulmaktadır.",
             SECTION_5_TITLE: "5. Verilerin Üçüncü Kişilerle Paylaşılması",
-
-            SECTION_5_TEXT: "Verileriniz ticari veya reklam amaçlı paylaşılmaz. Yalnızca aşağıdaki taraflarla paylaşılabilir:",
-
-            SHARING_1: "Tami Ödeme Hizmetleri A.Ş.",
-            SHARING_2: "Hosting ve sunucu hizmet sağlayıcıları",
-            SHARING_3: "Yetkili kamu kurum ve kuruluşları",
-
-            SECTION_6_TITLE: "6. Veri Saklama Süresi, Sunucu Altyapısı ve Platformun Kapanması Durumu",
-
-            SECTION_6_TEXT_1: "Veriler ilgili mevzuatta öngörülen süreler boyunca saklanır.",
-            SECTION_6_TEXT_2: "Tüm veriler Türkiye içerisindeki güvenli sunucularda barındırılır.",
-            SECTION_6_TEXT_3: "Platform kapanması durumunda kullanıcılara en az 30 gün önceden bildirim yapılır.",
-            SECTION_6_TEXT_4: "Bildirim süresi sonunda tüm veriler geri döndürülemeyecek şekilde silinir veya anonim hale getirilir.",
-
-            SECTION_7_TITLE: "7. KVKK Kapsamındaki Kullanıcı Hakları",
-
-            SECTION_7_TEXT: "KVKK'nın 11. maddesi kapsamında aşağıdaki haklara sahipsiniz:",
-
-            RIGHT_1: "Verilerinizin işlenip işlenmediğini öğrenme",
-            RIGHT_2: "İşleme amacı hakkında bilgi alma",
-            RIGHT_3: "Aktarılan üçüncü kişileri öğrenme",
-            RIGHT_4: "Verilerin düzeltilmesini isteme",
-            RIGHT_5: "Silme veya anonimleştirme talep etme",
-            RIGHT_6: "Otomatik analiz sonuçlarına itiraz etme",
-
-            APPLICATION_TEXT_1: "Başvurularınızı",
-            APPLICATION_TEXT_2: "adresine iletebilirsiniz.",
-
+            SECTION_5_TEXT: "Toplanan kişisel verileriniz ticari, reklam veya pazarlama amaçlarıyla üçüncü kişilere satılmaz veya devredilmez. Verileriniz yalnızca aşağıdaki taraflarla ve belirtilen amaçlarla sınırlı olarak paylaşılabilir:",
+            SHARING_1: "Shopier (Shopier Yazılım A.Ş.): Ödeme işlemlerinin güvenli bir şekilde tamamlanması ve tahsilatın yapılması amacıyla.",
+            SHARING_2: "Hizmet Sağlayıcılar: Barındırma (hosting), sunucu, e-posta gönderimi ve veri tabanı altyapısı sunan yetkili teknik tedarikçiler.",
+            SHARING_3: "Yetkili Kamu Kurum ve Kuruluşları: Yasal yükümlülükler uyarınca yetkili mahkemeler, icra daireleri, kolluk kuvvetleri ve idari makamlarca usulüne uygun talep edilmesi halinde.",
+            SECTION_6_TITLE: "6. Veri Saklama Süresi, Sunucu Altyapısı ve Platformun Kapatılması Durumu",
+            SECTION_6_TEXT_1: "6.1. Verileriniz, ilgili yasal mevzuatta öngörülen saklama süreleri boyunca veya işleme amacının gerektirdiği süre kadar güvenli sunucularda muhafaza edilir.",
+            SECTION_6_TEXT_2: "6.2. Tüm veriler teknik güvenlik önlemleri alınmış güvenli sunucu altyapılarında barındırılır.",
+            SECTION_6_TEXT_3: "6.3. Platform faaliyetlerinin kalıcı olarak sonlandırılması kararı alınması halinde, kullanıcılara sistemde kayıtlı e-posta adresleri üzerinden en az 30 (otuz) gün önceden bildirim yapılır. Bildirim süresinin sonunda tüm kişisel veriler ve kullanıcı içerikleri KVKK'ya uygun olarak kalıcı olarak silinir, imha edilir veya anonim hale getirilir.",
+            SECTION_7_TITLE: "7. KVKK Kapsamındaki Kullanıcı Hakları ve Başvuru Usulü",
+            SECTION_7_TEXT: "KVKK’nın 11. maddesi uyarınca veri sahibi olarak aşağıdaki haklara sahipsiniz:",
+            RIGHT_1: "Kişisel verilerinizin işlenip işlenmediğini öğrenme,",
+            RIGHT_2: "Kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme,",
+            RIGHT_3: "Kişisel verilerinizin işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,",
+            RIGHT_4: "Yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü kişileri bilme,",
+            RIGHT_5: "Kişisel verilerinizin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme,",
+            RIGHT_6: "KVKK m. 7 çerçevesinde kişisel verilerinizin silinmesini veya yok edilmesini isteme,",
+            RIGHT_7: "Aktarıldığı üçüncü kişilere yukarıdaki düzeltme ve silme işlemlerinin bildirilmesini isteme,",
+            RIGHT_8: "İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme,",
+            RIGHT_9: "Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme.",
+            APPLICATION_TEXT: "Haklarınıza ilişkin taleplerinizi Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e uygun olarak info@styever.com adresine e-posta ile iletebilirsiniz. Talepleriniz en geç 30 (otuz) gün içerisinde ücretsiz olarak sonuçlandırılacaktır.",
             SECTION_8_TITLE: "8. Çerezler (Cookies) ve Politika Güncellemeleri",
-            SECTION_8_TEXT: "Platform, zorunlu ve analitik çerezler kullanmaktadır. Politika, yasal veya teknik gereklilikler doğrultusunda güncellenebilir."
+            SECTION_8_TEXT: "Platform, sitenin işlevselliğini sağlamak ve kullanıcı deneyimini iyileştirmek amacıyla zorunlu ve analitik çerezler kullanmaktadır. İşbu Gizlilik ve Güvenlik Politikası, yasal mevzuattaki değişiklikler veya teknik gereklilikler doğrultusunda güncellenebilir. Güncel politika yayımı tarihinden itibaren geçerlilik kazanır."
         },
         COOKIE_POLICY: {
-            PAGE_TITLE: 'Çerez Politikası',
-
-            SECTION_1_TITLE: '1. Giriş ve Politikanın Amacı',
-            SECTION_1_TEXT: 'İşbu Çerez Politikası; www.styever.com internet sitesinin (Bundan böyle "Styever" veya "Platform" olarak anılacaktır) yasal sahibi olan ESMA ESRA KILIÇ tarafından, platformu ziyaret eden, üye olan veya dijital anı sayfası hizmetlerini kullanan kişilerin (Bundan böyle "Kullanıcı" veya "Ziyaretçi" olarak anılacaktır) gizliliğini korumak ve internet sitesinin teknik altyapısını en verimli şekilde kullanabilmesini sağlamak amacıyla hazırlanmıştır. İşbu politika, sitemizde hangi çerezlerin, hangi amaçlarla kullanıldığını ve bu çerezleri nasıl yönetebileceğinizi şeffaf bir dille açıklamaktadır.',
-
-            SECTION_2_TITLE: '2. Çerez Nedir?',
-            SECTION_2_TEXT: 'Çerezler, bir internet sitesini ziyaret ettiğinizde tarayıcınız (Chrome, Safari, Edge vb.) aracılığıyla bilgisayarınıza, akıllı telefonunuza, tabletinize veya diğer mobil cihazlarınıza yerleştirilen, çok küçük boyutlu, güvenli ve zararsız metin dosyalarıdır. Çerezler, internet sitelerinin sizin siteyi tekrar ziyaret ettiğinizi hatırlamasına, oturumunuzun açık kalmasına ve size daha güvenli, hızlı ve kişiselleştirilmiş bir dijital deneyim sunulmasına yardımcı olur.',
-
-            SECTION_3_TITLE: '3. Çerezlerin Kullanım Amaçları',
-            SECTION_3_TEXT: 'Styever platformunda çerezler, reklam veya ticari pazarlama amacıyla kesinlikle kullanılmaz. Çerezlerin sitemizde kullanılmasının yasal ve teknik amaçları şunlardır:',
-
-            PURPOSE_1: 'Oturum Yönetimi ve İşlevsellik: Kullanıcıların üye paneline giriş yaptıklarında oturumlarının açık kalmasını sağlamak, her sayfa geçişinde yeniden şifre girme zorunluluğunu ortadan kaldırmak ve platformdaki dil/görünüm tercihlerini hatırlamak.',
-            PURPOSE_2: 'Sistem ve İşlem Güvenliği: Platformun siber güvenliğini en üst düzeyde korumak, sahte üyelikleri veya yetkisiz hesap erişimlerini engellemek. Özellikle Tami Ödeme Hizmetleri A.Ş. altyapısı üzerinden gerçekleştirilen sanal POS ödeme formlarının güvenli ve hileli işlemlerden uzak bir şekilde çalışmasını sağlamak.',
-            PURPOSE_3: 'Performans ve Teknik Analiz: Sitemizin açılış hızını optimize etmek, hangi sayfaların daha stabil çalıştığını tespit etmek ve sunucu kaynaklarımızı kullanıcı yoğunluğuna göre doğru yönetebilmek amacıyla anonim istatistiksel veriler toplamak.',
-
-            SECTION_4_TITLE: '4. Platformumuzda Kullanılan Çerez Türleri',
-
-            COOKIE_TYPE_1: 'Zorunlu ve Teknik Çerezler: İnternet sitesinin düzgün şekilde çalışabilmesi, sayfalar arası geçiş yapılabilmesi, üyelik girişlerinin doğrulanması ve ödeme adımlarının güvenle tamamlanabilmesi için kullanımı zorunlu olan çerezlerdir. Bu çerezler devre dışı bırakıldığında platformun ana fonksiyonları ve sanal POS altyapısı çalışamaz hale gelir.',
-            COOKIE_TYPE_2: 'Performans ve Analitik Çerezler: Sitenin ziyaretçi sayılarını, sayfada kalma sürelerini ve teknik hata alınan alanları tamamen anonim (isimsiz) olarak tespit eden çerezlerdir. Bu çerezlerden elde edilen veriler sadece sitenin hızını ve performansını artırmak için kullanılır.',
-
-            SECTION_5_TITLE: '5. Çerezlerin Yönetilmesi ve Devre Dışı Bırakılması',
-            SECTION_5_TEXT_1: 'Kullanıcılar ve ziyaretçiler, platformumuzu kullandıkları internet tarayıcılarının (browser) ayarlarını değiştirerek çerezleri tamamen engelleme, sınırlandırma veya cihazlarına kaydedildiğinde uyarı alma hakkına sahiptir. Tarayıcınızın ayarlar menüsünden geçmiş çerez verilerini dilediğiniz zaman silebilirsiniz.',
-            SECTION_5_TEXT_2: 'Ancak önemle belirtmek isteriz ki; zorunlu ve teknik çerezlerin tarayıcı ayarları üzerinden tamamen devre dışı bırakılması veya silinmesi durumunda, Styever platformundaki üyelik panelinize giriş yapamayabilir, anı sayfalarınızı düzenleyemeyebilir veya Tami ödeme ekranlarında teknik aksaklıklar yaşayabilirsiniz.',
-
-            SECTION_6_TITLE: '6. Güncellemeler ve Yürürlük',
-            SECTION_6_TEXT_1: 'Styever, yasal mevzuattaki değişiklikler, Bilgi Teknolojileri ve İletişim Kurumu (BTK) kararları veya ödeme kuruluşlarının teknik güvenlik kriterleri doğrultusunda işbu Çerez Politikası’nı gerekli gördüğü durumlarda güncelleme hakkını saklı tutar. Güncellenmiş politika sitede yayınlandığı andan itibaren yürürlüğe girer. Çerez kullanımı ve gizliliğinizle ilgili her türlü soru, görüş veya talebinizi',
-            SECTION_6_TEXT_2: 'resmi e-posta adresimize her zaman yazılı olarak iletebilirsiniz.'
+            PAGE_TITLE: "ÇEREZ POLİTİKASI",
+            SECTION_1_TITLE: "1. Giriş ve Politikanın Amacı",
+            SECTION_1_TEXT: "İşbu Çerez Politikası; www.styever.com internet sitesinin (Bundan böyle \"Styever\" veya \"Platform\" olarak anılacaktır) yasal sahibi olan ESMA ESRA KILIÇ (Veri Sorumlusu) tarafından, platformu ziyaret eden, üye olan veya dijital anı sayfası hizmetlerini kullanan kişilerin (Bundan böyle \"Kullanıcı\" veya \"Ziyaretçi\" olarak anılacaktır) gizliliğini korumak ve internet sitesinin teknik altyapısını en verimli şekilde kullanabilmesini sağlamak amacıyla hazırlanmıştır. İşbu politika, sitemizde hangi çerezlerin, hangi amaçlarla kullanıldığını ve bu çerezlerin nasıl yönetilebileceğini 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) çerçevesinde şeffaf bir dille açıklamaktadır.",
+            SECTION_2_TITLE: "2. Çerez (Cookie) Nedir?",
+            SECTION_2_TEXT: "Çerezler, bir internet sitesini ziyaret ettiğinizde tarayıcınız (Chrome, Safari, Edge, Firefox vb.) aracılığıyla cihazınıza (bilgisayar, akıllı telefon, tablet) yerleştirilen, küçük boyutlu metin dosyalarıdır. Çerezler, internet sitelerinin sizin siteyi tekrar ziyaret ettiğinizi hatırlamasına, oturumunuzun güvenli bir şekilde açık kalmasına ve size daha stabil, hızlı ve kişiselleştirilmiş bir dijital deneyim sunulmasına yardımcı olur.",
+            SECTION_3_TITLE: "3. Çerezlerin Kullanım Amaçları ve Hukuki Sebepleri",
+            SECTION_3_TEXT: "Styever platformunda çerezler, reklam, hedefleme veya üçüncü taraf ticari pazarlama amacıyla kesinlikle kullanılmaz. Çerezler yalnızca aşağıdaki yasal ve teknik sebeplerle işlenmektedir:",
+            PURPOSE_1: "Oturum Yönetimi ve İşlevsellik (Sözleşmenin İfası - KVKK m. 5/2-c): Kullanıcıların üye paneline giriş yaptıklarında oturumlarının açık kalmasını sağlamak, her sayfa geçişinde yeniden şifre girme zorunluluğunu ortadan kaldırmak ve platformdaki dil/görünüm tercihlerini hatırlamak.",
+            PURPOSE_2: "Sistem ve Ödeme Güvenliği (Veri Sorumlusunun Meşru Menfaati ve Kanunlarda Öngörülme - KVKK m. 5/2-e, f): Platformun siber güvenliğini korumak, sahte üyelikleri veya yetkisiz hesap erişimlerini engellemek. Özellikle Shopier (Shopier Yazılım A.Ş.) altyapısı üzerinden gerçekleştirilen sanal POS ödeme formlarının güvenli, SSL şifreli ve hileli işlemlerden uzak bir şekilde çalışmasını sağlamak.",
+            PURPOSE_3: "Performans ve Teknik Analiz (Veri Sorumlusunun Meşru Menfaati - KVKK m. 5/2-f): Sitemizin açılış hızını optimize etmek, hangi sayfaların daha stabil çalıştığını tespit etmek ve sunucu kaynaklarımızı kullanıcı yoğunluğuna göre doğru yönetebilmek amacıyla tamamen anonim (isimsiz) istatistiksel veriler toplamak.",
+            SECTION_4_TITLE: "4. Platformumuzda Kullanılan Çerez Türleri",
+            COOKIE_TYPE_1: "Zorunlu ve Teknik Çerezler: İnternet sitesinin düzgün şekilde çalışabilmesi, sayfalar arası geçiş yapılabilmesi, üyelik girişlerinin doğrulanması ve Shopier ödeme adımlarının güvenle tamamlanabilmesi için kullanımı zorunlu olan çerezlerdir. Bu çerezler devre dışı bırakıldığında platformun ana fonksiyonları ve ödeme altyapısı çalışamaz hale gelir.",
+            COOKIE_TYPE_2: "Performans ve Analitik Çerezler: Sitenin ziyaretçi sayılarını, sayfada kalma sürelerini ve teknik hata alınan alanları tamamen anonim (kullanıcı kimliğiyle eşleştirilemeyen) olarak tespit eden çerezlerdir. Bu veriler yalnızca sitenin hızını ve kullanıcı deneyimini iyileştirmek amacıyla kullanılır.",
+            SECTION_5_TITLE: "5. Çerezlerin Yönetilmesi ve Devre Dışı Bırakılması",
+            SECTION_5_TEXT_1: "Kullanıcılar ve ziyaretçiler, platformumuzu kullandıkları internet tarayıcılarının (browser) ayarlarını değiştirerek çerezleri tamamen engelleme, sınırlandırma veya cihazlarına kaydedildiğinde uyarı alma hakkına sahiptir. Tarayıcınızın ayarlar menüsünden geçmiş çerez verilerini dilediğiniz zaman silebilirsiniz.",
+            SECTION_5_TEXT_2: "Sık kullanılan tarayıcılarda çerez yönetimi için aşağıdaki adımları izleyebilirsiniz:",
+            BROWSER_1: "Google Chrome: Ayarlar > Gizlilik ve Güvenlik > Çerezler ve Diğer Site Verileri",
+            BROWSER_2: "Safari: Tercihler > Gizlilik > Çerezleri ve Web Sitesi Verilerini Engelle",
+            BROWSER_3: "Mozilla Firefox: Seçenekler > Gizlilik ve Güvenlik > Çerezler ve Site Verileri",
+            BROWSER_4: "Microsoft Edge: Ayarlar > Gizlilik, Arama ve Hizmetler > Çerezler",
+            IMPORTANT_NOTE: "Önemli Not: Zorunlu ve teknik çerezlerin tarayıcı ayarları üzerinden tamamen devre dışı bırakılması veya silinmesi durumunda, Styever platformundaki üyelik panelinize giriş yapamayabilir, anı sayfalarınızı düzenleyemeyebilir veya Shopier ödeme ekranlarında teknik aksaklıklar yaşayabilirsiniz.",
+            SECTION_6_TITLE: "6. Güncellemeler ve Yürürlük",
+            SECTION_6_TEXT_1: "Styever, yasal mevzuattaki değişiklikler, Kişisel Verileri Koruma Kurulu kararları veya ödeme kuruluşlarının teknik güvenlik kriterleri doğrultusunda işbu Çerez Politikası’nı gerekli gördüğü durumlarda güncelleme hakkını saklı tutar. Güncellenmiş politika sitede yayınlandığı andan itibaren yürürlüğe girer.",
+            SECTION_6_TEXT_2: "Çerez kullanımı ve gizliliğinizle ilgili her türlü soru, görüş veya talebinizi info@styever.com resmi e-posta adresimize her zaman yazılı olarak iletebilirsiniz."
         },
         KVKK: {
             PAGE_TITLE: "Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni",
-
             SECTION_1_TITLE: "1. Veri Sorumlusu",
-            SECTION_1_TEXT: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca kişisel verileriniz, veri sorumlusu olarak Styever markasının yasal sahibi olan ESMA ESRA KILIÇ tarafından hukuka ve dürüstlük kurallarına uygun, doğru ve gerektiğinde güncel, belirli, açık ve meşru amaçlarla işlenmektedir.",
+            SECTION_1_TEXT: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca kişisel verileriniz, Veri Sorumlusu sıfatıyla Styever markasının yasal sahibi olan ESMA ESRA KILIÇ (Bundan böyle \"Styever\" veya \"Veri Sorumlusu\" olarak anılacaktır) tarafından; hukuka ve dürüstlük kurallarına uygun, doğru ve gerektiğinde güncel, belirli, açık ve meşru amaçlar doğrultusunda işlenmektedir.",
 
-            SECTION_2_TITLE: "2. Kişisel Verilerin Hangi Amaçla İşleneceği",
-            SECTION_2_TEXT: "Platformumuz üzerinden hizmet alırken, üyelik oluştururken veya sistemi ziyaretçi olarak kullanırken toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:",
-
-            PURPOSE_1: "Dijital anı sayfası, yazılım ve web tabanlı barındırma hizmetlerinin sunulması için gerekli teknik ve editoryal süreçlerin yürütülmesi.",
-            PURPOSE_2: "Dijital anı sayfalarının güvenli, reklamsız ve sözleşmeye uygun şekilde oluşturulması, barındırılması ve yönetilmesi.",
-            PURPOSE_3: "Sipariş, abonelik ve ödeme işlemlerinin Tami Ödeme Hizmetleri A.Ş. (Param Sanal POS) altyapısı üzerinden güvenli şekilde yürütülmesi ve faturalandırma süreçlerinin takibi.",
-            PURPOSE_4: "Mesafeli Satış Sözleşmesi ve Üyelik Sözleşmesi kapsamındaki yükümlülüklerin yerine getirilmesi.",
-            PURPOSE_5: "Türk Ticaret Kanunu, Vergi Usul Kanunu ve ilgili mevzuattan doğan yükümlülüklerin yerine getirilmesi.",
-            PURPOSE_6: "Platform güvenliğinin sağlanması, yetkisiz işlemlerin tespiti ve önlenmesi.",
+            SECTION_2_TITLE: "2. İşlenen Kişisel Veri Kategorileri ve İşleme Amaçları",
+            SECTION_2_TEXT: "Platformumuz (www.styever.com) üzerinden hizmet alırken, üyelik oluştururken veya sistemi ziyaret ederken toplanan kişisel verileriniz aşağıdaki kategoriler ve amaçlar dahilinde işlenmektedir:",
+            PURPOSE_1: "Kimlik ve İletişim Verileri (Ad, soyad, e-posta adresi, telefon numarası): Dijital anı sayfası kurulumu, üyelik hesabının oluşturulması, kullanıcı doğrulama ve iletişim süreçlerinin yürütülmesi.",
+            PURPOSE_2: "Müşteri İşlem ve Finansal Veriler (Fatura bilgileri, sipariş geçmişi, ödeme tutarı): Sipariş ve abonelik işlemlerinin lisanslı ödeme altyapısı sağlayıcısı Shopier (Shopier Yazılım A.Ş.) altyapısı üzerinden yürütülmesi, faturalandırma ve muhasebe süreçlerinin takibi.",
+            PURPOSE_3: "Görsel, İşitsel ve İçerik Verileri (Yüklenen fotoğraf, video, anı metinleri, taziye mesajları): Dijital anı sayfalarının sözleşmeye uygun şekilde oluşturulması, barındırılması ve platformda yayınlanması.",
+            PURPOSE_4: "İşlem Güvenliği Verileri (IP adresi, cihaz bilgileri, log kayıtları, çerezler): 5651 sayılı Kanun uyarınca trafik kayıtlarının tutulması, platform güvenliğinin sağlanması ve yetkisiz işlemlerin önlenmesi.",
 
             SECTION_3_TITLE: "3. Kişisel Verilerin Aktarılması",
-            SECTION_3_TEXT: "Toplanan kişisel verileriniz hiçbir surette ticari, reklam veya pazarlama amacıyla üçüncü kişilere satılmaz. Verileriniz yalnızca aşağıdaki amaçlarla aktarılabilir:",
-
-            TRANSFER_1: "Ödeme işlemlerinin gerçekleştirilmesi amacıyla Tami Ödeme Hizmetleri A.Ş. ve ilgili banka/finans kuruluşlarına.",
-            TRANSFER_2: "Web sitesi yayın, barındırma, veri güvenliği ve sunucu hizmeti sağlayan yerli hosting ve altyapı sağlayıcılarına.",
-            TRANSFER_3: "Yasal yükümlülüklerin yerine getirilmesi amacıyla yetkili kamu kurumları, mahkemeler, savcılıklar ve hukuki danışmanlara.",
-
+            SECTION_3_TEXT: "Toplanan kişisel verileriniz hiçbir surette ticari, reklam veya pazarlama amacıyla üçüncü kişilere satılmaz veya devredilmez. Verileriniz yalnızca aşağıdaki taraflara ve amaçlarla aktarılabilir:",
+            TRANSFER_1: "Shopier (Shopier Yazılım A.Ş.): Ödeme işlemlerinin güvenli bir şekilde gerçekleştirilmesi ve tahsilat süreçlerinin tamamlanması amacıyla.",
+            TRANSFER_2: "Hizmet Sağlayıcılar: İnternet sitesi yayını, barındırma (hosting), veri tabanı ve sunucu hizmeti sağlayan yetkili teknik altyapı tedarikçilerine.",
+            TRANSFER_3: "Yetkili Kamu Kurum ve Kuruluşları: Yasal yükümlülüklerin yerine getirilmesi amacıyla mahkemeler, savcılıklar, Tüketici Hakem Heyetleri ve ilgili idari makamlara.",
             SECTION_3_NOTE: "Kişisel verileriniz ve yüklediğiniz anı içerikleri Türkiye Cumhuriyeti sınırları içerisindeki güvenli sunucularda saklanmakta olup açık rızanız olmaksızın yurt dışına aktarılmamaktadır.",
 
             SECTION_4_TITLE: "4. Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebebi",
-            SECTION_4_TEXT: "Kişisel verileriniz üyelik formları, sipariş ve ödeme ekranları, anı sayfası yükleme panelleri, iletişim formları, çerezler ve sistem kayıtları aracılığıyla elektronik ortamda toplanmaktadır.",
+            SECTION_4_TEXT: "Kişisel verileriniz üyelik formları, sipariş ve ödeme ekranları, anı sayfası yükleme panelleri, iletişim formları, çerezler (cookies) ve sistem erişim logları aracılığıyla tamamen elektronik ortamda toplanmaktadır. Bu veriler, KVKK’nın 5. maddesinde belirtilen aşağıdaki hukuki sebeplere dayanılarak işlenmektedir:",
+            LEGAL_BASIS_1: "Sözleşmenin Kurulması veya İfası: Kullanım Şartları, Üyelik Sözleşmesi ve Mesafeli Satış Sözleşmesi kapsamındaki hizmetlerin sunulabilmesi ve siparişlerin teslimi için veri işlenmesinin zorunlu olması.",
+            LEGAL_BASIS_2: "Hukuki Yükümlülük: Türk Ticaret Kanunu, Vergi Usul Kanunu, 5651 sayılı Kanun ve tüketici mevzuatı kapsamındaki yasal sorumlulukların yerine getirilmesi.",
+            LEGAL_BASIS_3: "Meşru Menfaat: Platform güvenliğinin sağlanması, sistem performansının artırılması ve hileli işlemlerin tespiti amacıyla Veri Sorumlusunun meşru menfaatlerinin bulunması.",
 
-            LEGAL_BASIS_1: "Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması nedeniyle hizmetin sunulabilmesi için veri işlenmesinin zorunlu olması.",
-            LEGAL_BASIS_2: "Vergi ve e-ticaret mevzuatı kapsamındaki hukuki yükümlülüklerin yerine getirilmesi.",
-            LEGAL_BASIS_3: "Platform güvenliği, sistem geliştirme ve hizmet kalitesinin artırılması amacıyla veri sorumlusunun meşru menfaatlerinin bulunması.",
+            SECTION_5_TITLE: "5. Platformun Kapatılması ve Verilerin Silinmesi Prosedürü",
+            SECTION_5_TEXT_1: "5.1. Styever platformu; ticari, hukuki veya teknik gerekçelerle faaliyetlerini tamamen durdurma ve internet sitesini kapatma hakkını saklı tutar.",
+            SECTION_5_TEXT_2: "5.2. Platformun kalıcı olarak kapatılması durumunda kullanıcılara, sistemde kayıtlı e-posta adresleri üzerinden en az 30 (otuz) gün önceden bildirim yapılacaktır.",
+            SECTION_5_TEXT_3: "5.3. Bildirim süresinin sona ermesinin ardından tüm kişisel veriler, yüklenen fotoğraflar, videolar, anı metinleri ve sistem yedekleri Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale Getirilmesi Hakkında Yönetmelik’e uygun olarak geri döndürülemeyecek şekilde silinecek, yok edilecek veya anonim hale getirilecektir.",
 
-            SECTION_5_TITLE: "5. Platformun Kapanması ve Verilerin Silinmesi Prosedürü",
-
-            SECTION_5_TEXT_1: "Styever platformu, ticari, hukuki veya teknik gerekçelerle faaliyetlerini tamamen durdurma ve internet sitesini kapatma hakkını saklı tutar.",
-
-            SECTION_5_TEXT_2: "Platformun kalıcı olarak kapatılması durumunda kullanıcılara sistemde kayıtlı e-posta adresleri üzerinden en az 30 gün önceden bilgilendirme yapılacaktır.",
-
-            SECTION_5_TEXT_3: "Bildirim süresinin sona ermesinin ardından tüm kişisel veriler, yüklenen fotoğraflar, videolar, anı metinleri ve dijital yedekler KVKK ve ilgili mevzuata uygun olarak geri döndürülemeyecek şekilde silinecek, yok edilecek veya anonim hale getirilecektir.",
-
-            SECTION_6_TITLE: "6. İlgili Kişinin Hakları",
-
-            SECTION_6_TEXT: "KVKK'nın 11. maddesi kapsamında veri sahibi olarak aşağıdaki haklara sahipsiniz:",
-
-            RIGHT_1: "Kişisel veri işlenip işlenmediğini öğrenme ve bilgi talep etme.",
-            RIGHT_2: "Kişisel verilerin işlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme.",
-            RIGHT_3: "Yurt içinde kişisel verilerin aktarıldığı üçüncü kişileri öğrenme.",
-            RIGHT_4: "Eksik veya yanlış işlenen kişisel verilerin düzeltilmesini isteme.",
-            RIGHT_5: "İşlenmesini gerektiren sebeplerin ortadan kalkması halinde kişisel verilerin silinmesini veya yok edilmesini isteme.",
-            RIGHT_6: "Otomatik sistemler ile analiz sonucu ortaya çıkan olumsuz sonuçlara itiraz etme.",
-            RIGHT_7: "Kanuna aykırı veri işlenmesi nedeniyle zarara uğranması halinde zararın giderilmesini talep etme.",
-
-            APPLICATION_TEXT_1: "Başvurularınızı sistemimizde kayıtlı e-posta adresiniz üzerinden",
-            APPLICATION_TEXT_2: "adresine yazılı olarak iletebilirsiniz. Talepleriniz en geç 30 gün içerisinde ücretsiz olarak sonuçlandırılacaktır."
+            SECTION_6_TITLE: "6. İlgili Kişinin (Veri Sahibinin) Hakları ve Başvuru Usulü",
+            SECTION_6_TEXT: "KVKK'nın 11. maddesi uyarınca Veri Sahibi olarak aşağıdaki haklara sahipsiniz:",
+            RIGHT_1: "Kişisel verilerinizin işlenip işlenmediğini öğrenme,",
+            RIGHT_2: "Kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme,",
+            RIGHT_3: "Kişisel verilerinizin işlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme,",
+            RIGHT_4: "Yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü kişileri bilme,",
+            RIGHT_5: "Kişisel verilerinizin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme,",
+            RIGHT_6: "KVKK m. 7 çerçevesinde kişisel verilerinizin silinmesini veya yok edilmesini isteme,",
+            RIGHT_7: "Aktarıldığı üçüncü kişilere yukarıdaki düzeltme ve silme işlemlerinin bildirilmesini isteme,",
+            RIGHT_8: "İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme,",
+            RIGHT_9: "Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme.",
+            APPLICATION_TEXT: "Haklarınıza ilişkin taleplerinizi Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e uygun olarak, sistemimizde kayıtlı e-posta adresiniz üzerinden info@styever.com adresine iletebilirsiniz. Başvurunuz en geç 30 (otuz) gün içerisinde ücretsiz olarak yanıtlanacaktır."
         },
         LEGAL_WARNING: {
-            PAGE_TITLE: 'Yasal Uyarı ve Sorumluluk Reddi Beyanı',
-
-            SECTION_1_TITLE: '1. Hizmetin Niteliği ve Kabul',
-            SECTION_1_TEXT_1: '[www.styever.com](http://www.styever.com) internet sitesini (Bundan böyle "Platform" veya "Styever" olarak anılacaktır) ziyaret eden, üye olan, dijital anı sayfası oluşturan veya platformdaki içeriklerle etkileşime giren tüm kullanıcılar, işbu Yasal Uyarı ve Sorumluluk Reddi Beyanı’nda yer alan tüm şartları peşinen okumuş, anlamış ve kayıtsız şartsız kabul etmiş sayılırlar.',
-            SECTION_1_TEXT_2: 'Styever, vefat eden evcil hayvanların anılarını yaşatmak amacıyla tamamen dijital ortamda barındırma (hosting), yazılım ve sayfa özelleştirme hizmeti sunan ticari bir platformdur. Platform bünyesinde kesinlikle bir dernek, vakıf, yardım toplama veya bağış faaliyeti yürütülmemektedir.',
-
-            SECTION_2_TITLE: '2. Kullanıcı İçerikleri ve Sağlayıcı Statüsü',
-            SECTION_2_TEXT_1: '2.1. Styever platformu üzerinde oluşturulan dijital anı sayfalarında yayınlanan tüm fotoğraflar, videolar, yazılar, anı metinleri ve ziyaretçiler tarafından bırakılan taziye yorumları (Bundan böyle "Kullanıcı İçeriği" olarak anılacaktır) tamamen ilgili kullanıcıların ve ziyaretçilerin kendi inisiyatifleriyle sisteme yüklenmektedir.',
-            SECTION_2_TEXT_2: '2.2. Styever, 5651 sayılı Kanun uyarınca "Yer Sağlayıcı" sıfatına sahiptir. Mevzuat gereği, Styever’ın kullanıcılar tarafından yüklenen içeriklerin doğruluğunu, güvenilirliğini, hukuka uygunluğunu veya telif haklarına uygunluğunu önceden kontrol etme, inceleme veya araştırma yükümlülüğü kesinlikle bulunmamaktadır.',
-            SECTION_2_TEXT_3: '2.3. Platform üzerinde paylaşılan içeriklerin ve yazılan yorumların tüm hukuki, cezai ve mali sorumluluğu doğrudan o içeriği yükleyen veya yorumu yapan kişiye aittir. Styever, kullanıcıların veya üçüncü şahısların platformdaki beyanlarından, iddialarından veya paylaşımlarından ötürü doğrudan, dolaylı ya da müteselsilen sorumlu tutulamaz.',
-
-            SECTION_3_TITLE: '3. Uyar-Kaldır Mekanizması ve Müdahale Yetkisi',
-            SECTION_3_TEXT_1: 'Styever, platformun huzurlu, saygılı ve yasalara uygun bir anma alanı olarak kalmasını hedefler. Bu doğrultuda, genel ahlaka, kamu düzenine aykırı, kişilik haklarını ihlal eden, hakaret veya telif hakkı ihlali içeren herhangi bir içerik veya yorum tespit edildiğinde ya da',
-            SECTION_3_TEXT_2: 'adresi üzerinden hak sahipleri tarafından haklı bir şikayet (uyar-kaldır bildirimi) ulaştırıldığında; Styever, söz konusu içeriği hiçbir ön bildirimde bulunmaksızın yayından kaldırma, silme, erişimi engelleme veya ilgili kullanıcı hesabını askıya alma/kapatma hakkını saklı tutar.',
-
-            SECTION_4_TITLE: '4. Sorumluluğun Sınırlandırılması (Maddi ve Manevi Tazminat)',
-            SECTION_4_INTRO: 'Styever, aşağıdaki durumlardan dolayı doğrudan veya dolaylı, maddi ya da manevi hiçbir zarar, ziyan veya tazminat talebinden sorumlu tutulamaz:',
-
-            LIMIT_1: 'Kullanıcılar veya ziyaretçiler tarafından hukuka aykırı şekilde paylaşılan telifli görseller, videolar, hakaret içeren metinler veya kişilik hakları ihlalleri',
-            LIMIT_2: 'Platformun altyapısını oluşturan veri barındırma (hosting) şirketlerinden, internet servis sağlayıcılarından veya siber saldırılardan (hacking) kaynaklanabilecek geçici veya kalıcı teknik aksaklıklar, veri kayıpları ya da erişim kesintileri',
-            LIMIT_3: 'Entegrasyon ortağımız Tami Ödeme Hizmetleri A.Ş. veya bankaların sistemlerinde meydana gelebilecek teknik gecikmeler, POS hataları veya kart işlem aksaklıkları',
-            LIMIT_4: 'Kullanıcıların kendi cihazlarından, tarayıcılarından veya internet bağlantılarından kaynaklanan erişim problemleri',
-
-            SECTION_5_TITLE: '5. Platformun Kapanması ve Veri Silme Hakkı',
-            SECTION_5_TEXT: 'Styever’ın yasal sahibi, tamamen kendi ticari kararı, ekonomik lüzumlar veya teknik imkansızlıklar doğrultusunda platform faaliyetlerini tamamen sonlandırma ve internet sitesini kalıcı olarak kapatma hakkına sahiptir. Platformun kapatılması durumunda, yasal sözleşmelerde belirtilen 30 (otuz) günlük ön bildirim süresi içinde kendi verilerini ve fotoğraflarını yedeklemeyen kullanıcıların uğrayacağı veri kayıplarından Styever sorumlu tutulamaz. Sistemlerin tamamen kapatılması ve verilerin KVKK mevzuatına uygun olarak kalıcı şekilde silinmesi nedeniyle Styever\' a karşı \"manevi hatıraların kaybolduğu\" veya \"zarara uğranıldığı\" iddiasıyla hiçbir maddi veya manevi tazminat davası açılamaz.',
-
-            SECTION_6_TITLE: '6. Güncellemeler ve Yetkili Mahkeme',
-            SECTION_6_TEXT: 'Styever, işbu Yasal Uyarı metninde yer alan maddeleri, değişen ulusal kanunlar, e-ticaret mevzuatları veya teknik gereksinimler doğrultusunda dilediği zaman tek taraflı olarak güncelleme hakkını saklı tutar. Güncel metin sitede yayınlandığı andan itibaren tüm kullanıcılar için bağlayıcı hale gelir. İşbu metnin uygulanmasından ve yorumlanmasından doğacak her türlü uyuşmazlıkta Türkiye Cumhuriyeti kanunları uygulanır ve yasal parasal sınırlar dahilinde Tüketici Hakem Heyetleri ile Ankara Mahkemeleri ve İcra Daireleri yetkilidir.'
+            PAGE_TITLE: "YASAL UYARI VE SORUMLULUK REDDİ BEYANI",
+            SECTION_1_TITLE: "1. Hizmetin Niteliği ve Kabul",
+            SECTION_1_TEXT_1: "www.styever.com internet sitesini (Bundan böyle \"Platform\" veya \"Styever\" olarak anılacaktır) ziyaret eden, üye olan, dijital anı sayfası oluşturan veya platformdaki içeriklerle etkileşime giren tüm kullanıcılar, işbu Yasal Uyarı ve Sorumluluk Reddi Beyanı’nda yer alan tüm şartları peşinen okumuş, anlamış ve kayıtsız şartsız kabul etmiş sayılırlar.",
+            SECTION_1_TEXT_2: "Styever, vefat eden evcil hayvanların anılarını yaşatmak amacıyla tamamen dijital ortamda barındırma (hosting), yazılım ve sayfa özelleştirme hizmeti sunan ticari bir platformdur. Platform bünyesinde kesinlikle bir dernek, vakıf, yardım toplama veya bağış faaliyeti yürütülmemektedir.",
+            SECTION_2_TITLE: "2. Kullanıcı İçerikleri ve Yer Sağlayıcı Statüsü",
+            SECTION_2_TEXT_1: "2.1. Styever platformu üzerinde oluşturulan dijital anı sayfalarında yayınlanan tüm fotoğraflar, videolar, yazılar, anı metinleri ve ziyaretçiler tarafından bırakılan taziye yorumları (Bundan böyle \"Kullanıcı İçeriği\" olarak anılacaktır) tamamen ilgili kullanıcıların ve ziyaretçilerin kendi inisiyatifleriyle sisteme yüklenmektedir.",
+            SECTION_2_TEXT_2: "2.2. Styever, 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun uyarınca \"Yer Sağlayıcı\" sıfatına sahiptir. Mevzuat gereği, Styever’ın kullanıcılar tarafından yüklenen içeriklerin doğruluğunu, güvenilirliğini, hukuka uygunluğunu veya telif haklarına uygunluğunu önceden kontrol etme, editoryal olarak inceleme veya araştırma yükümlülüğü kesinlikle bulunmamaktadır.",
+            SECTION_2_TEXT_3: "2.3. Platform üzerinde paylaşılan içeriklerin ve yazılan yorumların tüm hukuki, cezai, mali ve idari sorumluluğu doğrudan o içeriği yükleyen veya yorumu yapan kişiye aittir. Styever, kullanıcıların veya üçüncü şahısların platformdaki beyanlarından, iddialarından veya paylaşımlarından ötürü doğrudan, dolaylı ya da müteselsilen sorumlu tutulamaz.",
+            SECTION_3_TITLE: "3. Uyar-Kaldır Mekanizması ve Müdahale Yetkisi",
+            SECTION_3_TEXT: "Styever, platformun huzurlu, saygılı ve yasalara uygun bir anma alanı olarak kalmasını hedefler. Bu doğrultuda, genel ahlaka, kamu düzenine aykırı, kişilik haklarını ihlal eden, hakaret veya telif hakkı ihlali içeren herhangi bir içerik tespit edildiğinde ya da info@styever.com adresi üzerinden hak sahipleri tarafından haklı bir şikayet (uyar-kaldır bildirimi) ulaştırıldığında; Styever, söz konusu içeriği hiçbir ön bildirimde bulunmaksızın yayından kaldırma, silme, erişimi engelleme veya ilgili kullanıcı hesabını askıya alma/kapatma hakkını saklı tutar.",
+            SECTION_4_TITLE: "4. Sorumluluğun Sınırlandırılması",
+            SECTION_4_INTRO: "Styever, aşağıdaki durumlardan dolayı doğrudan veya dolaylı, maddi ya da manevi hiçbir zarar, ziyan veya tazminat talebinden sorumlu tutulamaz:",
+            LIMIT_1: "Kullanıcılar veya ziyaretçiler tarafından hukuka aykırı şekilde paylaşılan telifli görseller, videolar, hakaret içeren metinler veya kişilik hakları ihlalleri,",
+            LIMIT_2: "Platformun altyapısını oluşturan veri barındırma (hosting) şirketlerinden, internet servis sağlayıcılarından veya siber saldırılardan (hacking, DDoS vb.) kaynaklanabilecek geçici veya kalıcı teknik aksaklıklar, veri kayıpları ya da erişim kesintileri,",
+            LIMIT_3: "Ödeme altyapısı sağlayıcısı Shopier (Shopier Yazılım A.Ş.) veya bankaların sistemlerinde meydana gelebilecek teknik gecikmeler, POS hataları, kesintiler veya kart işlem aksaklıkları,",
+            LIMIT_4: "Kullanıcıların kendi cihazlarından, tarayıcılarından, veri depolama eksikliklerinden veya internet bağlantılarından kaynaklanan erişim problemleri.",
+            SECTION_5_TITLE: "5. Platformun Kapatılması ve Veri Silme Hakkı",
+            SECTION_5_TEXT: "Styever’ın yasal sahibi (ESMA ESRA KILIÇ), tamamen kendi ticari kararı, ekonomik lüzumlar veya teknik imkansızlıklar doğrultusunda platform faaliyetlerini tamamen sonlandırma ve internet sitesini kalıcı olarak kapatma hakkına sahiptir. Platformun kapatılması durumunda, yasal sözleşmelerde belirtilen 30 (otuz) günlük ön bildirim süresi içinde kendi verilerini ve fotoğraflarını yedeklemeyen kullanıcıların uğrayacağı veri kayıplarından Styever sorumlu tutulamaz. Sistemlerin tamamen kapatılması ve verilerin KVKK mevzuatına uygun olarak kalıcı şekilde silinmesi nedeniyle Styever'a karşı \"manevi hatıraların kaybolduğu\", \"anıların silindiği\" veya \"zarara uğranıldığı\" iddiasıyla hiçbir maddi veya manevi tazminat davası açılamaz.",
+            SECTION_6_TITLE: "6. Fikri Mülkiyet ve Telif Hakları",
+            SECTION_6_TEXT: "Styever platformunun tasarımı, yazılım kodları, logosu, \"Styever\" markası, alan adı ve platform bünyesinde sunulan tüm görsel/grafik materyaller üzerindeki tüm telif ve mülkiyet hakları ESMA ESRA KILIÇ’a aittir. 5846 sayılı Fikir ve Sanat Eserleri Kanunu ile 6769 sayılı Sınai Mülkiyet Kanunu uyarınca, Styever'ın yazılı izni olmaksızın platform bileşenlerinin kopyalanması, çoğaltılması veya ticari amaçla kullanılması yasaktır.",
+            SECTION_7_TITLE: "7. Güncellemeler, Uygulanacak Hukuk ve Yetkili Mahkeme",
+            SECTION_7_TEXT_1: "7.1. Styever, işbu Yasal Uyarı metninde yer alan maddeleri, değişen ulusal kanunlar, e-ticaret mevzuatları veya teknik gereksinimler doğrultusunda dilediği zaman tek taraflı olarak güncelleme hakkını saklı tutar. Güncel metin sitede yayınlandığı andan itibaren tüm kullanıcılar için bağlayıcı hale gelir.",
+            SECTION_7_TEXT_2: "7.2. İşbu metnin uygulanmasından ve yorumlanmasından doğacak her türlü uyuşmazlıkta Türkiye Cumhuriyeti kanunları uygulanır. Uyuşmazlıkların çözümünde, Ticaret Bakanlığı tarafından her yıl ilan edilen yasal parasal sınırlar dahilinde Tüketici Hakem Heyetleri ile Ankara (Çankaya) Mahkemeleri ve İcra Daireleri yetkilidir."
         }
         ,
         "SOCIAL_RESPONSIBILITY_POLICY": {
@@ -945,57 +884,60 @@ export const locale = {
             }
         },
         COMMUNITY_RULES: {
-            PAGE_TITLE: 'Topluluk Kuralları',
-
-            INTRO: 'Styever, can dostlarımızın anılarını saygılı, huzurlu ve güvenli bir ortamda yaşatmak için kurulmuştur. Platformumuzu ziyaret eden ve kullanan herkes, bu ortak alanın huzurunu korumak adına aşağıdaki temel kurallara uymayı kabul eder.',
-
-            SECTION_1_TITLE: '1. Saygı ve Anı Politikası',
-            SECTION_1_TEXT: 'Kayıp dostlarımızın ardından tutulan yasa ve geride kalan hatıralara yaklaşırken her zaman saygılı olmak ilk kuralımızdır. Anı sayfalarına bırakılacak taziye mesajları ve yorumlar kırıcı olmamalı, buranın sessiz ve huzurlu bir hatıra köşesi olduğu unutulmamalıdır. Hakaret, tehdit, taciz ve nefret söylemi içeren hiçbir yoruma izin verilmez.',
-
-            SECTION_2_TITLE: '2. İçerik Sınırları ve Denetim',
-            SECTION_2_TEXT: 'Styever anı sayfaları, yalnızca ve sadece evcil hayvanlarımızın anılarını yaşatmak amacıyla kullanılabilir. Sayfalarda veya yorumlarda siyasi semboller, ticari reklamlar, ilanlar, yasa dışı unsurlar veya genel ahlaka aykırı görseller paylaşılması kesinlikle yasaktır. Bu tarz kurallara uymayan içerikler, hiçbir ön bildirim yapılmaksızın sistemden kalıcı olarak silinir.',
-
-            SECTION_3_TITLE: '3. Platformda Yasaklanan Davranışlar',
-
-            PROHIBITED_1: 'Hakaret, küfür veya saldırgan içerik paylaşımı',
-            PROHIBITED_2: 'Nefret söylemi, ayrımcılık veya insanları kutuplaştıracak yorumlar',
-            PROHIBITED_3: 'Tehdit, taciz veya kişilerin huzurunu kaçıracak yaklaşımlar',
-            PROHIBITED_4: 'Spam, reklam, link veya ticari tanıtım içerikleri',
-            PROHIBITED_5: 'Yasa dışı veya telif hakkı ihlali barındıran görseller/yazılar',
-
-            SECTION_4_TITLE: '4. Uygunsuz İçerik Bildirimi ve Müdahale',
-
-            SECTION_4_TEXT_1: 'Platformda yukarıdaki kurallara uymayan, sizi rahatsız eden veya can dostlarımızın anısına yakışmadığını düşündüğünüz bir içerik ya da yorum görürseniz, bunu sayfalardaki "İçerik Bildir" butonu üzerinden veya doğrudan',
-            SECTION_4_EMAIL: 'info@styever.com',
-            SECTION_4_TEXT_2: 'adresine mail atarak bize bildirebilirsiniz.',
-
-            SECTION_4_TEXT_3: 'Gelen bildirimler ekibimiz tarafından hızlıca incelenir; kuralları ihlal ettiği tespit edilen yorum ve içerikler düzenlenebilir, tamamen kaldırılabilir veya bu davranışı sergileyen kişilerin platforma erişimi sınırlandırılabilir.',
-
-            SECTION_4_TEXT_4: 'Unutulmamalıdır ki, anı sayfalarına yazılan yorumların tüm hukuki ve cezai sorumluluğu doğrudan o yorumu yazan kişiye aittir. Styever, buranın tertemiz kalması için gerekli tüm teknik müdahaleleri yapma hakkını saklı tutar.'
+            PAGE_TITLE: "TOPLULUK KURALLARI",
+            INTRO: "Styever, kaybettiğimiz can dostlarımızın hatıralarını saygılı, huzurlu ve güvenli bir ortamda yaşatmak amacıyla kurulmuştur. Platformumuzu ziyaret eden, anı sayfası oluşturan ve etkileşimde bulunan herkes, bu ortak alanın huzurunu ve yasalara uygunluğunu korumak adına aşağıdaki temel kurallara uymayı peşinen kabul eder.",
+            SECTION_1_TITLE: "1. Saygı ve Anı Politikası",
+            SECTION_1_TEXT: "Kayıp dostlarımızın ardından tutulan yasa ve geride kalan hatıralara yaklaşırken her zaman saygılı olmak ana kuralımızdır. Anı sayfalarına bırakılacak taziye mesajları ve yorumlar yapıcı, nazik ve saygılı olmalı; buranın sessiz ve huzurlu bir hatıra alanı olduğu unutulmamalıdır. Hakaret, tehdit, taciz, kişisel saldırı ve nefret söylemi içeren hiçbir içeriğe platformda geçit verilmez.",
+            SECTION_2_TITLE: "2. İçerik Sınırları ve Denetim",
+            SECTION_2_TEXT: "Styever anı sayfaları, yalnızca evcil hayvanlarımızın anılarını yaşatmak amacıyla kullanılabilir. Sayfalarda, profil alanlarında veya yorumlarda:",
+            CONTENT_LIMIT_1: "Siyasi propaganda, ideolojik sembol veya tartışmalar,",
+            CONTENT_LIMIT_2: "Ticari reklam, ürün satışı, ilan veya izinsiz yönlendirici linkler,",
+            CONTENT_LIMIT_3: "6698 sayılı KVKK kapsamına aykırı şekilde üçüncü kişilere ait kişisel veriler (telefon numarası, açık adres, özel hayatın gizliliğini ihlal eden görseller vb.),",
+            CONTENT_LIMIT_4: "Genel ahlaka, kamu düzenine ve yürürlükteki mevzuata aykırı görsel veya metinler paylaşılması kesinlikle yasaktır.",
+            SECTION_3_TITLE: "3. Platformda Yasaklanan Davranışlar",
+            SECTION_3_TEXT: "Aşağıda belirtilen eylemler Topluluk Kuralları'nın doğrudan ihlali sayılır ve yaptırıma tabidir:",
+            PROHIBITED_1: "Saldırgan Dil ve Hakaret: Küfür, hakaret, aşağılama, tehdit veya taciz içeren yorum ve paylaşımlar,",
+            PROHIBITED_2: "Ayrımcılık ve Nefret Söylemi: Irk, din, dil, cinsiyet veya sosyal statü temelinde ayrımcılık içeren ya da toplumsal kutuplaşmayı körükleyen ifadeler,",
+            PROHIBITED_3: "Spam ve Reklam: Ticari amaçlı mesajlar, tekrarlanan linkler, sahte ürün/hizmet tanıtımları,",
+            PROHIBITED_4: "Telif ve Fikri Mülkiyet İhlali: Hak sahibi olunmayan, internetten izinsiz alınan veya üçüncü şahıslara ait telifli fotoğraf, video ve yazılı materyallerin paylaşılması,",
+            PROHIBITED_5: "Kişisel Veri İhlali: Rızası bulunmayan kişilerin fotoğraflarının, isimlerinin veya iletişim bilgilerinin izinsiz yayınlanması.",
+            SECTION_4_TITLE: "4. Uygunsuz İçerik Bildirimi ve Müdahale Mekanizması",
+            SECTION_4_TEXT_1: "Platformda yukarıdaki kurallara uymayan, sizi rahatsız eden veya can dostlarımızın anısına yakışmadığını düşündüğünüz bir içerik ya da yorum gördüğünüzde, bunu ilgili sayfada yer alan \"İçerik Bildir\" butonu üzerinden veya doğrudan info@styever.com e-posta adresimize iletebilirsiniz.",
+            SECTION_4_TEXT_2: "Gelen bildirimler teknik ekibimiz tarafından derhal incelemeye alınır. Kuralları ihlal ettiği tespit edilen içerikler:",
+            ACTION_1: "Herhangi bir ön bildirim yapılmaksızın düzenlenebilir veya tamamen platformdan kaldırılabilir,",
+            ACTION_2: "Kural ihlalini alışkanlık haline getiren veya ağır ihlalde bulunan kullanıcıların anı sayfaları dondurulabilir, üyelik hesapları askıya alınabilir veya kalıcı olarak kapatılabilir.",
+            SECTION_5_TITLE: "5. Yasal Sorumluluk",
+            SECTION_5_TEXT: "5651 sayılı Kanun uyarınca \"Yer Sağlayıcı\" konumunda olan Styever, kullanıcılar tarafından yüklenen içerikleri önceden editoryal olarak inceleme yükümlülüğüne sahip değildir. Anı sayfalarına yüklenen görsellerin, yazılan metinlerin ve taziye yorumlarının tüm hukuki, cezai, idari ve mali sorumluluğu doğrudan o içeriği oluşturan kişiye aittir. Styever, platformun yasalara ve topluluk huzuruna uygunluğunu sağlamak adına gerekli her türlü teknik ve idari tedbiri alma hakkını saklı tutar."
         }
         ,
         MODERATION_POLICY: {
-            PAGE_TITLE: 'Moderasyon Politkası Ve İçerik Denetimi',
-            PAGE_SUBTITLE: 'Can dostlarımızın anılarını korumak ve platform huzurunu sağlamak için uyguladığımız içerik denetim ilkeleri.',
-            SECTION_1_TITLE: '1. Güvenli ve Saygılı Bir Anma Alanı',
-            SECTION_1_TEXT: 'Styever olarak en büyük önceliğimiz, can dostlarımızın hatıralarının hak ettiği saygıyı, huzuru ve güveni platformumuzda bulabilmesidir. Bu amaçla, platform genelinde paylaşılan içerikler ve yazılan taziye yorumları belirli moderasyon kurallarına tabidir.',
-
-            SECTION_2_TITLE: '2. Yer Sağlayıcı Statüsü ve İçerik Sorumluluğu',
-            SECTION_2_TEXT_1: 'Styever, 5651 sayılı Kanun kapsamında "Yer Sağlayıcı" sıfatına sahiptir. Platformumuzda oluşturulan anı sayfalarının, bu sayfalara yüklenen görsellerin, videoların ve yazılan her türlü metnin hukuki ve cezai sorumluluğu tamamen o içeriği yükleyen kullanıcıya aittir. Styever, yasal bir zorunluluk olmadıkça kullanıcı içeriklerini önceden incelemek veya doğruluğunu kontrol etmekle yükümlü değildir.',
-            SECTION_2_TEXT_2: 'Ancak, platformun huzurunu bozacak, hukuka veya topluluk kurallarımıza aykırı bir durum tespit edildiğinde, Styever söz konusu içeriği herhangi bir ön bildirim yapmaksızın kaldırma, düzenleme veya kısıtlama hakkını saklı tutar.',
-
-            SECTION_3_TITLE: '3. Denetim Kapsamı ve Kriterleri',
-            SECTION_3_TEXT: 'Aşağıda belirtilen kriterlere uymayan anı sayfaları, fotoğraflar, kullanıcı yorumları ve profil bilgileri moderasyon filtrelerimize takılır ve müdahale edilir:',
-            CRITERIA_1: 'Diğer kullanıcılara veya anılara yönelik hakaret, küfür ve saldırgan ifadeler,',
-            CRITERIA_2: 'Toplumu kutuplaştıran veya inciten nefret söylemleri, tehdit ve tacizler,',
-            CRITERIA_3: 'Ticari reklamlar, ilanlar, link paylaşımları ve spam içerikler,',
-            CRITERIA_4: 'Evcil hayvan anma amacı dışındaki yasa dışı, genel ahlaka aykırı veya rahatsız edici paylaşımlar.',
-
-            SECTION_4_TITLE: '4. Moderasyon Kararları ve Uygulama',
-            SECTION_4_TEXT: 'Kuralların ihlal edilmesi durumunda platform yönetimimiz; ihlalin boyutuna göre yorumu/içeriği tamamen kaldırma, uygunsuz kelimeleri düzenleme veya ilgili kullanıcının platforma erişimini tamamen sınırlandırma (engelleme) yetkisine sahiptir. Moderasyon kararları, platformun huzurunu korumak adına anlık olarak uygulanır ve gerekli görülen durumlarda hesap sahibine e-posta yoluyla bilgilendirme yapılabilir.',
-
-            SECTION_5_TITLE: '5. İçerik Bildirim Mekanizması',
-            SECTION_5_TEXT: 'Platformumuzda kurallara aykırı veya can dostlarımızın anısına yakışmayan bir içerik ya da yorumla karşılaşırsanız, bunu sayfalarda yer alan "İçerik Bildir" özelliğini kullanarak doğrudan bize raporlayabilirsiniz. Bildirimleriniz ekibimiz tarafından titizlikle incelenerek en kısa sürede aksiyon alınacaktır.'
+            PAGE_TITLE: "MODERASYON POLİTİKASI VE İÇERİK DENETİMİ",
+            PAGE_SUBTITLE: "Can dostlarımızın anılarını korumak, güvenli bir hatıra alanı sunmak ve platform huzurunu sağlamak amacıyla uyguladığımız içerik denetim ilkelerimiz aşağıda yer almaktadır.",
+            SECTION_1_TITLE: "1. Güvenli ve Saygılı Bir Anma Alanı",
+            SECTION_1_TEXT: "Styever olarak en büyük önceliğimiz, kaybettiğimiz can dostlarımızın hatıralarının hak ettiği saygıyı, huzuru ve güveni platformumuzda bulabilmesidir. Bu amaçla, platform genelinde oluşturulan anı sayfaları, yüklenen medya dosyaları ve yazılan taziye yorumları belirli moderasyon kurallarına ve yasal standartlara tabidir.",
+            SECTION_2_TITLE: "2. Yer Sağlayıcı Statüsü ve İçerik Sorumluluğu",
+            SECTION_2_TEXT_1: "2.1. Styever, 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun kapsamında \"Yer Sağlayıcı\" sıfatına sahiptir.",
+            SECTION_2_TEXT_2: "2.2. Platformumuzda oluşturulan anı sayfalarının, bu sayfalara yüklenen görsellerin, videoların ve yazılan her türlü metnin hukuki, cezai, mali ve idari sorumluluğu tamamen o içeriği yükleyen veya yorumu yapan kullanıcıya aittir. Styever, yasal bir zorunluluk veya haklı bir şikayet olmadıkça kullanıcı içeriklerini önceden editoryal olarak incelemek veya doğruluğunu kontrol etmekle yükümlü değildir.",
+            SECTION_2_TEXT_3: "2.3. Bununla birlikte Styever; platformun huzurunu bozacak, genel ahlaka, kamu düzenine, telif haklarına veya topluluk kurallarımıza aykırı bir durum tespit edildiğinde, söz konusu içeriği herhangi bir ön bildirim yapmaksızın kaldırma, yayından çekme, düzenleme veya erişimini engelleme hakkını saklı tutar.",
+            SECTION_3_TITLE: "3. Denetim Kapsamı ve Müdahale Kriterleri",
+            SECTION_3_TEXT: "Aşağıda belirtilen kriterlere uymayan anı sayfaları, fotoğraflar, videolar, kullanıcı yorumları ve profil bilgileri moderasyon sistemimize takılır ve derhal müdahale edilir:",
+            CRITERIA_1: "Diğer kullanıcılara, vefat eden canlıların hatırasına veya üçüncü şahıslara yönelik hakaret, küfür, aşağılama ve saldırgan ifadeler,",
+            CRITERIA_2: "Toplumu kutuplaştıran veya inciten nefret söylemleri, tehdit, taciz ve şantaj nitelikli paylaşımlar,",
+            CRITERIA_3: "Ticari reklamlar, ürün/hizmet tanıtımları, ilanlar, spam içerikler ve yönlendirici izinsiz bağlantılar (linkler),",
+            CRITERIA_4: "5846 sayılı Fikir ve Sanat Eserleri Kanunu’na aykırı olarak hak sahibi olunmayan telifli görseller, videolar veya yazılı materyaller,",
+            CRITERIA_5: "6698 sayılı KVKK’ya aykırı şekilde üçüncü şahıslara ait kişisel verilerin (açık adres, telefon numarası, izinsiz kişi görselleri vb.) paylaşılması,",
+            CRITERIA_6: "Evcil hayvan anma amacı dışındaki yasa dışı, genel ahlaka aykırı, şiddet övücü veya rahatsız edici paylaşımlar.",
+            SECTION_4_TITLE: "4. Moderasyon Kararları ve Yaptırım Derecelendirmesi",
+            SECTION_4_TEXT: "Kuralların ihlal edilmesi durumunda platform yönetimimiz; ihlalin niteliğine ve ağırlığına göre aşağıdaki adımları anlık olarak uygulama yetkisine sahiptir:",
+            ACTION_1: "Uyarı ve İçerik Kaldırma: Hukuka veya kurallara aykırı yorum, metin veya medyanın derhal platformdan silinmesi.",
+            ACTION_2: "Erişim Kısıtlaması: İlgili anı sayfasının geçici veya kalıcı olarak yorumlara/ziyarete kapatılması.",
+            ACTION_3: "Hesap Askıya Alma / Kapatma: Kural ihlalini alışkanlık haline getiren veya ağır ihlalde bulunan kullanıcıların üyelik hesaplarının dondurulması veya kalıcı olarak sonlandırılması.",
+            SECTION_4_FOOTER: "Moderasyon kararları platformun huzurunu ve yasal güvenliğini korumak adına anlık olarak uygulanır. Gerekli görülen durumlarda işlem detayları hesap sahibine e-posta yoluyla bildirilebilir.",
+            SECTION_5_TITLE: "5. İçerik Bildirim Mekanizması ve Uyar-Kaldır Süreci",
+            SECTION_5_TEXT: "Platformumuzda kurallara aykırı, telif ihlali içeren veya can dostlarımızın anısına yakışmayan bir içerik ya da yorumla karşılaştığınızda:",
+            REPORT_1: "İlgili sayfada yer alan \"İçerik Bildir\" butonunu kullanabilir veya",
+            REPORT_2: "Doğrudan info@styever.com e-posta adresi üzerinden gerekçeli bildirimde bulunabilirsiniz.",
+            SECTION_5_FOOTER: "Gelen bildirimler ekibimiz tarafından 5651 sayılı Kanun ve \"Uyar-Kaldır\" prensibi uyarınca en kısa sürede titizlikle incelenir; ihlal tespit edilen içerikler derhal yayından kaldırılır. Hak ihlaline konu resmi adli veya idari taleplerde, yasal mevzuatın gerektirdiği log ve veriler yetkili makamlarla paylaşılabilir."
         }
         ,
         "CONTENT_REMOVAL_POLICY": {
@@ -1158,6 +1100,8 @@ export const locale = {
             }
         },
         MY_AGREEMENTS: { 'TITLE': 'Sözleşmelerim', 'EMPTY': 'Henüz görüntülenebilir sözleşmeniz bulunmuyor.', 'DOCUMENT': 'Sözleşme', 'CONTEXT': 'Onay yeri', 'VERSION': 'Sürüm', 'DATE': 'Onay tarihi', 'VIEW': 'Görüntüle', 'HIDE': 'Kapat', 'ACCEPTED_CONTENT': 'Onaylanan sözleşme metni', 'CONTEXT_PURCHASE': 'Satın alma', 'CONTEXT_REGISTRATION': 'Kayıt', 'TYPE_PRE_INFORMATION': 'Ön bilgilendirme formu', 'TYPE_DISTANCE_SALES': 'Mesafeli satış sözleşmesi', 'TYPE_PRIVACY': 'Gizlilik politikası', 'TYPE_KVKK': 'KVKK aydınlatma metni', 'TYPE_COMMERCIAL': 'Ticari ileti izni', 'TYPE_SOCIAL': 'Sosyal sorumluluk onayı', 'TYPE_MEMBERSHIP': 'Üyelik ve kullanım koşulları' },
+        TAX_NUMBER: "Vergi No",
+        DOGANBEY_TAX_OFFICE: "Doğanbey Vergi Dairesi"
         // END (TR-EN-LANGUAGE-BRANCH)
-    }
+    },
 };

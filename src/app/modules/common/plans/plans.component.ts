@@ -40,19 +40,19 @@ export class PlansComponent implements OnInit {
       {
         id: 2,
         name: this.translate.instant('standard'),
-        price: "₺359,00/" + this.translate.instant('year'),
+        price: "₺499,00/" + this.translate.instant('year'),
         properties: [this.translate.instant('standardProperty1'), this.translate.instant('standardProperty2'), this.translate.instant('standardProperty3'), this.translate.instant('standardProperty5')]
       },
       {
         id: 3,
         name: this.translate.instant('premium'),
-        price: "₺559,00/" + this.translate.instant('year'),
+        price: "₺699,00/" + this.translate.instant('year'),
         properties: [this.translate.instant('premiumProperty1'), this.translate.instant('premiumProperty2'), this.translate.instant('premiumProperty3'), this.translate.instant('premiumProperty4'), this.translate.instant('premiumProperty5'), this.translate.instant('premiumProperty7')]
       },
       {
         id: 4,
         name: this.translate.instant('ultra'),
-        price: "₺959,00/" + this.translate.instant('year'),
+        price: "₺1299,00/" + this.translate.instant('year'),
         properties: [this.translate.instant('ultraProperty1'), this.translate.instant('ultraProperty2'), this.translate.instant('ultraProperty3'), this.translate.instant('ultraProperty4'), this.translate.instant('ultraProperty5'), this.translate.instant('ultraProperty7')]
       }
     ]

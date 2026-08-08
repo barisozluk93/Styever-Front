@@ -1,8 +1,14 @@
 <div class="row gy-5 g-xl-8">
   <ng-container *ngFor="let item of planList">
     <div class="col-xxl-4" (click)="onPlanSelect(item.id)">
-      <div class="card card-xl-stretch mb-xl-8 d-flex flex-column"
+      <div class="card card-xl-stretch mb-xl-8 d-flex flex-column position-relative"
         [ngClass]="activePlan == item.id ? 'selected-plan' : ''">
+        <div *ngIf="item.id === 3" class="most-preferred-badge">
+          {{ 'MOST_PREFERRED' | translate }}
+          <i class="bi bi-star-fill ms-1"></i>
+        </div>
+
+
         <div class="card-header border-1 py-5 d-flex flex-column align-items-center">
           <h3 class="card-title fw-bolder text-primary text-center">
             {{ item.name.toUpperCase() }}

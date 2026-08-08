@@ -410,9 +410,9 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setPackage(role: number): void {
-    if (role === 2) { this.totalPrice = 359; this.packageKey = 'SHOPIER.PACKAGES.MEMORY'; }
-    else if (role === 3) { this.totalPrice = 559; this.packageKey = 'SHOPIER.PACKAGES.TRIBUTE'; }
-    else if (role === 4) { this.totalPrice = 959; this.packageKey = 'SHOPIER.PACKAGES.ETERNAL'; }
+    if (role === 2) { this.totalPrice = 499; this.packageKey = 'SHOPIER.PACKAGES.MEMORY'; }
+    else if (role === 3) { this.totalPrice = 699; this.packageKey = 'SHOPIER.PACKAGES.TRIBUTE'; }
+    else if (role === 4) { this.totalPrice = 1299; this.packageKey = 'SHOPIER.PACKAGES.ETERNAL'; }
   }
 
   reopenShopier(): void {

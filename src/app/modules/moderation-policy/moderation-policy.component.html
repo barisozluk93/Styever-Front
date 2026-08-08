@@ -2,50 +2,46 @@
   <div class="card">
     <div class="card-body p-8 p-lg-12">
       <div class="text-center mb-10">
-  <h1 class="fw-bold text-gray-900 fs-2hx mb-3">
-    {{ 'MODERATION_POLICY.PAGE_TITLE' | translate }}
-  </h1>
-
-  <div class="text-muted fs-6">
-    {{ 'MODERATION_POLICY.PAGE_SUBTITLE' | translate }}
-  </div>
-</div>
-
+        <h1 class="fw-bold text-gray-900 fs-2hx mb-3">{{ 'MODERATION_POLICY.PAGE_TITLE' | translate }}</h1>
+        <div class="text-muted fs-6">{{ 'MODERATION_POLICY.PAGE_SUBTITLE' | translate }}</div>
+      </div>
       <div class="legal-content">
-
         <section class="mb-8">
           <h2>{{ 'MODERATION_POLICY.SECTION_1_TITLE' | translate }}</h2>
           <p>{{ 'MODERATION_POLICY.SECTION_1_TEXT' | translate }}</p>
         </section>
-
         <section class="mb-8">
           <h2>{{ 'MODERATION_POLICY.SECTION_2_TITLE' | translate }}</h2>
           <p>{{ 'MODERATION_POLICY.SECTION_2_TEXT_1' | translate }}</p>
           <p>{{ 'MODERATION_POLICY.SECTION_2_TEXT_2' | translate }}</p>
+          <p>{{ 'MODERATION_POLICY.SECTION_2_TEXT_3' | translate }}</p>
         </section>
-
         <section class="mb-8">
           <h2>{{ 'MODERATION_POLICY.SECTION_3_TITLE' | translate }}</h2>
           <p>{{ 'MODERATION_POLICY.SECTION_3_TEXT' | translate }}</p>
-
           <ul>
-            <li>{{ 'MODERATION_POLICY.CRITERIA_1' | translate }}</li>
-            <li>{{ 'MODERATION_POLICY.CRITERIA_2' | translate }}</li>
-            <li>{{ 'MODERATION_POLICY.CRITERIA_3' | translate }}</li>
-            <li>{{ 'MODERATION_POLICY.CRITERIA_4' | translate }}</li>
+            <li *ngFor="let item of [1,2,3,4,5,6]">{{ ('MODERATION_POLICY.CRITERIA_' + item) | translate }}</li>
           </ul>
         </section>
-
         <section class="mb-8">
           <h2>{{ 'MODERATION_POLICY.SECTION_4_TITLE' | translate }}</h2>
           <p>{{ 'MODERATION_POLICY.SECTION_4_TEXT' | translate }}</p>
+          <ul>
+            <li>{{ 'MODERATION_POLICY.ACTION_1' | translate }}</li>
+            <li>{{ 'MODERATION_POLICY.ACTION_2' | translate }}</li>
+            <li>{{ 'MODERATION_POLICY.ACTION_3' | translate }}</li>
+          </ul>
+          <p>{{ 'MODERATION_POLICY.SECTION_4_FOOTER' | translate }}</p>
         </section>
-
         <section>
           <h2>{{ 'MODERATION_POLICY.SECTION_5_TITLE' | translate }}</h2>
           <p>{{ 'MODERATION_POLICY.SECTION_5_TEXT' | translate }}</p>
+          <ul>
+            <li>{{ 'MODERATION_POLICY.REPORT_1' | translate }}</li>
+            <li>{{ 'MODERATION_POLICY.REPORT_2' | translate }}</li>
+          </ul>
+          <p>{{ 'MODERATION_POLICY.SECTION_5_FOOTER' | translate }}</p>
         </section>
-
       </div>
     </div>
   </div>
