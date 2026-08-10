@@ -112,7 +112,9 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
       this.paymentForm.markAllAsTouched();
       return;
     }
-    if (!this.currentUser?.id) {
+    // Gift Voucher guest olarak da satın alınabilir.
+    // Üyelik ve paket işlemlerinde login zorunludur.
+    if (this.typeId !== 3 && !this.currentUser?.id) {
       this.showError(this.translate.instant('SHOPIER.LOGIN_REQUIRED'));
       return;
     }
@@ -134,8 +136,21 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
       const data: GiftModel = this.paymentForm.getRawValue();
       data.price = this.totalPrice;
       data.planId = this.planId;
-      data.userId = this.currentUser?.id!;
-      this.giftService.addGift(data).subscribe({ next: r => this.handlePaymentCreation(r), error: e => this.handleError(e) }); return;
+
+      // Guest gift'te UserId null kalır. Login kullanıcıda kullanıcı id'si gönderilir.
+      (data as any).userId = this.currentUser?.id || null;
+
+      // Login kullanıcıda sender alanları formda gösterilmediği için hesaptan doldurulur.
+      if (this.currentUser) {
+        (data as any).senderEmail = this.currentUser.email;
+        (data as any).senderFullName = `${this.currentUser.name || ''} ${this.currentUser.surname || ''}`.trim();
+      }
+
+      this.giftService.addGift(data).subscribe({
+        next: r => this.handlePaymentCreation(r),
+        error: e => this.handleError(e)
+      });
+      return;
     }
     if (this.typeId === 4) {
       this.userManagementService.buyPackage(this.currentUser?.id!, this.planId, this.memoryId || 0).subscribe({ next: r => this.handlePaymentCreation(r), error: e => this.handleError(e) }); return;
@@ -201,6 +216,19 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
       this.processing = false;
       this.closeShopierWindow();
       this.showError(this.translate.instant('SHOPIER.LINK_NOT_RECEIVED'));
+      return;
+    }
+
+    const isGuestGift = this.typeId === 3 && !this.currentUser?.id;
+
+    // Guest Gift'te Agreement endpoint'i [Authorize] olduğu için DB kaydı yapılmaz.
+    // Checkbox onayı yine paymentForm üzerinden zorunludur.
+    if (isGuestGift) {
+      this.processing = false;
+      this.pendingReference = reference;
+      this.pendingRedirectUrl = redirectUrl;
+      this.startPaymentStatusPolling();
+      this.navigateShopierWindow(redirectUrl);
       return;
     }
 

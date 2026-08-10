@@ -1031,7 +1031,7 @@ export const locale = {
         "MINISTRY_OF_TRADE": "Ticaret Bakanlığı",
         "PRE_INFORMATION_FORM": "Ön Bilgilendirme Formu",
         "DISTANCE_SALES_CONTRACT": "Mesafeli Satış Sözleşmesi",
-        "I_HAVE_READ_AND_ACCEPTED": "'nu okudum, onaylıyorum.",
+        "I_HAVE_READ_AND_ACCEPTED": "'ni okudum, onaylıyorum.",
         "TERMS_ACCEPTANCE_REQUIRED": "Devam etmek için sözleşmeleri onaylamalısınız.",
         "AND": "ve",
         "LEGAL_APPROVAL_TITLE": "Ön Bilgilendirme Formu ve Mesafeli Satış Sözleşmesi",
