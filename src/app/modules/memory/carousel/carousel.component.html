@@ -1,4 +1,4 @@
-<div class="carousel-wrapper">
+<div class="carousel-wrapper card bg-white border border-gray-300 shadow-none">
     <ngb-carousel [activeId]="activeSlideId" (slide)="onSlide($event)" [interval]="0" [pauseOnHover]="true">
         <ng-container *ngFor="let file of files; let i = index">
             <ng-template ngbSlide [id]="'slide-' + i">

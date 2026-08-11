@@ -1,4 +1,4 @@
-<div class="signin-card card border-0 mb-5 mb-xl-10">
+<div class="signin-card card bg-white border-0 mb-5 mb-xl-10">
   <div class="card-body p-8 p-lg-10">
     <div class="mb-8">
       <span class="signin-kicker">STYEVER</span>
@@ -8,7 +8,7 @@
 
     <div class="signin-section">
       <ng-container *ngIf="!showChangeEmailForm">
-        <div class="signin-summary d-flex align-items-center justify-content-between flex-wrap gap-4">
+        <div class="signin-summary rounded d-flex align-items-center justify-content-between flex-wrap gap-4">
           <div>
             <div class="signin-label">{{'EMAIL_ADDRESS' | translate}}</div>
             <div class="signin-value">{{user?.email}}</div>
@@ -37,7 +37,7 @@
 
     <div class="signin-section">
       <ng-container *ngIf="!showChangePasswordForm">
-        <div class="signin-summary d-flex align-items-center justify-content-between flex-wrap gap-4">
+        <div class="signin-summary rounded d-flex align-items-center justify-content-between flex-wrap gap-4">
           <div>
             <div class="signin-label">{{'PASSWORD' | translate}}</div>
             <div class="signin-value signin-password">••••••••••••</div>

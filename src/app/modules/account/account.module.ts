@@ -23,6 +23,7 @@ import { AddressEditSaveComponent } from './addresses/forms/list/edit-save/edit-
 import { MembershipComponent } from './membership/membership.component';
 import { PlansModule } from '../common/plans/plans.module';
 import { AccountAgreementsComponent } from './agreements/agreements.component';
+import { AccountPasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AccountAgreementsComponent } from './agreements/agreements.component';
     NotificationsComponent,
     SignInMethodComponent,
     MembershipComponent,
-    AccountAgreementsComponent
+    AccountAgreementsComponent,
+    AccountPasswordComponent
   ],
   imports: [
     PlansModule,

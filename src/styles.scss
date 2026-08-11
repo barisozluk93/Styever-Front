@@ -11,6 +11,24 @@
 @import "./assets/plugins/keenicons/outline/style.css";
 @import "./assets/plugins/keenicons/solid/style.css";
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #f7f5f0 !important;
+  background-color: #f7f5f0 !important;
+}
+
+body {
+  margin: 0;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  background: #f7f5f0;
+}
+
 .menu-state-bg .menu-item .menu-link.active {
   background-color: var(--bs-primary) !important;
 }
@@ -474,13 +492,9 @@ body.home-background #kt_header.header-sticky,
 
 
 /* Profile system — aligned with auth / memory forms */
-.profile-shell{padding-bottom:70px}.profile-summary,.profile-section-card,.profile-form-card,.signin-card{border-radius:24px!important;box-shadow:0 18px 55px rgba(16,41,31,.07)!important;background:#fff}.profile-shell-avatar img{object-fit:cover}.profile-shell-kicker,.profile-section-kicker,.profile-form-kicker,.signin-kicker{display:block;margin-bottom:7px;color:var(--bs-primary);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.profile-shell-tabs .btn{min-height:40px;border-radius:.75rem;background:var(--bs-gray-100);color:var(--bs-gray-600);font-weight:700;padding:.65rem 1rem}.profile-shell-tabs .btn:hover,.profile-shell-tabs .btn.active{background:var(--bs-primary);color:#fff}.profile-page-stack{display:grid;gap:0}.profile-address-card,.agreement-card,.membership-current{border:1px solid var(--bs-gray-200);border-radius:18px;background:#fff;padding:22px;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}.profile-address-card:hover,.agreement-card:hover{border-color:rgba(10,74,50,.18);box-shadow:0 14px 32px rgba(16,41,31,.07);transform:translateY(-1px)}.profile-empty{border:1px dashed var(--bs-gray-300);border-radius:18px;background:var(--bs-gray-100)}.membership-dates{display:flex;flex-wrap:wrap;gap:12px}.membership-date{min-width:170px;padding:14px 16px;border:1px solid var(--bs-gray-200);border-radius:14px;background:var(--bs-gray-100);display:flex;flex-direction:column;gap:4px}.membership-date span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--bs-gray-500);font-weight:700}.membership-date strong{color:var(--bs-gray-800);font-size:13px}.agreement-content{max-height:420px;overflow:auto;white-space:pre-wrap;padding:20px;border-radius:14px;background:var(--bs-gray-100);border:1px solid var(--bs-gray-200)}
-.profile-shell .form-control,.profile-shell .form-select,.profile-modal-form .form-control,.profile-modal-form .form-select{min-height:50px;border:1px solid var(--bs-gray-300)!important;border-radius:.8rem!important;background:#fff!important;color:var(--bs-gray-900)!important;box-shadow:0 1px 2px rgba(18,38,30,.02);transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}.profile-shell .form-control:hover:not(:focus):not(.is-invalid),.profile-shell .form-select:hover:not(:focus):not(.is-invalid),.profile-modal-form .form-control:hover:not(:focus):not(.is-invalid),.profile-modal-form .form-select:hover:not(:focus):not(.is-invalid){border-color:var(--bs-gray-400)!important}.profile-shell .form-control:focus,.profile-shell .form-select:focus,.profile-modal-form .form-control:focus,.profile-modal-form .form-select:focus{border-color:rgba(10,74,50,.55)!important;box-shadow:0 0 0 .22rem rgba(10,74,50,.08)!important}.profile-shell textarea.form-control,.profile-modal-form textarea.form-control{min-height:110px;resize:vertical;padding-top:.95rem}.profile-shell .form-label,.profile-modal-form .form-label{font-size:12px!important;font-weight:700!important;color:var(--bs-gray-800)!important;margin-bottom:.55rem}.profile-shell .btn-primary,.profile-modal-form .btn-primary{min-height:46px;border-radius:.8rem;box-shadow:0 8px 20px rgba(10,74,50,.12)}.profile-shell .btn-light-primary,.profile-modal-form .btn-light-primary{border-radius:.8rem}.profile-shell .fv-plugins-message-container,.profile-modal-form .fv-plugins-message-container{margin-top:4px;color:var(--bs-danger);font-size:11px;font-weight:600}
-@media(max-width:767.98px){.profile-shell{padding-bottom:45px}.profile-summary .card-body,.profile-section-card .card-body{padding:22px!important}.profile-shell-tabs{width:100%}.profile-shell-tabs .btn{flex:1 1 calc(50% - 6px)}.membership-date{flex:1 1 100%}}
 
 
 /* STYEVER UI CONSISTENCY */
-html,body,#main-element,.page,.wrapper{margin-bottom:0!important;padding-bottom:0}body{font-family:var(--bs-body-font-family)!important}.profile-shell{padding-top:34px;padding-bottom:70px;background:#f7f8f7;min-height:calc(100vh - 70px)}.profile-shell>.container-xxl{max-width:1420px}.profile-summary{border:1px solid rgba(10,74,50,.07)!important}.profile-nav{display:flex;align-items:center;gap:6px;padding:5px;border:1px solid var(--bs-gray-200);border-radius:14px;background:var(--bs-gray-100)}.profile-nav a{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 14px;border-radius:10px;color:var(--bs-gray-600);font-size:12px;font-weight:700;transition:.18s ease}.profile-nav a i{font-size:18px}.profile-nav a:hover,.profile-nav a.active{background:#fff;color:var(--bs-primary);box-shadow:0 6px 18px rgba(18,45,34,.08)}.profile-shell .profile-form-card,.profile-shell .signin-card,.profile-shell .profile-section-card{border:1px solid rgba(10,74,50,.07)!important;border-radius:20px!important;box-shadow:0 12px 34px rgba(16,41,31,.055)!important}.profile-shell .form-control,.profile-shell .form-select,.profile-modal-form .form-control,.profile-modal-form .form-select{min-height:50px!important;border:1px solid var(--bs-gray-300)!important;border-radius:.8rem!important;background-color:#fff!important;color:var(--bs-gray-900)!important}.profile-shell .form-control:focus,.profile-shell .form-select:focus,.profile-modal-form .form-control:focus,.profile-modal-form .form-select:focus{border-color:rgba(10,74,50,.55)!important;box-shadow:0 0 0 .22rem rgba(10,74,50,.08)!important}.profile-shell .position-relative>.ki-outline,.profile-modal-form .position-relative>.ki-outline{z-index:2;pointer-events:none}.profile-shell .ps-12,.profile-modal-form .ps-12{padding-left:3.25rem!important}#kt_header app-user-inner.styever-user-menu{width:300px!important;min-width:300px!important;padding:0!important;background:#fff!important;border-radius:16px!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important}#kt_header app-user-inner .menu-link,#kt_header app-user-inner .menu-title{font-family:inherit!important}#kt_header app-language-inner .menu-link:hover,#kt_header app-language-inner .menu-link.active,#kt_header app-language-inner .menu-link:hover .menu-title,#kt_header app-language-inner .menu-link.active .menu-title{color:#fff!important}#kt_footer{margin:0!important;padding:0!important;min-height:0!important}app-footer{margin:0!important;padding:0!important} @media(max-width:991.98px){.profile-shell{padding-top:22px}.profile-nav{width:100%;overflow-x:auto}.profile-nav a{flex:0 0 auto}}
 
 /* header dropdown hard normalization — last rule wins on every page */
 #kt_header app-user-inner.styever-user-menu,#kt_header app-user-inner.styever-user-menu.menu-sub-dropdown{background:#fff!important;color:var(--bs-gray-700)!important;border:1px solid var(--bs-gray-200)!important;border-radius:16px!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important}

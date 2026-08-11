@@ -1,93 +1,203 @@
-<main class="styever-faq">
-  <section class="faq-hero">
-    <div class="faq-hero__shade"></div>
-    <div class="container-xxl faq-hero__container">
+<main class="styever-faq bg-styever-warm">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="faq-hero position-relative d-flex align-items-center">
+    <div class="faq-hero__shade position-absolute top-0 start-0 w-100 h-100"></div>
+
+    <div class="container-xxl position-relative z-index-2 w-100">
       <div class="faq-hero__content">
-        <div class="faq-hero__eyebrow">
-          <span class="faq-hero__eyebrow-mark"></span>
-          {{ 'FAQ' | translate }}
+
+        <!-- Eyebrow -->
+        <div
+          class="faq-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase"
+        >
+          <img
+            src="/assets/media/logos/logo.png"
+            alt="Styever"
+            class="faq-hero__eyebrow-logo flex-shrink-0"
+          />
+
+          <span>
+            {{ 'FAQ' | translate }}
+          </span>
         </div>
-        <h1>
-          {{ ('LANG' | translate) === 'tr'
-            ? 'Size yardımcı olmak için buradayız.'
-            : 'We are here to help.' }}
+
+        <!-- Title -->
+        <h1 class="faq-hero__title fw-bold text-white">
+          {{
+            ('LANG' | translate) === 'tr'
+              ? 'Size yardımcı olmak için buradayız.'
+              : 'We are here to help.'
+          }}
         </h1>
-        <p>
-          {{ ('LANG' | translate) === 'tr'
-            ? 'En sık sorulan soruların yanıtlarını sade ve anlaşılır bir şekilde inceleyin.'
-            : 'Explore straightforward answers to the questions we receive most often.' }}
+
+        <!-- Description -->
+        <p class="faq-hero__description mb-0">
+          {{
+            ('LANG' | translate) === 'tr'
+              ? 'En sık sorulan soruların yanıtlarını sade ve anlaşılır bir şekilde inceleyin.'
+              : 'Explore straightforward answers to the questions we receive most often.'
+          }}
         </p>
+
       </div>
     </div>
   </section>
 
-  <section class="faq-section">
+
+  <!-- =====================================================
+       FAQ SECTION
+       ===================================================== -->
+  <section class="faq-section bg-styever-warm">
     <div class="container-xxl">
-      <div *ngIf="faqs.length; else emptyFaq" class="row g-5 g-xl-7">
-        <div class="col-12 col-lg-6" *ngFor="let faq of faqs; trackBy: trackByFaqId">
-          <article class="card faq-card border-0">
+
+      <div
+        *ngIf="faqs.length; else emptyFaq"
+        class="row g-4 g-xl-5"
+      >
+
+        <div
+          class="col-12 col-lg-6"
+          *ngFor="
+            let faq of faqs;
+            let i = index;
+            trackBy: trackByFaqId
+          "
+        >
+
+          <!-- FAQ CARD -->
+          <article
+            class="card faq-card bg-white border border-gray-300 shadow-none"
+          >
+
+            <!-- QUESTION -->
             <div
-              class="card-header faq-card__header border-0 collapsed cursor-pointer"
+              class="card-header faq-card__header collapsed cursor-pointer border-0 bg-transparent d-flex flex-nowrap align-items-center justify-content-between"
               role="button"
               data-bs-toggle="collapse"
               [attr.data-bs-target]="'#kt_faq' + faq.id"
               aria-expanded="false"
-              [attr.aria-controls]="'kt_faq' + faq.id">
+              [attr.aria-controls]="'kt_faq' + faq.id"
+            >
 
-              <div class="d-flex align-items-center flex-grow-1 min-w-0">
-                <div class="faq-card__icon flex-shrink-0 me-4">
-                  <i class="ki-duotone ki-message-question fs-2x">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                  </i>
+              <!-- LEFT -->
+              <div
+                class="faq-card__question d-flex align-items-center flex-grow-1 min-w-0"
+              >
+
+                <!-- NUMBER -->
+                <div
+                  class="faq-card__number d-flex align-items-center justify-content-center flex-shrink-0 fw-bold"
+                >
+                  {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}
                 </div>
-                <h3 class="faq-card__title fw-bold m-0">
-                  {{ ('LANG' | translate) === 'tr' ? faq.header : faq.headerEn }}
+
+                <!-- TITLE -->
+                <h3 class="faq-card__title fw-bold text-gray-900 mb-0">
+                  {{
+                    ('LANG' | translate) === 'tr'
+                      ? faq.header
+                      : faq.headerEn
+                  }}
                 </h3>
+
               </div>
 
-              <div class="faq-card__toggle flex-shrink-0 ms-4">
+
+              <!-- PLUS / MINUS -->
+              <div
+                class="faq-card__toggle d-flex align-items-center justify-content-center flex-shrink-0 ms-auto"
+              >
+
                 <i class="ki-duotone ki-plus icon-collapsed fs-2">
                   <span class="path1"></span>
                   <span class="path2"></span>
                 </i>
+
                 <i class="ki-duotone ki-minus icon-expanded fs-2">
                   <span class="path1"></span>
                   <span class="path2"></span>
                 </i>
+
               </div>
+
             </div>
 
-            <div [id]="'kt_faq' + faq.id" class="collapse">
-              <div class="card-body faq-card__body pt-0">
-                <div class="faq-card__divider"></div>
-                <div
-                  class="faq-card__content"
-                  [innerHTML]="('LANG' | translate) === 'tr' ? faq.content : faq.contentEn">
+
+            <!-- COLLAPSE -->
+            <div
+              [id]="'kt_faq' + faq.id"
+              class="collapse"
+            >
+
+              <div class="card-body faq-card__body p-0 bg-transparent">
+
+                <!-- Divider -->
+                <div class="separator separator-content border-gray-300"></div>
+
+
+                <!-- Answer -->
+                <div class="faq-card__answer position-relative">
+
+                  <div
+                    class="faq-card__content text-gray-600"
+                    [innerHTML]="
+                      ('LANG' | translate) === 'tr'
+                        ? faq.content
+                        : faq.contentEn
+                    "
+                  >
+                  </div>
+
                 </div>
+
               </div>
+
             </div>
+
           </article>
+
         </div>
+
       </div>
 
+
+      <!-- =================================================
+           EMPTY STATE
+           ================================================= -->
       <ng-template #emptyFaq>
-        <div class="card border-0 faq-empty text-center">
+
+        <div
+          class="card faq-empty bg-transparent border border-gray-300 shadow-none text-center"
+        >
           <div class="card-body py-15">
-            <div class="faq-empty__icon mx-auto mb-5">
-              <i class="ki-duotone ki-information-5 fs-2x">
+
+            <div
+              class="faq-empty__icon d-flex align-items-center justify-content-center mx-auto mb-5"
+            >
+              <i class="ki-duotone ki-information-5 fs-2x text-primary">
                 <span class="path1"></span>
                 <span class="path2"></span>
                 <span class="path3"></span>
               </i>
             </div>
+
             <div class="fw-bold fs-4 text-gray-800">
-              {{ ('LANG' | translate) === 'tr' ? 'Henüz soru bulunmuyor.' : 'No questions are available yet.' }}
+              {{
+                ('LANG' | translate) === 'tr'
+                  ? 'Henüz soru bulunmuyor.'
+                  : 'No questions are available yet.'
+              }}
             </div>
+
           </div>
         </div>
+
       </ng-template>
+
     </div>
   </section>
+
 </main>

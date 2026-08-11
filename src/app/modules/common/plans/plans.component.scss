@@ -1,7 +1,7 @@
 .plan-card {
   overflow: visible;
   border: 1px solid var(--bs-gray-300);
-  border-radius: 1rem;
+  border-radius: var(--bs-card-border-radius);
   background: #fff;
   box-shadow: 0 4px 14px rgba(18,38,30,.04);
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
@@ -66,7 +66,7 @@
   align-items: center;
   gap: 6px;
   padding: 5px 10px;
-  border-radius: 999px;
+  border-radius: var(--bs-card-border-radius);
   background: var(--bs-primary);
   color: #fff;
   font-size: 9px;
@@ -139,4 +139,9 @@
   .compact-mode .plan-card {
     min-height: auto;
   }
+}
+
+/* Metronic-native card geometry */
+.plan-card {
+  border-radius: var(--bs-card-border-radius) !important;
 }

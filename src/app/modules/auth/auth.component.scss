@@ -1,76 +1,251 @@
 :host {
   display: block;
+  width: 100%;
   min-height: 100%;
 }
 
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 .auth-page {
-  background: #fbfaf7;
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f7f5f0 !important;
 }
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
 
 .auth-content {
   width: 100%;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(10, 74, 50, 0.055), transparent 30%),
-    #fbfaf7;
+
+  background: #f7f5f0 !important;
+  background-color: #f7f5f0 !important;
+  background-image: none !important;
 }
 
+
+/* =========================================================
+   FORM WRAPPER
+   ========================================================= */
+
 .auth-form-wrapper {
-  max-width: 860px;
+  width: 100%;
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background: transparent;
 }
+
+
+/* =========================================================
+   SOCIAL
+   ========================================================= */
+
+.auth-social {
+  background: transparent;
+}
+
+
+/* Metronic handles almost everything */
+
+.auth-social__btn {
+  width: 38px;
+  height: 38px;
+
+  border:
+    1px solid rgba(var(--bs-primary-rgb), 0.12) !important;
+
+  border-radius: 50% !important;
+
+  box-shadow: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+
+.auth-social__btn i {
+  color: var(--bs-primary);
+
+  transition:
+    color 0.2s ease;
+}
+
+
+/* HOVER */
+
+.auth-social__btn:hover,
+.auth-social__btn:focus {
+  border:
+    1px dashed var(--bs-primary) !important;
+
+  background:
+    var(--bs-primary) !important;
+
+  background-color:
+    var(--bs-primary) !important;
+
+  color:
+    #fff !important;
+
+  transform:
+    translateY(-2px);
+}
+
+
+.auth-social__btn:hover i,
+.auth-social__btn:focus i {
+  color:
+    #fff !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.auth-footer {
+  min-height: 28px;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+   ========================================================= */
 
 .auth-visual {
   width: 52%;
   min-height: 100vh;
-  background-color: #0a4a32;
+
+  background-color:
+    var(--bs-primary);
 }
 
+
+/* =========================================================
+   VISUAL IMAGE
+   ========================================================= */
+
 .auth-visual-bg {
-  background-image: url('/assets/media/patterns/login.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: scale(1.01);
+  background:
+    url('/assets/media/patterns/login.jpg')
+    center center / cover
+    no-repeat;
+
+  transform:
+    scale(1.01);
 }
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
 
 .auth-visual-overlay {
   background:
-    linear-gradient(180deg, rgba(7, 38, 27, 0.18) 0%, rgba(7, 38, 27, 0.28) 42%, rgba(4, 30, 21, 0.9) 100%),
-    linear-gradient(90deg, rgba(10, 74, 50, 0.2), transparent 55%);
+    linear-gradient(
+      180deg,
+      rgba(7, 38, 27, 0.18) 0%,
+      rgba(7, 38, 27, 0.28) 42%,
+      rgba(4, 30, 21, 0.9) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(var(--bs-primary-rgb), 0.2),
+      transparent 55%
+    );
 }
+
+
+/* =========================================================
+   RIGHT LOGO
+   ========================================================= */
 
 .auth-brand-logo {
   width: auto;
   height: 92px;
+
   max-width: 220px;
+
   object-fit: contain;
   object-position: left center;
 }
 
+
+/* =========================================================
+   RIGHT TITLE
+   ========================================================= */
+
 .auth-visual-title {
   max-width: 560px;
-  font-size: clamp(2.25rem, 3.2vw, 4.15rem);
+
+  font-size:
+    clamp(2.25rem, 3.2vw, 4.15rem);
+
   line-height: 1.08;
+
   letter-spacing: -0.04em;
 }
 
-.auth-footer {
-  min-height: 28px;
-}
+
+/* =========================================================
+   BACKDROP
+   ========================================================= */
 
 .backdrop-blur {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
 @media (min-width: 992px) {
+
   .auth-content {
     width: 48%;
   }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 991.98px) {
+
   .auth-page,
   .auth-content {
     min-height: 100vh;
+
+    background:
+      #f7f5f0 !important;
   }
+
+
+  .auth-form-wrapper {
+    max-width: 460px;
+  }
+
+
+  .auth-social {
+    margin-top: 8px;
+  }
+
 }

@@ -1,132 +1,1032 @@
-:host{display:block}.styever-gift{--green:#0a4a32;--deep:#073a28;--ink:#17211d;--muted:#6e7772;--warm:#f7f5f0;--line:rgba(10,74,50,.12);background:#fff;color:var(--ink);overflow:hidden}.gift-hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;background:url('/assets/media/patterns/gift.jpg') center 44%/cover no-repeat}.gift-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,25,17,.88),rgba(5,25,17,.65) 39%,rgba(5,25,17,.22) 68%,rgba(5,25,17,.06)),linear-gradient(0deg,rgba(5,25,17,.26),transparent 46%)}.gift-hero__container{position:relative;z-index:2;width:100%}.gift-hero__content{max-width:720px;padding:90px 0 125px}.gift-hero__eyebrow,.section-kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.gift-hero__eyebrow{color:rgba(255,255,255,.82)}.gift-hero__eyebrow-mark{width:28px;height:1px;background:rgba(255,255,255,.66)}.gift-hero__title{max-width:720px;margin:22px 0;color:#fff;font-size:clamp(46px,5.6vw,80px);line-height:.99;letter-spacing:-.05em;font-weight:700}.gift-hero__description{display:block;max-width:650px;margin:0;color:rgba(255,255,255,.86);font-size:16px;line-height:1.68;white-space:pre-line;overflow:visible}.gift-hero__cta{color:var(--green)!important}.gift-hero__scroll{position:absolute;z-index:3;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:transparent;color:rgba(255,255,255,.68);font-size:10px;letter-spacing:.16em;text-transform:uppercase}.gift-section{padding:110px 0}.gift-section--warm{background:var(--warm)}.section-kicker{color:var(--green)}.section-kicker--light{color:rgba(255,255,255,.74)}.gift-story{display:grid;grid-template-columns:.9fr 1.1fr;overflow:hidden;border-radius:28px;background:#fff;box-shadow:0 18px 55px rgba(16,41,31,.08)}.gift-story__content{display:flex;flex-direction:column;justify-content:center;padding:62px}.gift-story__content h2,.feature-panel__content h2,.plans-heading h2{margin:12px 0 22px;font-size:clamp(36px,4vw,56px);line-height:1.06;letter-spacing:-.04em;font-weight:700}.gift-story__content p,.gift-value p,.feature-panel__content p{margin:0;color:var(--muted);font-size:16px;line-height:1.85;white-space:pre-line}.gift-story__media{min-height:520px}.gift-story__media img,.feature-panel__media img{width:100%;height:100%;object-fit:cover}.gift-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.gift-value{display:flex;flex-direction:column;min-height:330px;padding:38px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 14px 38px rgba(16,41,31,.05)}.gift-value--deep{background:var(--deep);border-color:var(--deep);color:#fff}.gift-value__icon{width:50px;height:50px;display:grid;place-items:center;margin-bottom:34px;border-radius:14px;background:rgba(10,74,50,.08);color:var(--green)}.gift-value--deep .gift-value__icon{background:rgba(255,255,255,.1);color:#fff}.gift-value h3{margin:0 0 16px;font-size:25px;line-height:1.25;letter-spacing:-.02em;font-weight:700}.gift-value--deep p{color:rgba(255,255,255,.72)}.gift-section--feature{padding-top:20px;background:#fff}.feature-panel{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;border-radius:28px;background:var(--deep);box-shadow:0 18px 50px rgba(7,58,40,.14)}.feature-panel__media{min-height:500px}.feature-panel__content{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:62px}.feature-panel__content h2{color:#fff}.feature-panel__content p{color:rgba(255,255,255,.72)}.plans-section{padding:110px 0;background:var(--warm)}.plans-heading{max-width:720px;margin-bottom:45px}.plans-heading h2{color:var(--ink)}@media(max-width:991.98px){.gift-hero{min-height:86vh;min-height:86dvh}.gift-hero__content{padding:110px 0 100px}.gift-story,.feature-panel{grid-template-columns:1fr}.gift-story__content,.feature-panel__content{padding:42px}.gift-story__media,.feature-panel__media{min-height:380px}.gift-values{grid-template-columns:1fr}}@media(max-width:575.98px){.gift-section,.plans-section{padding:72px 0}.gift-hero__title{font-size:44px}.gift-hero__description{font-size:16px}.gift-story__content,.feature-panel__content,.gift-value{padding:28px}.gift-story__media,.feature-panel__media{min-height:300px}}
-
-/* v2 — hero shell aligned with Home / FAQ / Support */
-:host{
-  display:block;
-  width:100%;
+:host {
+  display: block;
+  width: 100%;
 }
 
-.styever-gift{
-  width:100vw;
-  max-width:100vw;
-  margin-left:calc(50% - 50vw);
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.styever-gift {
+  width: 100%;
+
+  overflow: hidden;
+
+  color: var(--bs-gray-900);
 }
 
-.gift-hero{
-  width:100%;
-  height:100vh;
-  min-height:100vh;
-  max-height:100vh;
-  box-sizing:border-box;
-  overflow:hidden;
-  background-position:center 44%;
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.gift-hero {
+  width: 100%;
+
+  height: 100vh;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    url('/assets/media/patterns/gift.jpg')
+    center 44% / cover no-repeat;
 }
 
-.gift-hero__container{
-  width:100%;
-}
 
-.gift-hero__content{
-  max-width:690px;
-  padding:104px 0 94px;
-}
+@supports (height: 100dvh) {
 
-.gift-hero__title{
-  max-width:650px;
-  margin:22px 0 20px;
-  font-size:clamp(44px,5.3vw,76px);
-  line-height:.98;
-  letter-spacing:-.045em;
-}
-
-.gift-hero__description{
-  max-width:610px;
-  font-size:17px;
-  line-height:1.75;
-}
-
-.gift-hero__scroll{
-  bottom:18px;
-  z-index:4;
-}
-
-@supports(height:100dvh){
-  .gift-hero{
-    height:100dvh;
-    min-height:100dvh;
-    max-height:100dvh;
+  .gift-hero {
+    height: 100dvh;
+    min-height: 100dvh;
   }
+
 }
 
-@media(max-width:991.98px){
-  .gift-hero{
-    height:100vh;
-    min-height:100vh;
-    max-height:100vh;
+
+/* =========================================================
+   HERO SHADE
+   ========================================================= */
+
+.gift-hero__shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 25, 17, 0.88),
+      rgba(5, 25, 17, 0.65) 39%,
+      rgba(5, 25, 17, 0.22) 68%,
+      rgba(5, 25, 17, 0.06)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5, 25, 17, 0.26),
+      transparent 46%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.gift-hero__container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================================
+   HERO LAYOUT
+   ========================================================= */
+
+.gift-hero__layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(430px, 0.82fr);
+
+  align-items: center;
+
+  gap: clamp(52px, 7vw, 108px);
+
+  padding: 108px 0 88px;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.gift-hero__content {
+  max-width: 690px;
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+   ========================================================= */
+
+.gift-hero__eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+}
+
+
+.gift-hero__eyebrow-logo {
+  display: block;
+
+  width: 32px;
+  height: 22px;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.gift-hero__title {
+  max-width: 690px;
+
+  margin: 22px 0 0;
+
+  font-size: clamp(46px, 5.2vw, 74px);
+  line-height: 0.99;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   HERO RIGHT CONTENT
+   ========================================================= */
+
+.gift-hero__copy {
+  max-width: 610px;
+
+  justify-self: end;
+
+  padding-left: 34px;
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.24);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.gift-hero__description {
+  max-width: 100%;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 15px;
+  line-height: 1.64;
+
+  white-space: pre-line;
+}
+
+
+/* =========================================================
+   PURCHASE / YANINDA OL BUTTON
+   ========================================================= */
+
+.styever-gift .gift-purchase-btn {
+  margin-top: 28px;
+
+  border:
+    1px solid #fff !important;
+
+  background-color:
+    #fff !important;
+
+  color:
+    var(--bs-primary) !important;
+
+  box-shadow: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease !important;
+}
+
+
+/* TEXT */
+
+.styever-gift .gift-purchase-btn > span {
+  color: inherit !important;
+}
+
+
+/* ICON DEFAULT */
+
+.styever-gift .gift-purchase-btn i,
+.styever-gift .gift-purchase-btn i::before,
+.styever-gift .gift-purchase-btn i::after,
+.styever-gift .gift-purchase-btn i span {
+  color:
+    var(--bs-primary) !important;
+
+  transition:
+    color 0.2s ease !important;
+}
+
+
+/* =========================================================
+   PURCHASE BUTTON HOVER
+   bg-primary
+   text-white
+   dashed primary border
+   ========================================================= */
+
+.styever-gift .gift-purchase-btn:hover,
+.styever-gift .gift-purchase-btn:focus,
+.styever-gift .gift-purchase-btn:focus-visible,
+.styever-gift .gift-purchase-btn:active {
+  background-color: var(--bs-primary) !important;
+  color: var(--bs-primary-inverse) !important;
+  border: 0 !important;
+}
+
+
+/* TEXT HOVER */
+
+.styever-gift .gift-purchase-btn:hover > span,
+.styever-gift .gift-purchase-btn:focus > span,
+.styever-gift .gift-purchase-btn:focus-visible > span,
+.styever-gift .gift-purchase-btn:active > span {
+  color: #fff !important;
+}
+
+
+/* ICON HOVER */
+
+.styever-gift .gift-purchase-btn:hover i,
+.styever-gift .gift-purchase-btn:hover i::before,
+.styever-gift .gift-purchase-btn:hover i::after,
+.styever-gift .gift-purchase-btn:hover i span,
+
+.styever-gift .gift-purchase-btn:focus i,
+.styever-gift .gift-purchase-btn:focus i::before,
+.styever-gift .gift-purchase-btn:focus i::after,
+.styever-gift .gift-purchase-btn:focus i span,
+
+.styever-gift .gift-purchase-btn:focus-visible i,
+.styever-gift .gift-purchase-btn:focus-visible i::before,
+.styever-gift .gift-purchase-btn:focus-visible i::after,
+.styever-gift .gift-purchase-btn:focus-visible i span,
+
+.styever-gift .gift-purchase-btn:active i,
+.styever-gift .gift-purchase-btn:active i::before,
+.styever-gift .gift-purchase-btn:active i::after,
+.styever-gift .gift-purchase-btn:active i span {
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   HERO SCROLL
+   ========================================================= */
+
+.gift-hero__scroll {
+  position: absolute;
+  z-index: 4;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 10px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.gift-hero__scroll i {
+  color: inherit;
+}
+
+
+.gift-hero__scroll:hover,
+.gift-hero__scroll:focus {
+  color: #fff;
+}
+
+
+/* =========================================================
+   SHARED SECTION
+   ========================================================= */
+
+.gift-section {
+  padding: 110px 0;
+}
+
+
+/* =========================================================
+   WARM SECTION
+   BACKGROUND DEĞİŞTİRİLMEDİ
+   ========================================================= */
+
+.gift-section--warm {
+  background-color: #f7f5f0;
+}
+
+
+/* =========================================================
+   VALUES SECTION
+   BACKGROUND DEĞİŞTİRİLMEDİ
+   ========================================================= */
+
+.gift-section--values {
+  background-color: #fff;
+}
+
+
+/* =========================================================
+   SECTION KICKER
+   ========================================================= */
+
+.section-kicker {
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+}
+
+
+.section-kicker--light {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+
+/* =========================================================
+   STORY
+   ========================================================= */
+
+.gift-story {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  overflow: hidden;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  background-color: #fff;
+}
+
+
+/* =========================================================
+   STORY CONTENT
+   ========================================================= */
+
+.gift-story__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 52px;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.gift-story__content h2,
+.feature-panel__content h2,
+.plans-heading h2 {
+  margin: 12px 0 20px;
+
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.06;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================================================
+   SECTION TEXT
+   ========================================================= */
+
+.gift-story__content p,
+.gift-value p,
+.feature-panel__content p {
+  font-size: 16px;
+  line-height: 1.85;
+
+  white-space: pre-line;
+}
+
+
+/* =========================================================
+   STORY MEDIA
+   ========================================================= */
+
+.gift-story__media {
+  min-height: 500px;
+}
+
+
+.gift-story__media img,
+.feature-panel__media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   VALUES GRID
+   ========================================================= */
+
+.gift-values {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   VALUE CARD
+   ========================================================= */
+
+.gift-value {
+  min-height: 290px;
+
+  padding: 30px !important;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  background-color: #fff;
+
+  box-shadow: none !important;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.gift-value:not(.gift-value--deep):hover {
+  border-color:
+    rgba(var(--bs-primary-rgb), 0.28) !important;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   VALUE DEEP
+   BACKGROUND KORUNDU
+   ========================================================= */
+
+.gift-value--deep {
+  background-color: #073a28 !important;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   VALUE ICON
+   ========================================================= */
+
+.gift-value__icon {
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 26px;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background-color:
+    var(--bs-primary-light);
+
+  color:
+    var(--bs-primary);
+}
+
+
+.gift-value__icon i {
+  color: inherit;
+}
+
+
+.gift-value--deep .gift-value__icon {
+  background-color:
+    rgba(255, 255, 255, 0.1);
+
+  color: #fff;
+}
+
+
+.gift-value--deep .gift-value__icon i {
+  color: #fff;
+}
+
+
+/* =========================================================
+   VALUE TITLE
+   ========================================================= */
+
+.gift-value h3 {
+  margin: 0 0 12px;
+
+  font-size: 22px;
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   VALUE DEEP TEXT
+   ========================================================= */
+
+.gift-value--deep p {
+  color:
+    rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* =========================================================
+   FEATURE SECTION
+   BACKGROUND DEĞİŞTİRİLMEDİ
+   ========================================================= */
+
+.gift-section--feature {
+  padding-top: 20px;
+
+  background-color: #fff;
+}
+
+
+/* =========================================================
+   FEATURE PANEL
+   ========================================================= */
+
+.feature-panel {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  overflow: hidden;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  background-color:
+    #073a28 !important;
+}
+
+
+/* =========================================================
+   FEATURE MEDIA
+   ========================================================= */
+
+.feature-panel__media {
+  min-height: 480px;
+}
+
+
+/* =========================================================
+   FEATURE CONTENT
+   ========================================================= */
+
+.feature-panel__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 52px;
+}
+
+
+/*
+ * Feature içindeki butonda HTML'de mt-8 var.
+ * Ortak class'ın margin-top değerini bozmasın.
+ */
+
+.feature-panel__content .gift-purchase-btn {
+  margin-top: 2rem !important;
+}
+
+
+/* =========================================================
+   PLANS
+   BACKGROUND DEĞİŞTİRİLMEDİ
+   ========================================================= */
+
+.plans-section {
+  padding: 110px 0;
+
+  background-color: #f7f5f0;
+}
+
+
+/* =========================================================
+   PLANS HEADING
+   ========================================================= */
+
+.plans-heading {
+  max-width: 720px;
+
+  margin-bottom: 45px;
+}
+
+
+/* =========================================================
+   DESKTOP MEDIUM
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .gift-hero__layout {
+    grid-template-columns:
+      minmax(0, 0.82fr)
+      minmax(400px, 0.9fr);
+
+    gap: 52px;
   }
-  .gift-hero__content{
-    padding:112px 20px 92px;
+
+
+  .gift-hero__description {
+    font-size: 14px;
+    line-height: 1.58;
   }
-  @supports(height:100dvh){
-    .gift-hero{
-      height:100dvh;
-      min-height:100dvh;
-      max-height:100dvh;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  /* HERO */
+
+  .gift-hero {
+    height: auto;
+    min-height: 100vh;
+
+    overflow: visible;
+  }
+
+
+  @supports (height: 100dvh) {
+
+    .gift-hero {
+      min-height: 100dvh;
     }
+
   }
+
+
+  .gift-hero__container {
+    height: auto;
+  }
+
+
+  .gift-hero__layout {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+
+    padding: 126px 20px 88px;
+  }
+
+
+  .gift-hero__copy {
+    max-width: 760px;
+
+    justify-self: start;
+
+    padding-left: 22px;
+  }
+
+
+  .gift-hero__title {
+    max-width: 760px;
+  }
+
+
+  .gift-hero__description {
+    font-size: 14px;
+    line-height: 1.58;
+  }
+
+
+  .styever-gift .gift-purchase-btn {
+    margin-top: 22px;
+  }
+
+
+  /* SECTIONS */
+
+  .gift-section,
+  .plans-section {
+    padding: 86px 0;
+  }
+
+
+  /* STORY */
+
+  .gift-story {
+    grid-template-columns: 1fr;
+  }
+
+
+  .gift-story__content {
+    padding: 42px;
+  }
+
+
+  .gift-story__media {
+    min-height: 380px;
+  }
+
+
+  /* VALUES */
+
+  .gift-values {
+    grid-template-columns: 1fr;
+  }
+
+
+  .gift-value {
+    min-height: auto;
+  }
+
+
+  /* FEATURE */
+
+  .gift-section--feature {
+    padding-top: 20px;
+  }
+
+
+  .feature-panel {
+    grid-template-columns: 1fr;
+  }
+
+
+  .feature-panel__media {
+    min-height: 380px;
+  }
+
+
+  .feature-panel__content {
+    padding: 42px;
+  }
+
 }
 
-@media(max-width:575.98px){
-  .gift-hero__content{
-    padding:100px 12px 84px;
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  /* HERO */
+
+  .gift-hero__layout {
+    padding: 110px 12px 78px;
   }
-  .gift-hero__title{
-    font-size:43px;
+
+
+  .gift-hero__eyebrow-logo {
+    width: 28px;
+    height: 20px;
   }
-  .gift-hero__description{
-    font-size:15px;
+
+
+  .gift-hero__title {
+    font-size: 43px;
   }
-  .gift-hero__cta{
-    width:100%;
+
+
+  .gift-hero__copy {
+    padding-left: 16px;
   }
-  .gift-hero__scroll{
-    bottom:12px;
+
+
+  .gift-hero__description {
+    font-size: 13px;
+    line-height: 1.5;
   }
+
+
+  .styever-gift .gift-purchase-btn {
+    width: auto;
+
+    margin-top: 20px;
+  }
+
+
+  .gift-hero__scroll {
+    bottom: 12px;
+  }
+
+
+  /* SECTIONS */
+
+  .gift-section,
+  .plans-section {
+    padding: 72px 0;
+  }
+
+
+  .gift-section .container-xxl,
+  .plans-section .container-xxl {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  /* STORY */
+
+  .gift-story {
+    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+  }
+
+
+  .gift-story__content {
+    padding: 28px;
+  }
+
+
+  .gift-story__media {
+    min-height: 300px;
+  }
+
+
+  /* HEADINGS */
+
+  .gift-story__content h2,
+  .feature-panel__content h2,
+  .plans-heading h2 {
+    margin-bottom: 16px;
+  }
+
+
+  /* VALUES */
+
+  .gift-values {
+    gap: 16px;
+  }
+
+
+  .gift-value {
+    min-height: auto;
+
+    padding: 24px !important;
+
+    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+  }
+
+
+  .gift-value__icon {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 22px;
+
+    border-radius: var(--bs-card-border-radius, 0.625rem);
+  }
+
+
+  .gift-value h3 {
+    font-size: 20px;
+  }
+
+
+  .gift-story__content p,
+  .gift-value p,
+  .feature-panel__content p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+
+  /* FEATURE */
+
+  .gift-section--feature {
+    padding-top: 16px;
+  }
+
+
+  .feature-panel {
+    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+  }
+
+
+  .feature-panel__media {
+    min-height: 300px;
+  }
+
+
+  .feature-panel__content {
+    padding: 28px;
+  }
+
+
+  .feature-panel__content .gift-purchase-btn {
+    margin-top: 1.5rem !important;
+  }
+
+
+  /* PLANS */
+
+  .plans-heading {
+    margin-bottom: 32px;
+  }
+
 }
 
-/* v3 — Home-equivalent page shell; avoid the 100vw breakout that created horizontal scrolling */
-.styever-gift{
-  width:100%;
-  max-width:none;
-  margin-left:0;
-  margin-right:0;
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .gift-section .container-xxl,
+  .plans-section .container-xxl {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+
+  .gift-value {
+    padding: 22px !important;
+  }
+
+
+  .gift-story__content,
+  .feature-panel__content {
+    padding: 24px;
+  }
+
 }
-.gift-hero{
-  height:100vh;
-  min-height:100vh;
-  max-height:100vh;
+
+/* =========================================================
+   METRONIC RADIUS STANDARD
+   Regular UI surfaces use the exact Metronic card radius.
+   Circular avatars/symbols remain circular.
+   ========================================================= */
+:host {
+  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
 }
-@supports(height:100dvh){
-  .gift-hero{height:100dvh;min-height:100dvh;max-height:100dvh}
+
+.card,
+.btn,
+.form-control,
+.form-select,
+.input-group,
+.input-group-text,
+.modal-content,
+.dropdown-menu,
+.alert,
+.badge,
+[class*="card"]:not(.symbol):not([class*="avatar"]),
+[class*="panel"],
+[class*="box"],
+[class*="item"]:not([class*="avatar"]),
+[class*="option"],
+[class*="search"],
+[class*="toggle"],
+[class*="nav__link"] {
+  border-radius: var(--styever-ui-radius) !important;
 }
 
-.gift-value--deep h3.text-white{color:#fff!important}
+.symbol,
+[class*="avatar"] {
+  border-radius: 50%;
+}
 
-.gift-hero__description{-webkit-line-clamp:unset!important;overflow:visible!important;display:block!important}
-
-/* final hero balance */
-.gift-hero__content{max-width:720px;padding:106px 0 94px}
-.gift-hero__title{max-width:690px;font-size:clamp(46px,5.2vw,74px);line-height:.99}
-.gift-hero__description{max-width:570px!important;font-size:17px;line-height:1.7;white-space:normal!important}
-
-
-/* hero copy — preserve the original content, only improve placement */
-.gift-hero__container{height:100%;display:flex;align-items:center}
-.gift-hero__layout{width:100%;display:grid;grid-template-columns:minmax(0,.88fr) minmax(430px,.82fr);gap:clamp(52px,7vw,108px);align-items:center;padding:108px 0 88px}
-.gift-hero__content{max-width:690px;padding:0!important}
-.gift-hero__copy{max-width:610px;justify-self:end;padding-left:34px;border-left:1px solid rgba(255,255,255,.24)}
-.gift-hero__description{display:block!important;max-width:100%!important;margin:0!important;color:rgba(255,255,255,.88)!important;font-size:15px!important;line-height:1.64!important;white-space:pre-line!important;overflow:visible!important;-webkit-line-clamp:unset!important}
-.gift-hero__cta{margin-top:28px!important}
-@media(max-width:1199.98px){.gift-hero__layout{grid-template-columns:minmax(0,.82fr) minmax(400px,.9fr);gap:52px}.gift-hero__description{font-size:14px!important;line-height:1.58!important}}
-@media(max-width:991.98px){.gift-hero{height:auto;max-height:none;min-height:100dvh}.gift-hero__container{height:auto}.gift-hero__layout{grid-template-columns:1fr;gap:24px;padding:126px 20px 88px}.gift-hero__copy{max-width:760px;justify-self:start;padding-left:22px}.gift-hero__title{max-width:760px}.gift-hero__description{font-size:14px!important;line-height:1.58!important}.gift-hero__cta{margin-top:22px!important}}
-@media(max-width:575.98px){.gift-hero__layout{padding:110px 12px 78px}.gift-hero__copy{padding-left:16px}.gift-hero__description{font-size:13px!important;line-height:1.5!important}.gift-hero__cta{width:auto!important}}

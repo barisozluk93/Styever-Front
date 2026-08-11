@@ -1,21 +1,120 @@
-<div class="profile-shell" *ngIf="userData">
-  <div class="container-xxl">
-    <div class="profile-summary card border-0 mb-5">
-      <div class="card-body p-6 p-lg-7">
-        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-5">
-          <div class="d-flex align-items-center gap-4">
-            <div class="symbol symbol-70px profile-shell-avatar"><img *ngIf="!userData?.fileId" src="./assets/media/avatars/blank.png" alt="Avatar" /><img *ngIf="userData?.fileId" [src]="avatarUrl" alt="Avatar" /></div>
-            <div><span class="profile-shell-kicker">STYEVER</span><h1 class="fs-2 fw-bold text-gray-900 mb-1">{{userData?.name}} {{userData?.surname}}</h1><div class="d-flex align-items-center text-gray-500 fs-7"><i class="ki-outline ki-sms fs-5 me-2 text-primary"></i>{{userData?.email}}</div></div>
-          </div>
-          <nav class="profile-nav" aria-label="Profile navigation">
-            <a routerLink="/profile/settings" routerLinkActive="active"><i class="ki-outline ki-user"></i><span>{{'PROFILE' | translate}}</span></a>
-            <a routerLink="/profile/addresses" routerLinkActive="active"><i class="ki-outline ki-geolocation"></i><span>{{'MYADDRESSES' | translate}}</span></a>
-            <a routerLink="/profile/membership" routerLinkActive="active"><i class="ki-outline ki-crown"></i><span>{{'MEMBERSHIP' | translate}}</span></a>
-            <a routerLink="/profile/agreements" routerLinkActive="active"><i class="ki-outline ki-document"></i><span>{{'MY_AGREEMENTS.TITLE' | translate}}</span></a>
-          </nav>
+<app-confirmation
+  #deleteAccountConfirmation
+  (dismissButtonClick)="deleteAccount($event)">
+</app-confirmation>
+
+<main class="account-page w-100" *ngIf="userData">
+  <div class="container-fluid account-container px-4 px-md-6 px-xl-10 py-6 py-lg-8">
+
+    <section class="card bg-white account-shell-card border border-gray-300 shadow-none mb-6">
+      <div class="card-body p-6 p-lg-8 pb-3 pb-lg-3">
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <img
+            src="./assets/media/logos/logo-6.png"
+            alt=""
+            class="account-logo"
+          />
+          <span class="text-primary fs-8 fw-bold text-uppercase account-ls">
+            STYEVER
+          </span>
         </div>
+
+        <div class="account-heading-row">
+          <div class="min-w-0">
+            <h1 class="text-gray-900 fw-bolder fs-2x fs-lg-3x mb-2">
+              {{ 'PROFILE' | translate }}
+            </h1>
+            <div class="text-gray-500 fw-semibold fs-6 lh-lg">
+              {{
+                ('LANG' | translate) === 'tr'
+                  ? 'Profilinizi, güvenliğinizi, adreslerinizi ve üyeliğinizi tek yerden yönetin.'
+                  : 'Manage your profile, security, addresses and membership in one place.'
+              }}
+            </div>
+          </div>
+
+          <div class="account-user-card d-flex align-items-center gap-3 rounded">
+            <div class="symbol symbol-44px symbol-circle flex-shrink-0">
+              <img
+                *ngIf="!userData?.fileId"
+                src="./assets/media/avatars/blank.png"
+                alt="Avatar"
+              />
+              <img
+                *ngIf="userData?.fileId"
+                [src]="avatarUrl"
+                alt="Avatar"
+              />
+            </div>
+
+            <div class="min-w-0 flex-grow-1">
+              <div class="text-gray-900 fw-bold fs-7 text-truncate">
+                {{ userData?.name }} {{ userData?.surname }}
+              </div>
+              <div class="text-gray-500 fs-8 text-truncate">
+                {{ userData?.email }}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-icon btn-sm btn-light-danger account-delete-btn"
+              [attr.aria-label]="('LANG' | translate) === 'tr' ? 'Hesabı Sil' : 'Delete Account'"
+              (click)="openDeleteAccountModal()">
+              <i class="ki-outline ki-trash fs-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <nav class="account-nav d-flex align-items-center gap-2 mt-6" aria-label="Profile navigation">
+          <a
+            routerLink="/profile/settings"
+            routerLinkActive="active"
+            class="btn btn-sm btn-light-primary account-tab">
+            <i class="ki-outline ki-user-edit fs-4 me-2"></i>
+            <span>{{ ('LANG' | translate) === 'tr' ? 'Profil Düzenle' : 'Edit Profile' }}</span>
+          </a>
+
+          <a
+            routerLink="/profile/password"
+            routerLinkActive="active"
+            class="btn btn-sm btn-light-primary account-tab">
+            <i class="ki-outline ki-lock-2 fs-4 me-2"></i>
+            <span>{{ ('LANG' | translate) === 'tr' ? 'Şifre Değiştir' : 'Change Password' }}</span>
+          </a>
+
+          <a
+            routerLink="/profile/addresses"
+            routerLinkActive="active"
+            class="btn btn-sm btn-light-primary account-tab">
+            <i class="ki-outline ki-geolocation fs-4 me-2"></i>
+            <span>{{ 'MYADDRESSES' | translate }}</span>
+          </a>
+
+          <a
+            routerLink="/profile/membership"
+            routerLinkActive="active"
+            class="btn btn-sm btn-light-primary account-tab">
+            <i class="ki-outline ki-crown fs-4 me-2"></i>
+            <span>{{ 'MEMBERSHIP' | translate }}</span>
+          </a>
+
+          <a
+            routerLink="/profile/agreements"
+            routerLinkActive="active"
+            class="btn btn-sm btn-light-primary account-tab">
+            <i class="ki-outline ki-document fs-4 me-2"></i>
+            <span>{{ 'MY_AGREEMENTS.TITLE' | translate }}</span>
+          </a>
+        </nav>
+
       </div>
-    </div>
-    <div class="profile-shell-content"><router-outlet></router-outlet></div>
+    </section>
+
+    <section class="account-content w-100">
+      <router-outlet></router-outlet>
+    </section>
+
   </div>
-</div>
+</main>

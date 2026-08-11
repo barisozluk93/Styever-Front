@@ -1,1 +1,44 @@
-:host{display:block}.signin-card{border-radius:26px!important;box-shadow:0 18px 55px rgba(16,41,31,.08);background:#fff}.signin-kicker{display:block;margin-bottom:8px;color:var(--bs-primary);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.signin-section{padding:2px 0}.signin-summary{min-height:74px;padding:16px 18px;border:1px solid var(--bs-gray-200);border-radius:18px;background:var(--bs-gray-100)}.signin-label{margin-bottom:5px;color:var(--bs-gray-600);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.signin-value{color:var(--bs-gray-900);font-size:14px;font-weight:600}.signin-password{letter-spacing:.15em}.signin-divider{height:1px;background:var(--bs-gray-200);margin:24px 0}.signin-auth-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.signin-auth-form.password-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.signin-auth-form>.field-full{grid-column:1/-1}.signin-auth-form .form-label{font-size:12px;margin-bottom:7px}.signin-auth-form .form-control{min-height:50px;border:1px solid var(--bs-gray-300);border-radius:.8rem;color:var(--bs-gray-900);box-shadow:0 1px 2px rgba(18,38,30,.02);transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}.signin-auth-form .form-control:hover:not(:focus):not(.is-invalid){border-color:var(--bs-gray-400)}.signin-auth-form .form-control:focus{border-color:rgba(10,74,50,.55);box-shadow:0 0 0 .22rem rgba(10,74,50,.08)}.signin-auth-form .form-control.is-valid,.signin-auth-form .form-control.is-invalid{background-position:right 1rem center}.signin-actions{padding-top:18px;border-top:1px solid var(--bs-gray-200);margin-top:2px}.signin-card .btn{min-height:46px;border-radius:.8rem}.fv-plugins-message-container{margin-top:4px;color:var(--bs-danger);font-size:11px;font-weight:600}@media(max-width:991.98px){.signin-auth-form.password-grid{grid-template-columns:1fr}.signin-auth-form.password-grid>.field-full{grid-column:1}}@media(max-width:767.98px){.signin-card .card-body{padding:24px!important}.signin-auth-form{grid-template-columns:1fr}.signin-auth-form>.field-full{grid-column:1}.signin-summary{align-items:flex-start!important}.signin-summary .btn{width:100%}}
+:host{display:block;width:100%}.signin-card{border:1px solid var(--bs-gray-200)!important;box-shadow:var(--bs-box-shadow-sm)!important;background:#fff!important}.signin-kicker{display:none}.signin-section{padding:0}.signin-summary{min-height:70px;padding:16px 18px;border:1px solid var(--bs-gray-200);background:var(--bs-gray-100)}.signin-label{margin-bottom:5px;color:var(--bs-gray-500);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.signin-value{color:var(--bs-gray-900);font-size:14px;font-weight:600}.signin-password{letter-spacing:.15em}.signin-divider{height:1px;background:var(--bs-gray-200);margin:22px 0}.signin-auth-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.signin-auth-form.password-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.signin-auth-form>.field-full{grid-column:1/-1}.signin-auth-form .form-label{font-size:13px!important;margin-bottom:8px}.signin-auth-form .form-control{min-height:50px;height:50px;border:1px solid var(--bs-gray-300);box-shadow:none}.signin-auth-form .form-control::placeholder{color:var(--bs-gray-500);opacity:.7}.signin-auth-form .form-control:focus{border-color:var(--bs-primary);box-shadow:0 0 0 .2rem rgba(var(--bs-primary-rgb),.07)}.signin-actions{padding-top:16px;border-top:1px solid var(--bs-gray-200)}.signin-card .btn{min-height:40px;border:0!important;box-shadow:none}.signin-card .btn-light-primary:hover{background:var(--bs-primary)!important;color:#fff!important;border:0!important}.fv-plugins-message-container{margin-top:4px;color:var(--bs-danger);font-size:11px;font-weight:600}@media(max-width:991.98px){.signin-auth-form.password-grid{grid-template-columns:1fr}}@media(max-width:767.98px){.signin-card .card-body{padding:20px!important}.signin-auth-form{grid-template-columns:1fr}.signin-auth-form>.field-full{grid-column:1}.signin-summary{align-items:flex-start!important}.signin-summary .btn{width:100%}}
+
+
+/* STYEVER UNIFIED METRONIC CARD SURFACE */
+:host .card {
+  background-color: #fff !important;
+  background: #fff !important;
+}
+
+/* =========================================================
+   METRONIC RADIUS STANDARD
+   Regular UI surfaces use the exact Metronic card radius.
+   Circular avatars/symbols remain circular.
+   ========================================================= */
+:host {
+  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
+}
+
+.card,
+.btn,
+.form-control,
+.form-select,
+.input-group,
+.input-group-text,
+.modal-content,
+.dropdown-menu,
+.alert,
+.badge,
+[class*="card"]:not(.symbol):not([class*="avatar"]),
+[class*="panel"],
+[class*="box"],
+[class*="item"]:not([class*="avatar"]),
+[class*="option"],
+[class*="search"],
+[class*="toggle"],
+[class*="nav__link"] {
+  border-radius: var(--styever-ui-radius) !important;
+}
+
+.symbol,
+[class*="avatar"] {
+  border-radius: 50%;
+}
+

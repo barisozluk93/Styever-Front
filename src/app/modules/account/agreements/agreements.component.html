@@ -1,25 +1,14 @@
-<div class="card border-0 profile-section-card mb-6">
-  <div class="card-body p-7 p-lg-9">
-    <div class="mb-7"><span class="profile-section-kicker">STYEVER</span><h2 class="fs-2 fw-bold text-gray-900 mb-1">{{'MY_AGREEMENTS.TITLE'|translate}}</h2></div>
+<section class="card bg-white account-section-card border border-gray-300 shadow-none">
+  <div class="card-body p-6 p-lg-8">
+    <div class="d-flex align-items-center gap-2 mb-3"><img src="./assets/media/logos/logo-6.png" alt="" class="section-logo" /><span class="text-primary fs-8 fw-bold text-uppercase section-ls">STYEVER</span></div>
+    <h2 class="text-gray-900 fw-bolder fs-2x mb-2">{{'MY_AGREEMENTS.TITLE'|translate}}</h2>
+    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-6">{{ ('LANG' | translate) === 'tr' ? 'Kabul ettiğiniz sözleşme ve onay metinlerini görüntüleyebilirsiniz.' : 'View the agreements and consent texts you have accepted.' }}</div>
+
     <div *ngIf="loading" class="text-center py-12"><span class="spinner-border text-primary"></span></div>
-    <div *ngIf="!loading&&!agreements.length" class="profile-empty text-center py-12"><div class="fw-bold text-gray-700">{{'MY_AGREEMENTS.EMPTY'|translate}}</div></div>
+    <div *ngIf="!loading&&!agreements.length" class="mobile-empty-state rounded"><div class="mobile-empty-state__icon"><app-keenicon name="document" class="fs-1 text-primary"></app-keenicon></div><div class="fw-bolder fs-4 text-gray-900">{{ ('LANG' | translate) === 'tr' ? 'Henüz kayıtlı bir sözleşmeniz bulunmuyor.' : 'You do not have a saved agreement yet.' }}</div></div>
+
     <div class="d-grid gap-4" *ngIf="agreements.length">
-      <div class="agreement-card" *ngFor="let item of agreements">
-        <div class="d-flex align-items-start justify-content-between gap-4 flex-wrap">
-          <div class="flex-grow-1">
-            <div class="fw-bold fs-5 text-gray-900 mb-2">{{item.title}}</div>
-            <div class="d-flex flex-wrap gap-2">
-              <span class="badge badge-light-primary">{{typeKey(item.agreementType)|translate}}</span>
-              <span class="badge badge-light">{{contextKey(item.context)|translate}}</span>
-              <span class="badge badge-light">v{{item.version}}</span>
-            </div>
-            <div class="text-gray-500 fs-8 mt-3">{{item.acceptedDate|date:'dd.MM.yyyy HH:mm'}}</div>
-          </div>
-          <button *ngIf="item.contentSnapshot" type="button" class="btn btn-sm btn-light-primary" (click)="toggleDetails(item.id)">{{(expandedId===item.id?'MY_AGREEMENTS.HIDE':'MY_AGREEMENTS.VIEW')|translate}}</button>
-          <a *ngIf="!item.contentSnapshot&&item.documentUrl" [routerLink]="item.documentUrl" class="btn btn-sm btn-light-primary">{{'MY_AGREEMENTS.VIEW'|translate}}</a>
-        </div>
-        <div *ngIf="expandedId===item.id&&item.contentSnapshot" class="agreement-content mt-5"><div class="fw-bold text-gray-800 mb-3">{{'MY_AGREEMENTS.ACCEPTED_CONTENT'|translate}}</div><div class="text-gray-700 fs-7">{{item.contentSnapshot}}</div></div>
-      </div>
+      <article class="card bg-white agreement-card border border-gray-300 shadow-none" *ngFor="let item of agreements"><div class="card-body p-5"><div class="d-flex align-items-start justify-content-between gap-4 flex-wrap"><div class="flex-grow-1 min-w-0"><div class="d-flex align-items-center gap-3 mb-3"><div class="symbol symbol-40px"><span class="symbol-label bg-light-primary"><app-keenicon name="document" class="fs-2 text-primary"></app-keenicon></span></div><div class="fw-bold fs-5 text-gray-900">{{item.title}}</div></div><div class="d-flex flex-wrap gap-2"><span class="badge badge-light-primary">{{typeKey(item.agreementType)|translate}}</span><span class="badge badge-light">{{contextKey(item.context)|translate}}</span><span class="badge badge-light">v{{item.version}}</span></div><div class="text-gray-500 fs-8 mt-3">{{item.acceptedDate|date:'dd.MM.yyyy HH:mm'}}</div></div><button *ngIf="item.contentSnapshot" type="button" class="btn btn-sm btn-light-primary" (click)="toggleDetails(item.id)">{{(expandedId===item.id?'MY_AGREEMENTS.HIDE':'MY_AGREEMENTS.VIEW')|translate}}</button><a *ngIf="!item.contentSnapshot&&item.documentUrl" [routerLink]="item.documentUrl" class="btn btn-sm btn-light-primary">{{'MY_AGREEMENTS.VIEW'|translate}}</a></div><div *ngIf="expandedId===item.id&&item.contentSnapshot" class="agreement-content mt-5 rounded"><div class="fw-bold text-gray-800 mb-3">{{'MY_AGREEMENTS.ACCEPTED_CONTENT'|translate}}</div><div class="text-gray-700 fs-7">{{item.contentSnapshot}}</div></div></div></article>
     </div>
   </div>
-</div>
+</section>

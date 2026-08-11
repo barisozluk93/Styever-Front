@@ -35,9 +35,9 @@ export const locale = {
                 CONTINUE: 'Devam Et'
             },
             LOGIN: {
-                TITLE: 'Hesaba Giriş',
+                TITLE: 'Giriş Yap',
                 BUTTON: 'Giriş Yap',
-                SUBTITLE: 'Anılarınızı yaşatmaya devam etmek için hesabınıza giriş yapın.',
+                SUBTITLE: 'Önemli anıları yaşatmaya devam etmek için hesabınıza giriş yapınız.',
                 NEW_HERE: 'Styever’da yeni misiniz?',
                 FOOTNOTE: 'Sevgiyle biriktirilen anılar, zaman geçse de yaşamaya devam eder.',
             },
@@ -134,7 +134,7 @@ export const locale = {
         REQUIRED_ENGLISH_NAME: "İngilizce İsim zorunludur!",
         REQUIRED_CODE: "Kod zorunludur!",
 
-        NOMATCH_PASSWORD: "'Şifre' ve 'Şifre Onayla' eşleşmiyor!'",
+        NOMATCH_PASSWORD: "'Şifre' ve 'Şifre Onayı' eşleşmiyor!'",
 
         SELECT_ROLE: "Rol Seçiniz...",
         SELECT_ORGANIZATION: "Organizasyon Seçiniz...",
@@ -158,8 +158,8 @@ export const locale = {
         NOTMEMBERYET: '',
         SIGNUP: 'Hesap Aç',
 
-        RESETPASSWORDMAIL: 'Şifrenizi yenilemek için mail adresinizi giriniz.',
-        RESET_PASSWORD_SUBHEADER: 'Yeni şifrenizi ve onay şifreniz giriniz.',
+        RESETPASSWORDMAIL: 'Şifrenizi sıfırlamak için e-posta adresinizi giriniz.',
+        RESET_PASSWORD_SUBHEADER: 'Yeni şifrenizi ve onay şifrenizi giriniz.',
         RESET_PASSWORD_ERROR: 'Bilgilerinizi kontrol ediniz!',
         RESET_PASSWORD_SUCCESS: 'Şifreniz başarıyla değiştirildi.',
 
@@ -282,11 +282,11 @@ export const locale = {
         MEMBERSHIP: "Üyelik",
 
         PROFILE_DETAILS: "Profil Detayları",
-        NAME: "Adınız",
+        NAME: "Ad",
         FULL_NAME: "Ad Soyad",
-        FIRST_NAME: "Adınız",
-        LAST_NAME: "Soyadınız",
-        USERNAME: "Kullanıcı Adınız",
+        FIRST_NAME: "Ad",
+        LAST_NAME: "Soyad",
+        USERNAME: "Kullanıcı Adı",
         CONTRACT_PHONE: "İletişim Telefonu",
         COUNTRY: "Ülke",
         CITY: "Şehir",
@@ -316,10 +316,10 @@ export const locale = {
         CONFIRM_NEW_PASSWORD: "Yeni Şifreyi Onayla",
         CONFIRM_NEW_PASSWORD_RULE_1: "Yeni Şifre Onayla en az 3 karakter içermelidir",
         CONFIRM_NEW_PASSWORD_RULE_2: "Yeni Şifre Onayla en fazla 100 karakter içermelidir",
-        CONFIRM_PASSWORD: "Şifreyi Onayla",
+        CONFIRM_PASSWORD: "Şifre Onayı",
         CONFIRM_PASSWORD_SHOULD_HAVE_AT_LEAST_3_SYMBOLS: "Şifreyi doğrulama en az 3 karakter içermelidir!",
         CONFIRM_PASSWORD_SHOULD_HAVE_MAXIMUM_100_SYMBOLS: "Şifreyi doğrulama en fazla 100 karakter içermelidir!",
-        PASSWORD_MISMATCH: "'Yeni Şifre' ve 'Şifreyi Onayla' eşleşmiyor.",
+        PASSWORD_MISMATCH: "'Yeni Şifre' ve 'Şifreyi Onayı' eşleşmiyor.",
 
         CATEGORY: "Kategori",
         SELECT_CATEGORY: "Bir Kategori Seçin...",

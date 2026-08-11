@@ -13,7 +13,7 @@
                 <label class="form-label fw-bold text-gray-800 required">
                     {{'COUNTRY' | translate}}
                 </label>
-                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="country"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="country" [placeholder]="'COUNTRY' | translate"
                     formControlName="country" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['country'].invalid,
                     'is-valid': form.controls['country'].valid
@@ -31,7 +31,7 @@
                 <label class="form-label fw-bold text-gray-800 required">
                     {{'CITY' | translate}}
                 </label>
-                <div class="position-relative"><i class="ki-outline ki-map position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="city"
+                <div class="position-relative"><i class="ki-outline ki-map position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="city" [placeholder]="'CITY' | translate"
                     formControlName="city" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['city'].invalid,
                     'is-valid': form.controls['city'].valid
@@ -46,7 +46,7 @@
                 <label class="form-label fw-bold text-gray-800 required">
                     {{'DISTRICT' | translate}}
                 </label>
-                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="district"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="district" [placeholder]="'DISTRICT' | translate"
                     formControlName="district" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['district'].invalid,
                     'is-valid': form.controls['district'].valid
@@ -64,7 +64,7 @@
                 <label class="form-label fw-bold text-gray-800 required">
                     {{'ADDRESS' | translate}}
                 </label>
-                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-0 mt-4 ms-4 fs-2 text-gray-500"></i><textarea class="form-control form-control-lg bg-white ps-12" type="text" name="address"
+                <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-0 mt-4 ms-4 fs-2 text-gray-500"></i><textarea class="form-control form-control-lg bg-white ps-12" type="text" name="address" [placeholder]="'ADDRESS' | translate"
                     formControlName="address" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['address'].invalid,
                     'is-valid': form.controls['address'].valid
@@ -83,7 +83,7 @@
                 <label class="form-label fw-bold text-gray-800 required">
                     {{'ADDRESS_HEADER' | translate}}
                 </label>
-                <div class="position-relative"><i class="ki-outline ki-home position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="addressHeader"
+                <div class="position-relative"><i class="ki-outline ki-home position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="addressHeader" [placeholder]="'ADDRESS_HEADER' | translate"
                     formControlName="addressHeader" autocomplete="off" [ngClass]="{
                     'is-invalid': form.controls['addressHeader'].invalid,
                     'is-valid': form.controls['addressHeader'].valid

@@ -1,37 +1,169 @@
 <div class="auth-page d-flex flex-column flex-lg-row flex-column-fluid min-vh-100">
-  <div class="auth-content d-flex flex-column flex-column-fluid order-2 order-lg-1">
-    <div class="d-flex flex-center flex-column flex-column-fluid px-6 px-lg-12 py-5 py-lg-7">
+
+  <!-- =====================================================
+       LEFT / AUTH CONTENT
+       ===================================================== -->
+  <div
+    class="auth-content d-flex flex-column flex-column-fluid order-2 order-lg-1">
+
+    <!-- ROUTER CONTENT -->
+    <div
+      class="d-flex flex-center flex-column flex-column-fluid px-6 px-lg-12 py-5 py-lg-7">
+
       <div class="auth-form-wrapper w-100">
         <router-outlet></router-outlet>
       </div>
+
     </div>
 
-    <div class="d-flex flex-center flex-wrap gap-3 px-6 pb-4 fs-8 fw-semibold text-gray-500 auth-footer">
-      <a routerLink="/privacy-policy" class="text-gray-500 text-hover-primary">{{'AUTH.GENERAL.PRIVACY' | translate}}</a>
-      <span class="bullet bullet-dot bg-gray-300"></span>
-      <a routerLink="/terms-of-use" class="text-gray-500 text-hover-primary">{{'AUTH.GENERAL.LEGAL' | translate}}</a>
-      <span class="bullet bullet-dot bg-gray-300"></span>
-      <a routerLink="/contactus" class="text-gray-500 text-hover-primary">{{'AUTH.GENERAL.CONTACT' | translate}}</a>
-    </div>
-  </div>
 
-  <div class="auth-visual d-none d-lg-flex flex-column flex-column-fluid order-1 order-lg-2 position-relative overflow-hidden">
-    <div class="auth-visual-bg position-absolute top-0 start-0 w-100 h-100"></div>
-    <div class="auth-visual-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <!-- ===================================================
+         SOCIAL
+         =================================================== -->
+    <div class="auth-social d-flex flex-center gap-3 px-6 mb-4">
 
-    <div class="position-relative z-index-2 d-flex flex-column h-100 p-10 p-xl-12">
-      <a routerLink="/home" class="d-inline-flex align-items-center align-self-start">
-        <img src="./assets/media/logos/icon-transparent.png" alt="Styever" class="auth-brand-logo" />
+      <!-- INSTAGRAM -->
+      <a
+        href="https://www.instagram.com/sty.ever"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-icon btn-sm btn-light-primary auth-social__btn"
+        aria-label="Instagram">
+
+        <i class="fa-brands fa-instagram fs-4"></i>
+
       </a>
 
-      <div class="mt-auto mw-600px pb-5">
-        <div class="d-inline-flex align-items-center gap-2 rounded-pill bg-white bg-opacity-15 px-4 py-2 mb-5 backdrop-blur">
-          <i class="ki-outline ki-heart fs-5 text-white"></i>
-          <span class="fs-8 fw-bold text-white text-uppercase ls-1">Styever</span>
-        </div>
-        <h2 class="auth-visual-title text-white fw-bold mb-4">{{'AUTH.SIDE.TITLE' | translate}}</h2>
-        <p class="fs-4 text-white text-opacity-75 fw-normal lh-lg mb-0">{{'AUTH.SIDE.DESC' | translate}}</p>
-      </div>
+
+      <!-- LINKEDIN -->
+      <a
+        href="https://www.linkedin.com/company/styever/"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-icon btn-sm btn-light-primary auth-social__btn"
+        aria-label="LinkedIn">
+
+        <i class="fa-brands fa-linkedin-in fs-4"></i>
+
+      </a>
+
+
+      <!-- TIKTOK -->
+      <a
+        href="https://www.tiktok.com/@styever?_r=1&_t=ZN-98m98MRRxdW"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-icon btn-sm btn-light-primary auth-social__btn"
+        aria-label="TikTok">
+
+        <i class="fa-brands fa-tiktok fs-4"></i>
+
+      </a>
+
     </div>
+
+
+    <!-- ===================================================
+         FOOTER
+         =================================================== -->
+    <div
+      class="auth-footer d-flex flex-center flex-wrap gap-3 px-6 pb-4 fs-8 fw-semibold text-gray-500">
+
+      <a
+        routerLink="/privacy-policy"
+        class="text-gray-500 text-hover-primary">
+
+        {{ 'AUTH.GENERAL.PRIVACY' | translate }}
+
+      </a>
+
+      <span class="bullet bullet-dot bg-gray-300"></span>
+
+      <a
+        routerLink="/terms-of-use"
+        class="text-gray-500 text-hover-primary">
+
+        {{ 'AUTH.GENERAL.LEGAL' | translate }}
+
+      </a>
+
+      <span class="bullet bullet-dot bg-gray-300"></span>
+
+      <a
+        routerLink="/contactus"
+        class="text-gray-500 text-hover-primary">
+
+        {{ 'AUTH.GENERAL.CONTACT' | translate }}
+
+      </a>
+
+    </div>
+
   </div>
+
+
+  <!-- =====================================================
+       RIGHT / VISUAL
+       ===================================================== -->
+  <div
+    class="auth-visual d-none d-lg-flex flex-column flex-column-fluid order-1 order-lg-2 position-relative overflow-hidden">
+
+    <!-- IMAGE -->
+    <div
+      class="auth-visual-bg position-absolute top-0 start-0 w-100 h-100">
+    </div>
+
+    <!-- OVERLAY -->
+    <div
+      class="auth-visual-overlay position-absolute top-0 start-0 w-100 h-100">
+    </div>
+
+
+    <div
+      class="position-relative z-index-2 d-flex flex-column h-100 p-10 p-xl-12">
+
+      <!-- LOGO -->
+      <a
+        routerLink="/home"
+        class="d-inline-flex align-items-center align-self-start">
+
+        <img
+          src="./assets/media/logos/icon-transparent.png"
+          alt="Styever"
+          class="auth-brand-logo"
+        />
+
+      </a>
+
+
+      <!-- CONTENT -->
+      <div class="mt-auto mw-600px pb-5">
+
+        <div
+          class="d-inline-flex align-items-center gap-2 rounded-pill bg-white bg-opacity-15 px-4 py-2 mb-5 backdrop-blur">
+
+          <i class="ki-outline ki-heart fs-5 text-white"></i>
+
+          <span class="fs-8 fw-bold text-white text-uppercase ls-1">
+            Styever
+          </span>
+
+        </div>
+
+
+        <h2 class="auth-visual-title text-white fw-bold mb-4">
+          {{ 'AUTH.SIDE.TITLE' | translate }}
+        </h2>
+
+
+        <p class="fs-4 text-white text-opacity-75 fw-normal lh-lg mb-0">
+          {{ 'AUTH.SIDE.DESC' | translate }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

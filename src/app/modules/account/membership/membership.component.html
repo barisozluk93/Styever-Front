@@ -1,32 +1,30 @@
-<div class="card border-0 profile-section-card mb-6" *ngIf="user && userData">
-  <div class="card-body p-7 p-lg-9">
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-7">
-      <div>
-        <span class="profile-section-kicker">STYEVER</span>
-        <h2 class="fs-2 fw-bold text-gray-900 mb-1">{{'MEMBERSHIP' | translate}}</h2>
-      </div>
-      <button *ngIf="!userData.isTrial && !isUserActive" type="button" class="btn btn-primary px-6" (click)="buyNewPackage()">{{(showPlans ? 'CLOSE' : 'BUY_NEW_PACKAGE') | translate}}</button>
-      <button *ngIf="userData.isTrial && !isUserActive" type="button" class="btn btn-primary px-6" (click)="pay()">{{'PAYMENT' | translate}}</button>
-    </div>
+<section class="card bg-white account-section-card border border-gray-300 shadow-none">
+  <div class="card-body p-6 p-lg-8">
+    <div class="d-flex align-items-center gap-2 mb-3"><img src="./assets/media/logos/logo-6.png" alt="" class="section-logo" /><span class="text-primary fs-8 fw-bold text-uppercase section-ls">STYEVER</span></div>
+    <h2 class="text-gray-900 fw-bolder fs-2x mb-2">{{'MEMBERSHIP' | translate}}</h2>
+    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-7">{{ ('LANG' | translate) === 'tr' ? 'Mevcut üyelik planınızı, kullanım sürenizi ve paket kapsamınızı buradan takip edebilirsiniz.' : 'Track your current membership plan, usage period and package coverage here.' }}</div>
 
-    <div *ngIf="!showPlans" class="membership-current">
-      <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-5">
-        <div>
-          <div class="text-gray-500 fs-8 text-uppercase fw-bold ls-1 mb-2">{{'MEMBERSHIP' | translate}}</div>
-          <div class="fs-2x fw-bold text-primary">{{ userData.roles[0] == 2 ? ('standard' | translate) : userData.roles[0] == 3 ? ('premium' | translate) : ('ultra' | translate) }}</div>
-          <div class="d-flex flex-wrap gap-2 mt-3">
-            <span *ngIf="userData.isTrial" class="badge badge-light-warning px-3 py-2">{{'trial' | translate}}</span>
-            <span *ngIf="!isUserActive" class="badge badge-light-danger px-3 py-2">{{(userData.isTrial ? 'TRIAL_EXPIRED' : 'PACKAGE_EXPIRED') | translate}}</span>
-          </div>
+    <ng-container *ngIf="userData; else noMembershipData">
+      <div *ngIf="!showPlans" class="membership-mobile-card rounded">
+        <div class="d-flex align-items-start justify-content-between gap-4 mb-4">
+          <div><div class="fw-bolder text-gray-900 membership-plan-title">{{ userData.roles[0] == 2 ? 'Origin' : userData.roles[0] == 3 ? 'Heart' : 'Family' }}</div><div class="fw-bolder text-primary membership-price">{{ userData.roles[0] == 2 ? '₺499,00/Yıl' : userData.roles[0] == 3 ? '₺699,00/Yıl' : '₺1299,00/Yıl' }}</div></div>
+          <div class="membership-check rounded"><i class="ki-outline ki-check fs-2 text-primary"></i></div>
         </div>
-        <div class="membership-dates">
-          <div class="membership-date"><span>{{'start_date' | translate}}</span><strong>{{createdDate}}</strong></div>
-          <div class="membership-date"><span>{{'end_date' | translate}}</span><strong>{{expirationDate}}</strong></div>
-          <div class="membership-date" *ngIf="userData.isTrial"><span>{{'trial_end_date' | translate}}</span><strong>{{trialExpirationDate}}</strong></div>
-        </div>
-      </div>
-    </div>
 
-    <div *ngIf="showPlans" class="pt-2"><app-plans [isStandByPage]="false" [isProfilePage]="true"></app-plans></div>
+        <div class="membership-features">
+          <ng-container *ngIf="userData.roles[0] == 2"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Sayfası' : '1 Memory Page' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Fotoğraf' : '1 Picture' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Yazısı Alanı (1000 Karakter)' : '1 Memoir Section (1000 char.)' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
+          <ng-container *ngIf="userData.roles[0] == 3"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Sayfası' : '1 Memory Page' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '4 Fotoğraf' : '4 Pictures' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '2 Video' : '2 Videos' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '2 Youtube Video' : '2 Youtube Videos' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Yazısı Alanı (5000 Karakter)' : '1 Memoir Section (5000 char.)' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
+          <ng-container *ngIf="userData.roles[0] == 4"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '4 Anı Sayfası' : '4 Memory Pages' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 4 Fotoğraf' : '4 Pictures per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 2 Video' : '2 Videos per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 2 Youtube Video' : '2 Youtube Videos per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 1 Yazı Alanı (5000 Karakter)' : '1 Memoir Section (5000 char.) per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
+        </div>
+
+        <div class="separator my-6"></div>
+        <div class="membership-dates"><div class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'start_date' | translate}}</div><div class="date-value">{{createdDate}}</div></div><div class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'end_date' | translate}}</div><div class="date-value">{{expirationDate}}</div></div><div *ngIf="userData.isTrial" class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'trial_end_date' | translate}}</div><div class="date-value">{{trialExpirationDate}}</div></div></div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-6" *ngIf="!showPlans"><button *ngIf="!userData.isTrial && !isUserActive" type="button" class="btn btn-primary membership-action" (click)="buyNewPackage()">{{'BUY_NEW_PACKAGE' | translate}}</button><button *ngIf="userData.isTrial && !isUserActive" type="button" class="btn btn-primary membership-action" (click)="pay()">{{'PAYMENT' | translate}}</button></div>
+      <div *ngIf="showPlans" class="pt-2"><div class="d-flex justify-content-end mb-4"><button type="button" class="btn btn-sm btn-light-primary" (click)="buyNewPackage()">{{'CLOSE' | translate}}</button></div><app-plans [isStandByPage]="false" [isProfilePage]="true"></app-plans></div>
+    </ng-container>
+
+    <ng-template #noMembershipData><div class="mobile-empty-state rounded"><div class="mobile-empty-state__icon"><app-keenicon name="crown" class="fs-1 text-primary"></app-keenicon></div><div class="fw-bolder fs-4 text-gray-900">{{ ('LANG' | translate) === 'tr' ? 'Üyelik bilgisi bulunamadı.' : 'Membership information is not available.' }}</div></div></ng-template>
   </div>
-</div>
+</section>

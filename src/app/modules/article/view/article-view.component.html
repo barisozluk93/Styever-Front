@@ -11,11 +11,25 @@
         <div class="col-lg-7 col-xl-7">
           <div class="article-view__hero-content">
             <div class="article-view__hero-meta">
-              <button type="button" class="btn btn-sm btn-light btn-active-light-primary rounded-3 article-view__back" (click)="goToArticles()">
-                <i class="ki-duotone ki-arrow-left fs-4 me-2"><span class="path1"></span><span class="path2"></span></i>
+              <button
+                type="button"
+                class="btn btn-light btn-sm px-5 styever-white-btn article-view__back"
+                (click)="goToArticles()">
+                <i class="ki-duotone ki-arrow-left fs-4 me-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
                 {{ ('LANG' | translate) === 'tr' ? 'Destek Köşesine Dön' : 'Back to Support' }}
               </button>
-              <div class="article-view__eyebrow"><span></span>STYEVER</div>
+
+              <div class="article-view__eyebrow">
+                <img
+                  src="/assets/media/logos/logo.png"
+                  alt="Styever"
+                  class="article-view__eyebrow-logo flex-shrink-0"
+                />
+                <span>STYEVER</span>
+              </div>
             </div>
             <h1>{{ ('LANG' | translate) === 'tr' ? article.header : article.headerEn }}</h1>
             <p>{{ ('LANG' | translate) === 'tr' ? article.subHeader : article.subHeaderEn }}</p>

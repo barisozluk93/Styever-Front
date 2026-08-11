@@ -1,94 +1,297 @@
 <main class="styever-about">
-  <section class="about-hero">
-    <div class="about-hero__shade"></div>
-    <div class="container-xxl about-hero__container">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="about-hero position-relative d-flex align-items-center">
+
+    <div
+      class="about-hero__shade position-absolute top-0 start-0 w-100 h-100">
+    </div>
+
+    <div
+      class="container-xxl about-hero__container position-relative z-index-2">
+
       <div class="about-hero__layout">
+
+        <!-- LEFT -->
         <div class="about-hero__content">
-          <div class="about-hero__eyebrow">
-            <span class="about-hero__eyebrow-mark"></span>
-            {{ 'ABOUT' | translate }}
+
+          <div
+            class="about-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
+
+            <img
+              src="/assets/media/logos/logo.png"
+              alt="Styever"
+              class="about-hero__eyebrow-logo flex-shrink-0"
+            />
+
+            <span>
+              {{ 'ABOUT' | translate }}
+            </span>
+
           </div>
-          <h1 class="about-hero__title">{{ 'ABOUT_HEADER_CONTENT' | translate }}</h1>
+
+          <h1 class="about-hero__title fw-bold text-white">
+            {{ 'ABOUT_HEADER_CONTENT' | translate }}
+          </h1>
+
         </div>
 
+
+        <!-- RIGHT -->
         <div class="about-hero__copy">
-          <p class="about-hero__description">{{ 'ABOUT_SUBHEADER' | translate }}</p>
+
+          <p class="about-hero__description mb-0">
+            {{ 'ABOUT_SUBHEADER' | translate }}
+          </p>
+
         </div>
+
       </div>
+
     </div>
 
-    <button type="button" class="about-hero__scroll" (click)="goToContent()">
-      <span>{{ 'EXPLORE' | translate }}</span>
-      <i class="ki-duotone ki-down fs-2"><span class="path1"></span><span class="path2"></span></i>
+
+    <!-- SCROLL -->
+    <button
+      type="button"
+      class="about-hero__scroll"
+      (click)="goToContent()">
+
+      <span>
+        {{ 'EXPLORE' | translate }}
+      </span>
+
+      <i class="ki-duotone ki-down fs-2">
+        <span class="path1"></span>
+        <span class="path2"></span>
+      </i>
+
     </button>
+
   </section>
 
-  <section id="about-content" class="about-section about-section--warm">
+
+  <!-- =====================================================
+       STORY
+       BACKGROUND KORUNDU
+       ===================================================== -->
+  <section
+    id="about-content"
+    class="about-section about-section--warm">
+
     <div class="container-xxl">
-      <div class="about-story">
+
+      <div class="card about-story border-0 shadow-sm">
+
+        <!-- MEDIA -->
         <div class="about-story__media">
-          <img src="./assets/media/patterns/Hakkimizda.jpg" [alt]="'ABOUT_FIRST_CONTENT_HEADER' | translate">
-          <div class="about-story__badge">
-            <img src="./assets/media/logos/logo-2.png" alt="Styever">
-            <span>{{ 'ABOUT' | translate }}</span>
+
+          <img
+            src="./assets/media/patterns/Hakkimizda.jpg"
+            [alt]="'ABOUT_FIRST_CONTENT_HEADER' | translate"
+          />
+
+          <div
+            class="about-story__badge d-flex align-items-center">
+
+            <img
+              src="./assets/media/logos/logo-2.png"
+              alt="Styever"
+            />
+
+            <span>
+              {{ 'ABOUT' | translate }}
+            </span>
+
           </div>
+
         </div>
 
+
+        <!-- CONTENT -->
         <div class="about-story__content">
-          <span class="section-kicker">{{ 'ABOUT' | translate }}</span>
-          <h2>{{ 'ABOUT_FIRST_CONTENT_HEADER' | translate }}</h2>
-          <p>{{ 'ABOUT_FIRST_CONTENT' | translate }}</p>
+
+          <span
+            class="section-kicker d-inline-flex align-items-center fw-bold text-uppercase text-primary">
+
+            {{ 'ABOUT' | translate }}
+
+          </span>
+
+          <h2 class="fw-bold text-gray-900">
+            {{ 'ABOUT_FIRST_CONTENT_HEADER' | translate }}
+          </h2>
+
+          <p class="text-gray-600 mb-0">
+            {{ 'ABOUT_FIRST_CONTENT' | translate }}
+          </p>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <section class="about-section">
+
+  <!-- =====================================================
+       VALUES
+       BACKGROUND KORUNDU
+       ===================================================== -->
+  <section class="about-section about-section--values">
+
     <div class="container-xxl">
+
+      <!-- HEADING -->
       <div class="section-heading">
+
         <div>
-          <span class="section-kicker">STYEVER</span>
-          <h2>{{ 'ABOUT_SECOND_CONTENT_HEADER' | translate }}</h2>
+
+          <span
+            class="section-kicker d-inline-flex align-items-center fw-bold text-uppercase text-primary">
+
+            STYEVER
+
+          </span>
+
+          <h2 class="fw-bold text-gray-900">
+            {{ 'ABOUT_SECOND_CONTENT_HEADER' | translate }}
+          </h2>
+
         </div>
-        <p>{{ 'ABOUT_SECOND_CONTENT' | translate }}</p>
+
+
+        <p class="text-gray-600 mb-0">
+          {{ 'ABOUT_SECOND_CONTENT' | translate }}
+        </p>
+
       </div>
 
+
+      <!-- VALUES GRID -->
       <div class="values-grid">
-        <article class="value-card value-card--deep">
-          <div class="value-card__icon">
-            <i class="ki-duotone ki-heart fs-1"><span class="path1"></span><span class="path2"></span></i>
+
+        <!-- VALUE 1 -->
+        <article
+          class="card value-card value-card--deep border-0 shadow-none">
+
+          <div
+            class="value-card__icon d-flex align-items-center justify-content-center flex-shrink-0">
+
+            <i class="ki-duotone ki-heart fs-1">
+              <span class="path1"></span>
+              <span class="path2"></span>
+            </i>
+
           </div>
-          <h3 class="text-white">{{ 'ABOUT_THIRD_CONTENT_HEADER' | translate }}</h3>
-          <p>{{ 'ABOUT_THIRD_CONTENT' | translate }}</p>
+
+          <h3 class="fw-bold text-white">
+            {{ 'ABOUT_THIRD_CONTENT_HEADER' | translate }}
+          </h3>
+
+          <p class="mb-0">
+            {{ 'ABOUT_THIRD_CONTENT' | translate }}
+          </p>
+
         </article>
 
-        <article class="value-card">
-          <div class="value-card__icon">
-            <i class="ki-duotone ki-shield-tick fs-1"><span class="path1"></span><span class="path2"></span></i>
+
+        <!-- VALUE 2 -->
+        <article
+          class="card value-card border border-gray-300 shadow-none">
+
+          <div
+            class="value-card__icon d-flex align-items-center justify-content-center flex-shrink-0">
+
+            <i class="ki-duotone ki-shield-tick fs-1 text-primary">
+              <span class="path1"></span>
+              <span class="path2"></span>
+            </i>
+
           </div>
-          <h3>{{ 'ABOUT_FOURTH_CONTENT_HEADER' | translate }}</h3>
-          <p>{{ 'ABOUT_FOURTH_CONTENT' | translate }}</p>
+
+          <h3 class="fw-bold text-gray-900">
+            {{ 'ABOUT_FOURTH_CONTENT_HEADER' | translate }}
+          </h3>
+
+          <p class="text-gray-600 mb-0">
+            {{ 'ABOUT_FOURTH_CONTENT' | translate }}
+          </p>
+
         </article>
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- =====================================================
+       GIFT CTA
+       BACKGROUND KORUNDU
+       ===================================================== -->
   <section class="about-section about-section--gift">
+
     <div class="container-xxl">
-      <div class="gift-cta">
+
+      <div class="card gift-cta border-0 shadow-sm">
+
+        <!-- CONTENT -->
         <div class="gift-cta__content">
-          <span class="section-kicker section-kicker--light">{{ 'GIFT' | translate }}</span>
-          <h2>{{ 'STANDBY_HEADER' | translate }}</h2>
-          <p>{{ 'STANDBY_CONTENT' | translate }}</p>
-          <button type="button" class="btn btn-light btn-lg px-8" (click)="goToStandBy()">
-            {{ 'HOME_GIFT_CTA' | translate }}
-            <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i>
+
+          <span
+            class="section-kicker section-kicker--light d-inline-flex align-items-center fw-bold text-uppercase">
+
+            {{ 'GIFT' | translate }}
+
+          </span>
+
+          <h2 class="fw-bold text-white">
+            {{ 'STANDBY_HEADER' | translate }}
+          </h2>
+
+          <p class="text-white text-opacity-70">
+            {{ 'STANDBY_CONTENT' | translate }}
+          </p>
+
+
+          <button
+            type="button"
+            class="btn btn-light btn-lg px-8 about-gift-btn"
+            (click)="goToStandBy()">
+
+            <span>
+              {{ 'HOME_GIFT_CTA' | translate }}
+            </span>
+
+            <i class="ki-duotone ki-arrow-right fs-4 ms-2">
+              <span class="path1"></span>
+              <span class="path2"></span>
+            </i>
+
           </button>
+
         </div>
+
+
+        <!-- MEDIA -->
         <div class="gift-cta__media">
-          <img src="./assets/media/patterns/giftvoucher.jpg" [alt]="'STANDBY_HEADER' | translate">
+
+          <img
+            src="./assets/media/patterns/giftvoucher.jpg"
+            [alt]="'STANDBY_HEADER' | translate"
+          />
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
 </main>

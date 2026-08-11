@@ -1,25 +1,1406 @@
-:host{display:block}.styever-memories{--green:#0a4a32;--deep:#073a28;--ink:#17211d;--muted:#6e7772;--warm:#f7f5f0;--line:rgba(10,74,50,.12);background:#fff;color:var(--ink);overflow:hidden}.memory-hero{position:relative;height:100vh;min-height:100vh;display:flex;align-items:center;background:url('/assets/media/patterns/addmemory.jpg') center 44%/cover no-repeat}.memory-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,25,17,.88),rgba(5,25,17,.66) 38%,rgba(5,25,17,.22) 70%,rgba(5,25,17,.08)),linear-gradient(0deg,rgba(5,25,17,.24),transparent 45%)}.memory-hero__container{position:relative;z-index:2;width:100%}.memory-hero__layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:72px;align-items:center;padding:104px 0 96px}.memory-hero__eyebrow,.memory-kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.memory-hero__eyebrow{color:rgba(255,255,255,.82)}.memory-hero__eyebrow-mark{width:28px;height:1px;background:rgba(255,255,255,.66)}.memory-hero__title{max-width:650px;margin:22px 0 20px;color:#fff;font-size:clamp(44px,5.3vw,76px);line-height:.98;letter-spacing:-.045em;font-weight:700}.memory-hero__description{max-width:590px;margin:0;color:rgba(255,255,255,.82);font-size:17px;line-height:1.75}.memory-hero__tools{padding:24px;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:rgba(8,49,34,.36);box-shadow:0 24px 70px rgba(2,21,14,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.memory-search{display:flex;align-items:center;min-height:70px;padding:7px 7px 7px 20px;border-radius:16px;background:#fff}.memory-search__icon{flex:0 0 auto;color:var(--green)}.memory-search input{min-width:0;flex:1;border:0;outline:0;padding:0 16px;background:transparent;color:var(--ink);font-size:15px}.memory-search button,.memory-add{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--green);color:#fff;font-weight:700}.memory-search button{align-self:stretch;padding:0 24px}.memory-filters{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;margin-top:14px}.memory-select-wrap{height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.10);color:#fff}.memory-select-wrap select{width:100%;border:0;outline:0;background:transparent;color:#fff;font-weight:600}.memory-select-wrap option{color:var(--ink);background:#fff}.memory-mine{height:52px;display:flex;align-items:center;gap:9px;padding:0 15px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.10);color:#fff;font-size:13px;font-weight:700;cursor:pointer}.memory-mine input{position:absolute;opacity:0;pointer-events:none}.memory-mine__check{width:19px;height:19px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:6px;background:rgba(255,255,255,.08);font-size:12px}.memory-mine__check i{opacity:0}.memory-mine input:checked+.memory-mine__check{background:#fff;color:var(--green)}.memory-mine input:checked+.memory-mine__check i{opacity:1}.memory-add{height:52px;padding:0 18px;white-space:nowrap}.memory-hero__scroll{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:transparent;color:rgba(255,255,255,.68);font-size:10px;letter-spacing:.16em;text-transform:uppercase}.memory-section{padding:90px 0 100px;background:var(--warm)}.memory-section__heading{display:grid;grid-template-columns:1.05fr .95fr;align-items:end;gap:70px;margin-bottom:42px}.memory-kicker{color:var(--green)}.memory-section__heading h2{margin:10px 0 0;font-size:clamp(34px,4vw,54px);line-height:1.08;letter-spacing:-.035em;font-weight:700}.memory-section__heading p{max-width:600px;margin:0 0 4px;color:var(--muted);font-size:16px;line-height:1.8}.memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.memory-card{min-width:0}.memory-card__image{position:relative;min-height:390px;overflow:hidden;border-radius:24px;background-size:cover;background-position:center;box-shadow:0 16px 44px rgba(20,44,34,.09);transition:transform .3s ease,box-shadow .3s ease}.memory-card:hover .memory-card__image{transform:translateY(-3px);box-shadow:0 24px 60px rgba(20,44,34,.14)}.memory-card__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,15,10,.08) 25%,rgba(2,18,12,.86) 100%)}.memory-card__qr{position:absolute;top:18px;right:18px;z-index:2;padding:5px;border-radius:10px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.12)}.memory-card__body{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:24px;color:#fff}.memory-card__author{display:flex;align-items:center;gap:12px}.memory-card__avatar{width:46px;height:46px;border:2px solid rgba(255,255,255,.9);border-radius:50%;object-fit:cover}.memory-card__author div{display:flex;flex-direction:column;gap:2px}.memory-card__author strong{font-size:14px}.memory-card__author span{color:rgba(255,255,255,.68);font-size:12px}.memory-card__divider{height:1px;margin:16px 0;background:rgba(255,255,255,.22)}.memory-card__footer{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}.memory-card__title{max-width:70%;padding:0;border:0;background:transparent;color:#fff;text-align:left;font-size:24px;line-height:1.15;font-weight:700}.memory-card__actions{display:flex;align-items:center;gap:8px}.memory-card__actions button{height:36px;min-width:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 9px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:rgba(255,255,255,.10);color:#fff;backdrop-filter:blur(8px)}.memory-card__actions button:hover{background:rgba(255,255,255,.20)}.memory-empty{min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:24px;background:#fff;text-align:center}.memory-empty__icon{width:58px;height:58px;display:grid;place-items:center;margin-bottom:18px;border-radius:50%;background:rgba(10,74,50,.08);color:var(--green)}.memory-empty h3{margin:0;font-size:22px}.memory-pagination{display:flex;justify-content:center;margin-top:42px}@supports(height:100dvh){.memory-hero{height:100dvh;min-height:100dvh}}@media(max-width:1199.98px){.memory-hero__layout{grid-template-columns:1fr 1fr;gap:38px}.memory-filters{grid-template-columns:1fr 1fr}.memory-add{grid-column:1/-1}}@media(max-width:991.98px){.memory-hero{height:auto;min-height:100vh}.memory-hero__layout{grid-template-columns:1fr;gap:32px;padding:120px 20px 90px}.memory-hero__content{max-width:680px}.memory-hero__tools{max-width:680px}.memory-grid{grid-template-columns:1fr}.memory-section__heading{grid-template-columns:1fr;gap:18px}.memory-card__image{min-height:370px}}@media(max-width:575.98px){.memory-hero__layout{padding:105px 12px 86px}.memory-hero__title{font-size:43px}.memory-hero__description{font-size:15px}.memory-hero__tools{padding:14px;border-radius:18px}.memory-search{min-height:58px;padding-left:14px}.memory-search button{padding:0 16px}.memory-filters{grid-template-columns:1fr}.memory-add{grid-column:auto}.memory-mine,.memory-add,.memory-select-wrap{width:100%}.memory-section{padding:70px 0 80px}.memory-card__image{min-height:330px}.memory-card__body{padding:18px}.memory-card__footer{align-items:flex-start;flex-direction:column}.memory-card__title{max-width:100%}.memory-card__actions{width:100%;justify-content:flex-end}}
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
 
-/* v4 — search height matches Support */
-.memory-search{min-height:62px;height:62px;padding:8px 8px 8px 18px;border-radius:14px}
-.memory-search input{height:46px;padding:0 14px}
-.memory-search button{height:46px;align-self:center;padding:0 22px;border-radius:10px}
+  background-color: #f7f5f0 !important;
+}
 
-/* final — Support-equivalent compact hero and immediate list */
-.memory-hero{height:auto!important;min-height:56vh!important;display:flex;align-items:center;background-position:center 48%}
-.memory-hero__layout{grid-template-columns:minmax(0,1fr) minmax(460px,.95fr);gap:54px;padding:128px 0 72px}
-.memory-hero__title{max-width:650px;margin:18px 0 16px;font-size:clamp(42px,5vw,68px);line-height:1}
-.memory-hero__description{max-width:610px;font-size:16px;line-height:1.75}
-.memory-hero__tools{padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-.memory-search{height:62px;min-height:62px;padding:8px 8px 8px 18px;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.18)}
-.memory-search input{height:46px}
-.memory-search button{height:46px;align-self:center;padding:0 22px;border-radius:10px}
-.memory-filters{margin-top:12px;grid-template-columns:minmax(0,1fr) auto auto}
-.memory-select-wrap,.memory-mine,.memory-add{height:48px}
-.memory-hero__scroll{display:none}
-.memory-section{padding:38px 0 88px;background:linear-gradient(180deg,var(--warm) 0,#fff 44%)}
-.memory-grid{margin-top:0}
-.memory-load-more{display:flex;justify-content:center;align-items:center;min-height:76px}
-@supports(height:100dvh){.memory-hero{height:auto!important;min-height:56vh!important}}
-@media(max-width:991.98px){.memory-hero{min-height:auto!important}.memory-hero__layout{grid-template-columns:1fr;gap:26px;padding:118px 20px 58px}.memory-hero__tools{max-width:none}.memory-filters{grid-template-columns:1fr 1fr}.memory-add{grid-column:1/-1}}
-@media(max-width:575.98px){.memory-hero__layout{padding:104px 12px 48px}.memory-filters{grid-template-columns:1fr}.memory-add{grid-column:auto}.memory-section{padding:26px 0 72px}}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.styever-memories {
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background-color:
+    #f7f5f0;
+
+  color:
+    var(--bs-gray-900);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.memory-hero {
+  width: 100%;
+
+  min-height: 56vh;
+
+  background:
+    url('/assets/media/patterns/addmemory.jpg')
+    center 48% / cover no-repeat;
+}
+
+
+/* =========================================================
+   HERO SHADE
+   ========================================================= */
+
+.memory-hero__shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 25, 17, 0.88),
+      rgba(5, 25, 17, 0.66) 38%,
+      rgba(5, 25, 17, 0.22) 70%,
+      rgba(5, 25, 17, 0.08)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5, 25, 17, 0.24),
+      transparent 45%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.memory-hero__container {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HERO LAYOUT
+   ========================================================= */
+
+.memory-hero__layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(460px, 0.95fr);
+
+  align-items: center;
+
+  gap: 54px;
+
+  padding:
+    128px
+    0
+    72px;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.memory-hero__content {
+  max-width: 690px;
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+   ========================================================= */
+
+.memory-hero__eyebrow {
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+}
+
+
+.memory-hero__eyebrow-logo {
+  display: block;
+
+  width: 32px;
+  height: 22px;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.memory-hero__title {
+  max-width: 650px;
+
+  margin:
+    18px
+    0
+    16px;
+
+  font-size:
+    clamp(42px, 5vw, 68px);
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.memory-hero__description {
+  max-width: 610px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   HERO TOOLS
+   ========================================================= */
+
+.memory-hero__tools {
+  width: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background:
+    transparent;
+
+  box-shadow:
+    none;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.memory-search {
+  width: 100%;
+
+  min-height: 62px;
+  height: 62px;
+
+  padding:
+    8px;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  overflow: hidden;
+
+  box-shadow:
+    0
+    18px
+    55px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.memory-search .input-group-text {
+  height: 46px;
+}
+
+
+.memory-search .form-control {
+  min-width: 0;
+
+  height: 46px;
+
+  padding:
+    0
+    12px;
+
+  color:
+    var(--bs-gray-900);
+
+  font-size: 14px;
+}
+
+
+.memory-search .form-control::placeholder {
+  color:
+    var(--bs-gray-500);
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+   ========================================================= */
+
+.memory-search__button {
+  height: 46px;
+
+  padding:
+    0
+    22px !important;
+
+  border:
+    1px solid var(--bs-primary) !important;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease !important;
+}
+
+
+.memory-search__button:hover,
+.memory-search__button:focus,
+.memory-search__button:active {
+   background-color: var(--bs-primary) !important;
+  color: var(--bs-primary-inverse) !important;
+  border: 0 !important;
+}
+
+
+.memory-search__button i {
+  color: inherit !important;
+}
+
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+.memory-filters {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    auto;
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.memory-select-wrap {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    0
+    14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color:
+    #fff;
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+.memory-select-wrap i {
+  color: inherit;
+}
+
+
+.memory-select-wrap select {
+  width: 100%;
+
+  border: 0;
+
+  outline: 0;
+
+  background:
+    transparent;
+
+  color:
+    #fff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.memory-select-wrap option {
+  background:
+    #fff;
+
+  color:
+    var(--bs-gray-900);
+}
+
+
+/* =========================================================
+   MY MEMORIES
+   ========================================================= */
+
+.memory-mine {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    0
+    14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color:
+    #fff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+.memory-mine input {
+  position:
+    absolute;
+
+  opacity: 0;
+
+  pointer-events:
+    none;
+}
+
+
+.memory-mine__check {
+  width: 19px;
+  height: 19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.55);
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  font-size:
+    12px;
+}
+
+
+.memory-mine__check i {
+  opacity: 0;
+}
+
+
+.memory-mine
+input:checked
++
+.memory-mine__check {
+  border-color:
+    #fff;
+
+  background:
+    #fff;
+
+  color:
+    var(--bs-primary);
+}
+
+
+.memory-mine
+input:checked
++
+.memory-mine__check
+i {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ADD MEMORY
+   ========================================================= */
+
+.memory-add {
+  height: 48px;
+
+  padding:
+    0
+    18px !important;
+
+  border:
+    1px solid var(--bs-primary) !important;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  white-space:
+    nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease !important;
+}
+
+
+.memory-add:hover,
+.memory-add:focus,
+.memory-add:active {
+  background-color: var(--bs-primary) !important;
+  color: var(--bs-primary-inverse) !important;
+  border: 0 !important;
+}
+
+
+.memory-add i {
+  color: inherit !important;
+}
+
+
+/* =========================================================
+   MEMORY SECTION
+   FULL BACKGROUND #f7f5f0
+   ========================================================= */
+
+.memory-section {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-height:
+    44vh;
+
+  padding:
+    38px
+    0
+    88px;
+
+  background:
+    #f7f5f0 !important;
+
+  background-color:
+    #f7f5f0 !important;
+}
+
+
+/* No Metronic white backgrounds */
+
+.memory-section >
+.container-xxl,
+.memory-section
+.memory-grid {
+  background:
+    transparent !important;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.memory-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    20px;
+}
+
+
+/* =========================================================
+   MEMORY CARD
+   ========================================================= */
+
+.memory-card {
+  min-width:
+    0;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.memory-card__image {
+  position:
+    relative;
+
+  min-height:
+    360px;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      var(--bs-primary-rgb),
+      0.14
+    );
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background-position:
+    center;
+
+  background-size:
+    cover;
+
+  box-shadow:
+    none;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.memory-card:hover
+.memory-card__image {
+  border-color:
+    rgba(
+      var(--bs-primary-rgb),
+      0.32
+    );
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   SHADE
+   ========================================================= */
+
+.memory-card__shade {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 15, 10, 0.07)
+      25%,
+      rgba(2, 18, 12, 0.86)
+      100%
+    );
+}
+
+
+/* =========================================================
+   QR
+   ========================================================= */
+
+.memory-card__qr {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  top:
+    14px;
+
+  right:
+    14px;
+
+  padding:
+    4px;
+
+  border:
+    1px solid
+    rgba(
+      var(--bs-primary-rgb),
+      0.12
+    );
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    #fff;
+
+  box-shadow:
+    0
+    8px
+    22px
+    rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.memory-card__body {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  left:
+    0;
+
+  right:
+    0;
+
+  bottom:
+    0;
+
+  padding:
+    20px;
+
+  color:
+    #fff;
+}
+
+
+/* =========================================================
+   AUTHOR
+   ========================================================= */
+
+.memory-card__author {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+}
+
+
+.memory-card__avatar {
+  width:
+    42px;
+
+  height:
+    42px;
+
+  flex-shrink:
+    0;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.9);
+
+  border-radius:
+    50%;
+
+  object-fit:
+    cover;
+}
+
+
+.memory-card__author > div {
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    2px;
+}
+
+
+.memory-card__author strong {
+  overflow:
+    hidden;
+
+  color:
+    #fff;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+
+.memory-card__author span {
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  font-size:
+    11px;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.memory-card__divider {
+  height:
+    1px;
+
+  margin:
+    14px
+    0;
+
+  background:
+    rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.memory-card__footer {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    18px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.memory-card__title {
+  min-width:
+    0;
+
+  max-width:
+    68%;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #fff;
+
+  text-align:
+    left;
+
+  font-size:
+    20px;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    700;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+.memory-card__title:hover {
+  opacity:
+    0.78;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.memory-card__actions {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  flex-shrink:
+    0;
+}
+
+
+.memory-card__actions button {
+  height:
+    34px;
+
+  min-width:
+    34px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    5px;
+
+  padding:
+    0
+    8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color:
+    #fff;
+
+  font-size:
+    12px;
+
+  backdrop-filter:
+    blur(8px);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.memory-card__actions button:hover {
+  border-color:
+    rgba(255, 255, 255, 0.3);
+
+  background:
+    rgba(255, 255, 255, 0.2);
+}
+
+
+.memory-card__actions button i,
+.memory-card__actions button span {
+  color:
+    inherit;
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.memory-empty {
+  min-height:
+    300px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+
+  background:
+    transparent !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+.memory-empty__icon {
+  width:
+    48px;
+
+  height:
+    48px;
+
+  margin-bottom:
+    16px;
+
+  border:
+    1px solid
+    rgba(
+      var(--bs-primary-rgb),
+      0.12
+    );
+
+  border-radius: var(--bs-card-border-radius, 0.625rem);
+
+  background:
+    var(--bs-primary-light);
+}
+
+
+.memory-empty h3 {
+  margin:
+    0;
+
+  font-size:
+    20px;
+}
+
+
+/* =========================================================
+   LOAD MORE
+   ========================================================= */
+
+.memory-load-more {
+  min-height:
+    76px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media
+(max-width: 1199.98px) {
+
+  .memory-hero__layout {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap:
+      38px;
+  }
+
+
+  .memory-filters {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .memory-add {
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media
+(max-width: 991.98px) {
+
+  .memory-hero {
+    min-height:
+      auto;
+  }
+
+
+  .memory-hero__layout {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      26px;
+
+    padding:
+      118px
+      20px
+      58px;
+  }
+
+
+  .memory-hero__tools {
+    max-width:
+      none;
+  }
+
+
+  .memory-filters {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .memory-add {
+    grid-column:
+      1 / -1;
+  }
+
+
+  .memory-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .memory-card__image {
+    min-height:
+      360px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media
+(max-width: 575.98px) {
+
+  /* HERO */
+
+  .memory-hero__layout {
+    padding:
+      104px
+      12px
+      48px;
+  }
+
+
+  .memory-hero__eyebrow-logo {
+    width:
+      28px;
+
+    height:
+      20px;
+  }
+
+
+  .memory-hero__title {
+    font-size:
+      42px;
+  }
+
+
+  .memory-hero__description {
+    font-size:
+      14px;
+  }
+
+
+  /* SEARCH */
+
+  .memory-search {
+    min-height:
+      auto;
+
+    height:
+      auto;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      auto
+      minmax(0, 1fr);
+
+    gap:
+      2px;
+
+    padding:
+      8px;
+  }
+
+
+  .memory-search
+  .input-group-text {
+    height:
+      44px;
+  }
+
+
+  .memory-search
+  .form-control {
+    height:
+      44px;
+  }
+
+
+  .memory-search__button {
+    grid-column:
+      1 / -1;
+
+    width:
+      100%;
+
+    height:
+      44px;
+
+    margin-top:
+      4px;
+  }
+
+
+  /* FILTERS */
+
+  .memory-filters {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .memory-add {
+    grid-column:
+      auto;
+  }
+
+
+  .memory-select-wrap,
+  .memory-mine,
+  .memory-add {
+    width:
+      100%;
+  }
+
+
+  /* SECTION */
+
+  .memory-section {
+    padding:
+      26px
+      0
+      72px;
+  }
+
+
+  .memory-section
+  .container-xxl {
+    padding-left:
+      16px;
+
+    padding-right:
+      16px;
+  }
+
+
+  /* CARD */
+
+  .memory-card__image {
+    min-height:
+      330px;
+
+    border-radius: var(--bs-card-border-radius, 0.625rem);
+  }
+
+
+  .memory-card__body {
+    padding:
+      17px;
+  }
+
+
+  .memory-card__avatar {
+    width:
+      40px;
+
+    height:
+      40px;
+  }
+
+
+  .memory-card__footer {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      12px;
+  }
+
+
+  .memory-card__title {
+    max-width:
+      100%;
+
+    font-size:
+      18px;
+  }
+
+
+  .memory-card__actions {
+    width:
+      100%;
+
+    justify-content:
+      flex-end;
+  }
+
+
+  .memory-card__actions
+  button {
+    height:
+      32px;
+
+    min-width:
+      32px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media
+(max-width: 390px) {
+
+  .memory-section
+  .container-xxl {
+    padding-left:
+      14px;
+
+    padding-right:
+      14px;
+  }
+
+
+  .memory-card__image {
+    min-height:
+      310px;
+  }
+
+
+  .memory-card__body {
+    padding:
+      15px;
+  }
+
+
+  .memory-card__title {
+    font-size:
+      17px;
+  }
+
+}
+
+/* =========================================================
+   METRONIC RADIUS STANDARD
+   Regular UI surfaces use the exact Metronic card radius.
+   Circular avatars/symbols remain circular.
+   ========================================================= */
+:host {
+  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
+}
+
+.card,
+.btn,
+.form-control,
+.form-select,
+.input-group,
+.input-group-text,
+.modal-content,
+.dropdown-menu,
+.alert,
+.badge,
+[class*="card"]:not(.symbol):not([class*="avatar"]),
+[class*="panel"],
+[class*="box"],
+[class*="item"]:not([class*="avatar"]),
+[class*="option"],
+[class*="search"],
+[class*="toggle"],
+[class*="nav__link"] {
+  border-radius: var(--styever-ui-radius) !important;
+}
+
+.symbol,
+[class*="avatar"] {
+  border-radius: 50%;
+}
+

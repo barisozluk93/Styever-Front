@@ -42,7 +42,7 @@ export const locale = {
         FOOTNOTE: 'Memories created with love continue to live on through time.',
       },
       FORGOT: {
-        TITLE: 'Forgotten Password?',
+        TITLE: 'Forgot your password?',
         DESC: 'Enter your email to reset your password',
         SUCCESS: 'Your account has been successfully reset.'
       },
@@ -158,7 +158,7 @@ export const locale = {
     NOTMEMBERYET: 'Not a Member yet?',
     SIGNUP: 'Sign up',
     RESETPASSWORDMAIL: 'Enter your email to reset your password.',
-    RESET_PASSWORD_SUBHEADER: 'Enter your new password and confirmation code.',
+    RESET_PASSWORD_SUBHEADER: 'Enter your new password and confirmation password.',
     RESET_PASSWORD_ERROR: 'Please check your information!',
     RESET_PASSWORD_SUCCESS: 'Your password has been successfully changed.',
 

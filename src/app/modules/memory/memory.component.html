@@ -1,107 +1,398 @@
 <main class="styever-memories">
-  <section class="memory-hero">
-    <div class="memory-hero__shade"></div>
-    <div class="container-xxl memory-hero__container">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="memory-hero position-relative d-flex align-items-center">
+
+    <div
+      class="memory-hero__shade position-absolute top-0 start-0 w-100 h-100">
+    </div>
+
+    <div
+      class="container-xxl memory-hero__container position-relative z-index-2">
+
       <div class="memory-hero__layout">
+
+        <!-- LEFT -->
         <div class="memory-hero__content">
-          <div class="memory-hero__eyebrow">
-            <span class="memory-hero__eyebrow-mark"></span>
-            {{ 'MEMORIES' | translate }}
+
+          <div
+            class="memory-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
+
+            <img
+              src="/assets/media/logos/logo.png"
+              alt="Styever"
+              class="memory-hero__eyebrow-logo flex-shrink-0"
+            />
+
+            <span>
+              {{ 'MEMORIES' | translate }}
+            </span>
+
           </div>
-          <h1 class="memory-hero__title">{{ 'MEMORY_HEADER' | translate }}</h1>
-          <p class="memory-hero__description">{{ 'MEMORY_SUBHEADER' | translate }}</p>
+
+          <h1 class="memory-hero__title fw-bold text-white">
+            {{ 'MEMORY_HEADER' | translate }}
+          </h1>
+
+          <p class="memory-hero__description mb-0">
+            {{ 'MEMORY_SUBHEADER' | translate }}
+          </p>
+
         </div>
 
+
+        <!-- RIGHT / TOOLS -->
         <div class="memory-hero__tools">
-          <form class="memory-search" (ngSubmit)="onSearch()">
-            <i class="ki-duotone ki-magnifier fs-2 memory-search__icon"><span class="path1"></span><span class="path2"></span></i>
-            <input type="search" [placeholder]="'SEARCH_BAR' | translate" [(ngModel)]="searchTerm" name="searchTerm">
-            <button type="submit">
-              {{ 'SEARCH_BAR' | translate }}
-              <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i>
+
+          <!-- SEARCH -->
+          <form
+            class="memory-search input-group bg-white"
+            (ngSubmit)="onSearch()">
+
+            <span
+              class="input-group-text border-0 bg-transparent ps-3 pe-2">
+
+              <i class="ki-duotone ki-magnifier fs-2 text-primary">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
+            </span>
+
+            <input
+              type="search"
+              class="form-control border-0 bg-transparent shadow-none"
+              [placeholder]="'SEARCH_BAR' | translate"
+              [(ngModel)]="searchTerm"
+              name="searchTerm"
+            />
+
+            <button
+              type="submit"
+              class="btn btn-primary memory-search__button">
+
+              <span>
+                {{ 'SEARCH_BAR' | translate }}
+              </span>
+
+              <i class="ki-duotone ki-arrow-right fs-3 ms-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
             </button>
+
           </form>
 
+
+          <!-- FILTERS -->
           <div class="memory-filters">
+
+            <!-- PET TYPE -->
             <div class="memory-select-wrap">
-              <i class="ki-duotone ki-filter fs-3"><span class="path1"></span><span class="path2"></span></i>
-              <select name="petType" (change)="onPetTypeChange($event)">
-                <option value="">{{ 'SELECT_PET' | translate }}</option>
-                <ng-container *ngFor="let category of categoryList">
-                  <option [value]="category.id">{{ ('LANG' | translate) === 'tr' ? category.name : category.nameEn }}</option>
+
+              <i class="ki-duotone ki-filter fs-3">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
+              <select
+                name="petType"
+                (change)="onPetTypeChange($event)">
+
+                <option value="">
+                  {{ 'SELECT_PET' | translate }}
+                </option>
+
+                <ng-container
+                  *ngFor="let category of categoryList">
+
+                  <option [value]="category.id">
+
+                    {{
+                      ('LANG' | translate) === 'tr'
+                        ? category.name
+                        : category.nameEn
+                    }}
+
+                  </option>
+
                 </ng-container>
+
               </select>
+
             </div>
 
-            <label *ngIf="isMyListVisible" class="memory-mine">
-              <input type="checkbox" id="mine" (change)="onCheckboxChange($event)">
-              <span class="memory-mine__check"><i class="bi bi-check-lg"></i></span>
-              <span>{{ 'MY_MEMORIES' | translate }}</span>
+
+            <!-- MY MEMORIES -->
+            <label
+              *ngIf="isMyListVisible"
+              class="memory-mine">
+
+              <input
+                type="checkbox"
+                id="mine"
+                (change)="onCheckboxChange($event)"
+              />
+
+              <span class="memory-mine__check">
+
+                <i class="bi bi-check-lg"></i>
+
+              </span>
+
+              <span>
+                {{ 'MY_MEMORIES' | translate }}
+              </span>
+
             </label>
 
-            <button *ngIf="isNewMemoryVisible" type="button" class="memory-add" (click)="goToNewMemory()">
-              {{ 'ADD_MEMORY' | translate }}
-              <i class="ki-duotone ki-plus fs-3"><span class="path1"></span><span class="path2"></span></i>
+
+            <!-- ADD MEMORY -->
+            <button
+              *ngIf="isNewMemoryVisible"
+              type="button"
+              class="btn btn-primary memory-add"
+              (click)="goToNewMemory()">
+
+              <span>
+                {{ 'ADD_MEMORY' | translate }}
+              </span>
+
+              <i class="ki-duotone ki-plus fs-3 ms-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
             </button>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <section id="memory-list" class="memory-section">
+
+  <!-- =====================================================
+       MEMORY LIST
+       FULL #f7f5f0 BACKGROUND
+       ===================================================== -->
+  <section
+    id="memory-list"
+    class="memory-section">
+
     <div class="container-xxl">
-      <div *ngIf="dataSource?.length" class="memory-grid">
-        <article *ngFor="let data of dataSource" class="memory-card">
-          <div class="memory-card__image" [style.backgroundImage]="'url(' + (data.fileUrl || './assets/media/patterns/blank.jpg') + ')'">
+
+      <!-- GRID -->
+      <div
+        *ngIf="dataSource?.length"
+        class="memory-grid">
+
+        <article
+          *ngFor="let data of dataSource"
+          class="memory-card">
+
+          <div
+            class="memory-card__image"
+            [style.backgroundImage]="
+              'url(' +
+              (data.fileUrl || './assets/media/patterns/blank.jpg') +
+              ')'
+            ">
+
             <div class="memory-card__shade"></div>
 
-            <div *ngIf="data.qrData" class="memory-card__qr">
-              <qrcode [qrdata]="data.qrData" [width]="72" [errorCorrectionLevel]="'M'"></qrcode>
+
+            <!-- QR -->
+            <div
+              *ngIf="data.qrData"
+              class="memory-card__qr">
+
+              <qrcode
+                [qrdata]="data.qrData"
+                [width]="72"
+                [errorCorrectionLevel]="'M'">
+              </qrcode>
+
             </div>
 
+
+            <!-- BODY -->
             <div class="memory-card__body">
+
+              <!-- AUTHOR -->
               <div class="memory-card__author">
-                <img *ngIf="data.userAvatar" [src]="data.userAvatarFileUrl" class="memory-card__avatar">
-                <img *ngIf="!data.userAvatar" src="./assets/media/avatars/blank.png" class="memory-card__avatar">
+
+                <img
+                  *ngIf="data.userAvatar"
+                  [src]="data.userAvatarFileUrl"
+                  class="memory-card__avatar"
+                  alt=""
+                />
+
+                <img
+                  *ngIf="!data.userAvatar"
+                  src="./assets/media/avatars/blank.png"
+                  class="memory-card__avatar"
+                  alt=""
+                />
+
                 <div>
-                  <strong>{{ data.userName }}</strong>
-                  <span>{{ data.postDate }}</span>
+
+                  <strong>
+                    {{ data.userName }}
+                  </strong>
+
+                  <span>
+                    {{ data.postDate }}
+                  </span>
+
                 </div>
+
               </div>
+
 
               <div class="memory-card__divider"></div>
 
+
+              <!-- FOOTER -->
               <div class="memory-card__footer">
-                <button type="button" class="memory-card__title" (click)="memoryEditView(data.id)">{{ data.name }}</button>
+
+                <button
+                  type="button"
+                  class="memory-card__title"
+                  (click)="memoryEditView(data.id)">
+
+                  {{ data.name }}
+
+                </button>
+
+
                 <div class="memory-card__actions">
-                  <button type="button" (click)="reportMemory(data.id)" [title]="'REPORT' | translate">
+
+                  <!-- REPORT -->
+                  <button
+                    type="button"
+                    (click)="reportMemory(data.id)"
+                    [title]="'REPORT_CONTENT' | translate">
+
                     <i class="bi bi-flag"></i>
+
                   </button>
-                  <button type="button" (click)="openCommentsModal(data.id, data.commentsCount)">
-                    <i class="bi bi-chat"></i><span>{{ data.commentsCount }}</span>
+
+
+                  <!-- COMMENTS -->
+                  <button
+                    type="button"
+                    (click)="
+                      openCommentsModal(
+                        data.id,
+                        data.commentsCount
+                      )
+                    ">
+
+                    <i class="bi bi-chat"></i>
+
+                    <span>
+                      {{ data.commentsCount }}
+                    </span>
+
                   </button>
-                  <button type="button" (click)="openLikesModal(data.id, data.likesCount)">
-                    <i class="bi" [ngClass]="data.ownLike ? 'bi-heart-fill' : 'bi-heart'"></i><span>{{ data.likesCount }}</span>
+
+
+                  <!-- LIKES -->
+                  <button
+                    type="button"
+                    (click)="
+                      openLikesModal(
+                        data.id,
+                        data.likesCount
+                      )
+                    ">
+
+                    <i
+                      class="bi"
+                      [ngClass]="
+                        data.ownLike
+                          ? 'bi-heart-fill'
+                          : 'bi-heart'
+                      ">
+                    </i>
+
+                    <span>
+                      {{ data.likesCount }}
+                    </span>
+
                   </button>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </article>
+
       </div>
 
-      <div *ngIf="totalCount === 0" class="memory-empty">
-        <div class="memory-empty__icon"><i class="ki-duotone ki-heart fs-1"><span class="path1"></span><span class="path2"></span></i></div>
-        <h3>{{ 'NO_DATA_AVAILABLE' | translate }}</h3>
+
+      <!-- EMPTY -->
+      <div
+        *ngIf="totalCount === 0"
+        class="card memory-empty border border-gray-300 shadow-none text-center">
+
+        <div
+          class="memory-empty__icon d-flex align-items-center justify-content-center mx-auto">
+
+          <i class="ki-duotone ki-heart fs-1 text-primary">
+            <span class="path1"></span>
+            <span class="path2"></span>
+          </i>
+
+        </div>
+
+        <h3 class="fw-bold text-gray-900">
+          {{ 'NO_DATA_AVAILABLE' | translate }}
+        </h3>
+
       </div>
 
-      <div *ngIf="isLoadingMore" class="memory-load-more" aria-live="polite">
-        <span class="spinner-border spinner-border-sm text-primary"></span>
+
+      <!-- LOAD MORE -->
+      <div
+        *ngIf="isLoadingMore"
+        class="memory-load-more"
+        aria-live="polite">
+
+        <span
+          class="spinner-border spinner-border-sm text-primary">
+        </span>
+
       </div>
+
     </div>
+
   </section>
+
 </main>
 
-<app-memory-comment #commentsComponent (isSuccess)="isSuccess($event)"></app-memory-comment>
-<app-memory-like #likesComponent></app-memory-like>
+
+<!-- =======================================================
+     MODALS
+     ======================================================= -->
+<app-memory-comment
+  #commentsComponent
+  (isSuccess)="isSuccess($event)">
+</app-memory-comment>
+
+<app-memory-like
+  #likesComponent>
+</app-memory-like>

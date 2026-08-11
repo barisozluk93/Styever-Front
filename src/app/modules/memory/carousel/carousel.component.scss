@@ -1,12 +1,12 @@
 .image {
     height: 400px;
-    border-radius: 8px;
+    border-radius: var(--bs-card-border-radius);
     width: 100%;
 }
 
 .carousel-wrapper {
   position: relative;
-  border-radius: 16px;
+  border-radius: var(--bs-card-border-radius);
   overflow: visible;
 }
 
@@ -53,5 +53,24 @@
   z-index: 20;
   background: var(--bs-primary);
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: var(--bs-card-border-radius);
+}
+
+/* Metronic card radius - scoped to carousel surfaces only */
+.carousel-wrapper,
+.carousel-wrapper .carousel-inner,
+.carousel-wrapper .carousel-item,
+.carousel-wrapper .image,
+.carousel-wrapper .video-wrapper,
+.carousel-wrapper .video {
+  border-radius: var(--bs-card-border-radius);
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+/* Edit action buttons remain true icon circles */
+.carousel-btn {
+  border-radius: 50%;
 }

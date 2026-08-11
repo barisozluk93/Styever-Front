@@ -14,6 +14,7 @@ import { scrollToTop } from 'src/app/utils/scrolltotop';
 @Component({
   selector: 'app-address-list',
   templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
 })
 export class AddressListComponent implements OnInit, OnDestroy {
 

@@ -1,160 +1,441 @@
-<main class="styever-articles">
-  <section class="articles-hero">
-    <div class="articles-hero__shade"></div>
-    <div class="container-xxl articles-hero__container">
+<main class="styever-articles bg-styever-warm">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="articles-hero position-relative d-flex align-items-center">
+
+    <div
+      class="articles-hero__shade position-absolute top-0 start-0 w-100 h-100">
+    </div>
+
+    <div class="container-xxl position-relative z-index-2 w-100">
+
       <div class="articles-hero__layout">
+
+        <!-- LEFT -->
         <div class="articles-hero__content">
-          <div class="articles-hero__eyebrow">
-            <span class="articles-hero__eyebrow-mark"></span>
-            {{ 'SUPPORT_HEADER' | translate }}
+
+          <div
+            class="articles-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
+
+            <img
+              src="/assets/media/logos/logo.png"
+              alt="Styever"
+              class="articles-hero__eyebrow-logo flex-shrink-0"
+            />
+
+            <span>
+              {{ 'SUPPORT_HEADER' | translate }}
+            </span>
+
           </div>
-          <h1>
-            {{ ('LANG' | translate) === 'tr'
-              ? 'Yanınızda olacak içerikleri keşfedin.'
-              : 'Discover guidance made to be there for you.' }}
+
+
+          <h1 class="articles-hero__title fw-bold text-white">
+            {{
+              ('LANG' | translate) === 'tr'
+                ? 'Yanınızda olacak içerikleri keşfedin.'
+                : 'Discover guidance made to be there for you.'
+            }}
           </h1>
-          <p>
-            {{ ('LANG' | translate) === 'tr'
-              ? 'Anma, yas ve hatıraları yaşatma sürecinde ihtiyaç duyabileceğiniz rehberleri özenle bir araya getirdik.'
-              : 'We thoughtfully brought together guides for remembrance, grief and keeping meaningful memories alive.' }}
+
+
+          <p class="articles-hero__description mb-0">
+            {{
+              ('LANG' | translate) === 'tr'
+                ? 'Anma, yas ve hatıraları yaşatma sürecinde ihtiyaç duyabileceğiniz rehberleri özenle bir araya getirdik.'
+                : 'We thoughtfully brought together guides for remembrance, grief and keeping meaningful memories alive.'
+            }}
           </p>
+
         </div>
 
+
+        <!-- RIGHT -->
         <div class="articles-hero__actions">
-          <form class="articles-search" (ngSubmit)="onSearch()">
-            <div class="input-group input-group-solid bg-white rounded-3 p-2 shadow-sm">
-              <span class="input-group-text border-0 bg-transparent ps-4 pe-2">
+
+          <form
+            class="articles-search"
+            (ngSubmit)="onSearch()">
+
+            <div
+              class="input-group input-group-solid bg-white rounded-3 p-2 shadow-sm">
+
+              <span
+                class="input-group-text border-0 bg-transparent ps-4 pe-2">
+
                 <i class="ki-duotone ki-magnifier fs-2 text-primary">
-                  <span class="path1"></span><span class="path2"></span>
+                  <span class="path1"></span>
+                  <span class="path2"></span>
                 </i>
+
               </span>
+
+
               <input
                 type="search"
                 class="form-control form-control-lg border-0 bg-transparent shadow-none px-2"
                 [placeholder]="'SEARCH_BAR' | translate"
                 [attr.aria-label]="'SEARCH_BAR' | translate"
                 [(ngModel)]="searchTerm"
-                name="searchTerm" />
-              <button type="submit" class="btn btn-primary btn-lg px-7 rounded-3">
+                name="searchTerm"
+              />
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg px-7 rounded-3">
+
                 {{ 'SEARCH_BAR' | translate }}
+
                 <i class="ki-duotone ki-arrow-right fs-3 ms-2">
-                  <span class="path1"></span><span class="path2"></span>
+                  <span class="path1"></span>
+                  <span class="path2"></span>
                 </i>
+
               </button>
+
             </div>
+
           </form>
 
-          <div class="articles-hero__note">
-            <div class="articles-hero__note-icon flex-shrink-0">
-              <i class="ki-duotone ki-heart fs-2"><span class="path1"></span><span class="path2"></span></i>
+
+          <div
+            class="articles-hero__note d-flex align-items-center gap-3">
+
+            <div
+              class="articles-hero__note-icon d-flex align-items-center justify-content-center flex-shrink-0">
+
+              <i class="ki-duotone ki-heart fs-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
             </div>
+
             <span>
-              {{ ('LANG' | translate) === 'tr'
-                ? 'Kaybın ardından ihtiyaç duyabileceğiniz bilgileri sakin, anlaşılır ve güvenli bir alanda keşfedin.'
-                : 'Explore thoughtful guidance in a calm, clear and safe space whenever you need it.' }}
+              {{
+                ('LANG' | translate) === 'tr'
+                  ? 'Kaybın ardından ihtiyaç duyabileceğiniz bilgileri sakin, anlaşılır ve güvenli bir alanda keşfedin.'
+                  : 'Explore thoughtful guidance in a calm, clear and safe space whenever you need it.'
+              }}
             </span>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <section #articlesSection class="articles-section">
+
+  <!-- =====================================================
+       ARTICLES
+       ===================================================== -->
+  <section
+    #articlesSection
+    class="articles-section bg-styever-warm">
+
     <div class="container-xxl">
-      <ng-container *ngIf="dataSource && dataSource.length; else emptyArticles">
-        <div class="row g-5 g-xl-7">
-          <div class="col-12 col-md-6 col-xl-4" *ngFor="let data of dataSource; trackBy: trackByArticleId">
-            <article class="card article-card border-0 h-100 cursor-pointer" (click)="articleEditView(data.id)">
+
+      <ng-container
+        *ngIf="dataSource && dataSource.length; else emptyArticles">
+
+        <div class="row g-4 g-xl-5">
+
+          <div
+            class="col-12 col-md-6 col-xl-4"
+            *ngFor="
+              let data of dataSource;
+              trackBy: trackByArticleId
+            ">
+
+            <article
+              class="card article-card border border-gray-300 shadow-none h-100 cursor-pointer"
+              (click)="articleEditView(data.id)">
+
+
+              <!-- IMAGE -->
               <div class="article-card__media">
+
                 <img
                   *ngIf="data.file; else fallbackImage"
                   [src]="data.fileUrl"
-                  [alt]="('LANG' | translate) === 'tr' ? data.header : data.headerEn" />
+                  [alt]="
+                    ('LANG' | translate) === 'tr'
+                      ? data.header
+                      : data.headerEn
+                  "
+                />
+
+
                 <ng-template #fallbackImage>
-                  <img src="./assets/media/patterns/blank.jpg" [alt]="('LANG' | translate) === 'tr' ? data.header : data.headerEn" />
+
+                  <img
+                    src="./assets/media/patterns/blank.jpg"
+                    [alt]="
+                      ('LANG' | translate) === 'tr'
+                        ? data.header
+                        : data.headerEn
+                    "
+                  />
+
                 </ng-template>
+
+
                 <div class="article-card__shade"></div>
-                <span class="badge badge-light article-card__badge">
-                  <i class="ki-duotone ki-book-open fs-5 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                  {{ ('LANG' | translate) === 'tr' ? 'STYEVER REHBERİ' : 'STYEVER GUIDE' }}
+
+
+                <span
+                  class="badge article-card__badge d-inline-flex align-items-center">
+
+                  <i class="ki-duotone ki-book-open fs-5 me-2">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                  </i>
+
+                  {{
+                    ('LANG' | translate) === 'tr'
+                      ? 'STYEVER REHBERİ'
+                      : 'STYEVER GUIDE'
+                  }}
+
                 </span>
+
               </div>
 
-              <div class="card-body d-flex flex-column p-7 p-xl-8">
-                <h3 class="article-card__title mb-3">
-                  {{ ('LANG' | translate) === 'tr' ? data.header : data.headerEn }}
+
+              <!-- BODY -->
+              <div
+                class="card-body d-flex flex-column p-5 p-xl-6">
+
+                <h3
+                  class="article-card__title fw-bold text-gray-900 mb-2">
+
+                  {{
+                    ('LANG' | translate) === 'tr'
+                      ? data.header
+                      : data.headerEn
+                  }}
+
                 </h3>
-                <p class="article-card__description flex-grow-1 mb-6">
-                  {{ ('LANG' | translate) === 'tr' ? data.subHeader : data.subHeaderEn }}
+
+
+                <p
+                  class="article-card__description text-gray-600 flex-grow-1 mb-4">
+
+                  {{
+                    ('LANG' | translate) === 'tr'
+                      ? data.subHeader
+                      : data.subHeaderEn
+                  }}
+
                 </p>
-                <div class="d-flex align-items-center justify-content-between pt-5 border-top border-gray-200">
+
+
+                <!-- FOOTER -->
+                <div
+                  class="article-card__footer d-flex align-items-center justify-content-between pt-4 border-top border-gray-300">
+
                   <span class="text-primary fw-bold fs-7">
-                    {{ ('LANG' | translate) === 'tr' ? 'Makaleyi oku' : 'Read article' }}
+
+                    {{
+                      ('LANG' | translate) === 'tr'
+                        ? 'Makaleyi oku'
+                        : 'Read article'
+                    }}
+
                   </span>
-                  <span class="article-card__arrow">
-                    <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>
+
+
+                  <span
+                    class="article-card__arrow d-flex align-items-center justify-content-center flex-shrink-0">
+
+                    <i class="ki-duotone ki-arrow-right fs-4">
+                      <span class="path1"></span>
+                      <span class="path2"></span>
+                    </i>
+
                   </span>
+
                 </div>
+
               </div>
+
             </article>
+
           </div>
+
         </div>
+
       </ng-container>
 
+
+      <!-- =================================================
+           EMPTY
+           ================================================= -->
       <ng-template #emptyArticles>
-        <div class="card border-0 articles-empty text-center">
+
+        <div
+          class="card articles-empty bg-transparent border border-gray-300 shadow-none text-center">
+
           <div class="card-body py-15 px-8">
-            <div class="articles-empty__icon mx-auto mb-5">
-              <i class="ki-duotone ki-document fs-2x"><span class="path1"></span><span class="path2"></span></i>
+
+            <div
+              class="articles-empty__icon d-flex align-items-center justify-content-center mx-auto mb-5">
+
+              <i class="ki-duotone ki-document fs-2x text-primary">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+
             </div>
-            <h3 class="fs-2 fw-bold text-gray-900 mb-3">{{ 'NO_DATA_AVAILABLE' | translate }}</h3>
+
+
+            <h3 class="fs-2 fw-bold text-gray-900 mb-3">
+              {{ 'NO_DATA_AVAILABLE' | translate }}
+            </h3>
+
+
             <p class="text-gray-600 fs-6 mb-0">
-              {{ ('LANG' | translate) === 'tr'
-                ? 'Aramanızla eşleşen bir içerik bulunamadı.'
-                : 'We could not find an article matching your search.' }}
+
+              {{
+                ('LANG' | translate) === 'tr'
+                  ? 'Aramanızla eşleşen bir içerik bulunamadı.'
+                  : 'We could not find an article matching your search.'
+              }}
+
             </p>
+
           </div>
+
         </div>
+
       </ng-template>
+
     </div>
+
   </section>
 
-  <section class="articles-cta">
+
+  <!-- =====================================================
+       CTA
+       ===================================================== -->
+  <section class="articles-cta bg-styever-warm">
+
     <div class="container-xxl">
-      <div class="card border-0 articles-cta__card">
-        <div class="card-body p-8 p-lg-10">
+
+      <div
+        class="card articles-cta__card border border-primary border-opacity-10 shadow-none">
+
+        <div class="card-body p-7 p-lg-8">
+
           <div class="row align-items-center g-6">
+
             <div class="col-lg">
+
               <div class="d-flex align-items-start gap-5">
-                <div class="articles-cta__icon flex-shrink-0">
-                  <i class="ki-duotone ki-message-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+
+                <div
+                  class="articles-cta__icon d-flex align-items-center justify-content-center flex-shrink-0">
+
+                  <i class="ki-duotone ki-message-question fs-1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                  </i>
+
                 </div>
+
+
                 <div>
-                  <span class="articles-kicker articles-kicker--light">
-                    {{ ('LANG' | translate) === 'tr' ? 'DAHA FAZLA DESTEK' : 'MORE SUPPORT' }}
+
+                  <span
+                    class="articles-kicker articles-kicker--light fw-bold text-uppercase">
+
+                    {{
+                      ('LANG' | translate) === 'tr'
+                        ? 'DAHA FAZLA DESTEK'
+                        : 'MORE SUPPORT'
+                    }}
+
                   </span>
+
+
                   <h2 class="text-white fw-bold mt-2 mb-2">
-                    {{ ('LANG' | translate) === 'tr' ? 'Aradığınız yanıtı bulamadınız mı?' : 'Could not find the answer you were looking for?' }}
+
+                    {{
+                      ('LANG' | translate) === 'tr'
+                        ? 'Aradığınız yanıtı bulamadınız mı?'
+                        : 'Could not find the answer you were looking for?'
+                    }}
+
                   </h2>
+
+
                   <p class="text-white text-opacity-70 mb-0">
-                    {{ ('LANG' | translate) === 'tr'
-                      ? 'Sık sorulan sorulara göz atabilir veya bizimle doğrudan iletişime geçebilirsiniz.'
-                      : 'Browse frequently asked questions or get in touch with us directly.' }}
+
+                    {{
+                      ('LANG' | translate) === 'tr'
+                        ? 'Sık sorulan sorulara göz atabilir veya bizimle doğrudan iletişime geçebilirsiniz.'
+                        : 'Browse frequently asked questions or get in touch with us directly.'
+                    }}
+
                   </p>
+
                 </div>
+
               </div>
+
             </div>
+
+
             <div class="col-lg-auto">
-              <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
-                <button type="button" class="btn btn-light btn-lg px-7" (click)="goToFaq()">{{ 'FAQ' | translate }}</button>
-                <button type="button" class="btn btn-outline btn-outline-dashed btn-outline-light btn-active-light btn-lg px-7" (click)="goToContact()">
-                  {{ ('LANG' | translate) === 'tr' ? 'Bize Ulaşın' : 'Contact Us' }}
+
+              <div
+                class="d-flex flex-wrap gap-3 justify-content-lg-end">
+
+                <button
+                  type="button"
+                  class="btn btn-light btn-lg px-7"
+                  (click)="goToFaq()">
+
+                  {{ 'FAQ' | translate }}
+
                 </button>
+
+
+                <button
+                  type="button"
+                  class="btn btn-outline btn-outline-dashed btn-outline-light btn-active-light btn-lg px-7"
+                  (click)="goToContact()">
+
+                  {{
+                    ('LANG' | translate) === 'tr'
+                      ? 'Bize Ulaşın'
+                      : 'Contact Us'
+                  }}
+
+                </button>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
 </main>

@@ -3,7 +3,8 @@
   width: 100%;
 }
 
-.account-section-card {
+.account-section-card,
+.agreement-card {
   background: #fff !important;
 }
 
@@ -18,89 +19,27 @@
   letter-spacing: 0.12em;
 }
 
-.membership-mobile-card {
-  width: 100%;
-  max-width: 620px;
-  border: 1px solid var(--bs-primary);
-  padding: 20px;
-  background: #fff;
+.agreement-card {
+  transition: border-color 0.2s ease;
 }
 
-.membership-plan-title {
-  font-size: 22px;
-}
-
-.membership-price {
-  font-size: 19px;
-  margin-top: 4px;
-}
-
-.membership-check {
-  width: 42px;
-  height: 42px;
-  background: var(--bs-primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.membership-features {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.feature-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--bs-gray-700);
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.feature-row i {
-  color: var(--bs-primary);
-  font-size: 16px;
-  margin-top: 1px;
-}
-
-.membership-dates {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.membership-date-box {
-  padding: 12px;
-  background: var(--bs-gray-100);
-}
-
-.date-label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--bs-primary);
-  font-size: 10.5px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.date-value {
-  color: var(--bs-gray-900);
-  font-weight: 700;
-  font-size: 12px;
+.agreement-card:hover {
+  border-color: rgba(var(--bs-primary-rgb), 0.28) !important;
 }
 
 .account-section-card .btn,
-.membership-action {
+.agreement-card .btn {
   border: 0 !important;
   box-shadow: none !important;
 }
 
-.membership-action {
-  min-height: 38px;
+.agreement-content {
+  max-height: 420px;
+  overflow: auto;
+  white-space: pre-wrap;
+  padding: 18px;
+  border: 1px solid var(--bs-gray-200);
+  background: var(--bs-gray-100);
 }
 
 .mobile-empty-state {
@@ -129,43 +68,8 @@
     height: 20px;
   }
 
-  .membership-mobile-card {
-    max-width: none;
-    padding: 18px;
-  }
-
-  .membership-plan-title {
-    font-size: 21px;
-  }
-
-  .membership-price {
-    font-size: 18px;
-  }
-
-  .membership-dates {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .membership-date-box {
-    padding: 11px;
-  }
-
-  .date-value {
-    font-size: 11px;
-  }
-
-  .feature-row {
-    font-size: 13px;
-  }
-
   .mobile-empty-state {
     min-height: 230px;
-  }
-}
-
-@media (max-width: 390px) {
-  .membership-dates {
-    grid-template-columns: 1fr;
   }
 }
 

@@ -5,7 +5,8 @@ import {UserAgreement} from '../../user-management/models/agreement.model';
 
 @Component({
   selector:'app-account-agreements',
-  templateUrl:'./agreements.component.html'
+  templateUrl:'./agreements.component.html',
+  styleUrls:['./agreements.component.scss']
 })
 export class AccountAgreementsComponent implements OnInit{
   loading=true;

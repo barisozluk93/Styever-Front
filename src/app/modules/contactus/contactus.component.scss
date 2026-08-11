@@ -1,20 +1,185 @@
-:host { display: block; }
-.contact-page { min-height: calc(100vh - 90px); }
-.contact-eyebrow-line { width: 28px; height: 2px; border-radius: 999px; background: var(--bs-primary); }
-.ls-1 { letter-spacing: .1em; }
-.contact-info-card, .contact-form-card { background: #fff; border: 1px solid var(--bs-gray-200); border-radius: 1.5rem; box-shadow: 0 18px 55px rgba(18,38,30,.06); }
-.contact-info-card { padding: 2rem; }
-.contact-form-card { padding: 2rem; }
-.contact-info-list { display: grid; gap: 1rem; }
-.contact-info-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--bs-gray-200); }
-.contact-info-item > div { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
-.contact-info-item span { color: var(--bs-gray-500); font-size: .8rem; font-weight: 600; }
-.contact-info-item strong { color: var(--bs-gray-900); font-size: .95rem; font-weight: 700; word-break: break-word; }
-.contact-form .form-control { min-height: 50px; border: 1px solid var(--bs-gray-300); border-radius: .8rem; color: var(--bs-gray-900); box-shadow: 0 1px 2px rgba(18,38,30,.02); transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
-.contact-form .form-control:hover:not(:focus):not(.is-invalid) { border-color: var(--bs-gray-400); }
-.contact-form .form-control:focus { border-color: rgba(10,74,50,.55); box-shadow: 0 0 0 .22rem rgba(10,74,50,.08); }
-.contact-form textarea.form-control { min-height: 150px; resize: vertical; padding-top: 1rem; }
-.contact-textarea-icon { top: 1.2rem; left: 0; }
-.contact-submit { min-height: 50px; border-radius: .8rem; box-shadow: 0 8px 20px rgba(10,74,50,.14); }
-@media (min-width: 992px) { .contact-form-card { padding: 3rem; } .contact-info-card { padding: 2.25rem; } }
-@media (max-width: 991.98px) { .contact-page { padding-top: 2rem !important; } }
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contact-page {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.contact-heading {
+  max-width: 760px;
+}
+
+.contact-logo {
+  display: block;
+  width: 34px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.contact-ls {
+  letter-spacing: 0.12em;
+}
+
+.contact-description {
+  max-width: 720px;
+}
+
+.contact-info-card,
+.contact-form-card {
+  background: #fff !important;
+}
+
+.contact-field-icon {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.contact-textarea-icon {
+  top: 15px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.contact-form .form-control {
+  min-height: 50px;
+  border: 1px solid var(--bs-gray-300);
+  box-shadow: none;
+}
+
+.contact-form textarea.form-control {
+  min-height: 150px;
+  padding-top: 14px;
+  resize: vertical;
+}
+
+.contact-form .form-control::placeholder {
+  color: var(--bs-gray-500);
+  opacity: 0.7;
+}
+
+.contact-form .form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.07);
+}
+
+.contact-page .btn {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.contact-social {
+  width: 36px;
+  height: 36px;
+}
+
+.contact-social:hover,
+.contact-social:focus {
+  background: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.contact-social:hover i,
+.contact-social:focus i {
+  color: #fff !important;
+}
+
+.contact-submit {
+  min-width: 120px;
+  min-height: 42px;
+}
+
+.fv-plugins-message-container {
+  min-height: 14px;
+}
+
+@media (max-width: 991.98px) {
+  .contact-page {
+    padding-top: 28px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-page .container-fluid {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .contact-logo {
+    width: 30px;
+    height: 20px;
+  }
+
+  .contact-heading h1 {
+    font-size: 2rem !important;
+  }
+
+  .contact-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .contact-info-card .card-body,
+  .contact-form-card .card-body {
+    padding: 22px !important;
+  }
+
+  .contact-form .row {
+    --bs-gutter-y: 16px;
+  }
+
+  .contact-form textarea.form-control {
+    min-height: 120px;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+}
+
+
+/* STYEVER UNIFIED METRONIC CARD SURFACE */
+:host .card {
+  background-color: #fff !important;
+  background: #fff !important;
+}
+
+/* =========================================================
+   METRONIC RADIUS STANDARD
+   Regular UI surfaces use the exact Metronic card radius.
+   Circular avatars/symbols remain circular.
+   ========================================================= */
+:host {
+  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
+}
+
+.card,
+.btn,
+.form-control,
+.form-select,
+.input-group,
+.input-group-text,
+.modal-content,
+.dropdown-menu,
+.alert,
+.badge,
+[class*="card"]:not(.symbol):not([class*="avatar"]),
+[class*="panel"],
+[class*="box"],
+[class*="item"]:not([class*="avatar"]),
+[class*="option"],
+[class*="search"],
+[class*="toggle"],
+[class*="nav__link"] {
+  border-radius: var(--styever-ui-radius) !important;
+}
+
+.symbol,
+[class*="avatar"] {
+  border-radius: 50%;
+}
+

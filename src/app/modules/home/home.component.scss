@@ -178,3 +178,103 @@
   .hero__content{padding-top:100px;padding-bottom:84px;}
   .hero__scroll{bottom:12px;}
 }
+
+/* =========================================================
+   HOME — METRONIC CARD RADIUS
+   Only card-like surfaces use Metronic's own card radius.
+   ========================================================= */
+.feature-story,
+.feature-card,
+.about-panel,
+.experience-card,
+.gift-panel,
+.final-cta__inner {
+  border-radius: var(--bs-card-border-radius) !important;
+}
+
+/* Inner quote/icon surfaces keep a radius, aligned to Metronic card radius
+   where they behave as rectangular UI surfaces. */
+.about-panel__quote {
+  border-radius: var(--bs-card-border-radius) !important;
+}
+
+/* =========================================================
+   WHITE BUTTON HOVER
+   Restore the original white-button interaction.
+   ========================================================= */
+.styever-home .btn-light:not(:disabled):hover,
+.styever-home .btn-light:not(:disabled):focus,
+.styever-home .btn-light:not(:disabled):active,
+.styever-home .hero__secondary:not(:disabled):hover,
+.styever-home .hero__secondary:not(:disabled):focus,
+.styever-home .hero__secondary:not(:disabled):active {
+  background: var(--bs-primary) !important;
+  background-color: var(--bs-primary) !important;
+  color: #fff !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.styever-home .btn-light:not(:disabled):hover i,
+.styever-home .btn-light:not(:disabled):focus i,
+.styever-home .btn-light:not(:disabled):active i,
+.styever-home .hero__secondary:not(:disabled):hover i,
+.styever-home .hero__secondary:not(:disabled):focus i,
+.styever-home .hero__secondary:not(:disabled):active i {
+  color: #fff !important;
+}
+
+/* First section / Get Started Now must stay white over the image */
+.feature-story__content h3,
+.feature-story__content .feature-link {
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   FINAL HOME CARD RADIUS FIX
+   Card-like surfaces MUST use Metronic card radius.
+   No global radius reset.
+   ========================================================= */
+.styever-home .feature-story,
+.styever-home .feature-card,
+.styever-home .about-panel,
+.styever-home .experience-card,
+.styever-home .gift-panel,
+.styever-home .final-cta__inner {
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+  overflow: hidden;
+}
+
+/* Keep rectangular sub-surfaces rounded too */
+.styever-home .about-panel__quote,
+.styever-home .feature-story__media,
+.styever-home .feature-card__icon {
+  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
+}
+
+/* Restore white button hover */
+.styever-home .btn-light:not(:disabled):hover,
+.styever-home .btn-light:not(:disabled):focus,
+.styever-home .btn-light:not(:disabled):active,
+.styever-home .hero__secondary:not(:disabled):hover,
+.styever-home .hero__secondary:not(:disabled):focus,
+.styever-home .hero__secondary:not(:disabled):active {
+  background-color: var(--bs-primary) !important;
+  color: #fff !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.styever-home .btn-light:not(:disabled):hover *,
+.styever-home .btn-light:not(:disabled):focus *,
+.styever-home .btn-light:not(:disabled):active *,
+.styever-home .hero__secondary:not(:disabled):hover *,
+.styever-home .hero__secondary:not(:disabled):focus *,
+.styever-home .hero__secondary:not(:disabled):active * {
+  color: #fff !important;
+}
+
+/* First section CTA/title stays white */
+.styever-home .feature-story__content h3,
+.styever-home .feature-story__content .feature-link {
+  color: #fff !important;
+}
