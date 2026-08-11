@@ -274,7 +274,7 @@ export const locale = {
     SHIPMENT_TRACKING: 'Shipment Tracking',
     VIEW_INVOICE: 'View Invoice',
     TRACKING_NO: 'Tracking No',
-    MYADDRESSES: "Addresses",
+    MYADDRESSES: "My Addresses",
     MEMBERSHIP: "Membership",
 
     PROFILE_DETAILS: "Profile Details",
@@ -339,7 +339,7 @@ export const locale = {
     TAX_OFFICE: "Tax Office",
     FIRM_NAME: "Firm Name",
 
-    ADDRESS_INFOS: 'Address Informations',
+    ADDRESS_INFOS: 'Address Information',
     PAYMENT_INFOS: 'Payment Informations',
     DELIVERY_ADDRESS: 'Delivery Address',
     INVOICE_ADDRESS: 'Invoice Address',

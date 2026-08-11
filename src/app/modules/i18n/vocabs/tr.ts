@@ -27,7 +27,7 @@ export const locale = {
                 NO_ACCOUNT: 'Hesabınız yok mu?',
                 SIGNUP_BUTTON: 'Üye Ol',
                 SIGNOUT_BUTTON: 'Çıkış Yap',
-                FORGOT_BUTTON: 'Şifrenizi mi Unuttunuz',
+                FORGOT_BUTTON: 'Şifrenizi mi unuttunuz',
                 BACK_BUTTON: 'Geri',
                 PRIVACY: 'Gizlilik',
                 LEGAL: 'Yasal',
@@ -278,7 +278,7 @@ export const locale = {
         SHIPMENT_TRACKING: 'Kargo Takibi',
         VIEW_INVOICE: 'Fatura Görüntüle',
         TRACKING_NO: 'Takip Numarası',
-        MYADDRESSES: "Adresler",
+        MYADDRESSES: "Adreslerim",
         MEMBERSHIP: "Üyelik",
 
         PROFILE_DETAILS: "Profil Detayları",

@@ -25,6 +25,7 @@
             <h1 class="text-gray-900 fw-bolder fs-2x fs-lg-3x mb-2">
               {{ 'PROFILE' | translate }}
             </h1>
+
             <div class="text-gray-500 fw-semibold fs-6 lh-lg">
               {{
                 ('LANG' | translate) === 'tr'
@@ -33,7 +34,12 @@
               }}
             </div>
           </div>
+        </div>
 
+        <!-- USER CARD + DELETE ACTION -->
+        <div class="account-user-actions d-flex align-items-center justify-content-between gap-4 mt-6">
+
+          <!-- USER CARD - SOLDA, TABLARIN ÜSTÜNDE -->
           <div class="account-user-card d-flex align-items-center gap-3 rounded">
             <div class="symbol symbol-44px symbol-circle flex-shrink-0">
               <img
@@ -41,6 +47,7 @@
                 src="./assets/media/avatars/blank.png"
                 alt="Avatar"
               />
+
               <img
                 *ngIf="userData?.fileId"
                 [src]="avatarUrl"
@@ -52,19 +59,29 @@
               <div class="text-gray-900 fw-bold fs-7 text-truncate">
                 {{ userData?.name }} {{ userData?.surname }}
               </div>
+
               <div class="text-gray-500 fs-8 text-truncate">
                 {{ userData?.email }}
               </div>
             </div>
-
-            <button
-              type="button"
-              class="btn btn-icon btn-sm btn-light-danger account-delete-btn"
-              [attr.aria-label]="('LANG' | translate) === 'tr' ? 'Hesabı Sil' : 'Delete Account'"
-              (click)="openDeleteAccountModal()">
-              <i class="ki-outline ki-trash fs-4"></i>
-            </button>
           </div>
+
+          <!-- DELETE ACCOUNT -->
+          <button
+            type="button"
+            class="btn btn-sm btn-danger account-delete-btn px-5"
+            (click)="openDeleteAccountModal()">
+
+            <i class="ki-outline ki-trash fs-4 me-2"></i>
+
+            {{
+              ('LANG' | translate) === 'tr'
+                ? 'Hesabı Sil'
+                : 'Delete Account'
+            }}
+
+          </button>
+
         </div>
 
         <nav class="account-nav d-flex align-items-center gap-2 mt-6" aria-label="Profile navigation">

@@ -2,7 +2,7 @@
   <div class="card-body p-6 p-lg-8">
     <div class="d-flex align-items-center gap-2 mb-3"><img src="./assets/media/logos/logo-6.png" alt="" class="section-logo" /><span class="text-primary fs-8 fw-bold text-uppercase section-ls">STYEVER</span></div>
     <h2 class="text-gray-900 fw-bolder fs-2x mb-2">{{'MEMBERSHIP' | translate}}</h2>
-    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-7">{{ ('LANG' | translate) === 'tr' ? 'Mevcut üyelik planınızı, kullanım sürenizi ve paket kapsamınızı buradan takip edebilirsiniz.' : 'Track your current membership plan, usage period and package coverage here.' }}</div>
+    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-7">{{ ('LANG' | translate) === 'tr' ? 'Mevcut üyelik planınızı, kullanım sürenizi ve paket kapsamınızı buradan takip edebilirsiniz.' : 'View your current membership plan, subscription period and included features.' }}</div>
 
     <ng-container *ngIf="userData; else noMembershipData">
       <div *ngIf="!showPlans" class="membership-mobile-card rounded">

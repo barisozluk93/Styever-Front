@@ -23,6 +23,8 @@ import { Router } from '@angular/router';
 
 import { TranslateService } from '@ngx-translate/core';
 
+import { ToastrService } from 'ngx-toastr';
+
 import { AuthService } from '../../services/auth.service';
 
 import { ConfirmPasswordValidator } from './confirm-password.validator';
@@ -125,7 +127,8 @@ export class RegistrationComponent
     private authService: AuthService,
     private router: Router,
     private userService: UserManagementService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private toastr: ToastrService
   ) {
 
     this.isLoading$ =
@@ -914,6 +917,19 @@ export class RegistrationComponent
           ) => {
 
             if (user) {
+
+              this.toastr.success(
+                this.translate.currentLang === 'tr'
+                  ? 'Kayıt işleminiz başarıyla tamamlandı. Giriş yapabilirsiniz.'
+                  : 'Your registration has been completed successfully. You can now sign in.',
+                this.translate.currentLang === 'tr'
+                  ? 'Kayıt Başarılı'
+                  : 'Registration Successful',
+                {
+                  positionClass: 'toast-top-center',
+                  timeOut: 3000
+                }
+              );
 
               this.router.navigate([
                 '/auth/login'

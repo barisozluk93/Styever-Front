@@ -2,7 +2,7 @@
   <div class="card-body p-6 p-lg-8">
     <div class="d-flex align-items-center gap-2 mb-3"><img src="./assets/media/logos/logo-6.png" alt="" class="section-logo" /><span class="text-primary fs-8 fw-bold text-uppercase section-ls">STYEVER</span></div>
     <h2 class="text-gray-900 fw-bolder fs-2x mb-2">{{'MY_AGREEMENTS.TITLE'|translate}}</h2>
-    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-6">{{ ('LANG' | translate) === 'tr' ? 'Kabul ettiğiniz sözleşme ve onay metinlerini görüntüleyebilirsiniz.' : 'View the agreements and consent texts you have accepted.' }}</div>
+    <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-6">{{ ('LANG' | translate) === 'tr' ? 'Kabul ettiğiniz sözleşme ve onay metinlerini görüntüleyebilirsiniz.' : 'Review the agreements and consent texts you have accepted.' }}</div>
 
     <div *ngIf="loading" class="text-center py-12"><span class="spinner-border text-primary"></span></div>
     <div *ngIf="!loading&&!agreements.length" class="mobile-empty-state rounded"><div class="mobile-empty-state__icon"><app-keenicon name="document" class="fs-1 text-primary"></app-keenicon></div><div class="fw-bolder fs-4 text-gray-900">{{ ('LANG' | translate) === 'tr' ? 'Henüz kayıtlı bir sözleşmeniz bulunmuyor.' : 'You do not have a saved agreement yet.' }}</div></div>

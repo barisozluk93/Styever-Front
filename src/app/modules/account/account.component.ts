@@ -67,7 +67,7 @@ export class AccountComponent implements OnInit {
       return;
     }
 
-    this.http.delete<any>(`User/Delete/${userId}`).subscribe({
+    this.http.delete<any>(`${environment.apiUrl}/User/Delete/${userId}`).subscribe({
       next: result => {
         if (result?.isSuccess === false) {
           scrollToTop();
