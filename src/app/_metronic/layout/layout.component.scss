@@ -1,15 +1,67 @@
-// :host {
-//   height: 100%;
-//   margin: 0;
+@media (max-width: 991.98px) {
+  /* Keep the mobile drawer below the fixed/sticky header instead of covering it. */
+  :host ::ng-deep #kt_aside.drawer {
+    top: 65px !important;
+    bottom: 0 !important;
+    height: calc(100dvh - 65px) !important;
+    max-height: calc(100dvh - 65px) !important;
+    width: min(84vw, 310px) !important;
+    border-radius: 0 !important;
+    box-shadow: 14px 20px 55px rgba(13, 30, 23, .24);
+    overflow: hidden;
+    background: var(--bs-primary, #0a4a32) !important;
+  }
 
-//   .flex-root {
-//     height: 100%;
-//   }
-// }
+  :host ::ng-deep #kt_aside .aside-primary {
+    display: none !important;
+  }
 
-// .page-loaded {
-//   app-layout {
-//     opacity: 1;
-//     transition: opacity 1s ease-in-out;
-//   }
-// }
+  :host ::ng-deep #kt_aside .aside-secondary {
+    width: 100% !important;
+    min-width: 0 !important;
+    background: var(--bs-primary, #0a4a32) !important;
+  }
+
+  :host ::ng-deep #kt_aside .aside-workspace {
+    width: 100% !important;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  :host ::ng-deep .drawer-overlay {
+    top: 65px !important;
+    height: calc(100dvh - 65px) !important;
+    background: rgba(5, 25, 17, .34) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+}
+
+@media (max-width: 575.98px) {
+  :host ::ng-deep #kt_aside.drawer {
+    top: 60px !important;
+    height: calc(100dvh - 60px) !important;
+    max-height: calc(100dvh - 60px) !important;
+    width: min(86vw, 292px) !important;
+  }
+
+  :host ::ng-deep .drawer-overlay {
+    top: 60px !important;
+    height: calc(100dvh - 60px) !important;
+  }
+}
+
+
+/* Keep page/layout edges square as in the original layout. */
+:host ::ng-deep #main-element,
+:host ::ng-deep .page,
+:host ::ng-deep #kt_wrapper,
+:host ::ng-deep #kt_header,
+:host ::ng-deep #kt_content,
+:host ::ng-deep #kt_content_container {
+  border-radius: 0 !important;
+}
+
+:host ::ng-deep #kt_header {
+  overflow: visible !important;
+}

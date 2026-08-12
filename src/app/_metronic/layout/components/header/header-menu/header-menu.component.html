@@ -2,16 +2,33 @@
   class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-6 my-5 mx-10 my-lg-0 align-items-stretch"
   id="#kt_header_menu" data-kt-menu="true">
 
-  <ng-container *ngFor="let menu of menuList">
+  <ng-container *ngFor="let menu of menuList; let i = index">
     <div class="menu-item me-lg-1 text-white" *ngIf="menu.childMenus?.length == 0 && !menu.isForbid">
-      <a class="menu-link text-white py-3" routerLinkActive="active" routerLink="{{menu.url}}"><span
-          class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span></a>
+      <a class="menu-link text-white py-3" routerLinkActive="active" routerLink="{{menu.url}}">
+        <span class="menu-icon styever-header-menu-icon">
+          <i *ngIf="i === 0" class="bi bi-info-circle"></i>
+          <i *ngIf="i === 1" class="bi bi-plus-circle"></i>
+          <i *ngIf="i === 2" class="bi bi-gift"></i>
+          <i *ngIf="i === 3" class="bi bi-file-earmark-text"></i>
+          <i *ngIf="i === 4" class="bi bi-question-circle"></i>
+          <i *ngIf="i > 4" class="bi bi-grid"></i>
+        </span>
+        <span class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
+      </a>
     </div>
 
 
     <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown" data-kt-menu-trigger="click"
       data-kt-menu-placement="bottom-start" *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid">
       <span class="menu-link text-white py-3" [ngClass]="calculateMenuItemCssClass('{{menu.url}}')">
+        <span class="menu-icon styever-header-menu-icon">
+          <i *ngIf="i === 0" class="bi bi-info-circle"></i>
+          <i *ngIf="i === 1" class="bi bi-plus-circle"></i>
+          <i *ngIf="i === 2" class="bi bi-gift"></i>
+          <i *ngIf="i === 3" class="bi bi-file-earmark-text"></i>
+          <i *ngIf="i === 4" class="bi bi-question-circle"></i>
+          <i *ngIf="i > 4" class="bi bi-grid"></i>
+        </span>
         <span class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
         <span class="menu-arrow d-lg-none"></span>
       </span>

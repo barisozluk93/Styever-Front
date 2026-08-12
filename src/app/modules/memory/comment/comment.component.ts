@@ -38,7 +38,7 @@ export class CommentComponent {
         this.memoryManagementService.approveComment(commentId).subscribe(result => {
             if (result.isSuccess) {
                 scrollToTop();
-                this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                this.toastr.success(this.translate.instant('COMMENT_APPROVED_SUCCESS'), this.translate.instant('SUCCESS'), {
                     positionClass: 'toast-top-center',
                     timeOut: 3000
                 });
@@ -60,7 +60,7 @@ export class CommentComponent {
         this.memoryManagementService.deleteComment(commentId).subscribe(result => {
             if (result.isSuccess) {
                 scrollToTop();
-                this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+                this.toastr.success(this.translate.instant('COMMENT_DELETED_SUCCESS'), this.translate.instant('SUCCESS'), {
                     positionClass: 'toast-top-center',
                     timeOut: 3000
                 });

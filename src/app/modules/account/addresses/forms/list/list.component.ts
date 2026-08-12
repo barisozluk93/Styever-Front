@@ -36,7 +36,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
     this.userManagementService.userAddressDelete(event).subscribe(result => {
       if (result.isSuccess) {
         scrollToTop();
-        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+        this.toastr.success(this.translate.instant('ADDRESS_DELETED_SUCCESS'), this.translate.instant('SUCCESS'), {
           positionClass: 'toast-top-center',
           timeOut: 3000
         });

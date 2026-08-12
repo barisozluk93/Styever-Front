@@ -43,7 +43,7 @@ export class AccountPasswordComponent implements OnInit {
     this.authService.changePassword(data.id, data.currentPassword, data.password).pipe(first()).subscribe((result: ResultModel<boolean>) => {
       if (result.isSuccess) {
         scrollToTop();
-        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), { positionClass: 'toast-top-center', timeOut: 3000 });
+        this.toastr.success(this.translate.instant('PASSWORD_UPDATED_SUCCESS'), this.translate.instant('SUCCESS'), { positionClass: 'toast-top-center', timeOut: 3000 });
         this.form.reset({ id: data.id, currentPassword: '', password: '', cPassword: '' });
       } else {
         scrollToTop();

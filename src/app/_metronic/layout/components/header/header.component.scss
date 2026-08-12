@@ -1,16 +1,53 @@
-
-
-.styever-header-logo {
+:host {
   display: block;
-  width: auto;
-  height: 54px;
-  max-width: 150px;
-  object-fit: contain;
+  min-width: 0;
 }
 
-@media (max-width: 991.98px) {
-  .styever-header-logo {
-    height: 46px;
-    max-width: 128px;
+.styever-desktop-logo-link,
+.mobile-logo-link {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.styever-header-logo {
+  display: block !important;
+  width: 92px !important;
+  height: 58px !important;
+  min-width: 92px !important;
+  max-width: 92px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  flex: 0 0 auto !important;
+}
+
+.mobile-header-wrapper {
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+/* Keep Metronic's original mobile switcher geometry/behaviour. */
+.mobile-original-aside-toggle {
+  flex: 0 0 auto;
+}
+
+.styever-header-logo-mobile {
+  width: 72px !important;
+  height: 42px !important;
+  min-width: 72px !important;
+  max-width: 72px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+}
+
+@media (max-width: 575.98px) {
+  .styever-header-logo-mobile {
+    width: 64px !important;
+    height: 38px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
   }
 }

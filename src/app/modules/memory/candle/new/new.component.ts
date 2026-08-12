@@ -137,7 +137,7 @@ export class LightCandleComponent implements OnInit, AfterViewInit {
                         scrollToTop();
 
                         this.toastr.success(
-                            this.translate.instant('SUCCESS_MESSAGE'),
+                            this.translate.instant('CANDLE_UPDATED_SUCCESS'),
                             this.translate.instant('SUCCESS'),
                             {
                                 positionClass: 'toast-top-center',
@@ -167,7 +167,7 @@ export class LightCandleComponent implements OnInit, AfterViewInit {
                         scrollToTop();
 
                         this.toastr.success(
-                            this.translate.instant('SUCCESS_MESSAGE'),
+                            this.translate.instant('CANDLE_LIT_SUCCESS'),
                             this.translate.instant('SUCCESS'),
                             {
                                 positionClass: 'toast-top-center',

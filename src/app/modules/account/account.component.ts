@@ -72,7 +72,7 @@ export class AccountComponent implements OnInit {
         if (result?.isSuccess === false) {
           scrollToTop();
           this.toastr.error(
-            result?.message || this.translate.instant('ERROR'),
+            result?.message || this.translate.instant('ACCOUNT_DELETE_ERROR'),
             this.translate.instant('ERROR'),
             { positionClass: 'toast-top-center', timeOut: 3000 }
           );
@@ -81,7 +81,7 @@ export class AccountComponent implements OnInit {
 
         scrollToTop();
         this.toastr.success(
-          this.translate.instant('SUCCESS_MESSAGE'),
+          this.translate.instant('ACCOUNT_DELETED_SUCCESS'),
           this.translate.instant('SUCCESS'),
           { positionClass: 'toast-top-center', timeOut: 3000 }
         );
@@ -92,7 +92,7 @@ export class AccountComponent implements OnInit {
       error: error => {
         scrollToTop();
         this.toastr.error(
-          error?.error?.message || this.translate.instant('ERROR'),
+          error?.error?.message || error?.message || this.translate.instant('ACCOUNT_DELETE_ERROR'),
           this.translate.instant('ERROR'),
           { positionClass: 'toast-top-center', timeOut: 3000 }
         );

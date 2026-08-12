@@ -126,7 +126,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
         if (result.isSuccess) {
           scrollToTop();
           this.toastr.success(
-            this.translate.instant('SUCCESS_MESSAGE'),
+            this.translate.instant('COMMENT_ADDED_SUCCESS'),
             this.translate.instant('SUCCESS'),
             {
               positionClass: 'toast-top-center',
@@ -238,7 +238,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
             if (result.isSuccess) {
               scrollToTop();
               this.toastr.success(
-                this.translate.instant('SUCCESS_MESSAGE'),
+                this.translate.instant('LIKE_REMOVED_SUCCESS'),
                 this.translate.instant('SUCCESS'),
                 {
                   positionClass: 'toast-top-center',
@@ -270,7 +270,7 @@ export class MemoryViewComponent implements OnInit, AfterViewInit {
           if (result.isSuccess) {
             scrollToTop();
             this.toastr.success(
-              this.translate.instant('SUCCESS_MESSAGE'),
+              this.translate.instant('LIKE_ADDED_SUCCESS'),
               this.translate.instant('SUCCESS'),
               {
                 positionClass: 'toast-top-center',

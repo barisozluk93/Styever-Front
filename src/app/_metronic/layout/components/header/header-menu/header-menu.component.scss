@@ -2,4 +2,60 @@
   height: inherit;
   width: inherit;
 }
-:host{display:flex;align-items:stretch}.menu .menu-link{position:relative;transition:opacity .2s ease}.menu .menu-link:hover{background:transparent!important;opacity:.72}.menu .menu-link.active::after{content:'';position:absolute;left:1rem;right:1rem;bottom:4px;height:2px;border-radius:2px;background:rgba(255,255,255,.82)}
+:host{display:flex;align-items:stretch}.menu .menu-link{position:relative;transition:opacity .2s ease}.menu .menu-link:hover{background:transparent!important;opacity:.72}
+
+.styever-header-menu-icon {
+  width: 28px !important;
+  min-width: 28px !important;
+  margin-right: 6px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.styever-header-menu-icon i {
+  color: rgba(255,255,255,.88);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.menu .menu-link:hover .styever-header-menu-icon i,
+.menu .menu-link.active .styever-header-menu-icon i {
+  color: #fff;
+}
+
+
+/* Desktop header: keep both label and icon white on hover/active. */
+@media (min-width: 992px) {
+  .menu .menu-item > .menu-link:hover .menu-title,
+  .menu .menu-item > .menu-link:hover .menu-icon,
+  .menu .menu-item > .menu-link:hover .menu-icon i,
+  .menu .menu-item > .menu-link:hover .svg-icon,
+  .menu .menu-item > .menu-link:hover .svg-icon svg,
+  .menu .menu-item > .menu-link:hover .svg-icon svg path,
+  .menu .menu-item > .menu-link.active .menu-title,
+  .menu .menu-item > .menu-link.active .menu-icon,
+  .menu .menu-item > .menu-link.active .menu-icon i {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+}
+
+/* Desktop header: icon and text are always white on hover/active. */
+@media (min-width: 992px) {
+  #kt_header_menu .menu-item > .menu-link:hover .menu-title,
+  #kt_header_menu .menu-item > .menu-link:hover .menu-icon,
+  #kt_header_menu .menu-item > .menu-link:hover .menu-icon i,
+  #kt_header_menu .menu-item > .menu-link:hover .svg-icon,
+  #kt_header_menu .menu-item > .menu-link:hover .svg-icon svg,
+  #kt_header_menu .menu-item > .menu-link:hover .svg-icon svg path,
+  #kt_header_menu .menu-item > .menu-link.active .menu-title,
+  #kt_header_menu .menu-item > .menu-link.active .menu-icon,
+  #kt_header_menu .menu-item > .menu-link.active .menu-icon i,
+  #kt_header_menu .menu-item > .menu-link.active .svg-icon,
+  #kt_header_menu .menu-item > .menu-link.active .svg-icon svg,
+  #kt_header_menu .menu-item > .menu-link.active .svg-icon svg path {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+}

@@ -50,6 +50,7 @@ import {
 import {
   ModalConfig
 } from 'src/app/_metronic/partials/layout/modals/modal.config';
+import { scrollToTop } from 'src/app/utils/scrolltotop';
 
 
 @Component({
@@ -919,12 +920,8 @@ export class RegistrationComponent
             if (user) {
 
               this.toastr.success(
-                this.translate.currentLang === 'tr'
-                  ? 'Kayıt işleminiz başarıyla tamamlandı. Giriş yapabilirsiniz.'
-                  : 'Your registration has been completed successfully. You can now sign in.',
-                this.translate.currentLang === 'tr'
-                  ? 'Kayıt Başarılı'
-                  : 'Registration Successful',
+                this.translate.instant('REGISTRATION_SUCCESS_MESSAGE'),
+                this.translate.instant('SUCCESS'),
                 {
                   positionClass: 'toast-top-center',
                   timeOut: 3000
@@ -943,9 +940,15 @@ export class RegistrationComponent
 
           },
 
-          error: () => {
+          error: (error) => {
 
             this.hasError = true;
+            scrollToTop();
+            this.toastr.error(
+              error?.error?.message || error?.message || this.translate.instant('REGISTRATION_ERROR_MESSAGE'),
+              this.translate.instant('ERROR'),
+              { positionClass: 'toast-top-center', timeOut: 3000 }
+            );
 
           }
 

@@ -1,0 +1,145 @@
+
+.styever-mobile-menu {
+  width: 100%;
+  min-height: 100%;
+  padding: 18px 14px 24px;
+  background: var(--bs-primary, #0a4a32);
+}
+
+.styever-mobile-menu__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 4px 18px;
+  padding: 10px 6px 16px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255,255,255,.13);
+  background: transparent;
+}
+
+.styever-mobile-menu__mark {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.styever-mobile-menu__mark img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.styever-mobile-menu__brand-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.styever-mobile-menu__brand-copy strong {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.styever-mobile-menu__brand-copy span {
+  margin-top: 4px;
+  color: rgba(255,255,255,.62);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+#kt_aside_menu {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+.styever-mobile-menu__item {
+  margin-bottom: 6px;
+}
+
+.styever-mobile-menu__link {
+  min-height: 54px;
+  display: flex !important;
+  align-items: center;
+  padding: 7px 10px !important;
+  border: 1px solid transparent;
+  border-radius: 10px !important;
+  background: transparent !important;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.styever-mobile-menu__link:hover {
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.08);
+}
+
+.styever-mobile-menu__link.active {
+  background: rgba(255,255,255,.14) !important;
+  border-color: rgba(255,255,255,.14);
+}
+
+.styever-mobile-menu__icon {
+  width: 38px !important;
+  height: 38px;
+  flex: 0 0 38px !important;
+  display: grid !important;
+  place-items: center;
+  margin-right: 11px !important;
+  border-radius: 9px;
+  background: rgba(255,255,255,.10);
+  color: #fff !important;
+}
+
+.styever-mobile-menu__icon i {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.styever-mobile-menu__link.active .styever-mobile-menu__icon {
+  background: #fff;
+  color: var(--bs-primary, #0a4a32) !important;
+}
+
+.styever-mobile-menu__link.active .styever-mobile-menu__icon i {
+  color: var(--bs-primary, #0a4a32) !important;
+}
+
+.styever-mobile-menu__link .menu-title {
+  flex: 1;
+  color: rgba(255,255,255,.88) !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.styever-mobile-menu__link.active .menu-title {
+  color: #fff !important;
+}
+
+.styever-mobile-menu__arrow {
+  margin-left: auto;
+  padding: 0 6px;
+  color: rgba(255,255,255,.52);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.styever-mobile-menu__link.active .styever-mobile-menu__arrow {
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .styever-mobile-menu {
+    padding: 0;
+  }
+}

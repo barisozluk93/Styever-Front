@@ -1,40 +1,57 @@
-<!--begin::Menu-->
-<div
-  class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-500 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5 px-6 my-5 my-lg-0"
-  id="kt_aside_menu" data-kt-menu="true">
+<div class="styever-mobile-menu">
+  <div class="styever-mobile-menu__brand d-lg-none">
+    <a routerLink="/home" class="styever-mobile-menu__mark" aria-label="Styever home">
+      <img src="./assets/media/logos/logo-2.png" alt="Styever" />
+    </a>
+    <div class="styever-mobile-menu__brand-copy">
+      <strong>Styever</strong>
+      <span>{{ ('LANG' | translate) === 'tr' ? 'Anıları yaşat.' : 'Keep memories alive.' }}</span>
+    </div>
+  </div>
 
-  <div id="kt_aside_menu_wrapper" class="menu-fit">
+  <div
+    class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-500 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5"
+    id="kt_aside_menu" data-kt-menu="true">
 
-    <ng-container *ngFor="let menu of menuList">
-      <div *ngIf="menu.childMenus?.length == 0 && !menu.isForbid" class="menu-item">
-        <a class="menu-link without-sub" routerLink={{menu.url}} routerLinkActive="active"><span class="menu-icon">
-            <span [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'" class="svg-icon svg-icon-2"></span>
+    <div id="kt_aside_menu_wrapper" class="menu-fit">
+      <ng-container *ngFor="let menu of menuList; let i = index">
+        <div *ngIf="menu.childMenus?.length == 0 && !menu.isForbid" class="menu-item styever-mobile-menu__item">
+          <a class="menu-link without-sub styever-mobile-menu__link" routerLink={{menu.url}} routerLinkActive="active">
+            <span class="menu-icon styever-mobile-menu__icon">
+              <i *ngIf="i === 0" class="bi bi-info-circle"></i>
+              <i *ngIf="i === 1" class="bi bi-plus-circle"></i>
+              <i *ngIf="i === 2" class="bi bi-gift"></i>
+              <i *ngIf="i === 3" class="bi bi-file-earmark-text"></i>
+              <i *ngIf="i === 4" class="bi bi-question-circle"></i>
+              <i *ngIf="i > 4" class="bi bi-grid"></i>
+            </span>
+            <span class="menu-title">{{('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
+            <span class="styever-mobile-menu__arrow">›</span>
+          </a>
+        </div>
+
+        <div *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid"
+          class="menu-item menu-accordion styever-mobile-menu__item" data-kt-menu-trigger="click" routerLinkActive="here show">
+          <span class="menu-link styever-mobile-menu__link">
+            <span class="menu-icon styever-mobile-menu__icon">
+              <i class="bi bi-grid"></i>
+            </span>
+            <span class="menu-title">{{('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
+            <span class="menu-arrow"></span>
           </span>
-          <span class="menu-title">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span></a>
-      </div>
 
-      <div *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid" class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
-        <span class="menu-link"><span class="menu-icon"><span class="svg-icon svg-icon-2"
-          [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"></span></span><span
-        class="menu-title">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span><span class="menu-arrow"></span></span>
-        
-        <ng-container *ngFor="let childMenu of menu.childMenus">
-          <div *ngIf="!childMenu.isForbid" class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
-            <div class="menu-item">
-              <a class="menu-link without-sub" routerLinkActive="active"
-                routerLink={{childMenu.url}}><span class="menu-bullet"><span
-                    class="bullet bullet-dot"></span></span><span class="menu-title">{{("LANG" | translate) === 'tr' ? childMenu.name : childMenu.nameEn }}</span></a>
+          <ng-container *ngFor="let childMenu of menu.childMenus">
+            <div *ngIf="!childMenu.isForbid" class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+              <div class="menu-item">
+                <a class="menu-link without-sub" routerLinkActive="active" routerLink={{childMenu.url}}>
+                  <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                  <span class="menu-title">{{('LANG' | translate) === 'tr' ? childMenu.name : childMenu.nameEn }}</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </ng-container>
-      </div>
-    </ng-container>    
-
-    <!-- Separator -->
-    <div class="menu-item">
-      <div class="menu-content">
-        <div class="separator mx-1 my-4"></div>
-      </div>
+          </ng-container>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>

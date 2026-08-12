@@ -390,7 +390,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.memoryManagementService.setMemoryFileIsPrimary(fileId).subscribe(result => {
       if (result.isSuccess) {
         scrollToTop();
-        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+        this.toastr.success(this.translate.instant('PRIMARY_MEDIA_UPDATED_SUCCESS'), this.translate.instant('SUCCESS'), {
           positionClass: 'toast-top-center',
           timeOut: 3000
         });
@@ -423,7 +423,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
           this.memoryManagementService.memoryFileAdd(data).subscribe(result => {
             if (result.isSuccess) {
               scrollToTop();
-              this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+              this.toastr.success(this.translate.instant('MEDIA_ADDED_SUCCESS'), this.translate.instant('SUCCESS'), {
                 positionClass: 'toast-top-center',
                 timeOut: 3000
               });
@@ -456,7 +456,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       this.memoryManagementService.edit(data).subscribe(result => {
         if (result.isSuccess) {
           scrollToTop();
-          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+          this.toastr.success(this.translate.instant('MEMORY_UPDATED_SUCCESS'), this.translate.instant('SUCCESS'), {
             positionClass: 'toast-top-center',
             timeOut: 3000
           });
@@ -476,7 +476,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
       this.memoryManagementService.save(data).subscribe(result => {
         if (result.isSuccess) {
           scrollToTop();
-          this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+          this.toastr.success(this.translate.instant('MEMORY_CREATED_SUCCESS'), this.translate.instant('SUCCESS'), {
             positionClass: 'toast-top-center',
             timeOut: 3000
           });
@@ -498,7 +498,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
     this.memoryManagementService.memoryYoutubeLinkDelete(youtubeLinkId).subscribe(result => {
       if (result.isSuccess) {
         scrollToTop();
-        this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+        this.toastr.success(this.translate.instant('YOUTUBE_LINK_DELETED_SUCCESS'), this.translate.instant('SUCCESS'), {
           positionClass: 'toast-top-center',
           timeOut: 3000
         });
@@ -530,7 +530,7 @@ export class MemoryEditComponent implements OnInit, AfterViewInit {
         this.memoryManagementService.memoryFileDelete(memoryFileId).subscribe(result => {
           if (result.isSuccess) {
             scrollToTop();
-            this.toastr.success(this.translate.instant('SUCCESS_MESSAGE'), this.translate.instant('SUCCESS'), {
+            this.toastr.success(this.translate.instant('MEDIA_DELETED_SUCCESS'), this.translate.instant('SUCCESS'), {
               positionClass: 'toast-top-center',
               timeOut: 3000
             });

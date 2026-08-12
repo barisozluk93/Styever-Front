@@ -1,27 +1,37 @@
 <div [ngClass]="headerContainerCssClasses" class="d-flex align-items-center justify-content-between"
   id="kt_header_container">
-  <!-- <app-page-title #ktPageTitle
-    class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap mt-n5 mt-lg-0 me-lg-2 pb-2 pb-lg-0"
-    data-kt-swapper="true" data-kt-swapper-mode="prepend"
-    data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}"></app-page-title> -->
 
-    <a *ngIf="!isMobile" routerLink="/home" class="d-flex align-items-center">
-      <img alt="Styever" src="./assets/media/logos/icon-transparent.png" class="styever-header-logo" style="width:92px!important;height:58px!important;max-width:92px!important;max-height:58px!important;object-fit:contain!important;" />
-    </a>
-  <!-- begin::Wrapper -->
-  <div class="d-flex d-lg-none align-items-center ms-n2 me-4">
-    <!--begin::Aside mobile toggle-->
-    <div class="aside-toggle btn btn-icon btn-active-icon-primary me-2" id="kt_aside_toggle">
-      <span [inlineSVG]="'./assets/media/icons/duotune/abstract/abs015.svg'" class="svg-icon svg-icon-1"></span>
+  <!-- Desktop logo: fixed dimensions prevent global image rules from stretching it -->
+  <a *ngIf="!isMobile" routerLink="/home" class="d-flex align-items-center flex-shrink-0 styever-desktop-logo-link">
+    <img
+      alt="Styever"
+      src="./assets/media/logos/icon-transparent.png"
+      class="styever-header-logo"
+      style="display:block!important;width:92px!important;height:58px!important;min-width:92px!important;max-width:92px!important;min-height:58px!important;max-height:58px!important;object-fit:contain!important;" />
+  </a>
+
+  <!-- Mobile: restore the original Metronic aside switcher -->
+  <div class="d-flex d-lg-none align-items-center ms-n2 me-4 mobile-header-wrapper">
+    <div
+      class="aside-toggle btn btn-icon btn-active-icon-primary me-2 mobile-original-aside-toggle"
+      id="kt_aside_toggle"
+      role="button"
+      aria-label="Open menu">
+      <span
+        [inlineSVG]="'./assets/media/icons/duotune/abstract/abs015.svg'"
+        class="svg-icon svg-icon-1">
+      </span>
     </div>
-    <!--end::Aside mobile toggle-->
-    <!--begin::Logo-->
-    <a routerLink="/home" class="d-flex align-items-center">
-      <img alt="Styever" src="./assets/media/logos/icon-transparent.png" class="styever-header-logo" style="width:92px!important;height:58px!important;max-width:92px!important;max-height:58px!important;object-fit:contain!important;" />
+
+    <a routerLink="/home" class="d-flex align-items-center flex-shrink-0 mobile-logo-link" aria-label="Styever home">
+      <img
+        alt="Styever"
+        src="./assets/media/logos/icon-transparent.png"
+        class="styever-header-logo styever-header-logo-mobile"
+        style="display:block!important;width:72px!important;height:42px!important;min-width:72px!important;max-width:72px!important;min-height:42px!important;max-height:42px!important;object-fit:contain!important;" />
     </a>
-    <!--end::Logo-->
   </div>
-  <!-- end::Wrapper -->
+
   <app-header-menu *ngIf="!isMobile"></app-header-menu>
   <app-topbar class="d-flex flex-shrink-0"></app-topbar>
 </div>

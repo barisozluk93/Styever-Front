@@ -179,7 +179,7 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
         this.pendingRedirectUrl = null;
         scrollToTop();
         this.toastr.success(
-          this.translate.instant('SUCCESS_MESSAGE'),
+          this.translate.instant('PAYMENT_CONFIRMED_SUCCESS'),
           this.translate.instant('SUCCESS'),
           { positionClass: 'toast-top-center', timeOut: 3000 }
         );

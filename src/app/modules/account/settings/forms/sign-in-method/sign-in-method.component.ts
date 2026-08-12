@@ -84,7 +84,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
         if (result.isSuccess) {
           scrollToTop();
 
-          this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
+          this.toastr.success(this.translateService.instant('EMAIL_UPDATED_SUCCESS'), this.translateService.instant('SUCCESS'), {
             positionClass: 'toast-top-center',
             timeOut: 3000
           });
@@ -122,7 +122,7 @@ export class SignInMethodComponent implements OnInit, OnDestroy, OnChanges {
           if (result.isSuccess) {
             scrollToTop();
 
-            this.toastr.success(this.translateService.instant('SUCCESS_MESSAGE'), this.translateService.instant('SUCCESS'), {
+            this.toastr.success(this.translateService.instant('PASSWORD_UPDATED_SUCCESS'), this.translateService.instant('SUCCESS'), {
               positionClass: 'toast-top-center',
               timeOut: 3000
             });
