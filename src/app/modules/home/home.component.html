@@ -1,78 +1,221 @@
 <main class="styever-home">
-  <section class="hero">
-    <div class="hero__shade"></div>
-    <div class="container-xxl hero__container">
-      <div class="hero__content">
-        <div class="hero__eyebrow"><img src="/assets/media/logos/logo.png" alt="Styever" class="hero__eyebrow-logo flex-shrink-0" />{{ 'HOME_HERO_EYEBROW' | translate }}</div>
-        <h1 class="hero__title">{{ 'HOME_HERO_TITLE' | translate }}</h1>
-        <p class="hero__description">{{ 'HOME_HEADER' | translate }}</p>
-        <div class="d-flex flex-wrap gap-3 mt-8">
-          <button type="button" class="btn btn-primary btn-lg px-8" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }} <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i></button>
-          <button type="button" class="btn btn-light btn-lg px-8 hero__secondary" (click)="goToMemories()">{{ 'MEMORIES' | translate }}</button>
-        </div>
-        <div class="hero__note"><div class="hero__note-icon"><i class="ki-duotone ki-heart fs-2"><span class="path1"></span><span class="path2"></span></i></div><span>{{ 'HOME_HERO_NOTE' | translate }}</span></div>
-      </div>
-    </div>
-    <button type="button" class="hero__scroll" (click)="goToOffers()"><span>{{ 'EXPLORE' | translate }}</span><i class="ki-duotone ki-down fs-2"><span class="path1"></span><span class="path2"></span></i></button>
-  </section>
+  <section class="home-hero position-relative d-flex align-items-center">
+    <div class="home-hero__overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-  <section id="offers" class="section section--warm">
-    <div class="container-xxl">
-      <div class="section-heading">
-        <div><span class="section-kicker">{{ 'OFFERS' | translate }}</span><h2>{{ 'OFFERS_HEADER' | translate }}</h2></div>
-        <p>{{ 'HOME_OFFERS_DESC' | translate }}</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-story cursor-pointer" (click)="goToSignUp()">
-          <img src="./assets/media/patterns/section1-1.jpg" [alt]="'OFFERS_FIRST_CONTENT_HEADER' | translate">
-          <div class="feature-story__overlay"></div>
-          <div class="feature-story__content"><h3 class="text-white">{{ 'OFFERS_FIRST_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FIRST_CONTENT_SUBHEADER' | translate }}</p><span class="feature-link">{{ 'CREATE_MEMORY' | translate }} <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i></span></div>
-        </article>
-        <div class="feature-list">
-          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-picture fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_SECOND_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_SECOND_CONTENT_SUBHEADER' | translate }}</p></div></article>
-          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-shield-tick fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_FOURTH_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FOURTH_CONTENT_SUBHEADER' | translate }}</p></div></article>
-          <article class="feature-card"><div class="feature-card__icon"><i class="ki-duotone ki-people fs-1"><span class="path1"></span><span class="path2"></span></i></div><div><h3>{{ 'OFFERS_FIFTH_CONTENT_HEADER' | translate }}</h3><p>{{ 'OFFERS_FIFTH_CONTENT_SUBHEADER' | translate }}</p></div></article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="container-xxl">
-      <div class="about-panel">
-        <div class="about-panel__image"><img src="./assets/media/patterns/Hakkimizda.jpg" [alt]="'ABOUT_HEADER' | translate"><div class="about-panel__quote"><img src="./assets/media/logos/logo-2.png" alt="Styever"><span>{{ 'ABOUT_HEADER_CONTENT' | translate }}</span></div></div>
-        <div class="about-panel__content">
-          <span class="section-kicker">{{ 'ABOUT' | translate }}</span><h2>{{ 'ABOUT_HEADER' | translate }}</h2><p>{{ 'HOME_ABOUT_EXCERPT' | translate }}</p>
-          <div class="about-values">
-            <div class="about-value"><span class="about-value__dot"></span><div><strong>{{ 'HOME_ABOUT_VALUE_1_TITLE' | translate }}</strong><span>{{ 'HOME_ABOUT_VALUE_1_DESC' | translate }}</span></div></div>
-            <div class="about-value"><span class="about-value__dot"></span><div><strong>{{ 'HOME_ABOUT_VALUE_2_TITLE' | translate }}</strong><span>{{ 'HOME_ABOUT_VALUE_2_DESC' | translate }}</span></div></div>
+    <div class="container-xxl position-relative z-index-2 h-100 d-flex align-items-center">
+      <div class="row align-items-center w-100">
+        <div class="col-xl-7 col-lg-8">
+          <div class="d-flex align-items-center gap-3 mb-6 text-white text-uppercase fw-bold fs-8 ls-2">
+            <img src="/assets/media/logos/logo.png" alt="Styever" class="home-hero__brand" />
+            <span>{{ 'HOME_HERO_EYEBROW' | translate }}</span>
           </div>
-          <button type="button" class="btn btn-light-primary px-7 mt-8" (click)="goToAbout()">{{ 'HOME_LEARN_MORE' | translate }} <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i></button>
+
+          <h1 class="text-white fw-bolder mb-6 home-hero__title">
+            {{ 'HOME_HERO_TITLE' | translate }}
+          </h1>
+
+          <p class="text-white opacity-75 fs-5 lh-lg mw-650px mb-0">
+            {{ 'HOME_HEADER' | translate }}
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-3 mt-10">
+            <button type="button" class="btn btn-primary btn-lg px-8" (click)="goToSignUp()">
+              {{ 'CREATE_MEMORY' | translate }}
+              <i class="ki-duotone ki-arrow-right fs-3 ms-2"><span class="path1"></span><span class="path2"></span></i>
+            </button>
+
+            <button type="button" class="btn btn-light home-light-btn btn-lg px-8" (click)="goToMemories()">
+              {{ 'MEMORIES' | translate }}
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center gap-3 mt-8 text-white opacity-75 fs-7">
+            <span class="symbol symbol-40px">
+              <span class="symbol-label bg-white bg-opacity-10">
+                <i class="ki-duotone ki-heart text-white fs-2"><span class="path1"></span><span class="path2"></span></i>
+              </span>
+            </span>
+            <span>{{ 'HOME_HERO_NOTE' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="home-hero__scroll btn btn-sm btn-transparent position-absolute start-50 translate-middle-x d-flex flex-column align-items-center justify-content-center text-white" (click)="goToOffers()" [attr.aria-label]="'EXPLORE' | translate">
+      <i class="ki-duotone ki-down text-white fs-2 mb-1"><span class="path1"></span><span class="path2"></span></i>
+      <span class="fs-8 fw-semibold text-uppercase ls-1">{{ 'EXPLORE' | translate }}</span>
+    </button>
+  </section>
+
+  <section id="offers" class="py-12 py-lg-15 home-app-bg">
+    <div class="container-xxl">
+      <div class="row align-items-end g-6 mb-10 mb-lg-12">
+        <div class="col-lg-7">
+          <div class="text-primary text-uppercase fw-bold fs-8 ls-2 mb-3">{{ 'OFFERS' | translate }}</div>
+          <h2 class="fs-2x fs-lg-3x fw-bolder text-gray-900 mb-0">{{ 'OFFERS_HEADER' | translate }}</h2>
+        </div>
+        <div class="col-lg-5">
+          <p class="fs-5 text-gray-600 lh-lg mb-0">{{ 'HOME_OFFERS_DESC' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="row g-6 g-lg-8">
+        <div class="col-lg-7">
+          <div class="card home-hover-card card-flush h-100 overflow-hidden cursor-pointer home-story home-hover-card" (click)="goToSignUp()">
+            <img src="./assets/media/patterns/section1-1.jpg" [alt]="'OFFERS_FIRST_CONTENT_HEADER' | translate" class="home-story__image" />
+            <div class="home-story__overlay"></div>
+            <div class="card-body position-absolute bottom-0 start-0 w-100 p-8 p-lg-10 z-index-2">
+              <h3 class="text-white fs-2x fw-bold mb-3">{{ 'OFFERS_FIRST_CONTENT_HEADER' | translate }}</h3>
+              <p class="text-white opacity-75 fs-5 lh-lg mb-5 mw-550px">{{ 'OFFERS_FIRST_CONTENT_SUBHEADER' | translate }}</p>
+              <span class="d-inline-flex align-items-center text-white fw-semibold fs-6">
+                {{ 'CREATE_MEMORY' | translate }}
+                <i class="ki-duotone ki-arrow-right text-white fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-6 h-100">
+            <div class="card home-hover-card card-flush flex-grow-1 home-hover-card">
+              <div class="card-body d-flex align-items-start gap-5 p-7">
+                <span class="symbol symbol-55px flex-shrink-0"><span class="symbol-label bg-light-primary"><i class="ki-duotone ki-picture text-primary fs-1"><span class="path1"></span><span class="path2"></span></i></span></span>
+                <div><h3 class="fs-3 fw-bold text-gray-900 mb-2">{{ 'OFFERS_SECOND_CONTENT_HEADER' | translate }}</h3><p class="text-gray-600 fs-6 lh-lg mb-0">{{ 'OFFERS_SECOND_CONTENT_SUBHEADER' | translate }}</p></div>
+              </div>
+            </div>
+
+            <div class="card home-hover-card card-flush flex-grow-1 home-hover-card">
+              <div class="card-body d-flex align-items-start gap-5 p-7">
+                <span class="symbol symbol-55px flex-shrink-0"><span class="symbol-label bg-light-primary"><i class="ki-duotone ki-shield-tick text-primary fs-1"><span class="path1"></span><span class="path2"></span></i></span></span>
+                <div><h3 class="fs-3 fw-bold text-gray-900 mb-2">{{ 'OFFERS_FOURTH_CONTENT_HEADER' | translate }}</h3><p class="text-gray-600 fs-6 lh-lg mb-0">{{ 'OFFERS_FOURTH_CONTENT_SUBHEADER' | translate }}</p></div>
+              </div>
+            </div>
+
+            <div class="card home-hover-card card-flush flex-grow-1 home-hover-card">
+              <div class="card-body d-flex align-items-start gap-5 p-7">
+                <span class="symbol symbol-55px flex-shrink-0"><span class="symbol-label bg-light-primary"><i class="ki-duotone ki-people text-primary fs-1"><span class="path1"></span><span class="path2"></span></i></span></span>
+                <div><h3 class="fs-3 fw-bold text-gray-900 mb-2">{{ 'OFFERS_FIFTH_CONTENT_HEADER' | translate }}</h3><p class="text-gray-600 fs-6 lh-lg mb-0">{{ 'OFFERS_FIFTH_CONTENT_SUBHEADER' | translate }}</p></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="options" class="section section--deep">
+  <section id="about" class="py-10 py-lg-12">
     <div class="container-xxl">
-      <div class="experience-heading"><span class="section-kicker section-kicker--light">{{ 'HOME_COMMUNITY_KICKER' | translate }}</span><h2>{{ 'HOME_COMMUNITY_TITLE' | translate }}</h2><p>{{ 'HOME_COMMUNITY_DESC' | translate }}</p></div>
-      <div class="experience-grid">
-        <article class="experience-card"><div class="experience-card__icon"><i class="ki-duotone ki-heart fs-1"><span class="path1"></span><span class="path2"></span></i></div><h3>{{ 'SHORTCUT_FIRST_HEADER' | translate }}</h3><p>{{ 'SHORTCUT_FIRST_CONTENT' | translate }}</p><button type="button" class="btn btn-light w-100 mt-auto experience-card__button" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button></article>
-        <article class="experience-card"><div class="experience-card__icon"><i class="ki-duotone ki-message-text-2 fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></div><h3>{{ 'SHORTCUT_SECOND_HEADER' | translate }}</h3><p>{{ 'SHORTCUT_SECOND_CONTENT' | translate }}</p><button type="button" class="btn btn-light w-100 mt-auto experience-card__button" (click)="goToMemories()">{{ 'MEMORIES' | translate }}</button></article>
+      <div class="card home-hover-card card-flush overflow-hidden shadow-sm">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-6 position-relative home-about__media">
+            <img src="./assets/media/patterns/Hakkimizda.jpg" [alt]="'ABOUT_HEADER' | translate" class="home-about__image" />
+            <div class="home-about__quote position-absolute start-0 bottom-0 m-6 m-lg-8 p-5 rounded d-flex align-items-center gap-4 mw-450px">
+              <img src="./assets/media/logos/logo-2.png" alt="Styever" class="home-about__logo flex-shrink-0" />
+              <span class="text-white fs-7 lh-base">{{ 'ABOUT_HEADER_CONTENT' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card-body p-6 p-lg-7 d-flex flex-column justify-content-center">
+              <div class="text-primary text-uppercase fw-bold fs-8 ls-2 mb-3">{{ 'ABOUT' | translate }}</div>
+              <h2 class="fs-2x fs-lg-3x fw-bolder text-gray-900 mb-5">{{ 'ABOUT_HEADER' | translate }}</h2>
+              <p class="text-gray-600 fs-6 lh-lg mb-5">{{ 'HOME_ABOUT_EXCERPT' | translate }}</p>
+
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-start gap-4">
+                  <span class="bullet bullet-dot bg-primary mt-3"></span>
+                  <div><div class="fw-bold text-gray-900 fs-5 mb-1">{{ 'HOME_ABOUT_VALUE_1_TITLE' | translate }}</div><div class="text-gray-600 fs-7 lh-lg">{{ 'HOME_ABOUT_VALUE_1_DESC' | translate }}</div></div>
+                </div>
+                <div class="d-flex align-items-start gap-4">
+                  <span class="bullet bullet-dot bg-primary mt-3"></span>
+                  <div><div class="fw-bold text-gray-900 fs-5 mb-1">{{ 'HOME_ABOUT_VALUE_2_TITLE' | translate }}</div><div class="text-gray-600 fs-7 lh-lg">{{ 'HOME_ABOUT_VALUE_2_DESC' | translate }}</div></div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <button type="button" class="btn btn-light-primary home-about__cta w-100 px-7" (click)="goToAbout()">
+                  {{ 'HOME_LEARN_MORE' | translate }}
+                  <i class="ki-duotone ki-arrow-right fs-4 ms-2"><span class="path1"></span><span class="path2"></span></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="gift" class="section">
+  <section id="options" class="py-10 py-lg-12 bg-primary">
     <div class="container-xxl">
-      <div class="gift-panel">
-        <div class="gift-panel__content"><span class="section-kicker">{{ 'HOME_GIFT_KICKER' | translate }}</span><h2>{{ 'STANDBY_HEADER' | translate }}</h2><p>{{ 'STANDBY_CONTENT' | translate }}</p><button type="button" class="btn btn-primary px-8 mt-5 align-self-start" (click)="goToStandBy()">{{ 'HOME_GIFT_CTA' | translate }} <i class="ki-duotone ki-gift fs-3 ms-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i></button></div>
-        <div class="gift-panel__image"><img src="./assets/media/patterns/giftvoucher.jpg" [alt]="'STANDBY_HEADER' | translate"></div>
+      <div class="mw-750px mb-7 mb-lg-8">
+        <div class="text-white opacity-50 text-uppercase fw-bold fs-8 ls-2 mb-3">{{ 'HOME_COMMUNITY_KICKER' | translate }}</div>
+        <h2 class="text-white fs-2x fs-lg-3x fw-bolder mb-4">{{ 'HOME_COMMUNITY_TITLE' | translate }}</h2>
+        <p class="text-white opacity-75 fs-5 lh-lg mb-0">{{ 'HOME_COMMUNITY_DESC' | translate }}</p>
+      </div>
+
+      <div class="row g-6 g-lg-8">
+        <div class="col-lg-6">
+          <div class="card home-hover-card card-flush h-100 bg-white bg-opacity-10 border border-white border-opacity-10">
+            <div class="card-body p-7 p-lg-8 d-flex flex-column home-community-card">
+              <span class="symbol symbol-55px mb-5"><span class="symbol-label bg-white bg-opacity-10"><i class="ki-duotone ki-heart text-white fs-1"><span class="path1"></span><span class="path2"></span></i></span></span>
+              <h3 class="text-white fs-2 fw-bold mb-3">{{ 'SHORTCUT_FIRST_HEADER' | translate }}</h3>
+              <p class="text-white opacity-75 fs-6 lh-lg mb-6">{{ 'SHORTCUT_FIRST_CONTENT' | translate }}</p>
+              <button type="button" class="btn btn-light home-light-btn mt-auto w-100" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card home-hover-card card-flush h-100 bg-white bg-opacity-10 border border-white border-opacity-10">
+            <div class="card-body p-7 p-lg-8 d-flex flex-column home-community-card">
+              <span class="symbol symbol-55px mb-5"><span class="symbol-label bg-white bg-opacity-10"><i class="ki-duotone ki-message-text-2 text-white fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></span></span>
+              <h3 class="text-white fs-2 fw-bold mb-3">{{ 'SHORTCUT_SECOND_HEADER' | translate }}</h3>
+              <p class="text-white opacity-75 fs-6 lh-lg mb-6">{{ 'SHORTCUT_SECOND_CONTENT' | translate }}</p>
+              <button type="button" class="btn btn-light home-light-btn mt-auto w-100" (click)="goToMemories()">{{ 'MEMORIES' | translate }}</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="final-cta">
-    <div class="container-xxl"><div class="final-cta__inner"><img src="./assets/media/logos/logo-2.png" alt="Styever" class="final-cta__logo"><div><h2>{{ 'HOME_FINAL_TITLE' | translate }}</h2><p>{{ 'HOME_FINAL_DESC' | translate }}</p></div><button type="button" class="btn btn-light btn-lg px-8" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button></div></div>
+  <section id="gift" class="py-12 py-lg-15">
+    <div class="container-xxl">
+      <div class="card home-hover-card card-flush overflow-hidden">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-5 home-app-bg">
+            <div class="card-body p-8 p-lg-12 p-xl-15 h-100 d-flex flex-column justify-content-center align-items-start">
+              <div class="text-primary text-uppercase fw-bold fs-8 ls-2 mb-3">{{ 'HOME_GIFT_KICKER' | translate }}</div>
+              <h2 class="fs-2x fs-lg-3x fw-bolder text-gray-900 mb-5">{{ 'STANDBY_HEADER' | translate }}</h2>
+              <p class="text-gray-600 fs-5 lh-lg mb-0">{{ 'STANDBY_CONTENT' | translate }}</p>
+              <button type="button" class="btn btn-primary px-8 mt-8" (click)="goToStandBy()">
+                {{ 'HOME_GIFT_CTA' | translate }}
+                <i class="ki-duotone ki-gift fs-3 ms-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-7 home-gift__media">
+            <img src="./assets/media/patterns/giftvoucher.jpg" [alt]="'STANDBY_HEADER' | translate" class="w-100 h-100 object-fit-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-15 pb-lg-20">
+    <div class="container-xxl">
+      <div class="card home-hover-card card-flush bg-primary home-final-card">
+        <div class="card-body p-8 p-lg-10">
+          <div class="d-flex flex-column flex-lg-row align-items-center gap-6 gap-lg-8">
+            <img src="./assets/media/logos/logo-2.png" alt="Styever" class="home-final__logo flex-shrink-0" />
+            <div class="flex-grow-1 text-center text-lg-start">
+              <h2 class="text-white fs-2 fw-bold mb-2">{{ 'HOME_FINAL_TITLE' | translate }}</h2>
+              <p class="text-white opacity-75 fs-6 mb-0">{{ 'HOME_FINAL_DESC' | translate }}</p>
+            </div>
+            <button type="button" class="btn btn-light home-light-btn btn-lg px-8 flex-shrink-0" (click)="goToSignUp()">{{ 'CREATE_MEMORY' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </main>

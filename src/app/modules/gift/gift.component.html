@@ -1,334 +1,233 @@
 <main class="styever-gift">
-
-  <!-- =====================================================
-       HERO
-       ===================================================== -->
+  <!-- HERO -->
   <section class="gift-hero position-relative d-flex align-items-center">
+    <div class="gift-hero__overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-    <div
-      class="gift-hero__shade position-absolute top-0 start-0 w-100 h-100">
-    </div>
-
-    <div
-      class="container-xxl gift-hero__container position-relative z-index-2">
-
-      <div class="gift-hero__layout">
-
-        <!-- LEFT -->
-        <div class="gift-hero__content">
-
-          <div
-            class="gift-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
-
+    <div class="container-fluid position-relative z-index-2 h-100 d-flex align-items-center gift-hero__container">
+      <div class="row align-items-center w-100 g-8 g-xl-12">
+        <div class="col-xl-7 col-lg-7 gift-hero__left">
+          <div class="d-flex align-items-center gap-3 mb-6 text-white text-uppercase fw-bold fs-8 ls-2">
             <img
               src="/assets/media/logos/logo.png"
               alt="Styever"
-              class="gift-hero__eyebrow-logo flex-shrink-0"
+              class="gift-hero__brand flex-shrink-0"
             />
-
-            <span>
-              {{ 'GIFT_VOUCHER_TITLE' | translate }}
-            </span>
-
+            <span>{{ 'GIFT_VOUCHER_TITLE' | translate }}</span>
           </div>
 
-          <h1 class="gift-hero__title fw-bold text-white">
+          <h1 class="gift-hero__title text-white fw-bolder lh-sm mb-0">
             {{ 'GIFT_FIRST_HEADER' | translate }}
           </h1>
-
         </div>
 
+        <div class="col-xl-5 col-lg-5">
+          <div class="gift-hero__copy ps-lg-8">
+            <p class="text-white opacity-75 fs-5 lh-lg mb-0">
+              {{ 'GIFT_FIRST_CONTENT' | translate }}
+            </p>
 
-        <!-- RIGHT -->
-        <div class="gift-hero__copy">
-
-          <p class="gift-hero__description mb-0">
-            {{ 'GIFT_FIRST_CONTENT' | translate }}
-          </p>
-
-          <button
-            type="button"
-            class="btn btn-light btn-lg px-8 gift-purchase-btn"
-            (click)="goToPlans()">
-
-            <span>
+            <button
+              type="button"
+              class="btn btn-light gift-white-btn btn-lg px-8 mt-7"
+              (click)="goToPlans()"
+            >
               {{ 'PURCHASE_VOUCHER' | translate }}
-            </span>
-
-            <i class="ki-duotone ki-arrow-right fs-3 ms-2">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
-          </button>
-
+              <i class="ki-duotone ki-arrow-right fs-3 ms-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+            </button>
+          </div>
         </div>
-
       </div>
-
     </div>
 
-
-    <!-- SCROLL DOWN -->
     <button
       type="button"
-      class="gift-hero__scroll"
-      (click)="goToContent()">
-
-      <span>
-        {{ 'EXPLORE' | translate }}
-      </span>
-
-      <i class="ki-duotone ki-down fs-2">
+      class="gift-hero__scroll btn btn-sm btn-transparent position-absolute start-50 translate-middle-x d-flex flex-column align-items-center justify-content-center text-white"
+      (click)="goToContent()"
+      [attr.aria-label]="'EXPLORE' | translate"
+    >
+      <i class="ki-duotone ki-down text-white fs-2 mb-1">
         <span class="path1"></span>
         <span class="path2"></span>
       </i>
-
+      <span class="fs-8 fw-semibold text-uppercase ls-1">
+        {{ 'EXPLORE' | translate }}
+      </span>
     </button>
-
   </section>
 
-
-  <!-- =====================================================
-       STORY
-       SECTION BACKGROUND KORUNDU
-       ===================================================== -->
-  <section
-    id="gift-content"
-    class="gift-section gift-section--warm">
-
+  <!-- STORY -->
+  <section id="gift-content" class="py-10 py-lg-12 gift-app-bg">
     <div class="container-xxl">
+      <div class="card card-flush overflow-hidden shadow-sm gift-hover-card">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-5">
+            <div class="card-body p-8 p-lg-10 h-100 d-flex flex-column justify-content-center">
+              <div class="text-primary text-uppercase fw-bold fs-8 ls-2 mb-3">
+                {{ 'GIFT' | translate }}
+              </div>
 
-      <div class="card gift-story border-0 shadow-sm">
+              <h2 class="fs-2x fs-lg-3x fw-bolder text-gray-900 mb-5">
+                {{ 'GIFT_SECOND_HEADER' | translate }}
+              </h2>
 
-        <!-- CONTENT -->
-        <div class="gift-story__content">
-
-          <span
-            class="section-kicker d-inline-flex align-items-center fw-bold text-uppercase text-primary">
-
-            {{ 'GIFT' | translate }}
-
-          </span>
-
-          <h2 class="fw-bold text-gray-900">
-            {{ 'GIFT_SECOND_HEADER' | translate }}
-          </h2>
-
-          <p class="text-gray-600 mb-0">
-            {{ 'GIFT_SECOND_CONTENT' | translate }}
-          </p>
-
-        </div>
-
-
-        <!-- IMAGE -->
-        <div class="gift-story__media">
-
-          <img
-            src="./assets/media/patterns/687521385876841ee6d961f7_REF16.jpg"
-            [alt]="'GIFT_SECOND_HEADER' | translate"
-          />
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       VALUES
-       SECTION BACKGROUND KORUNDU
-       ===================================================== -->
-  <section class="gift-section gift-section--values">
-
-    <div class="container-xxl">
-
-      <div class="gift-values">
-
-        <!-- VALUE 1 -->
-        <article
-          class="card gift-value gift-value--deep border-0 shadow-none">
-
-          <div
-            class="gift-value__icon d-flex align-items-center justify-content-center flex-shrink-0">
-
-            <i class="ki-duotone ki-gift fs-1">
-              <span class="path1"></span>
-              <span class="path2"></span>
-              <span class="path3"></span>
-              <span class="path4"></span>
-            </i>
-
+              <p class="text-gray-600 fs-6 lh-lg mb-0">
+                {{ 'GIFT_SECOND_CONTENT' | translate }}
+              </p>
+            </div>
           </div>
 
-          <h3 class="fw-bold text-white">
-            {{ 'GIFT_THIRD_HEADER' | translate }}
-          </h3>
-
-          <p class="mb-0">
-            {{ 'GIFT_THIRD_CONTENT' | translate }}
-          </p>
-
-        </article>
-
-
-        <!-- VALUE 2 -->
-        <article
-          class="card gift-value border border-gray-300 shadow-none">
-
-          <div
-            class="gift-value__icon d-flex align-items-center justify-content-center flex-shrink-0">
-
-            <i class="ki-duotone ki-heart fs-1 text-primary">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
+          <div class="col-lg-7 gift-story__media">
+            <img
+              src="./assets/media/patterns/687521385876841ee6d961f7_REF16.jpg"
+              [alt]="'GIFT_SECOND_HEADER' | translate"
+              class="w-100 h-100 object-fit-cover"
+            />
           </div>
-
-          <h3 class="fw-bold text-gray-900">
-            {{ 'GIFT_FIFTH_HEADER' | translate }}
-          </h3>
-
-          <p class="text-gray-600 mb-0">
-            {{ 'GIFT_FIFTH_CONTENT' | translate }}
-          </p>
-
-        </article>
-
-
-        <!-- VALUE 3 -->
-        <article
-          class="card gift-value border border-gray-300 shadow-none">
-
-          <div
-            class="gift-value__icon d-flex align-items-center justify-content-center flex-shrink-0">
-
-            <i class="ki-duotone ki-people fs-1 text-primary">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
-          </div>
-
-          <h3 class="fw-bold text-gray-900">
-            {{ 'GIFT_SIXTH_HEADER' | translate }}
-          </h3>
-
-          <p class="text-gray-600 mb-0">
-            {{ 'GIFT_SIXTH_CONTENT' | translate }}
-          </p>
-
-        </article>
-
+        </div>
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- =====================================================
-       FEATURE
-       SECTION BACKGROUND KORUNDU
-       ===================================================== -->
-  <section class="gift-section gift-section--feature">
-
+  <!-- VALUES -->
+  <section class="py-10 py-lg-12 bg-white">
     <div class="container-xxl">
+      <div class="row g-6">
+        <div class="col-lg-4">
+          <article class="card card-flush h-100 bg-primary gift-hover-card">
+            <div class="card-body p-7 p-lg-8 d-flex flex-column">
+              <span class="symbol symbol-55px mb-5">
+                <span class="symbol-label bg-white bg-opacity-10">
+                  <i class="ki-duotone ki-gift text-white fs-1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                  </i>
+                </span>
+              </span>
 
-      <div class="card feature-panel border-0 shadow-sm">
+              <h3 class="text-white fs-2 fw-bold mb-3">
+                {{ 'GIFT_THIRD_HEADER' | translate }}
+              </h3>
 
-        <!-- IMAGE -->
-        <div class="feature-panel__media">
-
-          <img
-            src="./assets/media/patterns/Birds.jpg"
-            [alt]="'GIFT_FOURTH_HEADER' | translate"
-          />
-
+              <p class="text-white opacity-75 fs-6 lh-lg mb-0">
+                {{ 'GIFT_THIRD_CONTENT' | translate }}
+              </p>
+            </div>
+          </article>
         </div>
 
+        <div class="col-lg-4">
+          <article class="card card-flush h-100 border border-gray-300 gift-hover-card">
+            <div class="card-body p-7 p-lg-8 d-flex flex-column">
+              <span class="symbol symbol-55px mb-5">
+                <span class="symbol-label bg-light-primary">
+                  <i class="ki-duotone ki-heart text-primary fs-1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                  </i>
+                </span>
+              </span>
 
-        <!-- CONTENT -->
-        <div class="feature-panel__content">
+              <h3 class="text-gray-900 fs-2 fw-bold mb-3">
+                {{ 'GIFT_FIFTH_HEADER' | translate }}
+              </h3>
 
-          <span
-            class="section-kicker section-kicker--light d-inline-flex align-items-center fw-bold text-uppercase">
-
-            STYEVER
-
-          </span>
-
-          <h2 class="fw-bold text-white">
-            {{ 'GIFT_FOURTH_HEADER' | translate }}
-          </h2>
-
-          <p class="text-white text-opacity-70 mb-0">
-            {{ 'GIFT_FOURTH_CONTENT' | translate }}
-          </p>
-
-
-          <button
-            type="button"
-            class="btn btn-light btn-lg px-8 mt-8 gift-purchase-btn"
-            (click)="goToPlans()">
-
-            <span>
-              {{ 'PURCHASE_VOUCHER' | translate }}
-            </span>
-
-            <i class="ki-duotone ki-arrow-right fs-3 ms-2">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
-          </button>
-
+              <p class="text-gray-600 fs-6 lh-lg mb-0">
+                {{ 'GIFT_FIFTH_CONTENT' | translate }}
+              </p>
+            </div>
+          </article>
         </div>
 
+        <div class="col-lg-4">
+          <article class="card card-flush h-100 border border-gray-300 gift-hover-card">
+            <div class="card-body p-7 p-lg-8 d-flex flex-column">
+              <span class="symbol symbol-55px mb-5">
+                <span class="symbol-label bg-light-primary">
+                  <i class="ki-duotone ki-people text-primary fs-1">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                  </i>
+                </span>
+              </span>
+
+              <h3 class="text-gray-900 fs-2 fw-bold mb-3">
+                {{ 'GIFT_SIXTH_HEADER' | translate }}
+              </h3>
+
+              <p class="text-gray-600 fs-6 lh-lg mb-0">
+                {{ 'GIFT_SIXTH_CONTENT' | translate }}
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- =====================================================
-       PLANS
-       SECTION BACKGROUND KORUNDU
-       ===================================================== -->
-  <section
-    id="plans"
-    class="plans-section">
-
+  <!-- FEATURE -->
+  <section class="py-10 py-lg-12 bg-white">
     <div class="container-xxl">
+      <div class="card card-flush overflow-hidden bg-primary gift-hover-card">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-6 gift-feature__media position-relative">
+            <img
+              src="./assets/media/patterns/Birds.jpg"
+              [alt]="'GIFT_FOURTH_HEADER' | translate"
+              class="w-100 h-100 object-fit-cover"
+            />
+          </div>
 
-      <div class="plans-heading">
+          <div class="col-lg-6">
+            <div class="card-body p-7 p-lg-8 h-100 d-flex flex-column justify-content-center align-items-start gift-process-body">
+              <div class="text-white opacity-50 text-uppercase fw-bold fs-8 ls-2 mb-3">
+                STYEVER
+              </div>
 
-        <span
-          class="section-kicker d-inline-flex align-items-center fw-bold text-uppercase text-primary">
+              <h2 class="text-white fs-2x fs-lg-3x fw-bolder mb-5">
+                {{ 'GIFT_FOURTH_HEADER' | translate }}
+              </h2>
 
+              <p class="text-white opacity-75 fs-6 lh-lg mb-0 gift-process-text">
+                {{ 'GIFT_FOURTH_CONTENT' | translate }}
+              </p>
+
+              <button
+                type="button"
+                class="btn btn-light gift-white-btn btn-lg px-8 mt-7"
+                (click)="goToPlans()"
+              >
+                {{ 'PURCHASE_VOUCHER' | translate }}
+                <i class="ki-duotone ki-arrow-right fs-3 ms-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans" class="py-10 py-lg-15 gift-app-bg">
+    <div class="container-xxl">
+      <div class="gift-plans-heading mb-8 mb-lg-10">
+        <div class="text-primary text-uppercase fw-bold fs-8 ls-2 mb-3">
           {{ 'GIFT' | translate }}
+        </div>
 
-        </span>
-
-        <h2 class="fw-bold text-gray-900">
+        <h2 class="fs-2x fs-lg-3x fw-bolder text-gray-900 mb-0">
           {{ 'PURCHASE_VOUCHER' | translate }}
         </h2>
-
       </div>
 
-
-      <app-plans
-        [isStandByPage]="true">
-      </app-plans>
-
+      <app-plans [isStandByPage]="true"></app-plans>
     </div>
-
   </section>
-
 </main>

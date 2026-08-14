@@ -1,0 +1,29 @@
+<div class="admin-data-page">
+  <app-datatable
+    [header]="tableName"
+    [paginationModel]="paginationModel"
+    [dataSource]="dataSource"
+    [totalCount]="totalCount"
+    [columnList]="columnList"
+    [serverSideFiltering]="true"
+    [hasEditPermission]="true"
+    [hasDeletePermission]="true"
+    [hasNewRecordPermission]="true"
+    (filtersChange)="filtersChange($event)"
+    (paginationModelChange)="paginationModelChange($event)"
+    (newButtonClick)="openSaveModal()"
+    (editButtonClick)="openEditModal($event)"
+    (deleteButtonClick)="openDeleteModal($event)"
+    class="card card-flush shadow-sm"
+  ></app-datatable>
+</div>
+
+<app-legal-content-editsave
+  #editSaveComponent
+  (isSuccess)="loadData()"
+></app-legal-content-editsave>
+
+<app-confirmation
+  #confirmationComponent
+  (isSuccess)="delete($event)"
+></app-confirmation>

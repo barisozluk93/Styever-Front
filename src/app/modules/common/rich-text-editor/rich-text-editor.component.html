@@ -1,0 +1,31 @@
+<div class="styever-editor border border-gray-300 rounded">
+  <div class="styever-editor__toolbar d-flex flex-wrap align-items-center gap-1 p-2 border-bottom border-gray-300 bg-light">
+    <button type="button" class="btn btn-sm btn-icon btn-light" (click)="formatBlock('p')" [disabled]="disabled" title="Paragraph">P</button>
+    <button type="button" class="btn btn-sm btn-icon btn-light fw-bold" (click)="formatBlock('h2')" [disabled]="disabled" title="Heading 2">H2</button>
+    <button type="button" class="btn btn-sm btn-icon btn-light fw-bold" (click)="formatBlock('h3')" [disabled]="disabled" title="Heading 3">H3</button>
+    <span class="separator separator-vertical h-25px mx-1"></span>
+    <button type="button" class="btn btn-sm btn-icon btn-light fw-bold" (click)="exec('bold')" [disabled]="disabled" title="Bold">B</button>
+    <button type="button" class="btn btn-sm btn-icon btn-light fst-italic" (click)="exec('italic')" [disabled]="disabled" title="Italic">I</button>
+    <button type="button" class="btn btn-sm btn-icon btn-light text-decoration-underline" (click)="exec('underline')" [disabled]="disabled" title="Underline">U</button>
+    <span class="separator separator-vertical h-25px mx-1"></span>
+    <button type="button" class="btn btn-sm btn-icon btn-light" (click)="exec('insertUnorderedList')" [disabled]="disabled" title="Bullet list">
+      <i class="ki-duotone ki-row-horizontal fs-4"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-icon btn-light" (click)="exec('insertOrderedList')" [disabled]="disabled" title="Numbered list">1.</button>
+    <button type="button" class="btn btn-sm btn-icon btn-light" (click)="createLink()" [disabled]="disabled" title="Link">
+      <i class="ki-duotone ki-link fs-4"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-icon btn-light" (click)="clearFormatting()" [disabled]="disabled" title="Clear formatting">
+      <i class="ki-duotone ki-eraser fs-4"></i>
+    </button>
+  </div>
+
+  <div
+    #editor
+    class="styever-editor__content bg-body text-gray-800 fs-6 lh-lg p-4"
+    [style.min-height.px]="minHeight"
+    [attr.contenteditable]="disabled ? 'false' : 'true'"
+    (input)="handleInput()"
+    (blur)="handleBlur()"
+  ></div>
+</div>

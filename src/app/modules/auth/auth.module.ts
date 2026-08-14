@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LegalContentSharedModule } from '../common/legal-content/legal-content-shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthRoutingModule } from './auth-routing.module';
@@ -26,6 +27,7 @@ import { ModalsModule } from 'src/app/_metronic/partials/layout/modals/modals.mo
   imports: [
     PlansModule,
     CommonModule,
+    LegalContentSharedModule,
     InlineSVGModule,
     TranslationModule,
     AuthRoutingModule,

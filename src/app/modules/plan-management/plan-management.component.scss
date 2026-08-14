@@ -1,0 +1,311 @@
+:host {
+  display: block;
+  font-family: inherit;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.plan-admin-page {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+
+/* =========================================================
+   HEADER
+   DATATABLE COMPONENT İLE BİREBİR AYNI DEĞERLER
+   ========================================================= */
+
+.styever-table {
+  overflow: hidden;
+  border: 1px solid var(--bs-gray-200);
+  border-radius: var(--bs-card-border-radius) !important;
+  box-shadow: var(--bs-card-box-shadow);
+}
+
+.styever-table .card-header {
+  min-height: 96px;
+  padding: 1.5rem 1.75rem;
+  align-items: center;
+}
+
+.styever-table h2 {
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.table-kicker {
+  color: var(--bs-primary);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.table-toolbar .btn {
+  min-height: 42px;
+  border-radius: var(--bs-btn-border-radius);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   DATATABLE ADMIN HEADER
+   DATATABLE SCSS'TEN BİREBİR
+   ========================================================= */
+
+.datatable-admin-header {
+  min-height: 170px;
+  padding: 2rem 2.5rem !important;
+  align-items: center !important;
+
+  border-radius:
+    var(--bs-card-border-radius)
+    var(--bs-card-border-radius)
+    0
+    0 !important;
+
+  background:
+    linear-gradient(
+      105deg,
+      #0d4d3d 0%,
+      #0f5b47 48%,
+      #2d8068 100%
+    ) !important;
+}
+
+.datatable-admin-header .table-kicker {
+  color: rgba(255, 255, 255, .82) !important;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.datatable-admin-header .card-title h2,
+.datatable-admin-header .card-title > h2 {
+  color: #fff !important;
+}
+
+.datatable-admin-header .card-title > span:not(.table-kicker),
+.datatable-admin-header .card-title .opacity-75 {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+
+/* =========================================================
+   HEADER BUTTON
+   DATATABLE TOOLBAR İLE BİREBİR
+   ========================================================= */
+
+.datatable-admin-header .btn-light,
+.datatable-admin-header .btn-light-primary,
+.datatable-admin-header .btn-active-light-primary {
+  border-color: rgba(255, 255, 255, .12);
+}
+
+.datatable-admin-header .table-toolbar > .btn-light {
+  color: var(--bs-gray-900) !important;
+  background: #fff !important;
+}
+
+.datatable-admin-header .table-toolbar > .btn-light:hover {
+  color: var(--bs-primary) !important;
+  background: var(--bs-primary-light) !important;
+}
+
+
+/* =========================================================
+   PLAN CARDS
+   ORIGINAL STYLES — DEĞİŞTİRİLMEDİ
+   ========================================================= */
+
+.plan-admin-card {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #eef6f2 100%
+    );
+
+  border:
+    1px solid rgba(8, 83, 64, .16) !important;
+
+  border-top:
+    4px solid #0b624d !important;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 28px rgba(8, 62, 49, .08);
+
+  transition: .2s ease;
+
+  overflow: visible;
+}
+
+.plan-admin-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 34px rgba(8, 62, 49, .13);
+}
+
+
+/* =========================================================
+   PLAN SYMBOL
+   ========================================================= */
+
+.plan-symbol {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 12px;
+
+  background: #d9ebe4;
+
+  color: #075743;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.45rem;
+}
+
+
+/* =========================================================
+   POPULAR
+   ========================================================= */
+
+.plan-popular-ribbon {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+
+  width: max-content;
+  max-width: calc(100% - 32px);
+}
+
+.has-popular-ribbon {
+  margin-top: 0;
+}
+
+.plan-admin-grid {
+  padding-top: 18px;
+}
+
+.plan-popular-badge {
+  background: #0b624d;
+  color: #fff;
+
+  padding: .65rem 1rem;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 6px 16px rgba(8, 62, 49, .16);
+
+  white-space: nowrap;
+}
+
+.plan-popular-badge .bi-star-fill {
+  color: #f2b72b !important;
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.plan-price {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.feature-check {
+  flex: 0 0 24px;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: #d7ebe3;
+
+  color: #075743;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+
+  font-size: .8rem;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+   ========================================================= */
+
+.plan-card-footer {
+  border-top:
+    1px dashed rgba(8, 83, 64, .18);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   DATATABLE HEADER BREAKPOINT DEĞERİ DE AYNI
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .styever-table .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .table-toolbar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .datatable-admin-header {
+    min-height: auto;
+    padding: 1.5rem !important;
+  }
+
+  .styever-table .card-header {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .table-toolbar {
+    width: 100%;
+  }
+
+  .table-toolbar .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .plan-admin-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

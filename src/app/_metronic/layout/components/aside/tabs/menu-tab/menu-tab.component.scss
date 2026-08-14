@@ -143,3 +143,45 @@
     padding: 0;
   }
 }
+
+.styever-mobile-menu__placeholder {
+  cursor: default;
+  opacity: .58;
+}
+
+.styever-mobile-menu__submenu {
+  margin: .25rem 0 .55rem 1rem;
+  padding-left: .75rem;
+  border-left: 1px solid rgba(255,255,255,.13);
+}
+
+.styever-mobile-menu__sublink {
+  min-height: 46px;
+  margin: .25rem 0;
+  padding: .45rem .7rem !important;
+  border-radius: 9px !important;
+  display: flex !important;
+  align-items: center;
+  color: rgba(255,255,255,.78) !important;
+}
+
+.styever-mobile-menu__sublink:hover,
+.styever-mobile-menu__sublink.active {
+  background: rgba(255,255,255,.1) !important;
+  color: #fff !important;
+}
+
+.styever-mobile-menu__subicon {
+  width: 30px;
+  height: 30px;
+  margin-right: .65rem;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.08);
+}
+
+.styever-mobile-menu__subicon i {
+  color: #fff;
+  font-size: 14px;
+}

@@ -1,5 +1,24 @@
+<div *ngIf="isCurrentUserExist && isAdmin" class="d-flex align-items-center me-3">
+  <button
+    type="button"
+    class="btn btn-sm styever-admin-toggle d-inline-flex align-items-center gap-2"
+    [class.active]="isAdminMode"
+    (click)="toggleAdminMode()"
+    [title]="isAdminMode ? (('LANG' | translate) === 'tr' ? 'Siteye dön' : 'Back to website') : (('LANG' | translate) === 'tr' ? 'Admin Panel' : 'Admin Panel')"
+  >
+    <i class="bi" [ngClass]="isAdminMode ? 'bi-arrow-left-circle' : 'bi-shield-lock'"></i>
+    <span class="d-none d-md-inline">
+      {{
+        isAdminMode
+          ? (('LANG' | translate) === 'tr' ? 'Siteye Dön' : 'Back to Website')
+          : 'Admin Panel'
+      }}
+    </span>
+  </button>
+</div>
+
 <div *ngIf="!isCurrentUserExist" class="d-flex align-items-center me-3">
-  <button type="button" (click)="routeToLogin()" class="btn btn-primary">
+  <button type="button" (click)="routeToLogin()" class="btn btn-sm styever-admin-toggle d-inline-flex align-items-center gap-2">
     <ng-container>
       <span class="indicator-label">
         {{'LOG_IN' | translate}}

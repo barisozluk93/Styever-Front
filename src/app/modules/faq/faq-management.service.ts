@@ -19,5 +19,28 @@ export class FAQManagementService {
     getAll(): Observable<ResultModel<FAQModel[]>> {
         return this.http.get<ResultModel<FAQModel[]>>(`${API_FAQ_URL}/GetAll`);
     }
+
+    paginate(pageNumber: number, pageSize: number, filters: Record<string, any> = {}): Observable<ResultModel<PagingResult<FAQModel[]>>> {
+        let params = new HttpParams().set('PageNumber', pageNumber).set('PageSize', pageSize);
+        Object.keys(filters || {}).forEach(key => {
+            const value = filters[key];
+            if (value === undefined || value === null || value === '') return;
+            params = params.set(key, String(value));
+        });
+
+        return this.http.get<ResultModel<PagingResult<FAQModel[]>>>(`${API_FAQ_URL}/Paginate`, { params });
+    }
+
+    save(data: FAQModel): Observable<ResultModel<FAQModel>> {
+        return this.http.post<ResultModel<FAQModel>>(`${API_FAQ_URL}/Save`, data);
+    }
+
+    update(data: FAQModel): Observable<ResultModel<FAQModel>> {
+        return this.http.post<ResultModel<FAQModel>>(`${API_FAQ_URL}/Update`, data);
+    }
+
+    delete(id: number): Observable<ResultModel<FAQModel>> {
+        return this.http.delete<ResultModel<FAQModel>>(`${API_FAQ_URL}/Delete/${id}`);
+    }
     
 }

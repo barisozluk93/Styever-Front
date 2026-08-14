@@ -1,0 +1,227 @@
+:host {
+  display: block;
+  font-family: inherit;
+}
+
+.styever-table {
+  overflow: hidden;
+  border: 1px solid var(--bs-gray-200);
+  border-radius: var(--bs-card-border-radius) !important;
+  box-shadow: var(--bs-card-box-shadow);
+}
+
+.styever-table .card-header {
+  min-height: 96px;
+  padding: 1.5rem 1.75rem;
+  align-items: center;
+}
+
+.styever-table h2 {
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.table-kicker {
+  color: var(--bs-primary);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.table-toolbar .btn {
+  min-height: 42px;
+  border-radius: var(--bs-btn-border-radius);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.table-scroll {
+  min-height: 320px;
+}
+
+.styever-table table {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.styever-table thead th {
+  padding: .9rem 1rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.column-filter-row th {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--bs-gray-200);
+  background: var(--bs-gray-100);
+}
+
+.column-filter-row .form-control,
+.column-filter-row .form-select {
+  min-width: 120px;
+  height: 36px;
+  min-height: 36px;
+  border-radius: var(--bs-border-radius, 0.475rem) !important;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.filter-placeholder {
+  display: block;
+  min-height: 36px;
+}
+
+.styever-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.styever-table tbody tr:hover {
+  background: rgba(var(--bs-primary-rgb), .025);
+}
+
+.styever-table .badge {
+  line-height: 1.35;
+}
+
+.styever-table .card-footer {
+  min-height: 70px;
+  padding: 1rem 1.75rem;
+  background: #fff;
+}
+
+:host ::ng-deep .pagination {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .styever-table .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .table-toolbar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .styever-table .card-header,
+  .styever-table .card-body,
+  .styever-table .card-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .table-toolbar {
+    width: 100%;
+  }
+
+  .table-toolbar .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+/* Inline column filters: deliberately distinct from the card/table background. */
+.column-filter-row {
+  background: var(--bs-gray-100);
+}
+
+.column-filter-row .form-control,
+.column-filter-row .form-select {
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--bs-gray-300) !important;
+  color: var(--bs-gray-800);
+  box-shadow: none;
+}
+
+.column-filter-row .form-control::placeholder {
+  color: var(--bs-gray-500);
+  opacity: 1;
+}
+
+.column-filter-row .form-control:focus,
+.column-filter-row .form-select:focus {
+  background-color: var(--bs-body-bg) !important;
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .08);
+}
+
+/* Keep inline filters visually consistent with Metronic form controls. */
+.column-filter-row .form-control,
+.column-filter-row .form-select {
+  border-radius: var(--bs-border-radius, 0.475rem) !important;
+  background-clip: padding-box;
+}
+
+
+/* =========================================================
+   DATATABLE ADMIN HEADER
+   Match the Plan Management hero palette.
+   ========================================================= */
+.datatable-admin-header {
+  min-height: 170px;
+  padding: 2rem 2.5rem !important;
+  align-items: center !important;
+
+  border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0 !important;
+
+  background:
+    linear-gradient(
+      105deg,
+      #0d4d3d 0%,
+      #0f5b47 48%,
+      #2d8068 100%
+    ) !important;
+}
+
+.datatable-admin-header .table-kicker {
+  color: rgba(255, 255, 255, .82) !important;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.datatable-admin-header .card-title h2,
+.datatable-admin-header .card-title > h2 {
+  color: #fff !important;
+}
+
+.datatable-admin-header .card-title > span:not(.table-kicker),
+.datatable-admin-header .card-title .opacity-75 {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+/* Count badge: subtle glass treatment */
+.datatable-admin-header .badge-light-primary {
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(255, 255, 255, .10) !important;
+}
+
+/* Toolbar controls stay readable on green. */
+.datatable-admin-header .btn-light,
+.datatable-admin-header .btn-light-primary,
+.datatable-admin-header .btn-active-light-primary {
+  border-color: rgba(255, 255, 255, .12);
+}
+
+.datatable-admin-header .table-toolbar > .btn-light {
+  color: var(--bs-gray-900) !important;
+  background: #fff !important;
+}
+
+.datatable-admin-header .table-toolbar > .btn-light:hover {
+  color: var(--bs-primary) !important;
+  background: var(--bs-primary-light) !important;
+}
+
+@media (max-width: 767.98px) {
+  .datatable-admin-header {
+    min-height: auto;
+    padding: 1.5rem !important;
+  }
+}

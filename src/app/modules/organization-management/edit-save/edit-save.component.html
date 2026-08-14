@@ -3,7 +3,7 @@
 
         <div class="fv-row mb-8">
             <label class="form-label fs-6 fw-bolder text-gray-900">{{'NAME' | translate}}</label>
-            <input class="form-control bg-transparent" type="text" name="name" formControlName="name" autocomplete="off"
+            <input class="form-control bg-transparent form-control-lg styever-auth-control" type="text" name="name" formControlName="name" autocomplete="off"
                 [ngClass]="{
                 'is-invalid': form.controls['name'].invalid,
                 'is-valid': form.controls['name'].valid
@@ -18,7 +18,7 @@
         <div class="fv-row mb-8">
             <label class="form-label fs-6 fw-bolder text-gray-900">{{'PARENT_ORGANIZATION' | translate}}</label>
             <select name="parentId" formControlName="parentId" autocomplete="off"
-              class="form-select form-select-solid form-select-lg fw-bold"
+              class="form-select form-select-solid form-select-lg fw-bold bg-white"
             >
                 <option value="">{{'SELECT_ORGANIZATION' | translate}}</option>
                 <ng-container *ngFor="let item of organizations">
@@ -30,7 +30,7 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
         <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-            <div class="fv-plugins-message-container">
+            <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7">
                 <span role="alert">
                     {{ message }}
                 </span>

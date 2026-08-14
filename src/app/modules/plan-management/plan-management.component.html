@@ -1,0 +1,171 @@
+<div class="plan-admin-page">
+
+  <!-- =====================================================
+       ADMIN HEADER — DATATABLE İLE BİREBİR AYNI
+       ===================================================== -->
+  <div class="styever-table card mb-7">
+    <div class="card-header border-0 datatable-admin-header">
+
+      <div class="card-title flex-column align-items-start m-0">
+        <div class="d-flex align-items-center gap-3 mb-1">
+          <span class="table-kicker text-white">
+            STYEVER ADMIN
+          </span>
+        </div>
+
+        <h2 class="fw-bold text-white mb-1">
+          {{ 'ADMIN_PLAN.TITLE' | translate }}
+        </h2>
+
+        <span class="text-white opacity-75 fw-semibold fs-7">
+          {{ 'ADMIN_PLAN.SUBTITLE' | translate }}
+        </span>
+      </div>
+
+      <div class="card-toolbar table-toolbar gap-3 flex-wrap">
+        <button
+          type="button"
+          class="btn btn-light d-inline-flex align-items-center gap-2"
+          (click)="openNew()"
+        >
+          <i class="bi bi-plus-lg"></i>
+          {{ 'ADMIN_PLAN.NEW' | translate }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       LOADING
+       ===================================================== -->
+  <div *ngIf="loading" class="text-center py-15">
+    <span class="spinner-border text-primary"></span>
+  </div>
+
+  <!-- =====================================================
+       PLANS
+       ===================================================== -->
+  <div
+    *ngIf="!loading"
+    class="row g-6 mt-1 plan-admin-grid"
+  >
+    <div
+      class="col-12 col-lg-4"
+      *ngFor="let plan of plans"
+    >
+      <div
+        class="card plan-admin-card h-100 border-0 position-relative"
+        [ngClass]="{'has-popular-ribbon': plan.isPopular}"
+      >
+
+        <div
+          *ngIf="plan.isPopular"
+          class="plan-popular-ribbon"
+        >
+          <span class="badge plan-popular-badge">
+            <i class="bi bi-star-fill me-1"></i>
+            {{ 'ADMIN_PLAN.POPULAR' | translate }}
+          </span>
+        </div>
+
+        <div class="card-body d-flex flex-column p-7">
+
+          <div class="d-flex align-items-start justify-content-between gap-4 mb-6">
+            <div class="plan-symbol">
+              <i
+                class="bi"
+                [ngClass]="
+                  plan.id === 2
+                    ? 'bi-stars'
+                    : plan.id === 3
+                      ? 'bi-heart'
+                      : 'bi-people'
+                "
+              ></i>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-end justify-content-between gap-3 mb-5">
+            <div>
+              <h2 class="fw-bolder text-gray-900 mb-1">
+                {{ displayName(plan) }}
+              </h2>
+
+              <div class="text-muted fs-7">
+                ID #{{ plan.id }}
+              </div>
+            </div>
+
+            <div class="text-end">
+              <div class="plan-price text-primary fw-bolder">
+                {{ plan.currency }}{{ plan.price | number:'1.2-2' }}
+              </div>
+
+              <div class="text-muted fs-7">
+                / {{ displayPeriod(plan) }}
+              </div>
+            </div>
+          </div>
+
+          <div class="separator separator-dashed mb-5"></div>
+
+          <div class="d-flex flex-column gap-3 flex-grow-1">
+            <div
+              class="d-flex align-items-start"
+              *ngFor="let prop of properties(plan)"
+            >
+              <span class="feature-check">
+                <i class="bi bi-check-lg"></i>
+              </span>
+
+              <span class="text-gray-700 fw-semibold">
+                {{ prop }}
+              </span>
+            </div>
+          </div>
+
+          <div class="plan-card-footer d-flex gap-3 mt-7 pt-5">
+            <button
+              type="button"
+              class="btn btn-light-primary flex-grow-1 fw-bold"
+              (click)="openEdit(plan)"
+            >
+              <i class="bi bi-pencil-square me-2"></i>
+              {{ 'EDIT' | translate }}
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-light-danger fw-bold"
+              (click)="deletePlan(plan)"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       EMPTY
+       ===================================================== -->
+  <div
+    *ngIf="!loading && plans.length === 0"
+    class="card border-0 text-center p-12 mt-8"
+  >
+    <i class="bi bi-box-seam fs-3x text-primary mb-4"></i>
+
+    <h3>
+      {{ 'ADMIN_PLAN.EMPTY' | translate }}
+    </h3>
+  </div>
+
+</div>
+
+<app-plan-editsave
+  #editSaveComponent
+  (isSuccess)="loadData()"
+></app-plan-editsave>

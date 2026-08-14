@@ -1,823 +1,231 @@
 :host {
   display: block;
   min-height: 100vh;
-
   background-color: #f7f5f0;
 }
 
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
 .styever-articles {
-  width: 100%;
   min-height: 100vh;
-
-  background-color: #f7f5f0;
-
   overflow: hidden;
 }
 
-
-.bg-styever-warm {
+.articles-app-bg {
   background-color: #f7f5f0 !important;
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
+/* HERO */
 .articles-hero {
-  min-height: 470px;
-
+  min-height: 520px;
+  padding: 110px 0 70px;
+  overflow: hidden;
   background:
     url('/assets/media/patterns/support.jpg')
     center 48% / cover no-repeat;
 }
 
-
-.articles-hero__shade {
+.articles-hero__overlay {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 25, 17, 0.86),
-      rgba(5, 25, 17, 0.58) 42%,
-      rgba(5, 25, 17, 0.16) 76%
+      rgba(5, 25, 17, .88) 0%,
+      rgba(5, 25, 17, .64) 40%,
+      rgba(5, 25, 17, .18) 74%,
+      rgba(5, 25, 17, .06) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(5, 25, 17, 0.24),
+      rgba(5, 25, 17, .24),
       transparent 48%
     );
 }
 
-
-/* =========================================================
-   HERO LAYOUT
-   ========================================================= */
-
-.articles-hero__layout {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(440px, 0.88fr);
-
-  align-items: center;
-
-  gap: 64px;
-
-  padding: 118px 0 54px;
-}
-
-
-.articles-hero__content {
-  max-width: 660px;
-}
-
-
-.articles-hero__actions {
-  width: 100%;
-  max-width: 650px;
-
-  justify-self: end;
-  align-self: center;
-}
-
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
-
-.articles-hero__eyebrow {
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 11px;
-
-  letter-spacing: 0.18em;
-}
-
-
-.articles-hero__eyebrow-logo {
-  display: block;
-
-  width: 32px;
-  height: 22px;
-
+.articles-hero__brand {
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  object-position: center;
 }
-
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
 
 .articles-hero__title {
-  max-width: 650px;
-
-  margin: 16px 0 14px;
-
+  max-width: 700px;
   font-size: clamp(42px, 5vw, 68px);
-  line-height: 1;
-
-  letter-spacing: -0.04em;
+  line-height: 0.99;
+  letter-spacing: -.045em;
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
-
-.articles-hero__description {
-  max-width: 620px;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 15px;
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
 
 .articles-search {
-  width: 100%;
-  max-width: none;
-
-  margin: 0;
-}
-
-
-.articles-search .input-group {
   min-height: 62px;
-
-  box-shadow:
-    0 18px 55px rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .18) !important;
 }
-
 
 .articles-search .form-control {
-  color: var(--bs-gray-900);
-
-  font-size: 14px;
+  min-width: 0;
 }
 
-
-.articles-search .form-control::placeholder {
-  color: var(--bs-gray-500);
-}
-
-
-/* =========================================================
-   HERO NOTE
-   ========================================================= */
-
-.articles-hero__note {
-  margin-top: 18px;
-
-  color: rgba(255, 255, 255, 0.76);
-
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-
-.articles-hero__note-icon {
-  width: 38px;
-  height: 38px;
-
-  border-radius: 50%;
-
-  background-color: rgba(255, 255, 255, 0.1);
-
-  color: #fff;
-
-  backdrop-filter: blur(8px);
-}
-
-
-/* =========================================================
-   ARTICLES SECTION
-   ========================================================= */
-
-.articles-section {
-  position: relative;
-
-  width: 100%;
-
-  padding: 30px 0 78px;
-
-  background-color: #f7f5f0 !important;
-}
-
-
-.articles-section > .container-xxl,
-.articles-section .row,
-.articles-section [class*='col-'] {
-  background-color: transparent !important;
-}
-
-
-/* =========================================================
-   ARTICLE CARD
-   ========================================================= */
-
+/* ARTICLE CARDS */
 .article-card {
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.16) !important;
-
-  box-shadow: none !important;
-
+  border: 1px solid rgba(var(--bs-primary-rgb), .12);
   transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+  will-change: transform;
 }
-
 
 .article-card:hover {
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.32) !important;
-
-  transform: translateY(-2px);
+  transform: translateY(-6px);
+  border-color: rgba(var(--bs-primary-rgb), .24) !important;
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .13) !important;
 }
-
-
-/* =========================================================
-   IMAGE
-   ========================================================= */
 
 .article-card__media {
-  position: relative;
-
-  height: 205px;
-
+  height: 220px;
   overflow: hidden;
-
-  background-color: var(--bs-gray-200);
+  background: var(--bs-gray-200);
 }
-
 
 .article-card__media img {
-  display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
-  transition: transform 0.35s ease;
+  transition: transform .35s ease;
 }
-
 
 .article-card:hover .article-card__media img {
-  transform: scale(1.025);
+  transform: scale(1.045);
 }
 
-
-/* =========================================================
-   IMAGE SHADE
-   ========================================================= */
-
-.article-card__shade {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 48%,
-      rgba(5, 35, 23, 0.38) 100%
-    );
+.article-card__overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(5, 25, 17, .24),
+    transparent 58%
+  );
+  pointer-events: none;
 }
-
-
-/* =========================================================
-   BADGE
-   ========================================================= */
-
-.article-card__badge {
-  position: absolute;
-
-  left: 16px;
-  bottom: 14px;
-
-  padding: 7px 10px !important;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.22) !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color:
-    rgba(var(--bs-primary-rgb), 0.82) !important;
-
-  color: #fff !important;
-
-  backdrop-filter: blur(8px);
-
-  font-size: 9px !important;
-
-  font-weight: 600;
-
-  letter-spacing: 0.06em;
-}
-
-
-/* =========================================================
-   CARD BODY
-   ========================================================= */
-
-.article-card .card-body {
-  background-color: transparent !important;
-}
-
-
-/* =========================================================
-   CARD TITLE
-   ========================================================= */
 
 .article-card__title {
-  font-size: 17px;
-  line-height: 1.4;
-
-  letter-spacing: -0.015em;
+  line-height: 1.35;
 }
-
-
-/* =========================================================
-   CARD DESCRIPTION
-   ========================================================= */
 
 .article-card__description {
   display: -webkit-box;
-
   overflow: hidden;
-
-  -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-
-  font-size: 13px;
-  line-height: 1.65;
+  -webkit-box-orient: vertical;
 }
-
-
-/* =========================================================
-   CARD FOOTER
-   ========================================================= */
-
-.article-card__footer {
-  min-height: 42px;
-}
-
-
-/* =========================================================
-   ARROW BUTTON
-   FAQ + / - BUTONU İLE AYNI MANTIK
-   ========================================================= */
 
 .article-card__arrow {
-  width: 36px;
-  height: 36px;
-
-  border:
-    1px solid rgba(var(--bs-primary-rgb), 0.14);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color:
-    rgba(var(--bs-primary-rgb), 0.055);
-
-  color: var(--bs-primary);
-
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+    background-color .2s ease,
+    transform .2s ease;
 }
-
-
-.article-card__arrow i {
-  color: inherit;
-}
-
 
 .article-card:hover .article-card__arrow {
-  border-color: var(--bs-primary);
-
-  background-color: var(--bs-primary);
-
-  color: var(--bs-primary-inverse);
-
-  transform: translateX(2px);
+  background-color: var(--bs-primary) !important;
+  transform: translateX(3px);
 }
 
-
-/* =========================================================
-   EMPTY
-   ========================================================= */
-
-.articles-empty {
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.16) !important;
-
-  background-color: transparent !important;
-
-  box-shadow: none !important;
+.article-card:hover .article-card__arrow i {
+  color: #fff !important;
 }
 
-
-.articles-empty__icon {
-  width: 48px;
-  height: 48px;
-
-  border:
-    1px solid rgba(var(--bs-primary-rgb), 0.12);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color: var(--bs-primary-light);
+/* EMPTY */
+.article-empty {
+  background: rgba(255,255,255,.55);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
 }
 
-
-/* =========================================================
-   CTA SECTION
-   ========================================================= */
-
-.articles-cta {
-  padding: 0 0 78px;
-
-  background-color: #f7f5f0 !important;
+.article-empty:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--bs-primary-rgb), .18) !important;
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .10) !important;
 }
 
-
-/* =========================================================
-   CTA CARD
-   ========================================================= */
-
-.articles-cta__card {
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background:
-    linear-gradient(
-      125deg,
-      var(--bs-primary),
-      rgba(var(--bs-primary-rgb), 0.88)
-    ) !important;
+/* SUPPORT CTA */
+.article-support-card {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-
-/* =========================================================
-   CTA ICON
-   ========================================================= */
-
-.articles-cta__icon {
-  width: 54px;
-  height: 54px;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color:
-    rgba(255, 255, 255, 0.09);
-
-  color: #fff;
+.article-support-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2.5rem rgba(var(--bs-primary-rgb), .22) !important;
 }
 
-
-/* =========================================================
-   CTA KICKER
-   ========================================================= */
-
-.articles-kicker {
-  font-size: 11px;
-
-  letter-spacing: 0.18em;
+.article-white-btn,
+.article-outline-btn {
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
-
-.articles-kicker--light {
-  color: rgba(255, 255, 255, 0.6);
+.styever-articles .btn.btn-light.article-white-btn:hover,
+.styever-articles .btn.btn-light.article-white-btn:focus {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   CTA TITLE
-   ========================================================= */
-
-.articles-cta h2 {
-  font-size: 24px;
-  line-height: 1.2;
-
-  letter-spacing: -0.025em;
+.styever-articles .btn.btn-outline-light.article-outline-btn:hover,
+.styever-articles .btn.btn-outline-light.article-outline-btn:focus {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: var(--bs-primary) !important;
+  transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   CTA DESCRIPTION
-   ========================================================= */
-
-.articles-cta p {
-  max-width: 680px;
-
-  font-size: 13px;
-  line-height: 1.7;
+.styever-articles .btn.btn-outline-light.article-outline-btn:hover i,
+.styever-articles .btn.btn-outline-light.article-outline-btn:focus i {
+  color: var(--bs-primary) !important;
 }
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 991.98px) {
-
   .articles-hero {
-    min-height: auto;
-
+    min-height: 0;
+    padding: 100px 0 60px;
     background-position: 62% center;
   }
 
-
-  .articles-hero__layout {
-    grid-template-columns: 1fr;
-
-    gap: 26px;
-
-    padding: 126px 20px 52px;
+  .articles-hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 25, 17, .91),
+        rgba(5, 25, 17, .52)
+      );
   }
 
-
-  .articles-hero__actions {
-    max-width: 690px;
-
-    justify-self: start;
+  .article-card__media {
+    height: 210px;
   }
-
-
-  .articles-section {
-    padding: 28px 0 68px;
-  }
-
-
-  .articles-cta {
-    padding-bottom: 68px;
-  }
-
 }
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 575.98px) {
-
-  /* HERO */
-
-  .articles-hero__layout {
-    gap: 22px;
-
-    padding: 116px 12px 44px;
+  .articles-hero {
+    padding: 92px 0 50px;
   }
-
-
-  .articles-hero__eyebrow-logo {
-    width: 28px;
-    height: 20px;
-  }
-
 
   .articles-hero__title {
-    font-size: 39px;
+    font-size: 2.75rem;
   }
 
-
-  .articles-hero__description {
-    font-size: 14px;
+  .articles-search {
+    min-height: 58px;
   }
-
-
-  /* SEARCH */
-
-  .articles-search .input-group {
-    min-height: auto;
-
-    display: grid;
-
-    grid-template-columns:
-      auto minmax(0, 1fr);
-
-    gap: 2px;
-  }
-
 
   .articles-search .btn {
-    grid-column: 1 / -1;
-
-    width: 100%;
-
-    margin-top: 4px;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
-
-
-  /* SECTION */
-
-  .articles-section {
-    padding: 24px 0 56px;
-  }
-
-
-  .articles-section .container-xxl,
-  .articles-cta .container-xxl {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-
-  /* CARD */
-
-  .article-card {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
 
   .article-card__media {
-    height: 190px;
+    height: 200px;
   }
-
-
-  .article-card__badge {
-    left: 14px;
-    bottom: 12px;
-
-    padding: 6px 9px !important;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .article-card__title {
-    font-size: 16px;
-  }
-
-
-  .article-card__description {
-    font-size: 12.5px;
-    line-height: 1.6;
-  }
-
-
-  .article-card__arrow {
-    width: 34px;
-    height: 34px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-
-  /* CTA */
-
-  .articles-cta {
-    padding-bottom: 56px;
-  }
-
-
-  .articles-cta__card {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .articles-cta__icon {
-    width: 48px;
-    height: 48px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-
-  .articles-cta h2 {
-    font-size: 22px;
-  }
-
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .articles-section .container-xxl,
-  .articles-cta .container-xxl {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-
-  .article-card__media {
-    height: 180px;
-  }
-
-
-  .article-card__title {
-    font-size: 15px;
-  }
-
-
-  .article-card__arrow {
-    width: 32px;
-    height: 32px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-}
-
-/* =========================================================
-   CTA BUTTON HOVERS
-   ========================================================= */
-
-/* FAQ BUTTON */
-.articles-cta .btn-light {
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.articles-cta .btn-light:hover,
-.articles-cta .btn-light:focus {
-  background-color: var(--bs-primary) !important;
-  color: var(--bs-primary-inverse) !important;
-}
-
-
-/* CONTACT US BUTTON */
-.articles-cta .btn-outline-light {
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.articles-cta .btn-outline-light:hover,
-.articles-cta .btn-outline-light:focus {
-  background-color: #fff !important;
-  color: var(--bs-primary) !important;
-
-  border-color: #fff !important;
-}
-
-/* =========================================================
-   METRONIC RADIUS STANDARD
-   Regular UI surfaces use the exact Metronic card radius.
-   Circular avatars/symbols remain circular.
-   ========================================================= */
-:host {
-  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
-}
-
-// .card,
-// .btn,
-// .form-control,
-// .form-select,
-// .input-group,
-// .input-group-text,
-// .modal-content,
-// .dropdown-menu,
-// .alert,
-// .badge,
-// [class*="card"]:not(.symbol):not([class*="avatar"]),
-// [class*="panel"],
-// [class*="box"],
-// [class*="item"]:not([class*="avatar"]),
-// [class*="option"],
-// [class*="search"],
-// [class*="toggle"],
-// [class*="nav__link"] {
-//   border-radius: var(--styever-ui-radius) !important;
-// }
-
-.symbol,
-[class*="avatar"] {
-  border-radius: 50%;
-}
-

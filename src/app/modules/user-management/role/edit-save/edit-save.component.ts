@@ -4,7 +4,7 @@ import { ModalComponent, ModalConfig } from "src/app/_metronic/partials";
 import { UserManagementService } from "../../user-management.service";
 import { RoleModel } from "../../models/role.model";
 import { PermissionModel } from "../../models/permission.model";
-import { AlertService } from "src/app/_metronic/partials/layout/alert/alert.service";
+import { ToastrService } from "ngx-toastr";
 import { forkJoin } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 
@@ -25,7 +25,7 @@ export class RoleEditSaveComponent {
     constructor(
         private fb: FormBuilder, 
         private userManagementService: UserManagementService,
-        private alertService: AlertService,
+        private toastr: ToastrService,
         private translate: TranslateService
     ) {}
 
@@ -110,22 +110,22 @@ export class RoleEditSaveComponent {
             if(data.id == 0) {
                 this.userManagementService.roleSave(data).subscribe(result => {
                     if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else{
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }
             else{
                 this.userManagementService.roleEdit(data).subscribe(result => {
                     if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else{
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }

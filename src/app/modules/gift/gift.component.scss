@@ -3,1030 +3,439 @@
   width: 100%;
 }
 
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
 .styever-gift {
   width: 100%;
-
   overflow: hidden;
-
   color: var(--bs-gray-900);
 }
 
+.gift-app-bg {
+  background-color: #f7f5f0 !important;
+}
 
-/* =========================================================
-   HERO
-   ========================================================= */
-
+/* HERO */
 .gift-hero {
-  width: 100%;
-
   height: 100vh;
-  min-height: 100vh;
-
+  height: 100dvh;
   overflow: hidden;
-
-  background:
-    url('/assets/media/patterns/gift.jpg')
-    center 44% / cover no-repeat;
+  background: url('/assets/media/patterns/gift.jpg') center 44% / cover no-repeat;
 }
 
-
-@supports (height: 100dvh) {
-
-  .gift-hero {
-    height: 100dvh;
-    min-height: 100dvh;
-  }
-
-}
-
-
-/* =========================================================
-   HERO SHADE
-   ========================================================= */
-
-.gift-hero__shade {
+.gift-hero__overlay {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 25, 17, 0.88),
-      rgba(5, 25, 17, 0.65) 39%,
-      rgba(5, 25, 17, 0.22) 68%,
-      rgba(5, 25, 17, 0.06)
+      rgba(5, 25, 17, .88) 0%,
+      rgba(5, 25, 17, .65) 39%,
+      rgba(5, 25, 17, .22) 68%,
+      rgba(5, 25, 17, .06) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(5, 25, 17, 0.26),
+      rgba(5, 25, 17, .26),
       transparent 46%
     );
 }
 
-
-/* =========================================================
-   HERO CONTAINER
-   ========================================================= */
-
-.gift-hero__container {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-}
-
-
-/* =========================================================
-   HERO LAYOUT
-   ========================================================= */
-
-.gift-hero__layout {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.88fr)
-    minmax(430px, 0.82fr);
-
-  align-items: center;
-
-  gap: clamp(52px, 7vw, 108px);
-
-  padding: 108px 0 88px;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
-.gift-hero__content {
-  max-width: 690px;
-}
-
-
-/* =========================================================
-   HERO EYEBROW
-   ========================================================= */
-
-.gift-hero__eyebrow {
-  color: rgba(255, 255, 255, 0.82);
-
-  font-size: 12px;
-
-  letter-spacing: 0.18em;
-}
-
-
-.gift-hero__eyebrow-logo {
-  display: block;
-
-  width: 32px;
-  height: 22px;
-
+.gift-hero__brand {
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  object-position: center;
 }
-
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
 
 .gift-hero__title {
-  max-width: 690px;
-
-  margin: 22px 0 0;
-
+  max-width: 720px;
   font-size: clamp(46px, 5.2vw, 74px);
   line-height: 0.99;
-
-  letter-spacing: -0.045em;
+  letter-spacing: -.045em;
 }
-
-
-/* =========================================================
-   HERO RIGHT CONTENT
-   ========================================================= */
 
 .gift-hero__copy {
-  max-width: 610px;
-
-  justify-self: end;
-
-  padding-left: 34px;
-
-  border-left:
-    1px solid rgba(255, 255, 255, 0.24);
+  border-left: 1px solid rgba(255, 255, 255, .24);
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
-
-.gift-hero__description {
-  max-width: 100%;
-
-  color: rgba(255, 255, 255, 0.88);
-
-  font-size: 15px;
-  line-height: 1.64;
-
-  white-space: pre-line;
-}
-
-
-/* =========================================================
-   PURCHASE / YANINDA OL BUTTON
-   ========================================================= */
-
-.styever-gift .gift-purchase-btn {
-  margin-top: 28px;
-
-  border:
-    1px solid #fff !important;
-
-  background-color:
-    #fff !important;
-
-  color:
-    var(--bs-primary) !important;
-
-  box-shadow: none !important;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease !important;
-}
-
-
-/* TEXT */
-
-.styever-gift .gift-purchase-btn > span {
-  color: inherit !important;
-}
-
-
-/* ICON DEFAULT */
-
-.styever-gift .gift-purchase-btn i,
-.styever-gift .gift-purchase-btn i::before,
-.styever-gift .gift-purchase-btn i::after,
-.styever-gift .gift-purchase-btn i span {
-  color:
-    var(--bs-primary) !important;
-
-  transition:
-    color 0.2s ease !important;
-}
-
-
-/* =========================================================
-   PURCHASE BUTTON HOVER
-   bg-primary
-   text-white
-   dashed primary border
-   ========================================================= */
-
-.styever-gift .gift-purchase-btn:hover,
-.styever-gift .gift-purchase-btn:focus,
-.styever-gift .gift-purchase-btn:focus-visible,
-.styever-gift .gift-purchase-btn:active {
-  background-color: var(--bs-primary) !important;
-  color: var(--bs-primary-inverse) !important;
-  border: 0 !important;
-}
-
-
-/* TEXT HOVER */
-
-.styever-gift .gift-purchase-btn:hover > span,
-.styever-gift .gift-purchase-btn:focus > span,
-.styever-gift .gift-purchase-btn:focus-visible > span,
-.styever-gift .gift-purchase-btn:active > span {
-  color: #fff !important;
-}
-
-
-/* ICON HOVER */
-
-.styever-gift .gift-purchase-btn:hover i,
-.styever-gift .gift-purchase-btn:hover i::before,
-.styever-gift .gift-purchase-btn:hover i::after,
-.styever-gift .gift-purchase-btn:hover i span,
-
-.styever-gift .gift-purchase-btn:focus i,
-.styever-gift .gift-purchase-btn:focus i::before,
-.styever-gift .gift-purchase-btn:focus i::after,
-.styever-gift .gift-purchase-btn:focus i span,
-
-.styever-gift .gift-purchase-btn:focus-visible i,
-.styever-gift .gift-purchase-btn:focus-visible i::before,
-.styever-gift .gift-purchase-btn:focus-visible i::after,
-.styever-gift .gift-purchase-btn:focus-visible i span,
-
-.styever-gift .gift-purchase-btn:active i,
-.styever-gift .gift-purchase-btn:active i::before,
-.styever-gift .gift-purchase-btn:active i::after,
-.styever-gift .gift-purchase-btn:active i span {
-  color: #fff !important;
-}
-
-
-/* =========================================================
-   HERO SCROLL
-   ========================================================= */
 
 .gift-hero__scroll {
-  position: absolute;
-  z-index: 4;
-
-  left: 50%;
+  z-index: 3;
   bottom: 18px;
-
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 4px;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: rgba(255, 255, 255, 0.68);
-
-  font-size: 10px;
-
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-
-  transition:
-    color 0.2s ease;
+  min-width: 72px;
+  padding: .5rem .75rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transition: transform .2s ease;
 }
-
-
-.gift-hero__scroll i {
-  color: inherit;
-}
-
 
 .gift-hero__scroll:hover,
 .gift-hero__scroll:focus {
-  color: #fff;
+  background: transparent !important;
+  color: #fff !important;
+  transform: translateX(-50%) translateY(-3px) !important;
 }
 
-
-/* =========================================================
-   SHARED SECTION
-   ========================================================= */
-
-.gift-section {
-  padding: 110px 0;
+.gift-hero__scroll:hover i,
+.gift-hero__scroll:focus i {
+  color: #fff !important;
 }
 
-
-/* =========================================================
-   WARM SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.gift-section--warm {
-  background-color: #f7f5f0;
+/* CARD HOVER */
+.gift-hover-card {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+  will-change: transform;
 }
 
-
-/* =========================================================
-   VALUES SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.gift-section--values {
-  background-color: #fff;
+.gift-hover-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--bs-primary-rgb), .18) !important;
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .14) !important;
 }
 
-
-/* =========================================================
-   SECTION KICKER
-   ========================================================= */
-
-.section-kicker {
-  font-size: 12px;
-
-  letter-spacing: 0.18em;
+.styever-gift .card.bg-primary.gift-hover-card:hover {
+  box-shadow: 0 1rem 2.5rem rgba(var(--bs-primary-rgb), .24) !important;
 }
 
-
-.section-kicker--light {
-  color: rgba(255, 255, 255, 0.74);
-}
-
-
-/* =========================================================
-   STORY
-   ========================================================= */
-
-.gift-story {
-  display: grid;
-
-  grid-template-columns:
-    0.9fr
-    1.1fr;
-
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color: #fff;
-}
-
-
-/* =========================================================
-   STORY CONTENT
-   ========================================================= */
-
-.gift-story__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 52px;
-}
-
-
-/* =========================================================
-   SECTION HEADINGS
-   ========================================================= */
-
-.gift-story__content h2,
-.feature-panel__content h2,
-.plans-heading h2 {
-  margin: 12px 0 20px;
-
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: 1.06;
-
-  letter-spacing: -0.04em;
-}
-
-
-/* =========================================================
-   SECTION TEXT
-   ========================================================= */
-
-.gift-story__content p,
-.gift-value p,
-.feature-panel__content p {
-  font-size: 16px;
-  line-height: 1.85;
-
-  white-space: pre-line;
-}
-
-
-/* =========================================================
-   STORY MEDIA
-   ========================================================= */
-
+/* MEDIA */
 .gift-story__media {
-  min-height: 500px;
+  min-height: 390px;
 }
 
+.gift-feature__media {
+  min-height: 390px;
+}
 
-.gift-story__media img,
-.feature-panel__media img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
+.object-fit-cover {
   object-fit: cover;
 }
 
-
-/* =========================================================
-   VALUES GRID
-   ========================================================= */
-
-.gift-values {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 20px;
-}
-
-
-/* =========================================================
-   VALUE CARD
-   ========================================================= */
-
-.gift-value {
-  min-height: 290px;
-
-  padding: 30px !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color: #fff;
-
-  box-shadow: none !important;
-
+/* WHITE BUTTON -> PRIMARY */
+.gift-white-btn {
   transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
-
-.gift-value:not(.gift-value--deep):hover {
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.28) !important;
-
+.styever-gift .btn.btn-light.gift-white-btn:hover,
+.styever-gift .btn.btn-light.gift-white-btn:focus {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
   transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   VALUE DEEP
-   BACKGROUND KORUNDU
-   ========================================================= */
-
-.gift-value--deep {
-  background-color: #073a28 !important;
-
-  color: #fff;
+.styever-gift .btn.btn-light.gift-white-btn:hover i,
+.styever-gift .btn.btn-light.gift-white-btn:focus i {
+  color: #fff !important;
 }
-
-
-/* =========================================================
-   VALUE ICON
-   ========================================================= */
-
-.gift-value__icon {
-  width: 44px;
-  height: 44px;
-
-  margin-bottom: 26px;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color:
-    var(--bs-primary-light);
-
-  color:
-    var(--bs-primary);
-}
-
-
-.gift-value__icon i {
-  color: inherit;
-}
-
-
-.gift-value--deep .gift-value__icon {
-  background-color:
-    rgba(255, 255, 255, 0.1);
-
-  color: #fff;
-}
-
-
-.gift-value--deep .gift-value__icon i {
-  color: #fff;
-}
-
-
-/* =========================================================
-   VALUE TITLE
-   ========================================================= */
-
-.gift-value h3 {
-  margin: 0 0 12px;
-
-  font-size: 22px;
-  line-height: 1.25;
-
-  letter-spacing: -0.02em;
-}
-
-
-/* =========================================================
-   VALUE DEEP TEXT
-   ========================================================= */
-
-.gift-value--deep p {
-  color:
-    rgba(255, 255, 255, 0.72) !important;
-}
-
-
-/* =========================================================
-   FEATURE SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.gift-section--feature {
-  padding-top: 20px;
-
-  background-color: #fff;
-}
-
-
-/* =========================================================
-   FEATURE PANEL
-   ========================================================= */
-
-.feature-panel {
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color:
-    #073a28 !important;
-}
-
-
-/* =========================================================
-   FEATURE MEDIA
-   ========================================================= */
-
-.feature-panel__media {
-  min-height: 480px;
-}
-
-
-/* =========================================================
-   FEATURE CONTENT
-   ========================================================= */
-
-.feature-panel__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 52px;
-}
-
-
-/*
- * Feature içindeki butonda HTML'de mt-8 var.
- * Ortak class'ın margin-top değerini bozmasın.
- */
-
-.feature-panel__content .gift-purchase-btn {
-  margin-top: 2rem !important;
-}
-
-
-/* =========================================================
-   PLANS
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.plans-section {
-  padding: 110px 0;
-
-  background-color: #f7f5f0;
-}
-
-
-/* =========================================================
-   PLANS HEADING
-   ========================================================= */
-
-.plans-heading {
-  max-width: 720px;
-
-  margin-bottom: 45px;
-}
-
-
-/* =========================================================
-   DESKTOP MEDIUM
-   ========================================================= */
-
-@media (max-width: 1199.98px) {
-
-  .gift-hero__layout {
-    grid-template-columns:
-      minmax(0, 0.82fr)
-      minmax(400px, 0.9fr);
-
-    gap: 52px;
-  }
-
-
-  .gift-hero__description {
-    font-size: 14px;
-    line-height: 1.58;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 991.98px) {
-
-  /* HERO */
-
   .gift-hero {
-    height: auto;
-    min-height: 100vh;
-
-    overflow: visible;
+    background-position: 62% center;
   }
 
-
-  @supports (height: 100dvh) {
-
-    .gift-hero {
-      min-height: 100dvh;
-    }
-
+  .gift-hero__overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 25, 17, .90),
+      rgba(5, 25, 17, .48)
+    );
   }
-
-
-  .gift-hero__container {
-    height: auto;
-  }
-
-
-  .gift-hero__layout {
-    grid-template-columns: 1fr;
-
-    gap: 24px;
-
-    padding: 126px 20px 88px;
-  }
-
 
   .gift-hero__copy {
-    max-width: 760px;
-
-    justify-self: start;
-
-    padding-left: 22px;
+    border-left: 0;
+    padding-left: 0 !important;
   }
 
-
-  .gift-hero__title {
-    max-width: 760px;
+  .gift-story__media,
+  .gift-feature__media {
+    min-height: 320px;
   }
-
-
-  .gift-hero__description {
-    font-size: 14px;
-    line-height: 1.58;
-  }
-
-
-  .styever-gift .gift-purchase-btn {
-    margin-top: 22px;
-  }
-
-
-  /* SECTIONS */
-
-  .gift-section,
-  .plans-section {
-    padding: 86px 0;
-  }
-
-
-  /* STORY */
-
-  .gift-story {
-    grid-template-columns: 1fr;
-  }
-
-
-  .gift-story__content {
-    padding: 42px;
-  }
-
-
-  .gift-story__media {
-    min-height: 380px;
-  }
-
-
-  /* VALUES */
-
-  .gift-values {
-    grid-template-columns: 1fr;
-  }
-
-
-  .gift-value {
-    min-height: auto;
-  }
-
-
-  /* FEATURE */
-
-  .gift-section--feature {
-    padding-top: 20px;
-  }
-
-
-  .feature-panel {
-    grid-template-columns: 1fr;
-  }
-
-
-  .feature-panel__media {
-    min-height: 380px;
-  }
-
-
-  .feature-panel__content {
-    padding: 42px;
-  }
-
 }
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 575.98px) {
-
-  /* HERO */
-
-  .gift-hero__layout {
-    padding: 110px 12px 78px;
-  }
-
-
-  .gift-hero__eyebrow-logo {
-    width: 28px;
-    height: 20px;
-  }
-
-
   .gift-hero__title {
-    font-size: 43px;
+    font-size: 2.75rem;
   }
-
-
-  .gift-hero__copy {
-    padding-left: 16px;
-  }
-
-
-  .gift-hero__description {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-
-  .styever-gift .gift-purchase-btn {
-    width: auto;
-
-    margin-top: 20px;
-  }
-
 
   .gift-hero__scroll {
-    bottom: 12px;
+    bottom: 14px;
   }
 
-
-  /* SECTIONS */
-
-  .gift-section,
-  .plans-section {
-    padding: 72px 0;
+  .gift-story__media,
+  .gift-feature__media {
+    min-height: 280px;
   }
+}
 
-
-  .gift-section .container-xxl,
-  .plans-section .container-xxl {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-
-  /* STORY */
-
-  .gift-story {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .gift-story__content {
-    padding: 28px;
-  }
-
-
-  .gift-story__media {
-    min-height: 300px;
-  }
-
-
-  /* HEADINGS */
-
-  .gift-story__content h2,
-  .feature-panel__content h2,
-  .plans-heading h2 {
-    margin-bottom: 16px;
-  }
-
-
-  /* VALUES */
-
-  .gift-values {
-    gap: 16px;
-  }
-
-
-  .gift-value {
-    min-height: auto;
-
-    padding: 24px !important;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .gift-value__icon {
-    width: 42px;
-    height: 42px;
-
-    margin-bottom: 22px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-
-  .gift-value h3 {
-    font-size: 20px;
-  }
-
-
-  .gift-story__content p,
-  .gift-value p,
-  .feature-panel__content p {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-
-  /* FEATURE */
-
-  .gift-section--feature {
-    padding-top: 16px;
-  }
-
-
-  .feature-panel {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .feature-panel__media {
-    min-height: 300px;
-  }
-
-
-  .feature-panel__content {
-    padding: 28px;
-  }
-
-
-  .feature-panel__content .gift-purchase-btn {
+@media (max-height: 760px) and (min-width: 576px) {
+  .gift-hero .mt-7 {
     margin-top: 1.5rem !important;
   }
-
-
-  /* PLANS */
-
-  .plans-heading {
-    margin-bottom: 32px;
-  }
-
 }
 
 
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .gift-section .container-xxl,
-  .plans-section .container-xxl {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-
-  .gift-value {
-    padding: 22px !important;
-  }
-
-
-  .gift-story__content,
-  .feature-panel__content {
-    padding: 24px;
-  }
-
+/* HERO TITLE / GIFT VOUCHER — align further left */
+.gift-hero__container {
+  padding-left: clamp(24px, 3vw, 48px) !important;
+  padding-right: clamp(24px, 3vw, 48px) !important;
 }
 
-/* =========================================================
-   METRONIC RADIUS STANDARD
-   Regular UI surfaces use the exact Metronic card radius.
-   Circular avatars/symbols remain circular.
-   ========================================================= */
-:host {
-  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
+/* "How does the gift process work?" card — more compact */
+.gift-feature__media {
+  min-height: 300px;
+  max-height: 340px;
 }
 
-// .card,
-// .btn,
-// .form-control,
-// .form-select,
-// .input-group,
-// .input-group-text,
-// .modal-content,
-// .dropdown-menu,
-// .alert,
-// .badge,
-// [class*="card"]:not(.symbol):not([class*="avatar"]),
-// [class*="panel"],
-// [class*="box"],
-// [class*="item"]:not([class*="avatar"]),
-// [class*="option"],
-// [class*="search"],
-// [class*="toggle"],
-// [class*="nav__link"] {
-//   border-radius: var(--styever-ui-radius) !important;
-// }
-
-.symbol,
-[class*="avatar"] {
-  border-radius: 50%;
+.gift-feature__media img {
+  min-height: 300px;
+  max-height: 340px;
+  object-fit: cover;
 }
 
+@media (min-width: 992px) {
+  .gift-feature__media + .col-lg-5 .card-body {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .gift-feature__media,
+  .gift-feature__media img {
+    min-height: 280px;
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .gift-hero__container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .gift-feature__media,
+  .gift-feature__media img {
+    min-height: 240px;
+    max-height: 280px;
+  }
+}
+
+
+/* HERO — "A meaningful gift for a broken heart. / Gift Voucher" further left */
+.gift-hero__left {
+  padding-left: 0 !important;
+}
+
+.gift-hero__left .gift-hero__title,
+.gift-hero__left > div {
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+/* PROCESS CARD — image follows the card's actual height */
+.gift-feature__media {
+  min-height: 0 !important;
+  max-height: none !important;
+  display: flex;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.gift-feature__media img {
+  width: 100%;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 1 1 auto;
+  object-fit: cover !important;
+  object-position: center;
+}
+
+@media (min-width: 992px) {
+  .gift-feature__media {
+    min-height: 100% !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .gift-feature__media {
+    min-height: 280px !important;
+  }
+
+  .gift-feature__media img {
+    min-height: 280px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .gift-feature__media {
+    min-height: 240px !important;
+  }
+
+  .gift-feature__media img {
+    min-height: 240px !important;
+  }
+}
+
+
+/* FINAL: compact "How does the gift process work?" card */
+@media (min-width: 992px) {
+  .gift-feature__media {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+  }
+
+  .gift-feature__media img {
+    width: 100% !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    object-fit: cover !important;
+  }
+
+  .gift-process-body {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    overflow: hidden;
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+
+  .gift-process-body h2 {
+    margin-bottom: 1rem !important;
+  }
+
+  .gift-process-body p {
+    font-size: .925rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .gift-process-body .mt-7 {
+    margin-top: 1.25rem !important;
+  }
+}
+
+/* Gift Voucher plans heading — left aligned, not centered */
+.gift-plans-heading {
+  width: 100%;
+  max-width: none;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+.gift-plans-heading h2,
+.gift-plans-heading > div {
+  text-align: left !important;
+}
+
+
+/* PROCESS CARD — balanced height */
+@media (min-width: 992px) {
+  .gift-feature__media {
+    height: 470px !important;
+    min-height: 470px !important;
+    max-height: 470px !important;
+  }
+
+  .gift-feature__media img {
+    width: 100% !important;
+    height: 470px !important;
+    min-height: 470px !important;
+    max-height: 470px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .gift-process-body {
+    height: 470px !important;
+    min-height: 470px !important;
+    max-height: 470px !important;
+    overflow: visible;
+    padding: 2.5rem !important;
+  }
+
+  .gift-process-body h2 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .gift-process-body p {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .gift-process-body .mt-7 {
+    margin-top: 1.75rem !important;
+  }
+}
+
+
+/* PROCESS COPY — preserve translation formatting exactly */
+.gift-process-text {
+  white-space: pre-line !important;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 992px) {
+  .gift-process-body {
+    height: auto !important;
+    min-height: 470px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .gift-process-body h2 {
+    font-size: clamp(2.25rem, 3vw, 3.5rem) !important;
+    line-height: 1.05 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .gift-process-text {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+}
+
+
+/* FEATURE IMAGE — fill the full card height */
+.gift-feature__media {
+  position: relative;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  align-self: stretch !important;
+  overflow: hidden;
+}
+
+.gift-feature__media img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+@media (max-width: 991.98px) {
+  .gift-feature__media {
+    min-height: 320px !important;
+  }
+
+  .gift-feature__media img {
+    position: absolute;
+    min-height: 100% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .gift-feature__media {
+    min-height: 260px !important;
+  }
+}

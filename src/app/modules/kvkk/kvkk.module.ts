@@ -8,6 +8,7 @@ import { ConfirmationModule } from '../confirmation/confirmation.module';
 import { DataTableModule } from '../common/datatable/datatable.module';
 import { KvkkComponent } from './kvkk.component';
 import { KvkkRoutingModule } from './kvkk-routing.module';
+import { LegalContentSharedModule } from '../common/legal-content/legal-content-shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { KvkkRoutingModule } from './kvkk-routing.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ModalsModule
+    ModalsModule,
+    LegalContentSharedModule  
   ],
 })
 export class KvkkModule {}

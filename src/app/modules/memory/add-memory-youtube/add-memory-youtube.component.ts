@@ -94,6 +94,11 @@ export class YoutubeComponent {
     }
 
     submit() {
+        if (this.form.invalid) {
+            this.form.markAllAsTouched();
+            return false;
+        }
+
         if (this.form.valid) {
             let data = this.form.getRawValue();
 

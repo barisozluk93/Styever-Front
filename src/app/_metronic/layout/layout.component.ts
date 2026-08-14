@@ -13,6 +13,7 @@ import { fromEvent, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/modules/auth';
 import { NotificationSignalrService } from 'src/app/modules/common/signalR.service';
 import { environment } from 'src/environments/environment';
+import { AdminModeService } from './services/admin-mode.service';
 
 @Component({
   selector: 'app-layout',
@@ -60,7 +61,8 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
     private layout: LayoutService,
     private router: Router,
     private authService: AuthService,
-    private notificationService: NotificationSignalrService
+    private notificationService: NotificationSignalrService,
+    private adminModeService: AdminModeService
   ) {
     this.initService.init();
 
@@ -154,7 +156,21 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   controlRoute() {
     var main = document.getElementById("main-element");
-    
+
+    const isAdminRoute =
+      this.router.url.includes('/dashboard') ||
+      this.router.url.includes('/usermanagement') ||
+      this.router.url.includes('/supportmanagement') ||
+      this.router.url.includes('/faqmanagement') ||
+      this.router.url.includes('/planmanagement') ||
+      this.router.url.includes('/legalcontentmanagement');
+
+    if (this.authService.currentUserValue?.roles?.includes('1')) {
+      this.adminModeService.setAdminMode(isAdminRoute);
+    } else {
+      this.adminModeService.reset();
+    }
+
     if (this.router.url.includes("/home")) {
       main?.classList.remove("memory-background");
       main?.classList.remove("contactus-background");
@@ -266,7 +282,7 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.add("payment-background");
       this.isWhitePage = true;
     }
-    else if (this.router.url.includes("/support")) {
+    else if (this.router.url === "/support" || this.router.url.startsWith("/support/")) {
 
       main?.classList.remove("home-background");
       main?.classList.remove("contactus-background");
@@ -278,20 +294,6 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       main?.classList.remove("about-background");
 
       main?.classList.add("support-background");
-      this.isWhitePage = false;
-    }
-    else if (this.router.url.includes("/report-content")) {
-
-      main?.classList.remove("home-background");
-      main?.classList.remove("support-background");
-      main?.classList.remove("payment-background");
-      main?.classList.remove("memoryeditsave-background");
-      main?.classList.remove("memory-background");
-      main?.classList.remove("faq-background");
-      main?.classList.remove("gift-background");
-      main?.classList.remove("about-background");
-
-      main?.classList.add("contactus-background");
       this.isWhitePage = false;
     }
     else {

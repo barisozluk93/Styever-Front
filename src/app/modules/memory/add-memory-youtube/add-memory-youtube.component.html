@@ -5,8 +5,9 @@
                 <label class="form-label fs-6 fw-bolder text-primary">
                     {{'LINK' | translate}}
                 </label>
-                <input class="form-control bg-transparent text-light-primary" type="text" name="link"
+                <input class="form-control bg-transparent text-light-primary form-control-lg styever-auth-control" type="text" name="link"
                     formControlName="link" />
+                <div *ngIf="form.controls['link'].hasError('required') && form.controls['link'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('LINK' | translate) + ' ' + ('IS_REQUIRED' | translate) }}</div>
             </div>
         </div>
     </form>

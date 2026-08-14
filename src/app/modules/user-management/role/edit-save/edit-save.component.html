@@ -3,7 +3,7 @@
 
         <div class="fv-row mb-8">
             <label class="form-label fs-6 fw-bolder text-gray-900">{{'NAME' | translate}}</label>
-            <input class="form-control bg-transparent" type="text" name="name" formControlName="name" autocomplete="off"
+            <input class="form-control bg-transparent form-control-lg styever-auth-control" type="text" name="name" formControlName="name" autocomplete="off"
                 [ngClass]="{
                 'is-invalid': form.controls['name'].invalid,
                 'is-valid': form.controls['name'].valid
@@ -18,7 +18,7 @@
         <div class="fv-row mb-8">
             <label class="form-label fs-6 fw-bolder text-gray-900">{{'PERMISSIONS' | translate}}</label>
             <select multiple name="permissions" formControlName="permissions" autocomplete="off"
-              class="form-select form-select-solid form-select-lg fw-bold"
+              class="form-select form-select-solid form-select-lg fw-bold bg-white"
               [ngClass]="{
                 'is-invalid': form.controls['permissions'].invalid,
                 'is-valid': form.controls['permissions'].valid
@@ -39,7 +39,7 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
         <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-            <div class="fv-plugins-message-container">
+            <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7">
                 <span role="alert">
                     {{ message }}
                 </span>

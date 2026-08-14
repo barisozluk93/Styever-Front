@@ -1,53 +1,110 @@
 <div
-  class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-6 my-5 mx-10 my-lg-0 align-items-stretch"
-  id="#kt_header_menu" data-kt-menu="true">
-
+  id="kt_header_menu"
+  data-kt-menu="true"
+  class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg-light-primary menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-6 my-5 my-lg-0 align-items-stretch styever-header-menu"
+  [class.site-mode]="!isAdminMode"
+  [class.admin-mode]="isAdminMode"
+  (click)="$event.stopPropagation()"
+>
   <ng-container *ngFor="let menu of menuList; let i = index">
-    <div class="menu-item me-lg-1 text-white" *ngIf="menu.childMenus?.length == 0 && !menu.isForbid">
-      <a class="menu-link text-white py-3" routerLinkActive="active" routerLink="{{menu.url}}">
+
+    <!-- Standard item -->
+    <div
+      *ngIf="menu.childMenus?.length === 0 && !menu.isForbid && menu.url"
+      class="menu-item me-lg-1 text-white"
+    >
+      <a
+        class="menu-link text-white py-3"
+        [class.active]="calculateMenuItemCssClass(menu.url) === 'active'"
+        [routerLink]="menu.url"
+      >
         <span class="menu-icon styever-header-menu-icon">
-          <i *ngIf="i === 0" class="bi bi-info-circle"></i>
-          <i *ngIf="i === 1" class="bi bi-plus-circle"></i>
-          <i *ngIf="i === 2" class="bi bi-gift"></i>
-          <i *ngIf="i === 3" class="bi bi-file-earmark-text"></i>
-          <i *ngIf="i === 4" class="bi bi-question-circle"></i>
-          <i *ngIf="i > 4" class="bi bi-grid"></i>
+          <i class="bi text-white" [ngClass]="menu.icon || getFallbackIcon(i)"></i>
         </span>
-        <span class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
+
+        <span class="menu-title text-white fw-bold fs-6">
+          {{ ('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}
+        </span>
       </a>
     </div>
 
-
-    <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown" data-kt-menu-trigger="click"
-      data-kt-menu-placement="bottom-start" *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid">
-      <span class="menu-link text-white py-3" [ngClass]="calculateMenuItemCssClass('{{menu.url}}')">
+    <!-- Placeholder item -->
+    <div
+      *ngIf="menu.childMenus?.length === 0 && !menu.isForbid && !menu.url"
+      class="menu-item me-lg-1 text-white"
+    >
+      <span class="menu-link text-white py-3 opacity-75 cursor-default" aria-disabled="true">
         <span class="menu-icon styever-header-menu-icon">
-          <i *ngIf="i === 0" class="bi bi-info-circle"></i>
-          <i *ngIf="i === 1" class="bi bi-plus-circle"></i>
-          <i *ngIf="i === 2" class="bi bi-gift"></i>
-          <i *ngIf="i === 3" class="bi bi-file-earmark-text"></i>
-          <i *ngIf="i === 4" class="bi bi-question-circle"></i>
-          <i *ngIf="i > 4" class="bi bi-grid"></i>
+          <i class="bi text-white" [ngClass]="menu.icon || 'bi-grid'"></i>
         </span>
-        <span class="menu-title text-white">{{("LANG" | translate) === 'tr' ? menu.name : menu.nameEn }}</span>
-        <span class="menu-arrow d-lg-none"></span>
-      </span>
 
-      <div class="
-              menu-sub
-              menu-sub-lg-down-accordion
-              menu-sub-lg-dropdown
-              menu-rounded-0
-              py-lg-4
-              w-lg-225px
-            " data-kt-menu-dismiss="true">
-        <div *ngFor="let child of menu.childMenus" class="menu-item me-lg-1">
-          <a *ngIf="!child.isForbid" class="menu-link py-3" routerLinkActive="active" routerLink="{{child.url}}"><span class="menu-bullet"><span
-                class="bullet bullet-dot"></span></span>
-            <span class="menu-title">{{("LANG" | translate) === 'tr' ? child.name : child.nameEn }}</span></a>
+        <span class="menu-title text-white fw-bold fs-6">
+          {{ ('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}
+        </span>
+      </span>
+    </div>
+
+    <!-- Item with children -->
+    <div
+      *ngIf="menu.childMenus && menu.childMenus.length > 0 && !menu.isForbid"
+      class="menu-item me-lg-1 text-white position-relative"
+    >
+      <button
+        type="button"
+        class="menu-link text-white py-3 border-0 bg-transparent"
+        [class.active]="isChildMenuActive(menu)"
+        [class.show]="openedMenuId === menu.id"
+        (click)="toggleDropdown(menu.id, $event)"
+      >
+        <span class="menu-icon styever-header-menu-icon">
+          <i class="bi text-white" [ngClass]="menu.icon || 'bi-grid'"></i>
+        </span>
+
+        <span class="menu-title text-white fw-bold fs-6">
+          {{ ('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}
+        </span>
+
+        <span class="menu-arrow"></span>
+      </button>
+
+      <div
+        *ngIf="openedMenuId === menu.id"
+        class="menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-3 w-275px show styever-admin-submenu"
+      >
+        <div class="px-4 py-3 border-bottom border-gray-200">
+          <div class="text-primary fw-bold fs-8 text-uppercase ls-1 mb-1">STYEVER ADMIN</div>
+          <div class="text-gray-900 fw-bold fs-6">
+            {{ ('LANG' | translate) === 'tr' ? menu.name : menu.nameEn }}
+          </div>
+        </div>
+
+        <div
+          *ngFor="let child of menu.childMenus"
+          [hidden]="child.isForbid"
+          class="menu-item px-2"
+        >
+          <a
+            class="menu-link px-3 py-2"
+            [class.active]="calculateMenuItemCssClass(child.url) === 'active'"
+            [routerLink]="child.url"
+            (click)="closeDropdown()"
+          >
+            <span class="menu-icon">
+              <span class="symbol symbol-32px">
+                <span class="symbol-label bg-light-primary">
+                  <i class="bi text-primary fs-6" [ngClass]="child.icon || 'bi-circle'"></i>
+                </span>
+              </span>
+            </span>
+
+            <span class="menu-title min-w-0 ms-1">
+              <span class="fw-bold text-primary">
+                {{ ('LANG' | translate) === 'tr' ? child.name : child.nameEn }}
+              </span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
   </ng-container>
-
 </div>

@@ -1,142 +1,80 @@
 <main class="memory-edit-page">
+  <section class="memory-edit-hero position-relative">
+    <div class="memory-edit-hero__overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-  <!-- =====================================================
-       HERO
-       ===================================================== -->
-  <section class="memory-edit-hero position-relative d-flex align-items-center">
-
-    <div
-      class="memory-edit-hero__shade position-absolute top-0 start-0 w-100 h-100">
-    </div>
-
-    <div
-      class="container-xxl position-relative z-index-2 w-100">
-
-      <div class="memory-edit-hero__content">
-
-        <!-- BACK -->
-        <div class="memory-edit-hero__back-wrap">
-
-          <button
-            type="button"
-            class="btn btn-light btn-sm px-5 styever-white-btn"
-            (click)="goToMemories()">
-
-            <i class="ki-duotone ki-arrow-left fs-4 me-2">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-
-            <span>
-              {{ 'SEARCH_PETS' | translate }}
-            </span>
-
-          </button>
-
-        </div>
-
-        <!-- EYEBROW -->
-        <div
-          class="memory-edit-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
-
+    <div class="container-xxl position-relative z-index-2">
+      <!-- EYEBROW ROW -->
+      <div class="memory-edit-eyebrow-row d-flex flex-wrap align-items-center justify-content-between gap-4 mb-7">
+        <div class="d-flex align-items-center gap-3 text-white text-uppercase fw-bold fs-8 ls-2">
           <img
             src="/assets/media/logos/logo.png"
             alt="Styever"
-            class="memory-edit-hero__eyebrow-logo flex-shrink-0"
+            class="memory-edit-hero__brand flex-shrink-0"
           />
-
-          <span>
-            {{ 'MEMORIES' | translate }}
-          </span>
-
+          <span>{{ 'MEMORIES' | translate }}</span>
         </div>
 
-        <!-- TITLE -->
-        <h1 class="memory-edit-hero__title fw-bold text-white">
-          {{
-            form.get('id')?.value > 0
-              ? ('EDIT' | translate)
-              : ('ADD_MEMORY' | translate)
-          }}
-        </h1>
-
-        <!-- DESCRIPTION -->
-        <p class="memory-edit-hero__description mb-0">
-          {{ 'MEMORY_SUBHEADER' | translate }}
-        </p>
-
+        <button
+          type="button"
+          class="btn btn-light btn-sm px-5 memory-white-btn"
+          (click)="goToMemories()"
+        >
+          <i class="ki-duotone ki-arrow-left fs-4 me-2">
+            <span class="path1"></span>
+            <span class="path2"></span>
+          </i>
+          {{ 'SEARCH_PETS' | translate }}
+        </button>
       </div>
 
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CONTENT
-       ===================================================== -->
-  <section class="memory-edit-content">
-
-    <div class="container-xxl">
-
-      <div
-        class="card memory-editor-card border border-gray-300 shadow-none">
-
-        <div class="card-body p-6 p-lg-8">
-
-          <!-- =================================================
-               MEDIA
-               ================================================= -->
-          <div class="memory-editor-media">
-
-            <app-carousel
-              [isEdit]="form.get('id')?.value > 0"
-              [youtubeLinks]="youtubeLinks"
-              [files]="mediaFiles"
-              [activeMediaIndex]="activeMediaIndex"
-              [isImageUploadAllowed]="isImageUploadAllowed"
-              [isVideoUploadAllowed]="isVideoUploadAllowed"
-              [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
-              (isFileChanged)="onFileChange($event)"
-              (isFileDeleted)="isFileDeleted($event)"
-              (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"
-              (isCheckboxClicked)="isCheckboxClicked($event)"
-              (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)">
-            </app-carousel>
-
+      <div class="row g-7 g-xl-8 align-items-start">
+        <!-- LEFT / CAROUSEL -->
+        <div class="col-xl-5 col-lg-5">
+          <div class="card card-flush memory-edit-glass-card memory-edit-carousel-card">
+            <div class="card-body p-5 p-lg-6">
+              <app-carousel
+                [isEdit]="form.get('id')?.value > 0"
+                [youtubeLinks]="youtubeLinks"
+                [files]="mediaFiles"
+                [activeMediaIndex]="activeMediaIndex"
+                [isImageUploadAllowed]="isImageUploadAllowed"
+                [isVideoUploadAllowed]="isVideoUploadAllowed"
+                [isYoutubeLinkAllowed]="isYoutubeLinkAllowed"
+                (isFileChanged)="onFileChange($event)"
+                (isFileDeleted)="isFileDeleted($event)"
+                (isOpenYoutubeLinkModalClicked)="openYoutubeLinkModal($event)"
+                (isCheckboxClicked)="isCheckboxClicked($event)"
+                (isActiveMediaIndexChanged)="onActiveMediaIndexChanged($event)"
+              >
+              </app-carousel>
+            </div>
           </div>
+        </div>
 
+        <!-- RIGHT / FORM -->
+        <div class="col-xl-7 col-lg-7">
+          <div class="card card-flush memory-edit-glass-card memory-edit-form-card">
+            <div class="card-body p-6 p-lg-7">
+              <div class="memory-edit-form-heading mb-6">
+                <div class="text-white text-uppercase fw-bold fs-8 ls-2 mb-3">
+                  STYEVER
+                </div>
 
-          <div class="separator border-gray-300 my-8"></div>
+                <h2 class="text-white fw-bolder fs-2x mb-3">
+                  Keep their memories alive forever.
+                </h2>
 
+                <p class="text-white opacity-75 fs-6 lh-lg mb-0">
+                  Share your memories with your closest friend in just a few minutes.
+                </p>
+              </div>
 
-          <!-- =================================================
-               FORM
-               ================================================= -->
-          <form
+<form
             class="form w-100 memory-auth-form"
             [formGroup]="form"
             novalidate="novalidate">
 
-            <!-- FORM HEADING -->
-            <div class="form-heading">
 
-              <span
-                class="memory-form-kicker d-inline-flex align-items-center fw-bold text-uppercase text-primary">
-
-                STYEVER
-
-              </span>
-
-              <h2 class="text-gray-900 fw-bolder mb-2">
-                {{ 'MEMORY_HEADER' | translate }}
-              </h2>
-
-              <p class="text-gray-500 mb-0">
-                {{ 'MEMORY_SUBHEADER' | translate }}
-              </p>
-
-            </div>
 
 
             <!-- =================================================
@@ -556,12 +494,14 @@
             </div>
 
           </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-          <!-- =================================================
-               FORM ERROR TEMPLATE
-               ================================================= -->
-          <ng-template
+<ng-template
             #formError
             let-control="control"
             let-message="message"
@@ -576,7 +516,7 @@
                 )
               ">
 
-              <div class="fv-plugins-message-container mt-1">
+              <div class="fv-plugins-message-container mt-1 text-danger fw-semibold fs-7">
 
                 <span
                   role="alert"
@@ -591,17 +531,7 @@
             </ng-container>
 
           </ng-template>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
 </main>
-
 
 <app-memory-youtube
   #youtubeComponent

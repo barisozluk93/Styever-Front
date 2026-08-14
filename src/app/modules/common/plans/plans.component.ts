@@ -6,6 +6,7 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 import { parseBoolean } from "src/app/utils/parse-boolean";
 import { MemoryManagementService } from "../../memory/memory-management.service";
 import { SelectMemoryComponent } from "./select-memory/select-memory.component";
+import { PlanManagementService, PlanModel } from "./plan-management.service";
 
 @Component({
   selector: 'app-plans',
@@ -14,6 +15,7 @@ import { SelectMemoryComponent } from "./select-memory/select-memory.component";
 })
 export class PlansComponent implements OnInit {
   planList: any[] = [];
+  private rawPlans: PlanModel[] = [];
   @Input() activePlan: number;
   @Input() useVoucher: boolean;
 
@@ -33,31 +35,36 @@ export class PlansComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private translate: TranslateService,
-    private memoryManagementService: MemoryManagementService
+    private memoryManagementService: MemoryManagementService,
+    private planManagementService: PlanManagementService
   ) {
   }
 
   loadData() {
-    this.planList = [
-      {
-        id: 2,
-        name: this.translate.instant('standard'),
-        price: "₺499,00/" + this.translate.instant('year'),
-        properties: [this.translate.instant('standardProperty1'), this.translate.instant('standardProperty2'), this.translate.instant('standardProperty3'), this.translate.instant('standardProperty5')]
-      },
-      {
-        id: 3,
-        name: this.translate.instant('premium'),
-        price: "₺699,00/" + this.translate.instant('year'),
-        properties: [this.translate.instant('premiumProperty1'), this.translate.instant('premiumProperty2'), this.translate.instant('premiumProperty3'), this.translate.instant('premiumProperty4'), this.translate.instant('premiumProperty5'), this.translate.instant('premiumProperty7')]
-      },
-      {
-        id: 4,
-        name: this.translate.instant('ultra'),
-        price: "₺1299,00/" + this.translate.instant('year'),
-        properties: [this.translate.instant('ultraProperty1'), this.translate.instant('ultraProperty2'), this.translate.instant('ultraProperty3'), this.translate.instant('ultraProperty4'), this.translate.instant('ultraProperty5'), this.translate.instant('ultraProperty7')]
+    this.planManagementService.getAll().subscribe(result => {
+      if (result?.isSuccess && result.data) {
+        this.rawPlans = result.data;
+        this.mapPlans();
+      } else {
+        this.planList = [];
       }
-    ]
+    });
+  }
+
+  private mapPlans(): void {
+    const isTr = this.translate.currentLang === 'tr' || this.translate.instant('LANG') === 'tr';
+    this.planList = (this.rawPlans || [])
+      .filter(x => !x.isDeleted)
+      .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+      .map(item => ({
+        ...item,
+        displayName: isTr ? item.name : item.nameEn,
+        displayPeriod: isTr ? item.period : item.periodEn,
+        propertiesList: (isTr ? item.properties : item.propertiesEn)
+          .split(/\r?\n/)
+          .map(x => x.trim())
+          .filter(Boolean)
+      }));
   }
 
   ngOnInit(): void {
@@ -72,7 +79,7 @@ export class PlansComponent implements OnInit {
 
     this.translate.onLangChange.subscribe(
       (event: LangChangeEvent) => {
-        this.loadData();
+        this.mapPlans();
       }
     );
   }

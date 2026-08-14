@@ -1,13 +1,3 @@
-<div [ngStyle]="{'height.px': bannerHeight}">
-  <div class="row mx-10" [ngStyle]="{'padding-top.px': bannerPaddingTopHeight}">
-    <div class="center-title-wrapper">
-      <span class="text-white fw-bolder" style="font-size: 30px;">
-        {{ 'REPORT_CONTENT' | translate }}
-      </span>
-    </div>
-  </div>
-</div>
-
 <div class="d-flex flex-column flex-lg-row flex-column-fluid mx-10 my-10">
   <div
     class="d-flex flex-column flex-lg-row-fluid w-lg-100 p-10 order-2 order-lg-1 bg-white"
@@ -57,8 +47,7 @@
               {{ 'FULL_NAME' | translate }}
             </label>
 
-            <input
-              class="form-control bg-transparent"
+            <input class="form-control bg-transparent form-control-lg styever-auth-control"
               type="text"
               name="fullName"
               formControlName="fullName"
@@ -85,8 +74,7 @@
               {{ 'EMAIL' | translate }}
             </label>
 
-            <input
-              class="form-control bg-transparent"
+            <input class="form-control bg-transparent form-control-lg styever-auth-control"
               type="email"
               name="email"
               formControlName="email"
@@ -123,8 +111,7 @@
             {{ 'COMPLAINT_TYPE' | translate }}
           </label>
 
-          <select
-            class="form-control bg-transparent"
+          <select class="form-control bg-transparent form-control-lg styever-auth-control"
             name="complaintType"
             formControlName="complaintType"
             [ngClass]="{
@@ -156,8 +143,7 @@
             {{ 'REPORTED_PAGE_URL' | translate }}
           </label>
 
-          <input
-            class="form-control bg-transparent"
+          <input class="form-control bg-transparent form-control-lg styever-auth-control"
             type="text"
             name="reportedUrl"
             formControlName="reportedUrl"
@@ -184,8 +170,7 @@
             {{ 'DESCRIPTION' | translate }}
           </label>
 
-          <textarea
-            class="form-control bg-transparent"
+          <textarea class="form-control bg-transparent form-control-lg styever-auth-control"
             rows="5"
             name="description"
             formControlName="description"
@@ -224,7 +209,7 @@
 
       <ng-template #formError let-control="control" let-message="message" let-validation="validation">
         <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-          <div class="fv-plugins-message-container">
+          <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7">
             <div class="fv-help-block">
               <span role="alert">
                 {{ message }}

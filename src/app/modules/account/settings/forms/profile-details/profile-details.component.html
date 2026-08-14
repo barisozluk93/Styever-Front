@@ -222,7 +222,7 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
       <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-        <div class="fv-plugins-message-container mt-1">
+        <div class="fv-plugins-message-container mt-1 text-danger fw-semibold fs-7">
           <span role="alert" class="text-danger fs-8 fw-semibold">{{ message }}</span>
         </div>
       </ng-container>

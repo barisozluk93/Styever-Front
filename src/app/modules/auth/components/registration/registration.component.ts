@@ -51,6 +51,7 @@ import {
   ModalConfig
 } from 'src/app/_metronic/partials/layout/modals/modal.config';
 import { scrollToTop } from 'src/app/utils/scrolltotop';
+import { PlanManagementService, PlanModel } from 'src/app/modules/common/plans/plan-management.service';
 
 
 @Component({
@@ -100,11 +101,13 @@ export class RegistrationComponent
 
   activePlan = 2;
 
-  totalPrice = 499.00;
+  totalPrice = 0;
 
   useVoucher = false;
 
   voucher = '';
+
+  private plans: PlanModel[] = [];
 
 
   /* =======================================================
@@ -129,7 +132,8 @@ export class RegistrationComponent
     private router: Router,
     private userService: UserManagementService,
     private translate: TranslateService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private planManagementService: PlanManagementService
   ) {
 
     this.isLoading$ =
@@ -154,6 +158,25 @@ export class RegistrationComponent
 
   ngOnInit(): void {
     this.initForm();
+    this.loadPlans();
+  }
+
+  private loadPlans(): void {
+    this.planManagementService.getAll().subscribe({
+      next: result => {
+        this.plans = result?.isSuccess && result.data ? result.data.filter(x => !x.isDeleted) : [];
+        this.setPlanPrice(this.activePlan);
+      },
+      error: () => {
+        this.plans = [];
+        this.totalPrice = 0;
+      }
+    });
+  }
+
+  private setPlanPrice(planId: number): void {
+    const plan = this.plans.find(x => Number(x.id) === Number(planId));
+    this.totalPrice = plan ? Number(plan.price || 0) : 0;
   }
 
 
@@ -239,24 +262,8 @@ export class RegistrationComponent
      ======================================================= */
 
   isPlanSelect(plan: number): void {
-
     this.activePlan = plan;
-
-
-    if (this.activePlan === 2) {
-
-      this.totalPrice = 499.00;
-
-    } else if (this.activePlan === 3) {
-
-      this.totalPrice = 699.00;
-
-    } else if (this.activePlan === 4) {
-
-      this.totalPrice = 1299.00;
-
-    }
-
+    this.setPlanPrice(plan);
   }
 
 
@@ -745,7 +752,7 @@ export class RegistrationComponent
 
         title:
           this.translate.instant(
-            'TERMS.PAGE_TITLE'
+            'FOOTER.TERMS_OF_USE'
           ),
 
         version:
@@ -773,7 +780,7 @@ export class RegistrationComponent
 
         title:
           this.translate.instant(
-            'PRIVACY_POLICY.PAGE_TITLE'
+            'FOOTER.PRIVACY_POLICY'
           ),
 
         version:
@@ -801,7 +808,7 @@ export class RegistrationComponent
 
         title:
           this.translate.instant(
-            'KVKK.PAGE_TITLE'
+            'FOOTER.KVKK'
           ),
 
         version:
@@ -1003,7 +1010,7 @@ export class RegistrationComponent
 
       this.activePlan = 2;
 
-      this.totalPrice = 499.00;
+      this.setPlanPrice(this.activePlan);
 
       this.voucher = '';
 

@@ -1,61 +1,567 @@
 :host {
-  height: inherit;
-  width: inherit;
-}
-:host{display:flex;align-items:stretch}.menu .menu-link{position:relative;transition:opacity .2s ease}.menu .menu-link:hover{background:transparent!important;opacity:.72}
-
-.styever-header-menu-icon {
-  width: 28px !important;
-  min-width: 28px !important;
-  margin-right: 6px !important;
-  display: inline-flex !important;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: visible !important;
 }
 
-.styever-header-menu-icon i {
-  color: rgba(255,255,255,.88);
-  font-size: 16px;
-  line-height: 1;
+.styever-header-menu {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: visible !important;
 }
 
-.menu .menu-link:hover .styever-header-menu-icon i,
-.menu .menu-link.active .styever-header-menu-icon i {
-  color: #fff;
+/* Metronic owns typography via fw-bold + fs-6 in HTML. */
+.styever-header-menu .menu-title {
+  font-size: inherit !important;
+  font-weight: inherit !important;
 }
 
+.styever-header-menu > .menu-item > .menu-link {
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
 
-/* Desktop header: keep both label and icon white on hover/active. */
+.styever-header-menu > .menu-item > .menu-link .menu-title,
+.styever-header-menu > .menu-item > .menu-link .menu-icon,
+.styever-header-menu > .menu-item > .menu-link .menu-icon i,
+.styever-header-menu > .menu-item > .menu-link .menu-arrow::after {
+  transition: color .18s ease;
+}
+
+/* =========================================================
+   PUBLIC + ADMIN TOP LEVEL
+   Same Metronic fs-6 / fw-bold visual language.
+   ========================================================= */
+
 @media (min-width: 992px) {
-  .menu .menu-item > .menu-link:hover .menu-title,
-  .menu .menu-item > .menu-link:hover .menu-icon,
-  .menu .menu-item > .menu-link:hover .menu-icon i,
-  .menu .menu-item > .menu-link:hover .svg-icon,
-  .menu .menu-item > .menu-link:hover .svg-icon svg,
-  .menu .menu-item > .menu-link:hover .svg-icon svg path,
-  .menu .menu-item > .menu-link.active .menu-title,
-  .menu .menu-item > .menu-link.active .menu-icon,
-  .menu .menu-item > .menu-link.active .menu-icon i {
+  .styever-header-menu.site-mode,
+  .styever-header-menu.admin-mode {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .styever-header-menu.site-mode {
+    gap: 1.25rem;
+  }
+
+  .styever-header-menu.admin-mode {
+    gap: .35rem;
+  }
+
+  .styever-header-menu > .menu-item {
+    margin-right: 0 !important;
+  }
+
+  .styever-header-menu > .menu-item > .menu-link {
+    min-height: 44px;
+    border-radius: var(--bs-border-radius, .475rem) !important;
+    background: transparent !important;
+  }
+
+  .styever-header-menu.site-mode > .menu-item > .menu-link {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important;
+  }
+
+  .styever-header-menu.admin-mode > .menu-item > .menu-link {
+    padding-left: .6rem !important;
+    padding-right: .6rem !important;
+  }
+
+  .styever-header-menu .menu-title,
+  .styever-header-menu .menu-icon,
+  .styever-header-menu .menu-icon i,
+  .styever-header-menu .menu-arrow::after {
+    color: rgba(255,255,255,.92) !important;
+  }
+
+  .styever-header-menu .menu-icon {
+    width: 1.5rem !important;
+    margin-right: .35rem !important;
+  }
+
+  .styever-header-menu .menu-icon i {
+    font-size: 1.05rem;
+  }
+
+  /* Hover: subtle glass, no white pill. */
+  .styever-header-menu > .menu-item > .menu-link:hover,
+  .styever-header-menu > .menu-item > .menu-link.show {
+    background: rgba(255,255,255,.10) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    transform: translateY(-1px);
+  }
+
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-title,
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-title,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-arrow::after {
     color: #fff !important;
-    fill: #fff !important;
+  }
+
+  /* Active: light-primary instead of white; text/icon primary. */
+  .styever-header-menu > .menu-item > .menu-link.active {
+    background: var(--bs-primary-light) !important;
+    box-shadow: inset 0 0 0 1px rgba(var(--bs-primary-rgb), .14) !important;
+  }
+
+  .styever-header-menu > .menu-item > .menu-link.active .menu-title,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-arrow::after {
+    color: var(--bs-primary) !important;
   }
 }
 
-/* Desktop header: icon and text are always white on hover/active. */
-@media (min-width: 992px) {
-  #kt_header_menu .menu-item > .menu-link:hover .menu-title,
-  #kt_header_menu .menu-item > .menu-link:hover .menu-icon,
-  #kt_header_menu .menu-item > .menu-link:hover .menu-icon i,
-  #kt_header_menu .menu-item > .menu-link:hover .svg-icon,
-  #kt_header_menu .menu-item > .menu-link:hover .svg-icon svg,
-  #kt_header_menu .menu-item > .menu-link:hover .svg-icon svg path,
-  #kt_header_menu .menu-item > .menu-link.active .menu-title,
-  #kt_header_menu .menu-item > .menu-link.active .menu-icon,
-  #kt_header_menu .menu-item > .menu-link.active .menu-icon i,
-  #kt_header_menu .menu-item > .menu-link.active .svg-icon,
-  #kt_header_menu .menu-item > .menu-link.active .svg-icon svg,
-  #kt_header_menu .menu-item > .menu-link.active .svg-icon svg path {
-    color: #fff !important;
-    fill: #fff !important;
+/* =========================================================
+   ADMIN DROPDOWN — compact Metronic surface
+   ========================================================= */
+
+.styever-header-menu > .menu-item.position-relative {
+  overflow: visible !important;
+}
+
+.styever-admin-submenu {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: calc(100% + .5rem) !important;
+  left: 0 !important;
+  right: auto !important;
+  z-index: 2000 !important;
+  width: 275px !important;
+  min-width: 275px !important;
+  transform: none !important;
+  border: 1px solid var(--bs-gray-200) !important;
+  border-radius: var(--bs-card-border-radius, .625rem) !important;
+  background: #fff !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .14) !important;
+  overflow: hidden !important;
+}
+
+.styever-admin-submenu .menu-link {
+  min-height: 52px;
+  border-radius: var(--bs-border-radius, .475rem);
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.styever-admin-submenu .menu-link:hover,
+.styever-admin-submenu .menu-link.active {
+  background-color: var(--bs-primary-light) !important;
+}
+
+.styever-admin-submenu .menu-link:hover .menu-title > span:first-child,
+.styever-admin-submenu .menu-link.active .menu-title > span:first-child {
+  color: var(--bs-primary) !important;
+}
+
+.styever-admin-submenu .menu-title > span:first-child {
+  font-weight: 700;
+}
+
+.styever-admin-submenu .menu-title > span:last-child {
+  line-height: 1.35;
+}
+
+/* =========================================================
+   RESPONSIVE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  .styever-header-menu.site-mode { gap: .9rem; }
+  .styever-header-menu.admin-mode { gap: .15rem; }
+
+  .styever-header-menu.site-mode > .menu-item > .menu-link {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
   }
+
+  .styever-header-menu.admin-mode > .menu-item > .menu-link {
+    padding-left: .4rem !important;
+    padding-right: .4rem !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .styever-header-menu.site-mode { gap: .4rem; }
+  .styever-header-menu.admin-mode { gap: .05rem; }
+
+  .styever-header-menu.site-mode > .menu-item > .menu-link,
+  .styever-header-menu.admin-mode > .menu-item > .menu-link {
+    padding-left: .25rem !important;
+    padding-right: .25rem !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL PUBLIC + ADMIN MENU POSITION / STATES
+   ========================================================= */
+@media (min-width: 992px) {
+  :host {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .styever-header-menu,
+  .styever-header-menu.site-mode,
+  .styever-header-menu.admin-mode {
+    width: auto !important;
+    max-width: max-content !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: center !important;
+  }
+
+  .styever-header-menu > .menu-item > .menu-link {
+    min-height: 48px;
+    padding-left: .9rem !important;
+    padding-right: .9rem !important;
+    border: 1px solid transparent !important;
+    border-radius: .55rem !important;
+    background: transparent !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transition:
+      background-color .18s ease,
+      border-color .18s ease,
+      color .18s ease,
+      transform .18s ease;
+  }
+
+  .styever-header-menu > .menu-item > .menu-link .menu-title,
+  .styever-header-menu > .menu-item > .menu-link .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link .menu-arrow {
+    color: #fff !important;
+  }
+
+  /* Match the supplied Support active/hover reference */
+  .styever-header-menu > .menu-item > .menu-link:hover,
+  .styever-header-menu > .menu-item > .menu-link.active,
+  .styever-header-menu > .menu-item > .menu-link.show,
+  .styever-header-menu > .menu-item > .menu-link[aria-expanded='true'] {
+    background: rgba(255, 255, 255, .10) !important;
+    border-color: rgba(255, 255, 255, .18) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-title,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-title,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-title,
+  .styever-header-menu > .menu-item > .menu-link[aria-expanded='true'] .menu-title,
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link[aria-expanded='true'] .menu-icon,
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link[aria-expanded='true'] .menu-icon i,
+  .styever-header-menu > .menu-item > .menu-link:hover .menu-arrow,
+  .styever-header-menu > .menu-item > .menu-link.active .menu-arrow,
+  .styever-header-menu > .menu-item > .menu-link.show .menu-arrow,
+  .styever-header-menu > .menu-item > .menu-link[aria-expanded='true'] .menu-arrow {
+    color: #fff !important;
+  }
+}
+
+
+/* =========================================================
+   ADMIN MENU POLISH
+   ========================================================= */
+
+/* Admin top-level spacing should match public/site menu rhythm. */
+@media (min-width: 992px) {
+  .styever-header-menu.admin-mode {
+    gap: 1.35rem !important;
+  }
+
+  .styever-header-menu.admin-mode > .menu-item {
+    margin-right: 0 !important;
+  }
+
+  .styever-header-menu.admin-mode > .menu-item > .menu-link {
+    padding-left: .9rem !important;
+    padding-right: .9rem !important;
+  }
+
+  /* Force every top-level label, including User Management, to the same Metronic typography. */
+  .styever-header-menu > .menu-item > .menu-link .menu-title {
+    font-size: var(--bs-text-6-font-size, 1.075rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Cleaner, smaller dropdown */
+.styever-admin-submenu {
+  width: 250px !important;
+  padding: .45rem !important;
+
+  border: 1px solid rgba(15, 23, 42, .08) !important;
+  border-radius: .75rem !important;
+
+  background: #fff !important;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, .14) !important;
+}
+
+/* Keep header compact and understated. */
+.styever-admin-submenu > .border-bottom {
+  padding: .7rem .8rem !important;
+  margin-bottom: .25rem;
+}
+
+/* Minimal submenu rows: icon + title only. */
+.styever-admin-submenu .menu-item {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.styever-admin-submenu .menu-link {
+  min-height: 44px !important;
+  padding: .65rem .75rem !important;
+  border-radius: .55rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: .7rem !important;
+
+  background: transparent !important;
+  color: var(--bs-gray-800) !important;
+}
+
+.styever-admin-submenu .menu-link:hover,
+.styever-admin-submenu .menu-link.active {
+  background: var(--bs-primary-light) !important;
+  color: var(--bs-primary) !important;
+}
+
+.styever-submenu-minimal-icon {
+  width: 1.6rem !important;
+  flex: 0 0 1.6rem !important;
+  margin-right: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  color: var(--bs-gray-500) !important;
+}
+
+.styever-submenu-minimal-icon i {
+  color: inherit !important;
+}
+
+.styever-admin-submenu .menu-link:hover .styever-submenu-minimal-icon,
+.styever-admin-submenu .menu-link.active .styever-submenu-minimal-icon {
+  color: var(--bs-primary) !important;
+}
+
+.styever-admin-submenu .menu-title {
+  color: inherit !important;
+  min-width: 0;
+}
+
+.styever-submenu-chevron {
+  color: var(--bs-gray-400);
+  transition: transform .15s ease, color .15s ease;
+}
+
+.styever-admin-submenu .menu-link:hover .styever-submenu-chevron,
+.styever-admin-submenu .menu-link.active .styever-submenu-chevron {
+  color: var(--bs-primary);
+  transform: translateX(2px);
+}
+
+/* Regular desktop compression without changing typography. */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  .styever-header-menu.admin-mode {
+    gap: .85rem !important;
+  }
+}
+
+
+/* =========================================================
+   ADMIN SUBMENU — minimal Metronic menu
+   ========================================================= */
+
+.styever-admin-submenu {
+  width: 245px !important;
+  padding: .65rem !important;
+  border-radius: .75rem !important;
+}
+
+/* Header has its own breathing room */
+.styever-admin-submenu > .border-bottom {
+  padding: .65rem .65rem .8rem !important;
+  margin: 0 0 .45rem !important;
+}
+
+/* Space between dropdown items */
+.styever-admin-submenu .menu-item {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.styever-admin-submenu .menu-item + .menu-item {
+  margin-top: .3rem !important;
+}
+
+/* Compact row */
+.styever-admin-submenu .menu-link {
+  min-height: 42px !important;
+  padding: .65rem .7rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: .65rem !important;
+  border-radius: .5rem !important;
+}
+
+/* Small icon — same visual scale as header menu */
+.styever-admin-submenu .styever-submenu-icon {
+  width: 1.5rem !important;
+  min-width: 1.5rem !important;
+  height: auto !important;
+  margin: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.styever-admin-submenu .styever-submenu-icon i {
+  font-size: 1.05rem !important;
+  line-height: 1 !important;
+  color: var(--bs-gray-600) !important;
+}
+
+/* Title only */
+.styever-admin-submenu .menu-title {
+  margin: 0 !important;
+  color: var(--bs-gray-900) !important;
+  line-height: 1.35 !important;
+}
+
+/* Minimal Metronic hover */
+.styever-admin-submenu .menu-link:hover,
+.styever-admin-submenu .menu-link.active {
+  background: var(--bs-primary-light) !important;
+}
+
+.styever-admin-submenu .menu-link:hover .menu-title,
+.styever-admin-submenu .menu-link.active .menu-title,
+.styever-admin-submenu .menu-link:hover .styever-submenu-icon i,
+.styever-admin-submenu .menu-link.active .styever-submenu-icon i {
+  color: var(--bs-primary) !important;
+}
+
+
+/* =========================================================
+   FINAL ADMIN SUBMENU — icon + title only
+   ========================================================= */
+
+.styever-admin-submenu {
+  width: 220px !important;
+  padding: .5rem !important;
+}
+
+/* No submenu heading area */
+.styever-admin-submenu > .border-bottom {
+  display: none !important;
+}
+
+/* Compact spacing */
+.styever-admin-submenu .menu-item {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.styever-admin-submenu .menu-item + .menu-item {
+  margin-top: .2rem !important;
+}
+
+.styever-admin-submenu .menu-link {
+  min-height: 40px !important;
+  padding: .55rem .65rem !important;
+  gap: .6rem !important;
+  border-radius: .45rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  background: transparent !important;
+  color: var(--bs-gray-800) !important;
+}
+
+/* Absolutely no icon tile / square / symbol background */
+.styever-admin-submenu .menu-icon,
+.styever-admin-submenu .styever-submenu-icon,
+.styever-admin-submenu .symbol,
+.styever-admin-submenu .symbol-label {
+  width: 1.4rem !important;
+  min-width: 1.4rem !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.styever-admin-submenu .menu-icon i,
+.styever-admin-submenu .styever-submenu-icon i,
+.styever-admin-submenu .symbol i,
+.styever-admin-submenu .symbol-label i {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  color: var(--bs-gray-600) !important;
+}
+
+/* Title only */
+.styever-admin-submenu .menu-title {
+  margin: 0 !important;
+  color: var(--bs-gray-900) !important;
+  line-height: 1.35 !important;
+  white-space: nowrap;
+}
+
+/* Minimal hover/active */
+.styever-admin-submenu .menu-link:hover,
+.styever-admin-submenu .menu-link.active {
+  background: var(--bs-primary-light) !important;
+}
+
+.styever-admin-submenu .menu-link:hover .menu-title,
+.styever-admin-submenu .menu-link.active .menu-title,
+.styever-admin-submenu .menu-link:hover .menu-icon i,
+.styever-admin-submenu .menu-link.active .menu-icon i {
+  color: var(--bs-primary) !important;
 }

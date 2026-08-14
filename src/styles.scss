@@ -497,7 +497,7 @@ body.home-background #kt_header.header-sticky,
 /* STYEVER UI CONSISTENCY */
 
 /* header dropdown hard normalization — last rule wins on every page */
-#kt_header app-user-inner.styever-user-menu,#kt_header app-user-inner.styever-user-menu.menu-sub-dropdown{background:#fff!important;color:var(--bs-gray-700)!important;border:1px solid var(--bs-gray-200)!important;border-radius:16px!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important}
+#kt_header app-user-inner.styever-user-menu,#kt_header app-user-inner.styever-user-menu.menu-sub-dropdown{background:#fff!important;color:var(--bs-gray-700)!important;border:1px solid var(--bs-gray-200)!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important}
 #kt_header app-user-inner .menu-link,#kt_header app-user-inner .menu-link .menu-title{color:var(--bs-gray-700)!important}
 #kt_header app-user-inner .menu-link:hover,#kt_header app-user-inner .menu-link:hover .menu-title{color:var(--bs-primary)!important}
 #kt_header app-user-inner .menu-sub-dropdown .menu-link.active,#kt_header app-user-inner .menu-sub-dropdown .menu-link.active .menu-title,#kt_header app-user-inner .menu-sub-dropdown .menu-link:hover,#kt_header app-user-inner .menu-sub-dropdown .menu-link:hover .menu-title{background:var(--bs-primary)!important;color:#fff!important}
@@ -509,7 +509,7 @@ body.home-background #kt_header.header-sticky,
 /* HEADER DROPDOWN FINAL LOCK — consistent on Home and every page */
 #kt_header #kt_header_user_menu_toggle > app-user-inner.styever-user-menu.menu-sub-dropdown{
   width:300px!important;min-width:300px!important;padding:0!important;background:#fff!important;color:var(--bs-gray-700)!important;
-  border:1px solid var(--bs-gray-200)!important;border-radius:16px!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important;
+  border:1px solid var(--bs-gray-200)!important;box-shadow:0 20px 55px rgba(18,45,34,.16)!important;
 }
 #kt_header #kt_header_user_menu_toggle > app-user-inner.styever-user-menu .menu-link,
 #kt_header #kt_header_user_menu_toggle > app-user-inner.styever-user-menu .menu-link .menu-title,

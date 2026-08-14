@@ -6,7 +6,7 @@ import { OrganizationModel } from "src/app/modules/organization-management/model
 import { UserManagementService } from "../../user-management.service";
 import { OrganizationManagementService } from "src/app/modules/organization-management/organization-management.service";
 import { ConfirmPasswordValidator } from "./confirm-password.validator";
-import { AlertService } from "src/app/_metronic/partials/layout/alert/alert.service";
+import { ToastrService } from "ngx-toastr";
 import { forkJoin } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 import { UserModel } from "../../models/user.model";
@@ -30,7 +30,7 @@ export class UserEditSaveComponent {
         private fb: FormBuilder, 
         private userManagementService: UserManagementService, 
         private organizationManagementService: OrganizationManagementService,
-        private alertService: AlertService,
+        private toastr: ToastrService,
         private translate: TranslateService
     ) { }
 
@@ -185,22 +185,22 @@ export class UserEditSaveComponent {
             if (data.id == 0) {
                 this.userManagementService.userSave(data).subscribe(result => {
                     if (result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else {
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }
             else {
                 this.userManagementService.userEdit(data).subscribe(result => {
                     if (result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else {
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }

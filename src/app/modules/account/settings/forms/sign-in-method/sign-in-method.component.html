@@ -67,7 +67,7 @@
               [ngClass]="{'is-invalid':changePasswordForm.controls['cPassword'].invalid && (changePasswordForm.controls['cPassword'].dirty || changePasswordForm.controls['cPassword'].touched),'is-valid':changePasswordForm.controls['cPassword'].valid && (changePasswordForm.controls['cPassword'].dirty || changePasswordForm.controls['cPassword'].touched)}" /></div>
             <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{validation:'required',message:('CONFIRM_NEW_PASSWORD'|translate)+' '+('IS_REQUIRED'|translate),control:changePasswordForm.controls['cPassword']}"></ng-container>
             <ng-container *ngIf="changePasswordForm.controls['cPassword'].errors && changePasswordForm.controls['cPassword'].errors.ConfirmPassword">
-              <div class="fv-plugins-message-container"><span>{{'PASSWORD_MISMATCH' | translate}}</span></div>
+              <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7"><span>{{'PASSWORD_MISMATCH' | translate}}</span></div>
             </ng-container>
           </div>
           <div class="field-full signin-actions d-flex justify-content-end gap-2">
@@ -80,7 +80,7 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
       <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-        <div class="fv-plugins-message-container"><span role="alert">{{ message }}</span></div>
+        <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7"><span role="alert">{{ message }}</span></div>
       </ng-container>
     </ng-template>
   </div>

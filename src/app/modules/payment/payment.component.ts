@@ -11,6 +11,7 @@ import { GiftModel } from '../gift/models/gift.model';
 import { WindowResizeService } from 'src/app/windwow-resize-service/windowresize.service';
 import { scrollToTop } from 'src/app/utils/scrolltotop';
 import { ModalComponent, ModalConfig } from 'src/app/_metronic/partials';
+import { PlanManagementService } from '../common/plans/plan-management.service';
 
 export type PaymentTabsType = 'payment';
 
@@ -57,7 +58,8 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private giftService: GiftManagementService,
     private toastr: ToastrService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private planManagementService: PlanManagementService
   ) { }
 
   ngOnInit(): void {
@@ -437,10 +439,25 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  private setPackage(role: number): void {
-    if (role === 2) { this.totalPrice = 499; this.packageKey = 'SHOPIER.PACKAGES.MEMORY'; }
-    else if (role === 3) { this.totalPrice = 699; this.packageKey = 'SHOPIER.PACKAGES.TRIBUTE'; }
-    else if (role === 4) { this.totalPrice = 1299; this.packageKey = 'SHOPIER.PACKAGES.ETERNAL'; }
+  private setPackage(planId: number): void {
+    this.totalPrice = 0;
+    if (planId === 2) this.packageKey = 'SHOPIER.PACKAGES.MEMORY';
+    else if (planId === 3) this.packageKey = 'SHOPIER.PACKAGES.TRIBUTE';
+    else if (planId === 4) this.packageKey = 'SHOPIER.PACKAGES.ETERNAL';
+    else this.packageKey = '';
+
+    if (!planId) return;
+
+    this.planManagementService.get(planId).subscribe({
+      next: result => {
+        if (result?.isSuccess && result.data && !result.data.isDeleted) {
+          this.totalPrice = Number(result.data.price || 0);
+        }
+      },
+      error: () => {
+        this.totalPrice = 0;
+      }
+    });
   }
 
   reopenShopier(): void {

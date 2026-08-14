@@ -7,7 +7,7 @@ import { RoleEditSaveComponent } from './edit-save/edit-save.component';
 import { ConfirmationComponent } from '../../confirmation/confirmation.component';
 import { PermissionEnum } from 'src/app/enums/permission.enum';
 import { AuthService } from '../../auth';
-import { AlertService } from 'src/app/_metronic/partials/layout/alert/alert.service';
+import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -24,29 +24,28 @@ export class RoleComponent implements OnInit, OnDestroy {
   hasDeletePermission: boolean;
   hasNewRecordPermission: boolean;
 
-  searchTerm: string = '';
-  lastSearchTerm: string = '';
+  filters: Record<string, any> = {};
 
   constructor(
     private userManagementService: UserManagementService, 
     private authService: AuthService,
-    private alertService: AlertService,
+    private toastr: ToastrService,
     private translate: TranslateService
   ) {}
 
   tableName: string = "";
   columnList: ColumnModel[] = [ ]
   columnListTr: ColumnModel[] = [
-    {name: "Id", index: "id", visibility: false}, 
-    {name: "Adı", index: "name", visibility: true}, 
-    {name: "Aktif Mi?", index: "isDeleted", visibility: true},  
-    {name: "İşlemler", index: null, visibility: true}
+    {name: "Id", index: "id", visibility: false, filterType: "number"}, 
+    {name: "Adı", index: "name", visibility: true, filterType: "text"}, 
+    {name: "Silindi Mi?", index: "isDeleted", visibility: true, filterType: "boolean"},  
+    {name: "İşlemler", index: null, visibility: true, filterable: false}
   ]
   columnListEn: ColumnModel[] = [
-    {name: "Id", index: "id", visibility: false}, 
-    {name: "Name", index: "name", visibility: true}, 
-    {name: "Is Active?", index: "isDeleted", visibility: true},  
-    {name: "Transactions", index: null, visibility: true}
+    {name: "Id", index: "id", visibility: false, filterType: "number"}, 
+    {name: "Name", index: "name", visibility: true, filterType: "text"}, 
+    {name: "Is Deleted?", index: "isDeleted", visibility: true, filterType: "boolean"},  
+    {name: "Transactions", index: null, visibility: true, filterable: false}
   ]
   dataSource: RoleModel[];
   totalCount: number;
@@ -85,11 +84,11 @@ export class RoleComponent implements OnInit, OnDestroy {
   delete(event: number) {
     this.userManagementService.roleDelete(event).subscribe(result => {
       if(result.isSuccess) {
-        this.alertService.createAlert('success', result.message);
+        this.toastr.success(result.message);
         this.loadData();
       }
       else{
-        this.alertService.createAlert('danger', result.message);
+        this.toastr.error(result.message);
       }
     })
   }
@@ -99,7 +98,7 @@ export class RoleComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
-    this.userManagementService.rolePaging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.searchTerm)
+    this.userManagementService.rolePaging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.filters)
           .subscribe(result => {
             if(result.isSuccess) {
               this.dataSource = result.data.items;
@@ -110,6 +109,12 @@ export class RoleComponent implements OnInit, OnDestroy {
               this.totalCount = 0;
             }
           })
+  }
+
+  filtersChange(filters: Record<string, any>): void {
+    this.filters = filters;
+    this.paginationModel.pageNumber = 1;
+    this.loadData();
   }
 
   ngOnInit(): void {
@@ -169,12 +174,4 @@ export class RoleComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
-  onSearch() {
-    if (this.searchTerm === this.lastSearchTerm) {
-      return;
-    }
-    
-    this.lastSearchTerm = this.searchTerm;
-    this.loadData();
-  }
 }

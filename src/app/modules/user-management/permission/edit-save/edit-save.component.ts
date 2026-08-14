@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalComponent, ModalConfig } from "src/app/_metronic/partials";
 import { PermissionModel } from "../../models/permission.model";
 import { UserManagementService } from "../../user-management.service";
-import { AlertService } from "src/app/_metronic/partials/layout/alert/alert.service";
+import { ToastrService } from "ngx-toastr";
 import { forkJoin } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 
@@ -23,7 +23,7 @@ export class PermissionEditSaveComponent implements OnInit {
     constructor(
         private fb: FormBuilder, 
         private userManagementService: UserManagementService,
-        private alertService: AlertService,
+        private toastr: ToastrService,
         private translate: TranslateService
     ) {}
 
@@ -102,22 +102,22 @@ export class PermissionEditSaveComponent implements OnInit {
             if(data.id == 0) {
                 this.userManagementService.permissionSave(data).subscribe(result => {
                     if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else{
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }
             else{
                 this.userManagementService.permissionEdit(data).subscribe(result => {
                     if(result.isSuccess) {
-                        this.alertService.createAlert("success", result.message);
+                        this.toastr.success(result.message);
                         this.isSuccess.emit(true);
                     }
                     else{
-                        this.alertService.createAlert("danger", result.message);
+                        this.toastr.error(result.message);
                     }
                 })
             }

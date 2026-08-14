@@ -20,7 +20,7 @@
       placeholder="Name on card"
     />
     <div
-      class="fv-plugins-message-container invalid-feedback"
+      class="fv-plugins-message-container invalid-feedback text-danger mt-1 fw-semibold fs-7"
       *ngIf="
         form.get('nameOnCard')?.hasError('required') &&
         form.get('nameOnCard')?.touched
@@ -39,7 +39,7 @@
         placeholder="Enter card number"
       />
       <div
-        class="fv-plugins-message-container invalid-feedback"
+        class="fv-plugins-message-container invalid-feedback text-danger mt-1 fw-semibold fs-7"
         *ngIf="
           form.get('cardNumber')?.hasError('required') &&
           form.get('cardNumber')?.touched
@@ -90,7 +90,7 @@
             <option value="12">12</option>
           </select>
           <div
-            class="fv-plugins-message-container invalid-feedback"
+            class="fv-plugins-message-container invalid-feedback text-danger mt-1 fw-semibold fs-7"
             *ngIf="
               form.get('cardExpiryMonth')?.hasError('required') &&
               form.get('cardExpiryMonth')?.touched
@@ -118,7 +118,7 @@
             <option value="2031">2031</option>
           </select>
           <div
-            class="fv-plugins-message-container invalid-feedback"
+            class="fv-plugins-message-container invalid-feedback text-danger mt-1 fw-semibold fs-7"
             *ngIf="
               form.get('cardExpiryYear')?.hasError('required') &&
               form.get('cardExpiryYear')?.touched
@@ -147,7 +147,7 @@
           placeholder="CVV"
         />
         <div
-          class="fv-plugins-message-container invalid-feedback"
+          class="fv-plugins-message-container invalid-feedback text-danger mt-1 fw-semibold fs-7"
           *ngIf="
             form.get('cardCvv')?.hasError('required') &&
             form.get('cardCvv')?.touched

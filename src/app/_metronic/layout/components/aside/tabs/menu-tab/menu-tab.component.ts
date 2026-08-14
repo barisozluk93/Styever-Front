@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NavigationCancel, NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import {
   DrawerComponent,
   MenuComponent,
@@ -18,6 +18,7 @@ import {
 import { environment } from '../../../../../../../environments/environment';
 import { AuthService } from 'src/app/modules/auth';
 import { MenuModel } from 'src/app/models/menu.model';
+import { AdminModeService } from '../../../../services/admin-mode.service';
 
 const menuList = [
   {
@@ -92,6 +93,85 @@ const menuList = [
   },
 ]
 
+const adminMenuList: MenuModel[] = [
+  {
+    id: 101,
+    name: 'Dashboard',
+    nameEn: 'Dashboard',
+    url: '/dashboard',
+    icon: 'bi-speedometer2',
+    permissionId: 43,
+    isDeleted: false,
+    isSystemData: true,
+    childMenus: [],
+    isForbid: false,
+  },
+  {
+    id: 102,
+    name: 'Kullanıcı Yönetimi',
+    nameEn: 'User Management',
+    url: '/usermanagement',
+    icon: 'bi-people',
+    isDeleted: false,
+    isSystemData: true,
+    isForbid: false,
+    childMenus: [
+      { id: 1021, name: 'Yetkiler', nameEn: 'Permissions', url: '/usermanagement/permissions', icon: 'bi-shield-check', permissionId: 1, isDeleted: false, isSystemData: true, isForbid: false, childMenus: [] },
+      { id: 1022, name: 'Roller', nameEn: 'Roles', url: '/usermanagement/roles', icon: 'bi-person-badge', permissionId: 7, isDeleted: false, isSystemData: true, isForbid: false, childMenus: [] },
+      { id: 1023, name: 'Kullanıcılar', nameEn: 'Users', url: '/usermanagement/users', icon: 'bi-person-lines-fill', permissionId: 13, isDeleted: false, isSystemData: true, isForbid: false, childMenus: [] },
+    ],
+  },
+  {
+    id: 105,
+    name: 'Paketler',
+    nameEn: 'Plans',
+    url: '/planmanagement',
+    icon: 'bi-box-seam',
+    permissionId: 54,
+    isDeleted: false,
+    isSystemData: true,
+    childMenus: [],
+    isForbid: false,
+  },
+  {
+    id: 106,
+    name: 'Yasal & Topluluk',
+    nameEn: 'Legal & Community',
+    url: '/legalcontentmanagement',
+    icon: 'bi-file-earmark-lock2',
+    permissionId: 58,
+    isDeleted: false,
+    isSystemData: true,
+    childMenus: [],
+    isForbid: false,
+  },
+  {
+    id: 103,
+    name: 'Makaleler',
+    nameEn: 'Articles',
+    url: '/supportmanagement',
+    icon: 'bi-journal-richtext',
+    permissionId: 44,
+    isDeleted: false,
+    isSystemData: true,
+    childMenus: [],
+    isForbid: false,
+  },
+  {
+    id: 104,
+    name: 'Sıkça Sorulan Sorular',
+    nameEn: 'FAQs',
+    url: '/faqmanagement',
+    icon: 'bi-question-square',
+    permissionId: 49,
+    isDeleted: false,
+    isSystemData: true,
+    childMenus: [],
+    isForbid: false,
+  },
+];
+
+
 @Component({
   selector: 'app-menu-tab',
   templateUrl: './menu-tab.component.html',
@@ -102,11 +182,17 @@ export class MenuTabComponent implements OnInit, AfterViewInit, OnDestroy {
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
   @ViewChild('ktAsideScroll', { static: true }) ktAsideScroll: ElementRef;
   private unsubscribe: Subscription[] = [];
+  private destroy$ = new Subject<void>();
 
   menuList: MenuModel[] = menuList;
+  isAdminMode = false;
   permissionList: number[] | undefined;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private adminModeService: AdminModeService
+  ) {}
 
   ngAfterViewInit(): void {
     
@@ -115,39 +201,35 @@ export class MenuTabComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.routingChanges();
 
-    this.authService.currentUserSubject.asObservable().subscribe(result => {
+    this.adminModeService.adminMode$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(isAdminMode => {
+        this.isAdminMode = isAdminMode;
+        this.menuList = isAdminMode ? adminMenuList : menuList;
+        this.menuReinitialization();
+      });
+
+    this.authService.currentUserSubject.asObservable()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(result => {
       if(result) {
         if (result?.permissions) {
           this.permissionList = (JSON.parse(result?.permissions) as number[]);
 
           this.menuList.forEach(menu => {
             if (menu.permissionId) {
-              if (this.permissionList?.includes(menu.permissionId)) {
-                menu.isForbid = false;
-              }
-              else {
-                menu.isForbid = true;
-              }
+              menu.isForbid = !this.permissionList?.includes(menu.permissionId);
+            } else if (menu.childMenus?.length) {
+              menu.childMenus.forEach(childMenu => {
+                childMenu.isForbid = childMenu.permissionId
+                  ? !this.permissionList?.includes(childMenu.permissionId)
+                  : false;
+              });
+              menu.isForbid = !menu.childMenus.some(childMenu => !childMenu.isForbid);
+            } else {
+              menu.isForbid = false;
             }
-            else {
-              menu.childMenus?.forEach(childMenu => {
-                if (this.permissionList?.includes(childMenu.permissionId!)) {
-                  childMenu.isForbid = false;
-                  menu.isForbid = false;
-                }
-                else {
-                  childMenu.isForbid = true;
-                }
-
-                if(!childMenu.isForbid) {
-                  menu.isForbid = false;
-                }
-                else {
-                  menu.isForbid = true;
-                }
-              })
-            }
-          })
+          });
         }
       }
     })
@@ -175,6 +257,8 @@ export class MenuTabComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
 }

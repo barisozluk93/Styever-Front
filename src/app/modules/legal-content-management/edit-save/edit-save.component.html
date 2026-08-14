@@ -1,0 +1,20 @@
+<app-modal #modal [modalConfig]="modalConfig">
+  <form [formGroup]="form" class="form w-100" novalidate>
+    <div class="row g-5">
+      <div class="col-md-4"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.CATEGORY'|translate}}</label><select class="form-select form-select-lg bg-white" formControlName="category"><option value="Legal">Legal</option><option value="Community">Community</option></select>
+        <div *ngIf="form.controls['category'].hasError('required') && form.controls['category'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.CATEGORY'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-5"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.SLUG'|translate}}</label><input class="form-control form-control-lg bg-white styever-auth-control" formControlName="slug" placeholder="terms-of-use">
+        <div *ngIf="form.controls['slug'].hasError('required') && form.controls['slug'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.SLUG'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-3"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.ORDER'|translate}}</label><input type="number" class="form-control form-control-lg bg-white" formControlName="sortOrder">
+        <div *ngIf="form.controls['sortOrder'].hasError('required') && form.controls['sortOrder'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.ORDER'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.TITLE_TR'|translate}}</label><input class="form-control form-control-lg bg-white styever-auth-control" formControlName="title">
+        <div *ngIf="form.controls['title'].hasError('required') && form.controls['title'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.TITLE_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.TITLE_EN'|translate}}</label><input class="form-control form-control-lg bg-white styever-auth-control" formControlName="titleEn">
+        <div *ngIf="form.controls['titleEn'].hasError('required') && form.controls['titleEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.TITLE_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-12"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.CONTENT_TR'|translate}}</label><app-rich-text-editor formControlName="content" [minHeight]="360"></app-rich-text-editor>
+        <div *ngIf="form.controls['content'].hasError('required') && form.controls['content'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.CONTENT_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-12"><label class="form-label fw-semibold">{{'ADMIN_LEGAL_CONTENT.CONTENT_EN'|translate}}</label><app-rich-text-editor formControlName="contentEn" [minHeight]="360"></app-rich-text-editor>
+        <div *ngIf="form.controls['contentEn'].hasError('required') && form.controls['contentEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_LEGAL_CONTENT.CONTENT_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+    </div>
+  </form>
+</app-modal>

@@ -6,7 +6,7 @@ import { UserEditSaveComponent } from './edit-save/edit-save.component';
 import { ConfirmationComponent } from '../../confirmation/confirmation.component';
 import { PermissionEnum } from 'src/app/enums/permission.enum';
 import { AuthService } from '../../auth';
-import { AlertService } from 'src/app/_metronic/partials/layout/alert/alert.service';
+import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { UserModel } from '../models/user.model';
 
@@ -24,13 +24,12 @@ export class UserComponent implements OnInit, OnDestroy {
   hasDeletePermission: boolean;
   hasNewRecordPermission: boolean;
 
-  searchTerm: string = '';
-  lastSearchTerm: string = '';
+  filters: Record<string, any> = {};
 
   constructor(
     private userManagementService: UserManagementService, 
     private authService: AuthService,
-    private alertService: AlertService,
+    private toastr: ToastrService,
     private translate: TranslateService
   ) {}
 
@@ -38,23 +37,25 @@ export class UserComponent implements OnInit, OnDestroy {
   columnList: ColumnModel[] = []
   
   columnListTr: ColumnModel[] = [
-    {name: "Id", index: "id", visibility: false}, 
-    {name: "Adı Soyadı", index: "nameSurname", visibility: true},
-    {name: "Kullanıcı Adı", index: "username", visibility: true},
-    {name: "E-posta", index: "email", visibility: true},  
-    {name: "Telefon Numarası", index: "phone", visibility: true},
-    {name: "Aktif Mi?", index: "isDeleted", visibility: true},  
-    {name: "İşlemler", index: null, visibility: true}
+    {name: "Id", index: "id", visibility: false, filterType: "number"}, 
+    {name: "Adı Soyadı", index: "nameSurname", visibility: true, filterType: "text"},
+    {name: "Kullanıcı Adı", index: "username", visibility: true, filterType: "text"},
+    {name: "E-posta", index: "email", visibility: true, filterType: "text"},  
+    {name: "Telefon Numarası", index: "phone", visibility: true, filterType: "text"},
+    {name: "Silindi Mi?", index: "isDeleted", visibility: true, filterType: "boolean"},
+    {name: "Üyelik Aktif Mi?", index: "isActive", visibility: true, filterType: "boolean"},  
+    {name: "İşlemler", index: null, visibility: true, filterable: false}
   ]
 
   columnListEn: ColumnModel[] = [
-    {name: "Id", index: "id", visibility: false}, 
-    {name: "Name Surname", index: "nameSurname", visibility: true},
-    {name: "User Name", index: "username", visibility: true},
-    {name: "E-mail", index: "email", visibility: true},  
-    {name: "Phone Number", index: "phone", visibility: true},
-    {name: "Is Active?", index: "isDeleted", visibility: true},  
-    {name: "Transactions", index: null, visibility: true}
+    {name: "Id", index: "id", visibility: false, filterType: "number"}, 
+    {name: "Name Surname", index: "nameSurname", visibility: true, filterType: "text"},
+    {name: "User Name", index: "username", visibility: true, filterType: "text"},
+    {name: "E-mail", index: "email", visibility: true, filterType: "text"},  
+    {name: "Phone Number", index: "phone", visibility: true, filterType: "text"},
+    {name: "Is Deleted?", index: "isDeleted", visibility: true, filterType: "boolean"},
+    {name: "Membership Active?", index: "isActive", visibility: true, filterType: "boolean"},  
+    {name: "Transactions", index: null, visibility: true, filterable: false}
   ]
 
   dataSource: UserModel[];
@@ -94,11 +95,11 @@ export class UserComponent implements OnInit, OnDestroy {
   delete(event: number) {
     this.userManagementService.userDelete(event).subscribe(result => {
       if(result.isSuccess) {
-        this.alertService.createAlert('success', result.message);
+        this.toastr.success(result.message);
         this.loadData();
       }
       else{
-        this.alertService.createAlert('danger', result.message);
+        this.toastr.error(result.message);
       }
     })
   }
@@ -108,7 +109,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
-    this.userManagementService.userPaging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.searchTerm)
+    this.userManagementService.userPaging(this.paginationModel.pageNumber, this.paginationModel.pageSize, this.filters)
           .subscribe(result => {
             if(result.isSuccess) {
               result.data.items.forEach(item => {
@@ -182,12 +183,9 @@ export class UserComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
-  onSearch() {
-    if (this.searchTerm === this.lastSearchTerm) {
-      return;
-    }
-    
-    this.lastSearchTerm = this.searchTerm;
+  filtersChange(filters: Record<string, any>): void {
+    this.filters = filters;
+    this.paginationModel.pageNumber = 1;
     this.loadData();
   }
 }

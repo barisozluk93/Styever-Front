@@ -11,6 +11,7 @@ import { UserModel } from 'src/app/modules/user-management/models/user.model';
 import { UserManagementService } from 'src/app/modules/user-management/user-management.service';
 import { environment } from 'src/environments/environment';
 import { NotificationSignalrService } from 'src/app/modules/common/signalR.service';
+import { AdminModeService } from '../../services/admin-mode.service';
 
 @Component({
   selector: 'app-topbar',
@@ -33,6 +34,8 @@ export class TopbarComponent implements OnInit, OnDestroy {
   isNotificationAnimating: boolean = false;
   notificationMenuOpen: boolean = false;
   userMenuOpen: boolean = false;
+  isAdmin: boolean = false;
+  isAdminMode: boolean = false;
 
   constructor(
     private notificationService: NotificationService,
@@ -42,11 +45,18 @@ export class TopbarComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private translationService: TranslationService,
     private signalRService: NotificationSignalrService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private adminModeService: AdminModeService
   ) {}
 
   ngOnInit(): void {
     this.setLanguage(this.translate.currentLang);
+
+    this.adminModeService.adminMode$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(isAdminMode => {
+        this.isAdminMode = isAdminMode;
+      });
 
     this.translate.onLangChange
       .pipe(takeUntil(this.destroy$))
@@ -60,6 +70,11 @@ export class TopbarComponent implements OnInit, OnDestroy {
       .subscribe(async result => {
         if (result) {
           this.isCurrentUserExist = true;
+          this.isAdmin = result.roles.includes('1');
+
+          if (!this.isAdmin) {
+            this.adminModeService.reset();
+          }
 
           this.userManagementService.updateUser(result.id!);
 
@@ -89,6 +104,8 @@ export class TopbarComponent implements OnInit, OnDestroy {
           }
         } else {
           this.isCurrentUserExist = false;
+          this.isAdmin = false;
+          this.adminModeService.reset();
           this.user = undefined;
           this.notifications = [];
           this.unreadedNotificationCount = 0;
@@ -202,6 +219,19 @@ export class TopbarComponent implements OnInit, OnDestroy {
 
   routeToLogin(): void {
     this.router.navigate(['/auth/login']);
+  }
+
+  toggleAdminMode(): void {
+    if (!this.isAdmin) {
+      return;
+    }
+
+    this.userMenuOpen = false;
+    this.notificationMenuOpen = false;
+
+    const nextAdminMode = !this.isAdminMode;
+    this.adminModeService.setAdminMode(nextAdminMode);
+    this.router.navigate([nextAdminMode ? '/dashboard' : '/home']);
   }
 
   setLanguage(lang: string): void {

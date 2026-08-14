@@ -13,7 +13,7 @@
       class="svg-icon svg-icon-2 svg-icon-lg-3 svg-icon-gray-800 position-absolute top-50 translate-middle-y ms-5"></span>
     <!--end::Icon-->
     <!--begin::Input-->
-    <input type="text" class="search-input form-control form-control-solid ps-13" name="search"
+    <input type="text" class="search-input form-control form-control-solid ps-13 form-control-lg bg-white" name="search"
       [ngModel]="searchText | async" (ngModelChange)="updateSearchText($event)" placeholder="Search..."
       data-kt-search-element="input">
     <!--end::Input-->
@@ -524,7 +524,7 @@
         <!--end::Heading-->
         <!--begin::Input group-->
         <div class="mb-5">
-          <input type="text" class="form-control form-control-sm form-control-solid" placeholder="Contains the word"
+          <input type="text" class="form-control form-control-sm form-control-solid form-control-lg bg-white" placeholder="Contains the word"
             name="query">
         </div>
         <!--end::Input group-->
@@ -562,13 +562,13 @@
         <!--end::Input group-->
         <!--begin::Input group-->
         <div class="mb-5">
-          <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid"
+          <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid form-control-lg bg-white"
             placeholder="Assigned to" value="">
         </div>
         <!--end::Input group-->
         <!--begin::Input group-->
         <div class="mb-5">
-          <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid"
+          <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid form-control-lg bg-white"
             placeholder="Collaborators" value="">
         </div>
         <!--end::Input group-->
@@ -595,7 +595,7 @@
         <!--begin::Input group-->
         <div class="mb-5">
           <select name="timezone" aria-label="Select a Timezone" data-control="select2" data-placeholder="date_period"
-            class="form-select form-select-sm form-select-solid select2-hidden-accessible"
+            class="form-select form-select-sm form-select-solid select2-hidden-accessible form-select-lg bg-white"
             data-select2-id="select2-data-1-5x2l" tabindex="-1" aria-hidden="true">
             <option value="next" data-select2-id="select2-data-3-cvwk">Within the next</option>
             <option value="last">Within the last</option>
@@ -603,7 +603,7 @@
             <option value="on">On</option>
           </select><span class="select2 select2-container select2-container--bootstrap5" dir="ltr"
             data-select2-id="select2-data-2-izjl" style="width: 100%;"><span class="selection"><span
-                class="select2-selection select2-selection--single form-select form-select-sm form-select-solid"
+                class="select2-selection select2-selection--single form-select form-select-sm form-select-solid form-select-lg bg-white"
                 role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
                 aria-labelledby="select2-timezone-lb-container" aria-controls="select2-timezone-lb-container"><span
                   class="select2-selection__rendered" id="select2-timezone-lb-container" role="textbox"
@@ -617,14 +617,14 @@
         <div class="row mb-8">
           <!--begin::Col-->
           <div class="col-6">
-            <input type="number" name="date_number" class="form-control form-control-sm form-control-solid"
+            <input type="number" name="date_number" class="form-control form-control-sm form-control-solid form-control-lg bg-white"
               placeholder="Lenght" value="">
           </div>
           <!--end::Col-->
           <!--begin::Col-->
           <div class="col-6">
             <select name="date_typer" aria-label="Select a Timezone" data-control="select2" data-placeholder="Period"
-              class="form-select form-select-sm form-select-solid select2-hidden-accessible"
+              class="form-select form-select-sm form-select-solid select2-hidden-accessible form-select-lg bg-white"
               data-select2-id="select2-data-4-srky" tabindex="-1" aria-hidden="true">
               <option value="days" data-select2-id="select2-data-6-tqc0">Days</option>
               <option value="weeks">Weeks</option>
@@ -632,7 +632,7 @@
               <option value="years">Years</option>
             </select><span class="select2 select2-container select2-container--bootstrap5" dir="ltr"
               data-select2-id="select2-data-5-fz0h" style="width: 100%;"><span class="selection"><span
-                  class="select2-selection select2-selection--single form-select form-select-sm form-select-solid"
+                  class="select2-selection select2-selection--single form-select form-select-sm form-select-solid form-select-lg bg-white"
                   role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
                   aria-labelledby="select2-date_typer-rx-container"
                   aria-controls="select2-date_typer-rx-container"><span class="select2-selection__rendered"

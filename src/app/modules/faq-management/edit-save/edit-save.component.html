@@ -1,0 +1,27 @@
+<app-modal #modal [modalConfig]="modalConfig">
+  <form class="form w-100" [formGroup]="form" novalidate>
+    <div class="row g-5">
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">{{'ADMIN_FAQ.HEADER_TR'|translate}}</label>
+        <input class="form-control form-control-lg bg-white styever-auth-control" formControlName="header">
+        <div *ngIf="form.controls['header'].hasError('required') && form.controls['header'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_FAQ.HEADER_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">{{'ADMIN_FAQ.HEADER_EN'|translate}}</label>
+        <input class="form-control form-control-lg bg-white styever-auth-control" formControlName="headerEn">
+        <div *ngIf="form.controls['headerEn'].hasError('required') && form.controls['headerEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_FAQ.HEADER_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label fw-semibold">{{'ADMIN_FAQ.CONTENT_TR'|translate}}</label>
+        <app-rich-text-editor formControlName="content" [minHeight]="240"></app-rich-text-editor>
+        <div *ngIf="form.controls['content'].hasError('required') && form.controls['content'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_FAQ.CONTENT_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div>
+      </div>
+      <div class="col-12">
+        <label class="form-label fw-semibold">{{'ADMIN_FAQ.CONTENT_EN'|translate}}</label>
+        <app-rich-text-editor formControlName="contentEn" [minHeight]="240"></app-rich-text-editor>
+        <div *ngIf="form.controls['contentEn'].hasError('required') && form.controls['contentEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_FAQ.CONTENT_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div>
+      </div>
+    </div>
+  </form>
+</app-modal>

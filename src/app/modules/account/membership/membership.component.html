@@ -5,20 +5,56 @@
     <div class="text-gray-500 fw-semibold fs-6 lh-lg mb-7">{{ ('LANG' | translate) === 'tr' ? 'Mevcut üyelik planınızı, kullanım sürenizi ve paket kapsamınızı buradan takip edebilirsiniz.' : 'View your current membership plan, subscription period and included features.' }}</div>
 
     <ng-container *ngIf="userData; else noMembershipData">
-      <div *ngIf="!showPlans" class="membership-mobile-card rounded">
-        <div class="d-flex align-items-start justify-content-between gap-4 mb-4">
-          <div><div class="fw-bolder text-gray-900 membership-plan-title">{{ userData.roles[0] == 2 ? 'Origin' : userData.roles[0] == 3 ? 'Heart' : 'Family' }}</div><div class="fw-bolder text-primary membership-price">{{ userData.roles[0] == 2 ? '₺499,00/Yıl' : userData.roles[0] == 3 ? '₺699,00/Yıl' : '₺1299,00/Yıl' }}</div></div>
-          <div class="membership-check rounded"><i class="ki-outline ki-check fs-2 text-primary"></i></div>
+      <div *ngIf="!showPlans" class="membership-plan-card position-relative" [ngClass]="{'has-popular-ribbon': currentPlan?.isPopular}">
+        <div *ngIf="currentPlan?.isPopular" class="membership-popular-ribbon">
+          <span class="badge membership-popular-badge">
+            <i class="bi bi-star-fill membership-popular-star me-1"></i>{{ 'MOST_PREFERRED' | translate }}
+          </span>
         </div>
 
-        <div class="membership-features">
-          <ng-container *ngIf="userData.roles[0] == 2"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Sayfası' : '1 Memory Page' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Fotoğraf' : '1 Picture' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Yazısı Alanı (1000 Karakter)' : '1 Memoir Section (1000 char.)' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
-          <ng-container *ngIf="userData.roles[0] == 3"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Sayfası' : '1 Memory Page' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '4 Fotoğraf' : '4 Pictures' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '2 Video' : '2 Videos' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '2 Youtube Video' : '2 Youtube Videos' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '1 Anı Yazısı Alanı (5000 Karakter)' : '1 Memoir Section (5000 char.)' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
-          <ng-container *ngIf="userData.roles[0] == 4"><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? '4 Anı Sayfası' : '4 Memory Pages' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 4 Fotoğraf' : '4 Pictures per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 2 Video' : '2 Videos per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 2 Youtube Video' : '2 Youtube Videos per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Anı başına 1 Yazı Alanı (5000 Karakter)' : '1 Memoir Section (5000 char.) per memory' }}</span></div><div class="feature-row"><i class="ki-solid ki-check-circle"></i><span>{{ ('LANG' | translate) === 'tr' ? 'Hatırlatma Bildirimleri' : 'Reminder Notifications' }}</span></div></ng-container>
-        </div>
+        <div class="membership-plan-body">
+          <div class="d-flex align-items-start justify-content-between gap-4 mb-6">
+            <div class="membership-plan-symbol">
+              <i class="bi" [ngClass]="currentPlan?.id === 2 ? 'bi-stars' : currentPlan?.id === 3 ? 'bi-heart' : 'bi-people'"></i>
+            </div>
+            <div class="membership-check"><i class="bi bi-check-lg"></i></div>
+          </div>
 
-        <div class="separator my-6"></div>
-        <div class="membership-dates"><div class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'start_date' | translate}}</div><div class="date-value">{{createdDate}}</div></div><div class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'end_date' | translate}}</div><div class="date-value">{{expirationDate}}</div></div><div *ngIf="userData.isTrial" class="membership-date-box rounded"><div class="date-label"><i class="ki-outline ki-calendar"></i>{{'trial_end_date' | translate}}</div><div class="date-value">{{trialExpirationDate}}</div></div></div>
+          <div class="d-flex align-items-end justify-content-between gap-3 mb-5">
+            <div>
+              <h2 class="fw-bolder text-gray-900 mb-1 membership-plan-title">{{ currentPlanName }}</h2>
+            </div>
+            <div class="text-end">
+              <div class="membership-price text-primary fw-bolder">{{ currentPlanPrice }}</div>
+            </div>
+          </div>
+
+          <div class="separator separator-dashed mb-5"></div>
+
+          <div class="membership-features">
+            <div class="feature-row" *ngFor="let feature of currentPlanProperties">
+              <span class="feature-check"><i class="bi bi-check-lg"></i></span>
+              <span class="text-gray-700 fw-semibold">{{ feature }}</span>
+            </div>
+          </div>
+
+          <div class="separator separator-dashed my-6"></div>
+
+          <div class="membership-dates">
+            <div class="membership-date-box">
+              <div class="date-label"><i class="ki-outline ki-calendar"></i>{{'start_date' | translate}}</div>
+              <div class="date-value">{{createdDate}}</div>
+            </div>
+            <div class="membership-date-box">
+              <div class="date-label"><i class="ki-outline ki-calendar"></i>{{'end_date' | translate}}</div>
+              <div class="date-value">{{expirationDate}}</div>
+            </div>
+            <div *ngIf="userData.isTrial" class="membership-date-box">
+              <div class="date-label"><i class="ki-outline ki-calendar"></i>{{'trial_end_date' | translate}}</div>
+              <div class="date-value">{{trialExpirationDate}}</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="d-flex justify-content-end mt-6" *ngIf="!showPlans"><button *ngIf="!userData.isTrial && !isUserActive" type="button" class="btn btn-primary membership-action" (click)="buyNewPackage()">{{'BUY_NEW_PACKAGE' | translate}}</button><button *ngIf="userData.isTrial && !isUserActive" type="button" class="btn btn-primary membership-action" (click)="pay()">{{'PAYMENT' | translate}}</button></div>

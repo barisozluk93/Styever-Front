@@ -1,0 +1,25 @@
+<app-modal #modal [modalConfig]="modalConfig">
+  <form [formGroup]="form" class="form w-100" novalidate>
+    <div class="row g-5">
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_PLAN.NAME_TR'|translate}}</label><input class="form-control form-control-solid form-control-lg bg-white styever-auth-control" formControlName="name">
+        <div *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.NAME_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_PLAN.NAME_EN'|translate}}</label><input class="form-control form-control-solid form-control-lg bg-white styever-auth-control" formControlName="nameEn">
+        <div *ngIf="form.controls['nameEn'].hasError('required') && form.controls['nameEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.NAME_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-4"><label class="form-label fw-semibold">{{'ADMIN_PLAN.PRICE'|translate}}</label><input type="number" min="0" step="0.01" class="form-control form-control-solid form-control-lg bg-white" formControlName="price">
+        <div *ngIf="form.controls['price'].hasError('required') && form.controls['price'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.PRICE'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-2"><label class="form-label fw-semibold">{{'ADMIN_PLAN.CURRENCY'|translate}}</label><input class="form-control form-control-solid form-control-lg bg-white styever-auth-control" formControlName="currency">
+        <div *ngIf="form.controls['currency'].hasError('required') && form.controls['currency'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.CURRENCY'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-3"><label class="form-label fw-semibold">{{'ADMIN_PLAN.PERIOD_TR'|translate}}</label><input class="form-control form-control-solid form-control-lg bg-white styever-auth-control" formControlName="period">
+        <div *ngIf="form.controls['period'].hasError('required') && form.controls['period'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.PERIOD_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-3"><label class="form-label fw-semibold">{{'ADMIN_PLAN.PERIOD_EN'|translate}}</label><input class="form-control form-control-solid form-control-lg bg-white styever-auth-control" formControlName="periodEn">
+        <div *ngIf="form.controls['periodEn'].hasError('required') && form.controls['periodEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.PERIOD_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_PLAN.FEATURES_TR'|translate}}</label><textarea rows="8" class="form-control form-control-solid form-control-lg bg-white" formControlName="properties" [placeholder]="'ADMIN_PLAN.FEATURE_HINT'|translate"></textarea>
+        <div *ngIf="form.controls['properties'].hasError('required') && form.controls['properties'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.FEATURES_TR'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-6"><label class="form-label fw-semibold">{{'ADMIN_PLAN.FEATURES_EN'|translate}}</label><textarea rows="8" class="form-control form-control-solid form-control-lg bg-white" formControlName="propertiesEn" [placeholder]="'ADMIN_PLAN.FEATURE_HINT'|translate"></textarea>
+        <div *ngIf="form.controls['propertiesEn'].hasError('required') && form.controls['propertiesEn'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.FEATURES_EN'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-4"><label class="form-label fw-semibold">{{'ADMIN_PLAN.SORT'|translate}}</label><input type="number" class="form-control form-control-solid form-control-lg bg-white" formControlName="sortOrder">
+        <div *ngIf="form.controls['sortOrder'].hasError('required') && form.controls['sortOrder'].touched" class="text-danger fs-8 fw-semibold mt-1">{{ ('ADMIN_PLAN.SORT'|translate) + ' ' + ('IS_REQUIRED'|translate) }}</div></div>
+      <div class="col-md-8 d-flex align-items-end pb-3"><label class="form-check form-switch form-check-custom form-check-solid"><input class="form-check-input" type="checkbox" formControlName="isPopular"><span class="form-check-label fw-semibold">{{'ADMIN_PLAN.POPULAR'|translate}}</span></label></div>
+    </div>
+  </form>
+</app-modal>

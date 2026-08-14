@@ -2,1029 +2,271 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-
   background-color: #f7f5f0;
 }
-
-
-/* =========================================================
-   PAGE
-   ========================================================= */
 
 .memory-edit-page {
-  width: 100%;
   min-height: 100vh;
-
   overflow: hidden;
-
   background-color: #f7f5f0;
-
-  color: var(--bs-gray-900);
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
+/* HERO */
 .memory-edit-hero {
-  position: relative;
-
-  width: 100%;
-
-  min-height: 480px;
-
-  display: flex;
-  align-items: center;
-
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 105px 0 60px;
   overflow: hidden;
-
   background:
-    url('/assets/media/patterns/memoryeditsave.jpeg')
-    center 48% / cover no-repeat;
+    url('/assets/media/patterns/addmemory.jpg')
+    center 46% / cover no-repeat;
 }
 
-
-/* =========================================================
-   HERO SHADE
-   ========================================================= */
-
-.memory-edit-hero__shade {
+.memory-edit-hero__overlay {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 25, 17, 0.9),
-      rgba(5, 25, 17, 0.62) 52%,
-      rgba(5, 25, 17, 0.28)
+      rgba(5, 25, 17, .91) 0%,
+      rgba(5, 25, 17, .75) 40%,
+      rgba(5, 25, 17, .46) 72%,
+      rgba(5, 25, 17, .26) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5, 25, 17, .34),
+      transparent 48%
     );
 }
 
-
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
-.memory-edit-hero__content {
-  max-width: 720px;
-
-  padding:
-    132px
-    0
-    74px;
-}
-
-
-/* =========================================================
-   BACK BUTTON POSITION
-   ========================================================= */
-
-.memory-edit-hero__back-wrap {
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 18px;
-}
-
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
-
-.memory-edit-hero__eyebrow {
-  color:
-    rgba(255, 255, 255, 0.76);
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 0.17em;
-}
-
-
-.memory-edit-hero__eyebrow-logo {
-  display: block;
-
-  width: 32px;
-  height: 22px;
-
+.memory-edit-hero__brand {
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  object-position: center;
 }
 
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
-
-.memory-edit-hero__title {
-  margin:
-    16px
-    0
-    12px;
-
-  color: #fff;
-
-  font-size:
-    clamp(42px, 4.8vw, 68px);
-
-  line-height: 1;
-
-  letter-spacing: -0.04em;
-}
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
-
-.memory-edit-hero__description {
-  max-width: 620px;
-
-  color:
-    rgba(255, 255, 255, 0.78);
-
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
-
-.memory-edit-content {
-  width: 100%;
-
-  padding:
-    48px
-    0
-    90px;
-
-  background:
-    #f7f5f0 !important;
-
-  background-color:
-    #f7f5f0 !important;
-}
-
-
-.memory-edit-content > .container-xxl {
-  background:
-    transparent !important;
-}
-
-
-/* =========================================================
-   EDITOR CARD
-   ========================================================= */
-
-.memory-editor-card {
-  max-width: 1120px;
-
-  margin:
-    0
-    auto;
-
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color:
-    rgba(255, 255, 255, 0.72) !important;
-
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.14) !important;
-
-  backdrop-filter: blur(8px);
-}
-
-
-/* =========================================================
-   MEDIA
-   ========================================================= */
-
-.memory-editor-media {
-  max-width: 720px !important;
-
-  margin:
-    0
-    auto
-    30px !important;
-}
-
-
-.memory-editor-media
-::ng-deep
-.carousel-wrapper {
-  max-width: 720px;
-
-  margin:
-    0
-    auto;
-}
-
-
-.memory-editor-media
-::ng-deep
-.image {
-  height:
-    360px !important;
-
-  object-fit:
-    cover !important;
-}
-
-
-/* =========================================================
-   FORM
-   ========================================================= */
-
-.memory-auth-form {
-  max-width: 980px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  column-gap: 16px;
-  row-gap: 18px;
-
-  margin:
-    0
-    auto;
-}
-
-
-.memory-auth-form > .form-heading,
-.memory-auth-form > .field-full {
-  grid-column:
-    1 / -1;
-}
-
-
-/* =========================================================
-   FORM HEADING
-   ========================================================= */
-
-.form-heading {
-  margin-bottom: 2px;
-}
-
-
-.memory-form-kicker {
-  margin-bottom: 8px;
-
-  font-size: 10px;
-
-  letter-spacing:
-    0.16em;
-}
-
-
-.form-heading h2 {
-  font-size:
-    24px;
-
-  line-height:
-    1.25;
-}
-
-
-.form-heading p {
-  font-size:
-    13px;
-
-  line-height:
-    1.6;
-}
-
-
-/* =========================================================
-   FORM LABELS
-   ========================================================= */
-
-.memory-auth-form
-.form-label {
-  font-size:
-    13px !important;
-}
-
-
-/* =========================================================
-   INPUT / SELECT
-   ========================================================= */
-
-.memory-auth-form
-.form-control,
-.memory-auth-form
-.form-select {
-  min-height:
-    50px;
-
-  border:
-    1px solid var(--bs-gray-300);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  color:
-    var(--bs-gray-900);
-
-  box-shadow:
-    none;
-
+/* QR-card-like glass background for BOTH carousel + form */
+.memory-edit-glass-card {
+  background: rgba(255, 255, 255, .10) !important;
+  border: 1px solid rgba(255, 255, 255, .13) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    transform .25s ease,
+    background-color .25s ease,
+    border-color .25s ease;
 }
 
-
-.memory-auth-form
-.form-control:hover:not(:focus):not(.is-invalid),
-.memory-auth-form
-.form-select:hover:not(:focus):not(.is-invalid) {
-  border-color:
-    var(--bs-gray-400);
+.memory-edit-glass-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, .14) !important;
+  border-color: rgba(255, 255, 255, .20) !important;
 }
 
-
-.memory-auth-form
-.form-control:focus,
-.memory-auth-form
-.form-select:focus {
-  border-color:
-    var(--bs-primary);
-
-  box-shadow:
-    0
-    0
-    0
-    0.2rem
-    rgba(var(--bs-primary-rgb), 0.08);
+/* CAROUSEL */
+.memory-edit-carousel-card {
+  width: 100%;
 }
 
+.memory-edit-carousel-card app-carousel {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
-/* =========================================================
-   FORM ICON
-   ========================================================= */
+.memory-edit-carousel-card ::ng-deep .carousel-wrapper {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.memory-edit-carousel-card ::ng-deep .image {
+  height: 360px !important;
+  object-fit: cover !important;
+  border-radius: var(--bs-card-border-radius, .625rem) !important;
+}
+
+/* FORM */
+.memory-auth-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.field-full,
+.privacy-options {
+  grid-column: 1 / -1;
+}
+
+.memory-edit-form-card .form-label,
+.memory-edit-form-card .text-gray-800,
+.memory-edit-form-card .text-gray-900 {
+  color: #fff !important;
+}
+
+.memory-edit-form-card .text-gray-500,
+.memory-edit-form-card .text-gray-600 {
+  color: rgba(255, 255, 255, .68) !important;
+}
+
+.memory-edit-form-card .form-control,
+.memory-edit-form-card .form-select {
+  min-height: 50px;
+  background-color: rgba(255, 255, 255, .94) !important;
+  border-color: rgba(255, 255, 255, .30) !important;
+}
+
+.memory-edit-form-card textarea.form-control {
+  min-height: 145px;
+  resize: vertical;
+}
 
 .memory-form-icon {
-  z-index: 3;
-
-  left: 16px;
-
-  margin: 0 !important;
-
+  left: 1rem;
+  z-index: 2;
   pointer-events: none;
 }
 
-
-/* =========================================================
-   TEXTAREA
-   ========================================================= */
-
-.textarea-wrap {
-  position: relative;
-}
-
-
-.memory-auth-form
-textarea.form-control {
-  min-height:
-    170px;
-
-  resize:
-    vertical;
-
-  padding-top:
-    14px;
-}
-
-
 .memory-textarea-icon {
-  z-index: 3;
-
-  top: 15px;
-  left: 16px;
-
-  pointer-events:
-    none;
+  left: 1rem;
+  top: 1.15rem;
+  z-index: 2;
+  pointer-events: none;
 }
 
-
-/* =========================================================
-   PRIVACY OPTIONS
-   ========================================================= */
-
+/* PRIVACY */
 .privacy-options {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 12px;
-
-  margin-bottom: 2px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
 }
-
-
-/* =========================================================
-   PRIVACY OPTION
-   ========================================================= */
 
 .privacy-option {
-  min-height: 82px;
-
+  min-height: 88px;
+  padding: 1rem;
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
-
-  gap: 11px;
-
-  padding:
-    15px !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background:
-    #fff !important;
-
+  gap: .8rem;
   cursor: pointer;
-
+  background: rgba(255, 255, 255, .08) !important;
+  border-color: rgba(255, 255, 255, .14) !important;
   transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    transform .2s ease,
+    background-color .2s ease,
+    border-color .2s ease;
 }
-
 
 .privacy-option:hover {
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.28) !important;
-
-  transform:
-    translateY(-1px);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, .14) !important;
+  border-color: rgba(255, 255, 255, .22) !important;
 }
-
 
 .privacy-option:has(.form-check-input:checked) {
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.42) !important;
-
-  background:
-    var(--bs-primary-light) !important;
+  background: rgba(var(--bs-primary-rgb), .34) !important;
+  border-color: rgba(255, 255, 255, .28) !important;
 }
-
-
-/* =========================================================
-   CHECKBOX
-   ========================================================= */
-
-.privacy-option
-.form-check-input {
-  width: 19px;
-  height: 19px;
-
-  flex:
-    0
-    0
-    19px;
-
-  margin-top: 2px;
-
-  border-color:
-    var(--bs-gray-400);
-
-  cursor: pointer;
-}
-
-
-.privacy-option
-.form-check-input:checked {
-  border-color:
-    var(--bs-primary);
-
-  background-color:
-    var(--bs-primary);
-}
-
-
-.privacy-option
-.form-check-input:focus {
-  border-color:
-    var(--bs-primary);
-
-  box-shadow:
-    0
-    0
-    0
-    0.2rem
-    rgba(var(--bs-primary-rgb), 0.08);
-}
-
-
-/* =========================================================
-   PRIVACY TEXT
-   ========================================================= */
 
 .privacy-option > span {
-  min-width: 0;
-
   display: flex;
   flex-direction: column;
-
-  gap: 3px;
+  gap: .3rem;
 }
-
 
 .privacy-option strong {
-  font-size: 13px;
-  line-height: 1.4;
+  color: #fff !important;
 }
-
 
 .privacy-option small {
-  font-size: 10.5px;
-  line-height: 1.45;
+  color: rgba(255, 255, 255, .64) !important;
 }
-
-
-/* =========================================================
-   FORM VALID STATE
-   ========================================================= */
-
-.memory-auth-form
-.form-control.is-valid,
-.memory-auth-form
-.form-select.is-valid {
-  border-color:
-    var(--bs-success);
-}
-
-
-/* =========================================================
-   FORM INVALID STATE
-   ========================================================= */
-
-.memory-auth-form
-.form-control.is-invalid,
-.memory-auth-form
-.form-select.is-invalid {
-  border-color:
-    var(--bs-danger);
-}
-
-
-/* =========================================================
-   ERROR
-   ========================================================= */
-
-.fv-plugins-message-container {
-  min-height: 14px;
-}
-
-
-/* =========================================================
-   SUBMIT
-   ========================================================= */
 
 .memory-submit-btn {
-  min-width: 170px;
+  min-width: 150px;
+}
 
-  border:
-    1px solid var(--bs-primary) !important;
-
-  box-shadow: none !important;
-
+/* WHITE BUTTON HOVER */
+.memory-white-btn {
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
-
-.memory-submit-btn:not(:disabled):hover,
-.memory-submit-btn:not(:disabled):focus {
-  border:
-    0 !important;
+.memory-edit-page .btn.btn-light.memory-white-btn:hover,
+.memory-edit-page .btn.btn-light.memory-white-btn:focus {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
 }
 
-
-.memory-submit-btn i,
-.memory-submit-btn span {
-  color:
-    inherit;
+.memory-edit-page .btn.btn-light.memory-white-btn:hover i,
+.memory-edit-page .btn.btn-light.memory-white-btn:focus i {
+  color: #fff !important;
 }
-
-
-/* =========================================================
-   WHITE BUTTON
-   METRONIC HARD OVERRIDE
-   ========================================================= */
-
-.memory-edit-page
-.btn.styever-white-btn {
-  --bs-btn-color:
-    var(--bs-primary) !important;
-
-  --bs-btn-bg:
-    #fff !important;
-
-  --bs-btn-border-color:
-    #fff !important;
-
-  --bs-btn-hover-color:
-    #fff !important;
-
-  --bs-btn-hover-bg:
-    var(--bs-primary) !important;
-
-  --bs-btn-hover-border-color:
-    var(--bs-primary) !important;
-
-  --bs-btn-active-color:
-    #fff !important;
-
-  --bs-btn-active-bg:
-    var(--bs-primary) !important;
-
-  --bs-btn-active-border-color:
-    var(--bs-primary) !important;
-
-  border:
-    1px solid #fff !important;
-
-  background:
-    #fff !important;
-
-  background-color:
-    #fff !important;
-
-  background-image:
-    none !important;
-
-  color:
-    var(--bs-primary) !important;
-
-  box-shadow:
-    none !important;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease !important;
-}
-
-
-/* normal content */
-
-.memory-edit-page
-.btn.styever-white-btn > span {
-  color:
-    inherit !important;
-}
-
-
-.memory-edit-page
-.btn.styever-white-btn i,
-.memory-edit-page
-.btn.styever-white-btn i::before,
-.memory-edit-page
-.btn.styever-white-btn i::after,
-.memory-edit-page
-.btn.styever-white-btn i span {
-  color:
-    var(--bs-primary) !important;
-}
-
-
-/* =========================================================
-   WHITE BUTTON HOVER
-   ========================================================= */
-
-.memory-edit-page
-.btn.styever-white-btn:hover,
-.memory-edit-page
-.btn.styever-white-btn:focus,
-.memory-edit-page
-.btn.styever-white-btn:focus-visible,
-.memory-edit-page
-.btn.styever-white-btn:active,
-.memory-edit-page
-.btn.styever-white-btn.active {
-  --bs-btn-color:
-    #fff !important;
-
-  --bs-btn-bg:
-    var(--bs-primary) !important;
-
-  --bs-btn-border-color:
-    var(--bs-primary) !important;
-
-  --bs-btn-hover-color:
-    #fff !important;
-
-  --bs-btn-hover-bg:
-    var(--bs-primary) !important;
-
-  --bs-btn-hover-border-color:
-    var(--bs-primary) !important;
-
-  border:
-    0 !important;
-
-  background:
-    var(--bs-primary) !important;
-
-  background-color:
-    var(--bs-primary) !important;
-
-  background-image:
-    none !important;
-
-  color:
-    #fff !important;
-
-  box-shadow:
-    none !important;
-}
-
-
-/* hover text */
-
-.memory-edit-page
-.btn.styever-white-btn:hover > span,
-.memory-edit-page
-.btn.styever-white-btn:focus > span,
-.memory-edit-page
-.btn.styever-white-btn:active > span {
-  color:
-    #fff !important;
-}
-
-
-/* hover icon */
-
-.memory-edit-page
-.btn.styever-white-btn:hover i,
-.memory-edit-page
-.btn.styever-white-btn:hover i::before,
-.memory-edit-page
-.btn.styever-white-btn:hover i::after,
-.memory-edit-page
-.btn.styever-white-btn:hover i span,
-
-.memory-edit-page
-.btn.styever-white-btn:focus i,
-.memory-edit-page
-.btn.styever-white-btn:focus i::before,
-.memory-edit-page
-.btn.styever-white-btn:focus i::after,
-.memory-edit-page
-.btn.styever-white-btn:focus i span,
-
-.memory-edit-page
-.btn.styever-white-btn:active i,
-.memory-edit-page
-.btn.styever-white-btn:active i::before,
-.memory-edit-page
-.btn.styever-white-btn:active i::after,
-.memory-edit-page
-.btn.styever-white-btn:active i span {
-  color:
-    #fff !important;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 991.98px) {
-
   .memory-edit-hero {
-    min-height: 430px;
+    min-height: 0;
+    padding: 95px 0 50px;
+    background-position: 62% center;
   }
 
-
-  .memory-edit-hero__content {
-    padding:
-      122px
-      20px
-      64px;
+  .memory-edit-hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 25, 17, .93),
+        rgba(5, 25, 17, .62)
+      );
   }
-
-
-  .memory-edit-content {
-    padding:
-      42px
-      0
-      72px;
-  }
-
 
   .privacy-options {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
-
 }
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 767.98px) {
-
-  /* HERO */
-
-  .memory-edit-hero {
-    min-height: 400px;
-
-    background-position:
-      60% center;
-  }
-
-
-  .memory-edit-hero__content {
-    padding:
-      108px
-      12px
-      56px;
-  }
-
-
-  .memory-edit-hero__back-wrap {
-    margin-bottom: 16px;
-  }
-
-
-  .memory-edit-hero__eyebrow-logo {
-    width: 28px;
-    height: 20px;
-  }
-
-
-  .memory-edit-hero__title {
-    font-size: 42px;
-  }
-
-
-  .memory-edit-hero__description {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-
-  /* CONTENT */
-
-  .memory-edit-content {
-    padding:
-      28px
-      0
-      58px;
-  }
-
-
-  .memory-edit-content
-  .container-xxl {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-
-  /* CARD */
-
-  .memory-editor-card {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .memory-editor-card
-  .card-body {
-    padding:
-      20px !important;
-  }
-
-
-  /* MEDIA */
-
-  .memory-editor-media {
-    margin-bottom:
-      24px !important;
-  }
-
-
-  .memory-editor-media
-  ::ng-deep
-  .image {
-    height:
-      260px !important;
-  }
-
-
-  /* FORM */
-
   .memory-auth-form {
-    grid-template-columns:
-      1fr;
-
-    row-gap:
-      16px;
+    grid-template-columns: 1fr;
   }
 
-
-  .memory-auth-form
-  > .form-heading,
-  .memory-auth-form
-  > .field-full {
-    grid-column:
-      1;
-  }
-
-
+  .field-full,
   .privacy-options {
-    grid-template-columns:
-      1fr;
+    grid-column: auto;
   }
 
+  .memory-edit-carousel-card ::ng-deep .image {
+    height: 320px !important;
+  }
+}
 
-  .privacy-option {
-    min-height:
-      auto;
+@media (max-width: 575.98px) {
+  .memory-edit-hero {
+    padding: 88px 0 42px;
   }
 
-
-  /* SUBMIT */
-
-  .memory-submit-btn {
-    width: 100%;
-
-    min-width: 0;
+  .memory-edit-glass-card .card-body {
+    padding: 1.25rem !important;
   }
 
+  .memory-edit-carousel-card ::ng-deep .image {
+    height: 260px !important;
+  }
 }
 
 
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .memory-edit-content
-  .container-xxl {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-
-  .memory-editor-card
-  .card-body {
-    padding:
-      17px !important;
-  }
-
-
-  .memory-edit-hero__title {
-    font-size: 39px;
-  }
-
+/* EYEBROW */
+.memory-edit-eyebrow-row {
+  min-height: 38px;
 }
 
-/* =========================================================
-   METRONIC RADIUS STANDARD
-   Regular UI surfaces use the exact Metronic card radius.
-   Circular avatars/symbols remain circular.
-   ========================================================= */
-:host {
-  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
+/* FORM INTRO */
+.memory-edit-form-heading {
+  padding-bottom: .25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .10);
 }
-
-// .card,
-// .btn,
-// .form-control,
-// .form-select,
-// .input-group,
-// .input-group-text,
-// .modal-content,
-// .dropdown-menu,
-// .alert,
-// .badge,
-// [class*="card"]:not(.symbol):not([class*="avatar"]),
-// [class*="panel"],
-// [class*="box"],
-// [class*="item"]:not([class*="avatar"]),
-// [class*="option"],
-// [class*="search"],
-// [class*="toggle"],
-// [class*="nav__link"] {
-//   border-radius: var(--styever-ui-radius) !important;
-// }
-
-.symbol,
-[class*="avatar"] {
-  border-radius: 50%;
-}
-

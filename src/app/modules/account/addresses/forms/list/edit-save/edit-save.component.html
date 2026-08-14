@@ -10,12 +10,12 @@
 
         <div class="row g-4 mb-4">
             <div class="col-lg-6">
-                <label class="form-label fw-bold text-gray-800 required">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2 required">
                     {{'COUNTRY' | translate}}
                 </label>
                 <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="country" [placeholder]="'COUNTRY' | translate"
                     formControlName="country" autocomplete="off" [ngClass]="{
-                    'is-invalid': form.controls['country'].invalid,
+                    'is-invalid': form.controls['country'].invalid && (form.controls['country'].dirty || form.controls['country'].touched),
                     'is-valid': form.controls['country'].valid
                   }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
@@ -28,12 +28,12 @@
 
         <div class="row g-4 mb-4">
             <div class="col-lg-6">
-                <label class="form-label fw-bold text-gray-800 required">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2 required">
                     {{'CITY' | translate}}
                 </label>
                 <div class="position-relative"><i class="ki-outline ki-map position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="city" [placeholder]="'CITY' | translate"
                     formControlName="city" autocomplete="off" [ngClass]="{
-                    'is-invalid': form.controls['city'].invalid,
+                    'is-invalid': form.controls['city'].invalid && (form.controls['city'].dirty || form.controls['city'].touched),
                     'is-valid': form.controls['city'].valid
                 }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
@@ -43,12 +43,12 @@
                 }"></ng-container>
             </div>
             <div class="col-lg-6">
-                <label class="form-label fw-bold text-gray-800 required">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2 required">
                     {{'DISTRICT' | translate}}
                 </label>
                 <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="district" [placeholder]="'DISTRICT' | translate"
                     formControlName="district" autocomplete="off" [ngClass]="{
-                    'is-invalid': form.controls['district'].invalid,
+                    'is-invalid': form.controls['district'].invalid && (form.controls['district'].dirty || form.controls['district'].touched),
                     'is-valid': form.controls['district'].valid
                   }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
@@ -61,12 +61,12 @@
 
         <div class="row g-4 mb-4">
             <div class="col-lg-12">
-                <label class="form-label fw-bold text-gray-800 required">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2 required">
                     {{'ADDRESS' | translate}}
                 </label>
                 <div class="position-relative"><i class="ki-outline ki-geolocation position-absolute top-0 mt-4 ms-4 fs-2 text-gray-500"></i><textarea class="form-control form-control-lg bg-white ps-12" type="text" name="address" [placeholder]="'ADDRESS' | translate"
                     formControlName="address" autocomplete="off" [ngClass]="{
-                    'is-invalid': form.controls['address'].invalid,
+                    'is-invalid': form.controls['address'].invalid && (form.controls['address'].dirty || form.controls['address'].touched),
                     'is-valid': form.controls['address'].valid
                 }"></textarea></div>
 
@@ -80,12 +80,12 @@
 
         <div class="row g-4 mb-4">
             <div class="col-lg-12">
-                <label class="form-label fw-bold text-gray-800 required">
+                <label class="form-label fs-6 fw-bold text-gray-800 mb-2 required">
                     {{'ADDRESS_HEADER' | translate}}
                 </label>
                 <div class="position-relative"><i class="ki-outline ki-home position-absolute top-50 translate-middle-y ms-4 fs-2 text-gray-500"></i><input class="form-control form-control-lg bg-white ps-12" type="text" name="addressHeader" [placeholder]="'ADDRESS_HEADER' | translate"
                     formControlName="addressHeader" autocomplete="off" [ngClass]="{
-                    'is-invalid': form.controls['addressHeader'].invalid,
+                    'is-invalid': form.controls['addressHeader'].invalid && (form.controls['addressHeader'].dirty || form.controls['addressHeader'].touched),
                     'is-valid': form.controls['addressHeader'].valid
                 }" /></div>
                 <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
@@ -99,7 +99,7 @@
 
     <ng-template #formError let-control="control" let-message="message" let-validation="validation">
         <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-            <div class="fv-plugins-message-container">
+            <div class="fv-plugins-message-container text-danger mt-1 fw-semibold fs-7">
                 <span role="alert">
                     {{ message }}
                 </span>

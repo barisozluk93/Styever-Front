@@ -1,1073 +1,202 @@
 :host {
   display: block;
-  width: 100%;
 }
-
-
-/* =========================================================
-   PAGE
-   ========================================================= */
 
 .styever-about {
-  width: 100%;
-  max-width: none;
-
-  margin: 0;
-
   overflow: hidden;
-
-  color: var(--bs-gray-900);
 }
 
+.about-app-bg {
+  background-color: #f7f5f0 !important;
+}
 
-/* =========================================================
-   HERO
-   ========================================================= */
-
+/* HERO */
 .about-hero {
-  width: 100%;
-
   height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-
+  height: 100dvh;
   overflow: hidden;
-
-  background:
-    url('/assets/media/patterns/about.jpg')
-    center 44% / cover no-repeat;
+  background: url('/assets/media/patterns/about.jpg') center 44% / cover no-repeat;
 }
 
-
-@supports (height: 100dvh) {
-
-  .about-hero {
-    height: 100dvh;
-    min-height: 100dvh;
-    max-height: 100dvh;
-  }
-
-}
-
-
-/* =========================================================
-   HERO SHADE
-   ========================================================= */
-
-.about-hero__shade {
+.about-hero__overlay {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 25, 17, 0.87),
-      rgba(5, 25, 17, 0.64) 38%,
-      rgba(5, 25, 17, 0.18) 70%,
-      rgba(5, 25, 17, 0.05)
+      rgba(5, 25, 17, .87) 0%,
+      rgba(5, 25, 17, .64) 38%,
+      rgba(5, 25, 17, .18) 70%,
+      rgba(5, 25, 17, .05) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(5, 25, 17, 0.22),
+      rgba(5, 25, 17, .22),
       transparent 45%
     );
 }
 
-
-/* =========================================================
-   HERO CONTAINER
-   ========================================================= */
-
-.about-hero__container {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-}
-
-
-/* =========================================================
-   HERO LAYOUT
-   ========================================================= */
-
-.about-hero__layout {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.9fr)
-    minmax(430px, 0.8fr);
-
-  align-items: center;
-
-  gap: clamp(52px, 7vw, 110px);
-
-  padding: 108px 0 88px;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
-.about-hero__content {
-  max-width: 690px;
-}
-
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
-
-.about-hero__eyebrow {
-  color: rgba(255, 255, 255, 0.82);
-
-  font-size: 12px;
-
-  letter-spacing: 0.18em;
-}
-
-
-.about-hero__eyebrow-logo {
-  display: block;
-
-  width: 32px;
-  height: 22px;
-
+.about-hero__brand {
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  object-position: center;
 }
-
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
 
 .about-hero__title {
-  max-width: 700px;
-
-  margin: 22px 0 0;
-
+  max-width: 720px;
   font-size: clamp(46px, 5.2vw, 74px);
   line-height: 0.99;
-
   letter-spacing: -0.045em;
 }
 
-
-/* =========================================================
-   HERO RIGHT COPY
-   ========================================================= */
-
 .about-hero__copy {
-  max-width: 620px;
-
-  justify-self: end;
-
-  padding-left: 34px;
-
-  border-left:
-    1px solid rgba(255, 255, 255, 0.24);
+  border-left: 1px solid rgba(255, 255, 255, .24);
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
-
-.about-hero__description {
-  max-width: 100%;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.88);
-
-  font-size: 15px;
-  line-height: 1.62;
-
-  text-align: left;
-
-  white-space: pre-line;
-}
-
-
-/* =========================================================
-   HERO SCROLL
-   ========================================================= */
 
 .about-hero__scroll {
-  position: absolute;
-  z-index: 4;
-
-  left: 50%;
+  z-index: 3;
   bottom: 18px;
-
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 4px;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: rgba(255, 255, 255, 0.68);
-
-  font-size: 10px;
-
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-
-  transition:
-    color 0.2s ease;
+  min-width: 72px;
+  padding: .5rem .75rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transition: transform .2s ease, opacity .2s ease;
 }
-
-
-.about-hero__scroll i {
-  color: inherit;
-}
-
 
 .about-hero__scroll:hover,
 .about-hero__scroll:focus {
-  color: #fff;
+  background: transparent !important;
+  color: #fff !important;
+  transform: translateX(-50%) translateY(-3px) !important;
+  opacity: 1;
 }
 
-
-/* =========================================================
-   SHARED SECTION
-   ========================================================= */
-
-.about-section {
-  padding: 110px 0;
+.about-hero__scroll:hover i,
+.about-hero__scroll:focus i {
+  color: #fff !important;
 }
 
-
-/* =========================================================
-   WARM SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.about-section--warm {
-  background-color: #f7f5f0;
+/* GLOBAL CARD HOVER */
+.about-hover-card {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    background-color .25s ease;
+  will-change: transform;
 }
 
-
-/* =========================================================
-   VALUES SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.about-section--values {
-  background-color: #fff;
+.about-hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .14) !important;
+  border-color: rgba(var(--bs-primary-rgb), .18) !important;
 }
 
-
-/* =========================================================
-   SECTION KICKER
-   ========================================================= */
-
-.section-kicker {
-  font-size: 12px;
-
-  letter-spacing: 0.18em;
+.styever-about .card.bg-primary.about-hover-card:hover {
+  box-shadow: 0 1rem 2.5rem rgba(var(--bs-primary-rgb), .24) !important;
 }
 
-
-.section-kicker--light {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-
-/* =========================================================
-   STORY
-   ========================================================= */
-
-.about-story {
-  display: grid;
-
-  grid-template-columns:
-    0.9fr
-    1.1fr;
-
-  align-items: stretch;
-
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color: #fff;
-}
-
-
-/* =========================================================
-   STORY MEDIA
-   ========================================================= */
-
+/* STORY */
 .about-story__media {
   position: relative;
-
-  min-height: 410px;
-  max-height: 470px;
-
-  overflow: hidden;
+  min-height: 390px;
 }
 
-
-.about-story__media > img {
-  display: block;
-
+.about-story__image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
-
-
-/* =========================================================
-   STORY BADGE
-   ========================================================= */
 
 .about-story__badge {
-  position: absolute;
-
-  left: 18px;
-  bottom: 18px;
-
-  gap: 9px;
-
-  padding: 8px 12px;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.22);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color:
-    rgba(var(--bs-primary-rgb), 0.78);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  color: #fff;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background-color: rgba(var(--bs-primary-rgb), .88) !important;
+  border: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-
-.about-story__badge img {
-  width: 26px;
-  height: 26px;
-
-  object-fit: contain;
+.about-story__badge-logo {
+  width: 34px;
+  height: auto;
 }
 
-
-/* =========================================================
-   STORY CONTENT
-   ========================================================= */
-
-.about-story__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 46px 52px;
+/* GIFT */
+.about-gift__media {
+  min-height: 360px;
 }
 
-
-/* =========================================================
-   SHARED HEADINGS
-   ========================================================= */
-
-.about-story__content h2,
-.section-heading h2,
-.gift-cta__content h2 {
-  margin: 12px 0 18px;
-
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: 1.06;
-
-  letter-spacing: -0.04em;
-}
-
-
-/* =========================================================
-   SHARED TEXT
-   ========================================================= */
-
-.about-story__content p,
-.section-heading p,
-.value-card p,
-.gift-cta__content p {
-  font-size: 16px;
-  line-height: 1.7;
-
-  white-space: pre-line;
-}
-
-
-/* =========================================================
-   SECTION HEADING
-   ========================================================= */
-
-.section-heading {
-  display: grid;
-
-  grid-template-columns:
-    0.9fr
-    1.1fr;
-
-  align-items: start;
-
-  gap: 80px;
-
-  margin-bottom: 42px;
-}
-
-
-.section-heading p {
-  padding-top: 24px;
-}
-
-
-/* =========================================================
-   VALUES GRID
-   ========================================================= */
-
-.values-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 20px;
-}
-
-
-/* =========================================================
-   VALUE CARD
-   ========================================================= */
-
-.value-card {
-  min-height: 250px;
-
-  padding: 30px !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color: #fff;
-
-  box-shadow: none !important;
-
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-
-.value-card:not(.value-card--deep):hover {
-  border-color:
-    rgba(var(--bs-primary-rgb), 0.28) !important;
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   DEEP VALUE
-   BACKGROUND KORUNDU
-   ========================================================= */
-
-.value-card--deep {
-  border-color: #073a28 !important;
-
-  background-color: #073a28 !important;
-
-  color: #fff;
-}
-
-
-/* =========================================================
-   VALUE ICON
-   ========================================================= */
-
-.value-card__icon {
-  width: 44px;
-  height: 44px;
-
-  margin-bottom: 24px;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-color:
-    var(--bs-primary-light);
-
-  color:
-    var(--bs-primary);
-}
-
-
-.value-card__icon i {
-  color: inherit;
-}
-
-
-.value-card--deep .value-card__icon {
-  background-color:
-    rgba(255, 255, 255, 0.1);
-
-  color: #fff;
-}
-
-
-.value-card--deep .value-card__icon i {
-  color: #fff;
-}
-
-
-/* =========================================================
-   VALUE TITLE
-   ========================================================= */
-
-.value-card h3 {
-  margin: 0 0 12px;
-
-  font-size: 22px;
-  line-height: 1.25;
-
-  letter-spacing: -0.02em;
-}
-
-
-/* =========================================================
-   DEEP TEXT
-   ========================================================= */
-
-.value-card--deep p {
-  color:
-    rgba(255, 255, 255, 0.72) !important;
-}
-
-
-/* =========================================================
-   GIFT SECTION
-   BACKGROUND DEĞİŞTİRİLMEDİ
-   ========================================================= */
-
-.about-section--gift {
-  padding-top: 20px;
-
-  background-color: #fff;
-}
-
-
-/* =========================================================
-   GIFT CTA
-   ========================================================= */
-
-.gift-cta {
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
-  overflow: hidden;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background-color:
-    #073a28 !important;
-}
-
-
-/* =========================================================
-   GIFT CONTENT
-   ========================================================= */
-
-.gift-cta__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 52px;
-}
-
-
-.gift-cta__content p {
-  max-width: 610px;
-
-  margin-bottom: 28px;
-}
-
-
-/* =========================================================
-   GIFT MEDIA
-   ========================================================= */
-
-.gift-cta__media {
-  min-height: 400px;
-}
-
-
-.gift-cta__media img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
+.object-fit-cover {
   object-fit: cover;
 }
 
-
-/* =========================================================
-   GIFT BUTTON
-   ========================================================= */
-
-.styever-about .about-gift-btn {
-  border:
-    1px solid #fff !important;
-
-  background-color:
-    #fff !important;
-
-  color:
-    var(--bs-primary) !important;
-
-  box-shadow: none !important;
-
+/* WHITE BUTTON HOVER */
+.about-light-btn {
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease !important;
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
 }
 
-
-.styever-about .about-gift-btn > span {
-  color: inherit !important;
-}
-
-
-.styever-about .about-gift-btn i,
-.styever-about .about-gift-btn i::before,
-.styever-about .about-gift-btn i::after,
-.styever-about .about-gift-btn i span {
-  color:
-    var(--bs-primary) !important;
-
-  transition:
-    color 0.2s ease !important;
-}
-
-
-/* =========================================================
-   GIFT BUTTON HOVER
-   bg-primary
-   text-white
-   dashed
-   ========================================================= */
-
-.styever-about .about-gift-btn:hover,
-.styever-about .about-gift-btn:focus,
-.styever-about .about-gift-btn:focus-visible,
-.styever-about .about-gift-btn:active {
+.styever-about .btn.btn-light.about-light-btn:hover,
+.styever-about .btn.btn-light.about-light-btn:focus,
+.styever-about .btn.btn-light:hover,
+.styever-about .btn.btn-light:focus {
   background-color: var(--bs-primary) !important;
-  color: var(--bs-primary-inverse) !important;
-  border: 0 !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
 }
 
-
-.styever-about .about-gift-btn:hover > span,
-.styever-about .about-gift-btn:focus > span,
-.styever-about .about-gift-btn:focus-visible > span,
-.styever-about .about-gift-btn:active > span {
+.styever-about .btn.btn-light.about-light-btn:hover i,
+.styever-about .btn.btn-light.about-light-btn:focus i,
+.styever-about .btn.btn-light:hover i,
+.styever-about .btn.btn-light:focus i {
   color: #fff !important;
 }
-
-
-.styever-about .about-gift-btn:hover i,
-.styever-about .about-gift-btn:hover i::before,
-.styever-about .about-gift-btn:hover i::after,
-.styever-about .about-gift-btn:hover i span,
-
-.styever-about .about-gift-btn:focus i,
-.styever-about .about-gift-btn:focus i::before,
-.styever-about .about-gift-btn:focus i::after,
-.styever-about .about-gift-btn:focus i span,
-
-.styever-about .about-gift-btn:focus-visible i,
-.styever-about .about-gift-btn:focus-visible i::before,
-.styever-about .about-gift-btn:focus-visible i::after,
-.styever-about .about-gift-btn:focus-visible i span,
-
-.styever-about .about-gift-btn:active i,
-.styever-about .about-gift-btn:active i::before,
-.styever-about .about-gift-btn:active i::after,
-.styever-about .about-gift-btn:active i span {
-  color: #fff !important;
-}
-
-
-/* =========================================================
-   DESKTOP MEDIUM
-   ========================================================= */
-
-@media (max-width: 1199.98px) {
-
-  .about-hero__layout {
-    grid-template-columns:
-      minmax(0, 0.85fr)
-      minmax(390px, 0.9fr);
-
-    gap: 54px;
-  }
-
-
-  .about-hero__description {
-    font-size: 14px;
-    line-height: 1.56;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 991.98px) {
-
-  /* HERO */
-
   .about-hero {
-    height: auto;
-    min-height: 100vh;
-    max-height: none;
+    background-position: 62% center;
   }
 
-
-  @supports (height: 100dvh) {
-
-    .about-hero {
-      min-height: 100dvh;
-    }
-
+  .about-hero__overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 25, 17, .9),
+      rgba(5, 25, 17, .48)
+    );
   }
-
-
-  .about-hero__container {
-    height: auto;
-  }
-
-
-  .about-hero__layout {
-    grid-template-columns: 1fr;
-
-    gap: 24px;
-
-    padding: 126px 20px 88px;
-  }
-
 
   .about-hero__copy {
-    max-width: 760px;
-
-    justify-self: start;
-
-    padding-left: 22px;
+    border-left: 0;
+    padding-left: 0 !important;
   }
-
-
-  .about-hero__title {
-    max-width: 760px;
-  }
-
-
-  .about-hero__description {
-    font-size: 14px;
-    line-height: 1.58;
-  }
-
-
-  /* SECTIONS */
-
-  .about-section {
-    padding: 86px 0;
-  }
-
-
-  /* STORY */
-
-  .about-story {
-    grid-template-columns: 1fr;
-  }
-
 
   .about-story__media {
-    min-height: 330px;
-    max-height: none;
+    min-height: 320px;
   }
 
-
-  .about-story__content {
-    padding: 42px;
-  }
-
-
-  /* SECTION HEADING */
-
-  .section-heading {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-  }
-
-
-  .section-heading p {
-    padding-top: 0;
-  }
-
-
-  /* VALUES */
-
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  .value-card {
-    min-height: auto;
-  }
-
-
-  /* GIFT */
-
-  .gift-cta {
-    grid-template-columns: 1fr;
-  }
-
-
-  .gift-cta__content {
-    padding: 42px;
-  }
-
-
-  .gift-cta__media {
-    min-height: 340px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 575.98px) {
-
-  /* HERO */
-
-  .about-hero__layout {
-    padding: 110px 12px 78px;
-  }
-
-
-  .about-hero__eyebrow-logo {
-    width: 28px;
-    height: 20px;
-  }
-
-
-  .about-hero__title {
-    font-size: 43px;
-  }
-
-
-  .about-hero__copy {
-    padding-left: 16px;
-  }
-
-
-  .about-hero__description {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-
-  .about-hero__scroll {
-    bottom: 12px;
-  }
-
-
-  /* SECTIONS */
-
-  .about-section {
-    padding: 72px 0;
-  }
-
-
-  .about-section .container-xxl {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-
-  /* STORY */
-
-  .about-story {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .about-story__media {
+  .about-gift__media {
     min-height: 300px;
   }
+}
 
-
-  .about-story__content {
-    padding: 28px;
+@media (max-width: 575.98px) {
+  .about-hero__title {
+    font-size: 2.75rem;
   }
 
-
-  /* HEADINGS */
-
-  .about-story__content h2,
-  .section-heading h2,
-  .gift-cta__content h2 {
-    margin-bottom: 16px;
+  .about-hero__scroll {
+    bottom: 16px;
   }
 
-
-  /* TEXT */
-
-  .about-story__content p,
-  .section-heading p,
-  .value-card p,
-  .gift-cta__content p {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-
-  /* VALUES */
-
-  .values-grid {
-    gap: 16px;
-  }
-
-
-  .value-card {
-    padding: 24px !important;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .value-card__icon {
-    width: 42px;
-    height: 42px;
-
-    margin-bottom: 22px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-
-  .value-card h3 {
-    font-size: 20px;
-  }
-
-
-  /* GIFT */
-
-  .about-section--gift {
-    padding-top: 16px;
-  }
-
-
-  .gift-cta {
-    border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-  }
-
-
-  .gift-cta__content {
-    padding: 28px;
-  }
-
-
-  .gift-cta__media {
+  .about-story__media {
     min-height: 280px;
   }
 
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .about-section .container-xxl {
-    padding-left: 14px;
-    padding-right: 14px;
+  .about-gift__media {
+    min-height: 280px;
   }
-
-
-  .about-story__content,
-  .gift-cta__content {
-    padding: 24px;
-  }
-
-
-  .value-card {
-    padding: 22px !important;
-  }
-
 }
-
-/* =========================================================
-   METRONIC RADIUS STANDARD
-   Regular UI surfaces use the exact Metronic card radius.
-   Circular avatars/symbols remain circular.
-   ========================================================= */
-:host {
-  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
-}
-
-// .card,
-// .btn,
-// .form-control,
-// .form-select,
-// .input-group,
-// .input-group-text,
-// .modal-content,
-// .dropdown-menu,
-// .alert,
-// .badge,
-// [class*="card"]:not(.symbol):not([class*="avatar"]),
-// [class*="panel"],
-// [class*="box"],
-// [class*="item"]:not([class*="avatar"]),
-// [class*="option"],
-// [class*="search"],
-// [class*="toggle"],
-// [class*="nav__link"] {
-//   border-radius: var(--styever-ui-radius) !important;
-// }
-
-.symbol,
-[class*="avatar"] {
-  border-radius: 50%;
-}
-

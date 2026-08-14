@@ -1,7 +1,16 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../modules/auth/services/auth.guard';
+import { AdminGuard } from '../modules/auth/services/admin.guard';
+import { PermissionGuard } from '../modules/auth/services/permission.guard';
 
 const Routing: Routes = [
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuard, AdminGuard, PermissionGuard],
+    data: { permissionId: 43 },
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
   {
     path: 'profile',
     canActivate: [AuthGuard],
@@ -10,9 +19,37 @@ const Routing: Routes = [
   },
   {
     path: 'usermanagement',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
     loadChildren: () =>
       import('../modules/user-management/user-management.module').then((m) => m.UserManagementModule),
+  },
+  {
+    path: 'planmanagement',
+    canActivate: [AuthGuard, AdminGuard, PermissionGuard],
+    data: { permissionId: 54 },
+    loadChildren: () =>
+      import('../modules/plan-management/plan-management.module').then((m) => m.PlanManagementModule),
+  },
+  {
+    path: 'legalcontentmanagement',
+    canActivate: [AuthGuard, AdminGuard, PermissionGuard],
+    data: { permissionId: 58 },
+    loadChildren: () =>
+      import('../modules/legal-content-management/legal-content-management.module').then((m) => m.LegalContentManagementModule),
+  },
+  {
+    path: 'supportmanagement',
+    canActivate: [AuthGuard, AdminGuard, PermissionGuard],
+    data: { permissionId: 44 },
+    loadChildren: () =>
+      import('../modules/support-management/support-management.module').then((m) => m.SupportManagementModule),
+  },
+  {
+    path: 'faqmanagement',
+    canActivate: [AuthGuard, AdminGuard, PermissionGuard],
+    data: { permissionId: 49 },
+    loadChildren: () =>
+      import('../modules/faq-management/faq-management.module').then((m) => m.FAQManagementAdminModule),
   },
   {
     path: 'home',

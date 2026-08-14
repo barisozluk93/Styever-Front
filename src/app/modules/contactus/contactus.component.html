@@ -119,9 +119,9 @@
                     {{ 'EMAIL' | translate }}
                   </div>
                   <a
-                    href="mailto:info@styever.co"
+                    href="mailto:info@styever.com"
                     class="text-gray-900 text-hover-primary fw-bold fs-7">
-                    info&#64;styever.co
+                    info&#64;styever.com
                   </a>
                 </div>
               </div>
@@ -333,7 +333,7 @@
   let-validation="validation">
 
   <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-    <div class="fv-plugins-message-container mt-1">
+    <div class="fv-plugins-message-container mt-1 text-danger fw-semibold fs-7">
       <span role="alert" class="text-danger fs-8 fw-semibold">
         {{ message }}
       </span>

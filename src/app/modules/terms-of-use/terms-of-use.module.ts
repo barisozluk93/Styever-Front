@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LegalContentSharedModule } from '../common/legal-content/legal-content-shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslationModule } from '../i18n/translation.module';
@@ -17,6 +18,7 @@ import { TermsOfUseRoutingModule } from './terms-of-use-routing.module';
     DataTableModule,
     ConfirmationModule,
     CommonModule,
+    LegalContentSharedModule,
     TranslationModule,
     TermsOfUseRoutingModule,
     FormsModule,

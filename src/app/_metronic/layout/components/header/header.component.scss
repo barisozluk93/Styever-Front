@@ -27,7 +27,6 @@
   flex: 0 0 auto;
 }
 
-/* Keep Metronic's original mobile switcher geometry/behaviour. */
 .mobile-original-aside-toggle {
   flex: 0 0 auto;
 }
@@ -41,6 +40,49 @@
   max-height: 42px !important;
 }
 
+/* Desktop layout: logo -> menu -> topbar. */
+@media (min-width: 992px) {
+  .styever-header-container {
+    justify-content: flex-start !important;
+  }
+
+  :host ::ng-deep app-header-menu {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin-left: 7rem !important;
+    margin-right: 1.5rem !important;
+  }
+
+  :host ::ng-deep app-topbar {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  :host ::ng-deep app-header-menu {
+    margin-left: 5.5rem !important;
+    margin-right: 1rem !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  :host ::ng-deep app-header-menu {
+    margin-left: 3.25rem !important;
+    margin-right: .75rem !important;
+  }
+
+  .styever-header-logo {
+    width: 82px !important;
+    min-width: 82px !important;
+    max-width: 82px !important;
+  }
+}
+
 @media (max-width: 575.98px) {
   .styever-header-logo-mobile {
     width: 64px !important;
@@ -49,5 +91,32 @@
     max-width: 64px !important;
     min-height: 38px !important;
     max-height: 38px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL HEADER ALIGNMENT
+   Center the menu group between logo and topbar.
+   ========================================================= */
+@media (min-width: 992px) {
+  #kt_header_container {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center !important;
+    column-gap: 1.5rem;
+  }
+
+  #kt_header_container > app-header-menu {
+    width: 100%;
+    min-width: 0;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  #kt_header_container > app-topbar {
+    justify-self: end;
+    margin-left: 0 !important;
   }
 }

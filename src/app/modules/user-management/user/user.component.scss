@@ -1,0 +1,17 @@
+.admin-data-page {
+  min-height: 100dvh;
+  padding: 3rem 0 4rem;
+  overflow: visible;
+}
+
+@supports not (height: 100dvh) {
+  .admin-data-page {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .admin-data-page {
+    padding-top: 1.5rem;
+  }
+}

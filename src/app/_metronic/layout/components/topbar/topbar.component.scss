@@ -5,7 +5,6 @@
 .notification-symbol-label {
   background: linear-gradient(180deg, #f9fbfd 0%, #f1f5f9 100%);
   border: 1px solid #e9eef5;
-  border-radius: 12px;
   transition: all 0.25s ease;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   overflow: visible !important;
@@ -122,4 +121,46 @@
 
 .styever-user-menu-wrap {
   overflow: visible !important;
+}
+
+.styever-admin-toggle {
+  min-height: 40px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 10px;
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  font-weight: 600;
+  transition: all .2s ease;
+}
+
+.styever-admin-toggle i {
+  color: inherit;
+  font-size: 16px;
+}
+
+.styever-admin-toggle:hover {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+.styever-admin-toggle.active {
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.28);
+  color: #fff;
+}
+
+.styever-admin-toggle.active:hover {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .styever-admin-toggle {
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
 }

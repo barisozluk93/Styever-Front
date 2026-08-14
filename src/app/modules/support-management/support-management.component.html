@@ -1,0 +1,8 @@
+<app-support-admin-editsave #editSaveComponent (isSuccess)="loadData()"></app-support-admin-editsave>
+<app-confirmation #confirmationComponent (dismissButtonClick)="delete($event)"></app-confirmation>
+<div class="admin-data-page">
+  <app-datatable [header]="tableName" [paginationModel]="paginationModel" [dataSource]="dataSource" [totalCount]="totalCount" [columnList]="columnList" [serverSideFiltering]="true" (filtersChange)="filtersChange($event)"
+    (paginationModelChange)="paginationModelChange($event)" (newButtonClick)="openSaveModal()" (deleteButtonClick)="openDeleteModal($event)" (editButtonClick)="openEditModal($event)"
+    class="card card-flush shadow-sm"
+    [hasEditPermission]="hasPermission" [hasDeletePermission]="hasPermission" [hasNewRecordPermission]="hasPermission"></app-datatable>
+</div>

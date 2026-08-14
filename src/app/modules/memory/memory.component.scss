@@ -2,1405 +2,263 @@
   display: block;
   width: 100%;
   min-height: 100vh;
+  background-color: #f7f5f0;
+}
 
+.styever-memories {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.memory-app-bg {
   background-color: #f7f5f0 !important;
 }
 
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
-.styever-memories {
-  width: 100%;
-  min-height: 100vh;
-
-  overflow: hidden;
-
-  background-color:
-    #f7f5f0;
-
-  color:
-    var(--bs-gray-900);
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
+/* HERO */
 .memory-hero {
-  width: 100%;
-
-  min-height: 56vh;
-
-  background:
-    url('/assets/media/patterns/addmemory.jpg')
-    center 48% / cover no-repeat;
+  min-height: 560px;
+  overflow: hidden;
+  padding: 120px 0 80px;
+  background: url('/assets/media/patterns/addmemory.jpg') center 48% / cover no-repeat;
 }
 
-
-/* =========================================================
-   HERO SHADE
-   ========================================================= */
-
-.memory-hero__shade {
+.memory-hero__overlay {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 25, 17, 0.88),
-      rgba(5, 25, 17, 0.66) 38%,
-      rgba(5, 25, 17, 0.22) 70%,
-      rgba(5, 25, 17, 0.08)
+      rgba(5, 25, 17, .88) 0%,
+      rgba(5, 25, 17, .66) 38%,
+      rgba(5, 25, 17, .22) 70%,
+      rgba(5, 25, 17, .08) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(5, 25, 17, 0.24),
+      rgba(5, 25, 17, .24),
       transparent 45%
     );
 }
 
-
-/* =========================================================
-   HERO CONTAINER
-   ========================================================= */
-
-.memory-hero__container {
-  width: 100%;
-}
-
-
-/* =========================================================
-   HERO LAYOUT
-   ========================================================= */
-
-.memory-hero__layout {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(460px, 0.95fr);
-
-  align-items: center;
-
-  gap: 54px;
-
-  padding:
-    128px
-    0
-    72px;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
-.memory-hero__content {
-  max-width: 690px;
-}
-
-
-/* =========================================================
-   HERO EYEBROW
-   ========================================================= */
-
-.memory-hero__eyebrow {
-  color:
-    rgba(255, 255, 255, 0.82);
-
-  font-size: 12px;
-
-  letter-spacing: 0.18em;
-}
-
-
-.memory-hero__eyebrow-logo {
-  display: block;
-
-  width: 32px;
-  height: 22px;
-
+.memory-hero__brand {
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  object-position: center;
 }
-
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
 
 .memory-hero__title {
   max-width: 650px;
-
-  margin:
-    18px
-    0
-    16px;
-
-  font-size:
-    clamp(42px, 5vw, 68px);
-
-  line-height: 1;
-
-  letter-spacing:
-    -0.04em;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: .99;
+  letter-spacing: -.045em;
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
-
-.memory-hero__description {
-  max-width: 610px;
-
-  color:
-    rgba(255, 255, 255, 0.82);
-
-  font-size: 16px;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   HERO TOOLS
-   ========================================================= */
-
-.memory-hero__tools {
-  width: 100%;
-
-  padding: 0;
-
-  border: 0;
-
-  background:
-    transparent;
-
-  box-shadow:
-    none;
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
 
 .memory-search {
-  width: 100%;
-
   min-height: 62px;
-  height: 62px;
-
-  padding:
-    8px;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  overflow: hidden;
-
-  box-shadow:
-    0
-    18px
-    55px
-    rgba(0, 0, 0, 0.18);
 }
-
-
-.memory-search .input-group-text {
-  height: 46px;
-}
-
 
 .memory-search .form-control {
   min-width: 0;
-
-  height: 46px;
-
-  padding:
-    0
-    12px;
-
-  color:
-    var(--bs-gray-900);
-
-  font-size: 14px;
 }
-
-
-.memory-search .form-control::placeholder {
-  color:
-    var(--bs-gray-500);
-}
-
-
-/* =========================================================
-   SEARCH BUTTON
-   ========================================================= */
 
 .memory-search__button {
-  height: 46px;
-
-  padding:
-    0
-    22px !important;
-
-  border:
-    1px solid var(--bs-primary) !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  white-space: nowrap;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease !important;
+  border-radius: var(--bs-border-radius) !important;
 }
-
-
-.memory-search__button:hover,
-.memory-search__button:focus,
-.memory-search__button:active {
-   background-color: var(--bs-primary) !important;
-  color: var(--bs-primary-inverse) !important;
-  border: 0 !important;
-}
-
-
-.memory-search__button i {
-  color: inherit !important;
-}
-
-
-/* =========================================================
-   FILTERS
-   ========================================================= */
-
-.memory-filters {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    auto
-    auto;
-
-  gap: 12px;
-
-  margin-top: 12px;
-}
-
-
-/* =========================================================
-   SELECT
-   ========================================================= */
-
-.memory-select-wrap {
-  height: 48px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  padding:
-    0
-    14px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.18);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    rgba(255, 255, 255, 0.1);
-
-  color:
-    #fff;
-
-  backdrop-filter:
-    blur(10px);
-}
-
-
-.memory-select-wrap i {
-  color: inherit;
-}
-
-
-.memory-select-wrap select {
-  width: 100%;
-
-  border: 0;
-
-  outline: 0;
-
-  background:
-    transparent;
-
-  color:
-    #fff;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-
-.memory-select-wrap option {
-  background:
-    #fff;
-
-  color:
-    var(--bs-gray-900);
-}
-
-
-/* =========================================================
-   MY MEMORIES
-   ========================================================= */
 
 .memory-mine {
-  height: 48px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  padding:
-    0
-    14px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.18);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    rgba(255, 255, 255, 0.1);
-
-  color:
-    #fff;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  backdrop-filter:
-    blur(10px);
-}
-
-
-.memory-mine input {
-  position:
-    absolute;
-
-  opacity: 0;
-
-  pointer-events:
-    none;
-}
-
-
-.memory-mine__check {
-  width: 19px;
-  height: 19px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.55);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    rgba(255, 255, 255, 0.08);
-
-  font-size:
-    12px;
-}
-
-
-.memory-mine__check i {
-  opacity: 0;
-}
-
-
-.memory-mine
-input:checked
-+
-.memory-mine__check {
-  border-color:
-    #fff;
-
-  background:
-    #fff;
-
-  color:
-    var(--bs-primary);
-}
-
-
-.memory-mine
-input:checked
-+
-.memory-mine__check
-i {
-  opacity: 1;
-}
-
-
-/* =========================================================
-   ADD MEMORY
-   ========================================================= */
-
-.memory-add {
-  height: 48px;
-
-  padding:
-    0
-    18px !important;
-
-  border:
-    1px solid var(--bs-primary) !important;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  white-space:
-    nowrap;
-
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease !important;
+    background-color .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
+.memory-mine:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1.5rem rgba(20, 46, 34, .12);
+}
 
-.memory-add:hover,
-.memory-add:focus,
-.memory-add:active {
-  background-color: var(--bs-primary) !important;
-  color: var(--bs-primary-inverse) !important;
+.memory-hero__scroll {
+  z-index: 3;
+  bottom: 14px;
+  min-width: 50px;
+  padding: .5rem !important;
+  background: transparent !important;
   border: 0 !important;
+  box-shadow: none !important;
+  transition: transform .2s ease;
 }
 
-
-.memory-add i {
-  color: inherit !important;
+.memory-hero__scroll:hover,
+.memory-hero__scroll:focus {
+  background: transparent !important;
+  color: #fff !important;
+  transform: translateX(-50%) translateY(-3px) !important;
 }
 
-
-/* =========================================================
-   MEMORY SECTION
-   FULL BACKGROUND #f7f5f0
-   ========================================================= */
-
-.memory-section {
-  position:
-    relative;
-
-  width:
-    100%;
-
-  min-height:
-    44vh;
-
-  padding:
-    38px
-    0
-    88px;
-
-  background:
-    #f7f5f0 !important;
-
-  background-color:
-    #f7f5f0 !important;
-}
-
-
-/* No Metronic white backgrounds */
-
-.memory-section >
-.container-xxl,
-.memory-section
-.memory-grid {
-  background:
-    transparent !important;
-}
-
-
-/* =========================================================
-   GRID
-   ========================================================= */
-
-.memory-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap:
-    20px;
-}
-
-
-/* =========================================================
-   MEMORY CARD
-   ========================================================= */
-
+/* MEMORY CARDS */
 .memory-card {
-  min-width:
-    0;
-}
-
-
-/* =========================================================
-   IMAGE
-   ========================================================= */
-
-.memory-card__image {
-  position:
-    relative;
-
-  min-height:
-    360px;
-
-  overflow:
-    hidden;
-
-  border:
-    1px solid
-    rgba(
-      var(--bs-primary-rgb),
-      0.14
-    );
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background-position:
-    center;
-
-  background-size:
-    cover;
-
-  box-shadow:
-    none;
-
+  border: 0;
   transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    transform .25s ease,
+    box-shadow .25s ease;
+  will-change: transform;
 }
 
-
-.memory-card:hover
-.memory-card__image {
-  border-color:
-    rgba(
-      var(--bs-primary-rgb),
-      0.32
-    );
-
-  transform:
-    translateY(-2px);
+.memory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .16) !important;
 }
 
-
-/* =========================================================
-   SHADE
-   ========================================================= */
+.memory-card__media {
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
 
 .memory-card__shade {
-  position:
-    absolute;
-
-  inset:
-    0;
-
   background:
     linear-gradient(
-      180deg,
-      rgba(2, 15, 10, 0.07)
-      25%,
-      rgba(2, 18, 12, 0.86)
-      100%
+      0deg,
+      rgba(5, 25, 17, .92) 0%,
+      rgba(5, 25, 17, .62) 28%,
+      rgba(5, 25, 17, .12) 65%,
+      rgba(5, 25, 17, .05) 100%
+    );
+  transition: background .25s ease;
+}
+
+.memory-card:hover .memory-card__shade {
+  background:
+    linear-gradient(
+      0deg,
+      rgba(5, 25, 17, .94) 0%,
+      rgba(5, 25, 17, .67) 30%,
+      rgba(5, 25, 17, .16) 66%,
+      rgba(5, 25, 17, .06) 100%
     );
 }
-
-
-/* =========================================================
-   QR
-   ========================================================= */
-
-.memory-card__qr {
-  position:
-    absolute;
-
-  z-index:
-    2;
-
-  top:
-    14px;
-
-  right:
-    14px;
-
-  padding:
-    4px;
-
-  border:
-    1px solid
-    rgba(
-      var(--bs-primary-rgb),
-      0.12
-    );
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    #fff;
-
-  box-shadow:
-    0
-    8px
-    22px
-    rgba(0, 0, 0, 0.12);
-}
-
-
-/* =========================================================
-   CARD BODY
-   ========================================================= */
-
-.memory-card__body {
-  position:
-    absolute;
-
-  z-index:
-    2;
-
-  left:
-    0;
-
-  right:
-    0;
-
-  bottom:
-    0;
-
-  padding:
-    20px;
-
-  color:
-    #fff;
-}
-
-
-/* =========================================================
-   AUTHOR
-   ========================================================= */
-
-.memory-card__author {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    11px;
-}
-
-
-.memory-card__avatar {
-  width:
-    42px;
-
-  height:
-    42px;
-
-  flex-shrink:
-    0;
-
-  border:
-    2px solid
-    rgba(255, 255, 255, 0.9);
-
-  border-radius:
-    50%;
-
-  object-fit:
-    cover;
-}
-
-
-.memory-card__author > div {
-  min-width:
-    0;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    2px;
-}
-
-
-.memory-card__author strong {
-  overflow:
-    hidden;
-
-  color:
-    #fff;
-
-  font-size:
-    13px;
-
-  font-weight:
-    700;
-
-  text-overflow:
-    ellipsis;
-
-  white-space:
-    nowrap;
-}
-
-
-.memory-card__author span {
-  color:
-    rgba(255, 255, 255, 0.66);
-
-  font-size:
-    11px;
-}
-
-
-/* =========================================================
-   DIVIDER
-   ========================================================= */
-
-.memory-card__divider {
-  height:
-    1px;
-
-  margin:
-    14px
-    0;
-
-  background:
-    rgba(255, 255, 255, 0.2);
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.memory-card__footer {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
-  gap:
-    18px;
-}
-
-
-/* =========================================================
-   TITLE
-   ========================================================= */
 
 .memory-card__title {
-  min-width:
-    0;
+  max-width: 52%;
+  text-decoration: none !important;
+}
 
-  max-width:
-    68%;
+.memory-card__title:hover,
+.memory-card__title:focus {
+  color: #fff !important;
+  opacity: .82;
+}
 
-  padding:
-    0;
+.memory-card__qr {
+  z-index: 3;
+}
 
-  border:
-    0;
+.memory-card__qr qrcode,
+.memory-card__qr canvas {
+  display: block;
+}
 
-  background:
-    transparent;
-
-  color:
-    #fff;
-
-  text-align:
-    left;
-
-  font-size:
-    20px;
-
-  line-height:
-    1.2;
-
-  font-weight:
-    700;
-
+.memory-action-btn {
+  border: 1px solid rgba(255, 255, 255, .12) !important;
   transition:
-    opacity 0.2s ease;
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
 }
 
-
-.memory-card__title:hover {
-  opacity:
-    0.78;
+.memory-action-btn:hover,
+.memory-action-btn:focus {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   ACTIONS
-   ========================================================= */
-
-.memory-card__actions {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    7px;
-
-  flex-shrink:
-    0;
+.memory-action-btn:hover i,
+.memory-action-btn:focus i {
+  color: #fff !important;
 }
-
-
-.memory-card__actions button {
-  height:
-    34px;
-
-  min-width:
-    34px;
-
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    5px;
-
-  padding:
-    0
-    8px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.18);
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    rgba(255, 255, 255, 0.1);
-
-  color:
-    #fff;
-
-  font-size:
-    12px;
-
-  backdrop-filter:
-    blur(8px);
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-
-.memory-card__actions button:hover {
-  border-color:
-    rgba(255, 255, 255, 0.3);
-
-  background:
-    rgba(255, 255, 255, 0.2);
-}
-
-
-.memory-card__actions button i,
-.memory-card__actions button span {
-  color:
-    inherit;
-}
-
-
-/* =========================================================
-   EMPTY
-   ========================================================= */
 
 .memory-empty {
-  min-height:
-    300px;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border-radius: var(--bs-card-border-radius, 0.625rem) !important;
-
-  background:
-    transparent !important;
-
-  box-shadow:
-    none !important;
+  background: #fff;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
 }
 
-
-.memory-empty__icon {
-  width:
-    48px;
-
-  height:
-    48px;
-
-  margin-bottom:
-    16px;
-
-  border:
-    1px solid
-    rgba(
-      var(--bs-primary-rgb),
-      0.12
-    );
-
-  border-radius: var(--bs-card-border-radius, 0.625rem);
-
-  background:
-    var(--bs-primary-light);
+.memory-empty:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--bs-primary-rgb), .18) !important;
+  box-shadow: 0 1rem 2.5rem rgba(20, 46, 34, .10) !important;
 }
 
-
-.memory-empty h3 {
-  margin:
-    0;
-
-  font-size:
-    20px;
-}
-
-
-/* =========================================================
-   LOAD MORE
-   ========================================================= */
-
-.memory-load-more {
-  min-height:
-    76px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media
-(max-width: 1199.98px) {
-
-  .memory-hero__layout {
-    grid-template-columns:
-      1fr
-      1fr;
-
-    gap:
-      38px;
+@media (max-width: 1199.98px) {
+  .memory-card__media {
+    min-height: 380px;
   }
-
-
-  .memory-filters {
-    grid-template-columns:
-      1fr
-      1fr;
-  }
-
-
-  .memory-add {
-    grid-column:
-      1 / -1;
-  }
-
 }
 
-
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
-
-@media
-(max-width: 991.98px) {
-
+@media (max-width: 991.98px) {
   .memory-hero {
-    min-height:
-      auto;
+    min-height: 0;
+    padding: 110px 0 75px;
+    background-position: 62% center;
   }
 
-
-  .memory-hero__layout {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      26px;
-
-    padding:
-      118px
-      20px
-      58px;
+  .memory-hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 25, 17, .9),
+        rgba(5, 25, 17, .48)
+      );
   }
 
-
-  .memory-hero__tools {
-    max-width:
-      none;
+  .memory-card__media {
+    min-height: 360px;
   }
-
-
-  .memory-filters {
-    grid-template-columns:
-      1fr
-      1fr;
-  }
-
-
-  .memory-add {
-    grid-column:
-      1 / -1;
-  }
-
-
-  .memory-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .memory-card__image {
-    min-height:
-      360px;
-  }
-
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media
-(max-width: 575.98px) {
-
-  /* HERO */
-
-  .memory-hero__layout {
-    padding:
-      104px
-      12px
-      48px;
-  }
-
-
-  .memory-hero__eyebrow-logo {
-    width:
-      28px;
-
-    height:
-      20px;
-  }
-
-
-  .memory-hero__title {
-    font-size:
-      42px;
-  }
-
-
-  .memory-hero__description {
-    font-size:
-      14px;
-  }
-
-
-  /* SEARCH */
-
+@media (max-width: 767.98px) {
   .memory-search {
-    min-height:
-      auto;
-
-    height:
-      auto;
-
-    display:
-      grid;
-
-    grid-template-columns:
-      auto
-      minmax(0, 1fr);
-
-    gap:
-      2px;
-
-    padding:
-      8px;
+    min-height: 58px;
   }
-
-
-  .memory-search
-  .input-group-text {
-    height:
-      44px;
-  }
-
-
-  .memory-search
-  .form-control {
-    height:
-      44px;
-  }
-
 
   .memory-search__button {
-    grid-column:
-      1 / -1;
-
-    width:
-      100%;
-
-    height:
-      44px;
-
-    margin-top:
-      4px;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
+  .memory-card__media {
+    min-height: 360px;
+  }
+}
 
-  /* FILTERS */
-
-  .memory-filters {
-    grid-template-columns:
-      1fr;
+@media (max-width: 575.98px) {
+  .memory-hero {
+    padding-top: 110px;
   }
 
-
-  .memory-add {
-    grid-column:
-      auto;
+  .memory-hero__title {
+    font-size: 2.75rem;
   }
 
-
-  .memory-select-wrap,
-  .memory-mine,
-  .memory-add {
-    width:
-      100%;
+  .memory-hero__scroll {
+    bottom: 14px;
   }
 
-
-  /* SECTION */
-
-  .memory-section {
-    padding:
-      26px
-      0
-      72px;
+  .memory-card__media {
+    min-height: 360px;
   }
-
-
-  .memory-section
-  .container-xxl {
-    padding-left:
-      16px;
-
-    padding-right:
-      16px;
-  }
-
-
-  /* CARD */
-
-  .memory-card__image {
-    min-height:
-      330px;
-
-    border-radius: var(--bs-card-border-radius, 0.625rem);
-  }
-
-
-  .memory-card__body {
-    padding:
-      17px;
-  }
-
-
-  .memory-card__avatar {
-    width:
-      40px;
-
-    height:
-      40px;
-  }
-
-
-  .memory-card__footer {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap:
-      12px;
-  }
-
 
   .memory-card__title {
-    max-width:
-      100%;
-
-    font-size:
-      18px;
+    max-width: 46%;
+    font-size: 1rem !important;
   }
 
-
-  .memory-card__actions {
-    width:
-      100%;
-
-    justify-content:
-      flex-end;
+  .memory-action-btn {
+    min-width: 34px;
   }
-
-
-  .memory-card__actions
-  button {
-    height:
-      32px;
-
-    min-width:
-      32px;
-  }
-
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media
-(max-width: 390px) {
-
-  .memory-section
-  .container-xxl {
-    padding-left:
-      14px;
-
-    padding-right:
-      14px;
-  }
-
-
-  .memory-card__image {
-    min-height:
-      310px;
-  }
-
-
-  .memory-card__body {
-    padding:
-      15px;
-  }
-
-
-  .memory-card__title {
-    font-size:
-      17px;
-  }
-
-}
-
-/* =========================================================
-   METRONIC RADIUS STANDARD
-   Regular UI surfaces use the exact Metronic card radius.
-   Circular avatars/symbols remain circular.
-   ========================================================= */
-:host {
-  --styever-ui-radius: var(--bs-card-border-radius, 0.625rem);
-}
-
-// .card,
-// .btn,
-// .form-control,
-// .form-select,
-// .input-group,
-// .input-group-text,
-// .modal-content,
-// .dropdown-menu,
-// .alert,
-// .badge,
-// [class*="card"]:not(.symbol):not([class*="avatar"]),
-// [class*="panel"],
-// [class*="box"],
-// [class*="item"]:not([class*="avatar"]),
-// [class*="option"],
-// [class*="search"],
-// [class*="toggle"],
-// [class*="nav__link"] {
-//   border-radius: var(--styever-ui-radius) !important;
-// }
-
-.symbol,
-[class*="avatar"] {
-  border-radius: 50%;
-}
-

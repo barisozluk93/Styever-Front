@@ -1,38 +1,21 @@
-<main class="styever-articles bg-styever-warm">
-
-  <!-- =====================================================
-       HERO
-       ===================================================== -->
+<main class="styever-articles">
+  <!-- HERO -->
   <section class="articles-hero position-relative d-flex align-items-center">
-
-    <div
-      class="articles-hero__shade position-absolute top-0 start-0 w-100 h-100">
-    </div>
+    <div class="articles-hero__overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
     <div class="container-xxl position-relative z-index-2 w-100">
-
-      <div class="articles-hero__layout">
-
-        <!-- LEFT -->
-        <div class="articles-hero__content">
-
-          <div
-            class="articles-hero__eyebrow d-inline-flex align-items-center gap-2 fw-bold text-uppercase">
-
+      <div class="row align-items-center g-8 g-xl-10">
+        <div class="col-xl-7 col-lg-7">
+          <div class="d-flex align-items-center gap-3 mb-6 text-white text-uppercase fw-bold fs-8 ls-2">
             <img
               src="/assets/media/logos/logo.png"
               alt="Styever"
-              class="articles-hero__eyebrow-logo flex-shrink-0"
+              class="articles-hero__brand flex-shrink-0"
             />
-
-            <span>
-              {{ 'SUPPORT_HEADER' | translate }}
-            </span>
-
+            <span>{{ 'SUPPORT_HEADER' | translate }}</span>
           </div>
 
-
-          <h1 class="articles-hero__title fw-bold text-white">
+          <h1 class="articles-hero__title text-white fw-bolder lh-sm mb-5">
             {{
               ('LANG' | translate) === 'tr'
                 ? 'Yanınızda olacak içerikleri keşfedin.'
@@ -40,128 +23,88 @@
             }}
           </h1>
 
-
-          <p class="articles-hero__description mb-0">
+          <p class="text-white opacity-75 fs-5 lh-lg mw-650px mb-0">
             {{
               ('LANG' | translate) === 'tr'
                 ? 'Anma, yas ve hatıraları yaşatma sürecinde ihtiyaç duyabileceğiniz rehberleri özenle bir araya getirdik.'
                 : 'We thoughtfully brought together guides for remembrance, grief and keeping meaningful memories alive.'
             }}
           </p>
-
         </div>
 
-
-        <!-- RIGHT -->
-        <div class="articles-hero__actions">
-
-          <form
-            class="articles-search"
-            (ngSubmit)="onSearch()">
-
-            <div
-              class="input-group input-group-solid bg-white rounded-3 p-2 shadow-sm">
-
-              <span
-                class="input-group-text border-0 bg-transparent ps-4 pe-2">
-
+        <div class="col-xl-5 col-lg-5">
+          <div class="ps-lg-6">
+            <form
+              class="input-group bg-white rounded shadow-sm p-2 articles-search"
+              (ngSubmit)="onSearch()"
+            >
+              <span class="input-group-text border-0 bg-transparent ps-3 pe-2">
                 <i class="ki-duotone ki-magnifier fs-2 text-primary">
                   <span class="path1"></span>
                   <span class="path2"></span>
                 </i>
-
               </span>
-
 
               <input
                 type="search"
-                class="form-control form-control-lg border-0 bg-transparent shadow-none px-2"
+                class="form-control form-control-lg border-0 bg-transparent shadow-none"
                 [placeholder]="'SEARCH_BAR' | translate"
                 [attr.aria-label]="'SEARCH_BAR' | translate"
                 [(ngModel)]="searchTerm"
                 name="searchTerm"
               />
 
-
-              <button
-                type="submit"
-                class="btn btn-primary btn-lg px-7 rounded-3">
-
+              <button type="submit" class="btn btn-primary px-6">
                 {{ 'SEARCH_BAR' | translate }}
-
                 <i class="ki-duotone ki-arrow-right fs-3 ms-2">
                   <span class="path1"></span>
                   <span class="path2"></span>
                 </i>
-
               </button>
+            </form>
 
+            <div class="d-flex align-items-center gap-3 mt-5 text-white opacity-75 fs-7 lh-lg">
+              <span class="symbol symbol-40px flex-shrink-0">
+                <span class="symbol-label bg-white bg-opacity-10">
+                  <i class="ki-duotone ki-heart text-white fs-2">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                  </i>
+                </span>
+              </span>
+
+              <span>
+                {{
+                  ('LANG' | translate) === 'tr'
+                    ? 'Kaybın ardından ihtiyaç duyabileceğiniz bilgileri sakin, anlaşılır ve güvenli bir alanda keşfedin.'
+                    : 'Explore thoughtful guidance in a calm, clear and safe space whenever you need it.'
+                }}
+              </span>
             </div>
-
-          </form>
-
-
-          <div
-            class="articles-hero__note d-flex align-items-center gap-3">
-
-            <div
-              class="articles-hero__note-icon d-flex align-items-center justify-content-center flex-shrink-0">
-
-              <i class="ki-duotone ki-heart fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-              </i>
-
-            </div>
-
-            <span>
-              {{
-                ('LANG' | translate) === 'tr'
-                  ? 'Kaybın ardından ihtiyaç duyabileceğiniz bilgileri sakin, anlaşılır ve güvenli bir alanda keşfedin.'
-                  : 'Explore thoughtful guidance in a calm, clear and safe space whenever you need it.'
-              }}
-            </span>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- =====================================================
-       ARTICLES
-       ===================================================== -->
+  <!-- ARTICLES -->
   <section
     #articlesSection
-    class="articles-section bg-styever-warm">
-
+    id="articles"
+    class="py-10 py-lg-12 articles-app-bg"
+  >
     <div class="container-xxl">
-
-      <ng-container
-        *ngIf="dataSource && dataSource.length; else emptyArticles">
-
-        <div class="row g-4 g-xl-5">
-
+      <ng-container *ngIf="dataSource && dataSource.length; else emptyArticles">
+        <div class="row g-6 g-lg-8">
           <div
             class="col-12 col-md-6 col-xl-4"
-            *ngFor="
-              let data of dataSource;
-              trackBy: trackByArticleId
-            ">
-
+            *ngFor="let data of dataSource; trackBy: trackByArticleId"
+          >
             <article
-              class="card article-card border border-gray-300 shadow-none h-100 cursor-pointer"
-              (click)="articleEditView(data.id)">
-
-
-              <!-- IMAGE -->
-              <div class="article-card__media">
-
+              class="card card-flush h-100 overflow-hidden cursor-pointer article-card"
+              (click)="articleEditView(data.id)"
+            >
+              <div class="article-card__media position-relative">
                 <img
                   *ngIf="data.file; else fallbackImage"
                   [src]="data.fileUrl"
@@ -172,9 +115,7 @@
                   "
                 />
 
-
                 <ng-template #fallbackImage>
-
                   <img
                     src="./assets/media/patterns/blank.jpg"
                     [alt]="
@@ -183,16 +124,11 @@
                         : data.headerEn
                     "
                   />
-
                 </ng-template>
 
+                <div class="article-card__overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-                <div class="article-card__shade"></div>
-
-
-                <span
-                  class="badge article-card__badge d-inline-flex align-items-center">
-
+                <span class="badge badge-light-primary position-absolute top-0 start-0 m-5 py-2 px-3 z-index-2">
                   <i class="ki-duotone ki-book-open fs-5 me-2">
                     <span class="path1"></span>
                     <span class="path2"></span>
@@ -205,237 +141,151 @@
                       ? 'STYEVER REHBERİ'
                       : 'STYEVER GUIDE'
                   }}
-
                 </span>
-
               </div>
 
-
-              <!-- BODY -->
-              <div
-                class="card-body d-flex flex-column p-5 p-xl-6">
-
-                <h3
-                  class="article-card__title fw-bold text-gray-900 mb-2">
-
+              <div class="card-body d-flex flex-column p-6 p-lg-7">
+                <h3 class="fs-3 fw-bold text-gray-900 mb-3 article-card__title">
                   {{
                     ('LANG' | translate) === 'tr'
                       ? data.header
                       : data.headerEn
                   }}
-
                 </h3>
 
-
-                <p
-                  class="article-card__description text-gray-600 flex-grow-1 mb-4">
-
+                <p class="text-gray-600 fs-6 lh-lg flex-grow-1 mb-5 article-card__description">
                   {{
                     ('LANG' | translate) === 'tr'
                       ? data.subHeader
                       : data.subHeaderEn
                   }}
-
                 </p>
 
-
-                <!-- FOOTER -->
-                <div
-                  class="article-card__footer d-flex align-items-center justify-content-between pt-4 border-top border-gray-300">
-
+                <div class="d-flex align-items-center justify-content-between pt-4 border-top border-gray-300">
                   <span class="text-primary fw-bold fs-7">
-
                     {{
                       ('LANG' | translate) === 'tr'
                         ? 'Makaleyi oku'
                         : 'Read article'
                     }}
-
                   </span>
 
-
-                  <span
-                    class="article-card__arrow d-flex align-items-center justify-content-center flex-shrink-0">
-
-                    <i class="ki-duotone ki-arrow-right fs-4">
-                      <span class="path1"></span>
-                      <span class="path2"></span>
-                    </i>
-
+                  <span class="symbol symbol-35px">
+                    <span class="symbol-label bg-light-primary article-card__arrow">
+                      <i class="ki-duotone ki-arrow-right text-primary fs-4">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                      </i>
+                    </span>
                   </span>
-
                 </div>
-
               </div>
-
             </article>
-
           </div>
-
         </div>
-
       </ng-container>
 
-
-      <!-- =================================================
-           EMPTY
-           ================================================= -->
       <ng-template #emptyArticles>
-
-        <div
-          class="card articles-empty bg-transparent border border-gray-300 shadow-none text-center">
-
-          <div class="card-body py-15 px-8">
-
-            <div
-              class="articles-empty__icon d-flex align-items-center justify-content-center mx-auto mb-5">
-
-              <i class="ki-duotone ki-document fs-2x text-primary">
-                <span class="path1"></span>
-                <span class="path2"></span>
-              </i>
-
-            </div>
-
+        <div class="card card-flush border border-gray-300 shadow-none text-center article-empty">
+          <div class="card-body py-15 py-lg-20">
+            <span class="symbol symbol-70px mb-6">
+              <span class="symbol-label bg-light-primary">
+                <i class="ki-duotone ki-document fs-1 text-primary">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+              </span>
+            </span>
 
             <h3 class="fs-2 fw-bold text-gray-900 mb-3">
               {{ 'NO_DATA_AVAILABLE' | translate }}
             </h3>
 
-
             <p class="text-gray-600 fs-6 mb-0">
-
               {{
                 ('LANG' | translate) === 'tr'
                   ? 'Aramanızla eşleşen bir içerik bulunamadı.'
                   : 'We could not find an article matching your search.'
               }}
-
             </p>
-
           </div>
-
         </div>
-
       </ng-template>
-
     </div>
-
   </section>
 
-
-  <!-- =====================================================
-       CTA
-       ===================================================== -->
-  <section class="articles-cta bg-styever-warm">
-
+  <!-- SUPPORT CTA -->
+  <section class="pb-12 pb-lg-15 articles-app-bg">
     <div class="container-xxl">
-
-      <div
-        class="card articles-cta__card border border-primary border-opacity-10 shadow-none">
-
-        <div class="card-body p-7 p-lg-8">
-
+      <div class="card card-flush bg-primary article-support-card">
+        <div class="card-body p-7 p-lg-9">
           <div class="row align-items-center g-6">
-
             <div class="col-lg">
-
               <div class="d-flex align-items-start gap-5">
-
-                <div
-                  class="articles-cta__icon d-flex align-items-center justify-content-center flex-shrink-0">
-
-                  <i class="ki-duotone ki-message-question fs-1">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                  </i>
-
-                </div>
-
+                <span class="symbol symbol-55px flex-shrink-0">
+                  <span class="symbol-label bg-white bg-opacity-10">
+                    <i class="ki-duotone ki-message-question text-white fs-1">
+                      <span class="path1"></span>
+                      <span class="path2"></span>
+                      <span class="path3"></span>
+                    </i>
+                  </span>
+                </span>
 
                 <div>
-
-                  <span
-                    class="articles-kicker articles-kicker--light fw-bold text-uppercase">
-
+                  <div class="text-white opacity-50 text-uppercase fw-bold fs-8 ls-2 mb-2">
                     {{
                       ('LANG' | translate) === 'tr'
                         ? 'DAHA FAZLA DESTEK'
                         : 'MORE SUPPORT'
                     }}
+                  </div>
 
-                  </span>
-
-
-                  <h2 class="text-white fw-bold mt-2 mb-2">
-
+                  <h2 class="text-white fw-bold fs-2 mb-2">
                     {{
                       ('LANG' | translate) === 'tr'
                         ? 'Aradığınız yanıtı bulamadınız mı?'
                         : 'Could not find the answer you were looking for?'
                     }}
-
                   </h2>
 
-
-                  <p class="text-white text-opacity-70 mb-0">
-
+                  <p class="text-white opacity-75 fs-6 mb-0">
                     {{
                       ('LANG' | translate) === 'tr'
                         ? 'Sık sorulan sorulara göz atabilir veya bizimle doğrudan iletişime geçebilirsiniz.'
                         : 'Browse frequently asked questions or get in touch with us directly.'
                     }}
-
                   </p>
-
                 </div>
-
               </div>
-
             </div>
 
-
             <div class="col-lg-auto">
-
-              <div
-                class="d-flex flex-wrap gap-3 justify-content-lg-end">
-
+              <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
                 <button
                   type="button"
-                  class="btn btn-light btn-lg px-7"
-                  (click)="goToFaq()">
-
+                  class="btn btn-light article-white-btn btn-lg px-7"
+                  (click)="goToFaq()"
+                >
                   {{ 'FAQ' | translate }}
-
                 </button>
 
-
                 <button
                   type="button"
-                  class="btn btn-outline btn-outline-dashed btn-outline-light btn-active-light btn-lg px-7"
-                  (click)="goToContact()">
-
+                  class="btn btn-outline btn-outline-light article-outline-btn btn-lg px-7"
+                  (click)="goToContact()"
+                >
                   {{
                     ('LANG' | translate) === 'tr'
                       ? 'Bize Ulaşın'
                       : 'Contact Us'
                   }}
-
                 </button>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
-
 </main>
